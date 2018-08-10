@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<nasal>
+		<load>
+			var livery_update = aircraft.livery_update.new("Aircraft/JH-Lineage1000/Models/Liveries", 10);
+        	</load>
+
+	        <unload>
+        		livery_update.stop();
+        	</unload>
+
+		<!-- load>
+	    		var model = cmdarg();
+	    		model.getnode("door[0]/position-x-m",1).setValue(-24.58);
+	    		model.getnode("door[0]/position-y-m",1).setValue(-3.29);
+	    		model.getnode("door[0]/position-z-m",1).setValue(-0.42);
+	    		model.getnode("door[0]/jetway-hood-deg",1).setValue(6);
+	    		model.getnode("door[1]/position-x-m",1).setValue(-24.58);
+	    		model.getnode("door[1]/position-y-m",1).setValue(-3.29);
+	    		model.getnode("door[1]/position-z-m",1).setValue(-0.42);
+	    		model.getnode("door[1]/jetway-hood-deg",1).setValue(6);
+		</load -->
+    	</nasal>
+
+	<!-- Fuselage, Wings, Tail, Engines, ... -->
+	<model>
+		<name>Aircraft</name>
+		<path>Aircraft/JH-Lineage1000/Models/Outside/Outside.xml</path>
+	</model>
+
+	<animation>
+		<type>material</type>
+		<object-name>fuselage</object-name>
+		<object-name>winglet.l</object-name>
+		<object-name>winglet.r</object-name>
+		<object-name>rudder</object-name>
+		<object-name>geardoor.b.l</object-name>
+		<object-name>geardoor.b.r</object-name>
+		<object-name>geardoor.f.l</object-name>
+		<object-name>geardoor.f.r</object-name>
+		<object-name>reverser</object-name>
+		<object-name>nacelle</object-name>
+		<object-name>door.l1</object-name>
+		<object-name>door.l2</object-name>
+		<object-name>door.r1</object-name>
+		<object-name>door.r2</object-name>
+		<object-name>vstab</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>Embraer190.png</texture>
+	</animation>
+
+	<!-- Interior Cabin -->
+	<model>
+		<name>Cabin</name>
+	    	<path>Aircraft/JH-Lineage1000/Models/Cabin/Cabin.xml</path>
+	</model>
+
+	<!-- Flightdeck -->
+	<model>
+		<name>Flightdeck</name>
+		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Flightdeck.xml</path>
+		<offsets>
+			<x-m>-2</x-m>
+		</offsets>
+	</model>
+
+	<!-- Deployable Stairs -->
+	<model>
+		<name>Stairs</name>
+		<path>Aircraft/JH-Lineage1000/Models/Stairs/Stairs.xml</path>
+	</model>
+
+	<!-- Ram Air Turbine -->
+	<model>
+		<name>RAT</name>
+		<path>Aircraft/VIP/Models/Lineage1000/RAT.xml</path>
+		<offsets>
+			<x-m>2.0</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.768</z-m>
+		</offsets>
+	</model>
+
+	<!-- Other non-aircraft models -->
+	<!-- Airport operations -->
+
+	<model>
+		<name>Pushback</name>
+		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert.xml</path>
+		<offsets>
+			<x-m>-16.4</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.27</z-m>
+		</offsets>
+	</model>
+
+	<!-- model>
+		
+		// Not sure about that FollowMe vehicle, so disabled for now ####
+
+		<name>Followme</name>
+		<path>Aircraft/VIP/Models/Operations/followme.ac</path>
+		<condition>
+			<and>
+				<! - - #### better with ground speed and weight on wheels ? #### - - >
+				<equals>
+					<property>controls/switches/followme</property>
+					<value type="bool">true</value>
+				</equals>
+				<less-than>
+					<property>velocities/airspeed-kt</property>
+					<value>80</value>
+				</less-than>
+			</and>
+		</condition>   
+	</model -->
+
+	<!-- model>
+
+		// not sure what this oen does, so disabled for now ####
+
+		<name>Operations</name>
+		<path>Aircraft/VIP/Models/Operations/operations.ac</path>
+		<condition>
+			<and>
+				<! - - #### better with ground speed and weight on wheels ? #### - - >
+			 	<equals>
+					<property>controls/switches/operations</property>
+					<value type="bool">true</value>
+				</equals>
+				<less-than>
+					<property>velocities/airspeed-kt</property>
+					<value>15</value>
+				</less-than>
+			</and>
+		</condition>   
+	</model -->
+
+	<!-- model>
+
+		// not sure what this one does, so disabled for now
+
+		<name>Ground Emergency</name>
+		<path>Aircraft/VIP/Models/Operations/emergency-land.ac</path>
+		<offsets>
+			<x-m> -2</x-m>    
+		</offsets>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/switches/emer.ground</property>
+					<value type="bool">true</value>
+				</equals>
+				<less-than>
+					<property>velocities/airspeed-kt</property>
+					<value>15</value>
+				</less-than>
+			</and>
+		</condition>   
+	</model -->
+
+	<!-- model>
+
+		// not sure what this one does, so disabled for now
+
+		<name>Ground Emergency</name>
+		<path>Aircraft/VIP/Models/Operations/emergency-land2.ac</path>
+		<offsets>
+			<x-m> 4</x-m>    
+		</offsets>
+		<condition>
+			<and>
+				<! - - #### better with ground speed and weight on wheels ? #### - - >
+				<equals>
+					<property>controls/switches/emer.ground</property>
+					<value type="bool">true</value>
+				</equals>
+				<less-than>
+					<property>velocities/airspeed-kt</property>
+					<value>15</value>
+				</less-than>
+			</and>
+		</condition>   
+	</model -->
+
+	<!-- model>
+
+		// not sure what this one does, so disabled for now
+
+		<name>Water Emergency Left</name>
+		<path>Aircraft/VIP/Models/Operations/emergency-water-tilt-left.ac</path>
+		<offsets>
+			<x-m> -2</x-m>    
+		</offsets>
+		<condition>
+			<and>
+				<! - - #### better with ground speed and weight on wheels ? #### - - >
+				<equals>
+					<property>controls/switches/emer.water.left</property>
+					<value type="bool">true</value>
+				</equals>
+				<less-than>
+					<property>velocities/airspeed-kt</property>
+					<value>15</value>
+				</less-than>
+			</and>
+		</condition>   
+	</model -->
+
+
+	<!-- Aircraft Lighting -->
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-nose.xml</path>
+		<name>NoseGearLandinglight</name>     
+		<condition>
+			<equals>
+				<property>gear/gear[0]/position-norm</property>
+				<value type="bool">true</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m> -12.93</x-m>
+			<y-m>  0.00</y-m> 
+			<z-m> -1.45</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-port.xml</path>
+		<name>LeftWingLandinglight</name>
+		<condition>
+			<equals>
+				<property>gear/gear[1]/position-norm</property>
+				<value type="bool">true</value>
+			</equals>
+		</condition>     
+		<offsets>
+			<x-m>-3.68</x-m>
+			<y-m>-2.25</y-m>
+			<z-m> -0.24</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-stbd.xml</path>
+		<name>RightWingLandinglight</name>
+		<condition>
+			<equals>
+				<property>gear/gear[2]/position-norm</property>
+				<value type="bool">true</value>
+			</equals>
+		</condition>     
+		<offsets>
+			<x-m>-3.68</x-m>
+			<y-m> 2.25</y-m>
+			<z-m> -0.24</z-m> 
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Lights/beacon.xml</path>
+		<name>Beaconlight.top</name>     
+		<offsets>
+			<x-m>4.18</x-m>
+			<y-m>0.00</y-m>
+			<z-m>2.38</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Lights/beacon.xml</path>
+		<name>Beaconlight.bottom</name>     
+		<offsets>
+			<x-m>-9.62</x-m>
+			<y-m> 0.00</y-m>
+			<z-m>-1.10</z-m>      
+		</offsets>
+	</model>
+
+	<!-- Tyre Smoke -->
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-nose.xml</path>
+		<name>Tyre Smoke Nose</name>     
+		<offsets>
+			<x-m>-12.54</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.26</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-left.xml</path>
+		<name>Tyre Smoke Left</name>     
+		<offsets>
+			<x-m>-0.88</x-m>
+			<y-m>-2.55</y-m>
+			<z-m>-2.26</z-m>      
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-right.xml</path>
+		<name>Tyre Smoke Right</name>     
+		<offsets>
+			<x-m>-0.88</x-m>
+			<y-m> 2.55</y-m>
+			<z-m>-2.26</z-m>         
+		</offsets>
+	</model>
+
+</PropertyList>

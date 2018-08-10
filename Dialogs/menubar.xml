@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<!-- menubar2 -->
+		<items>
+			<item n="0">
+				<title>File</title>
+				<type>menu</type>
+				<items>
+					<item n="0">
+						<title>Reset</title>
+						<type>fgcommand</type>
+						<call>reset</call>
+						<parameters>"null"</parameters>
+					</item>
+					<item n="1">
+						<title>Reset2</title>
+						<type>fgcommand</type>
+						<call>reset</call>
+						<parameters>"null"</parameters>
+					</item>
+				</items>
+			</item>
+	
+			<item n="1">
+				<title>View</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="2">
+				<title>Location</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="3">
+				<title>Autopilot</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="4">
+				<title>Environment</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="5">
+				<title>Equipment</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="6">
+				<title>AI</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="7">
+				<title>Multiplayer</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="8">
+				<title>Debug</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="9">
+				<title>Help</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="10">
+				<title>Plane</title>
+				<type>"null"</type>
+			</item>
+	
+			<item n="100">
+				<title>Voodoomaster</title>
+				<type>menu</type>
+				<items>
+					<item n="0">
+						<title>Pushback</title>
+						<type>dialog</type>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var pushback = gui.Dialog.new(
+									"sim/gui/voodoomaster/services/dialog", 
+									"Aircraft/JPack/Voodoomaster/Services/Push_Pull.xml"
+								);
+								pushback.open();
+							</script>
+						</binding>
+					</item>
+			
+					<item n="1">
+						<title>Steering Mode</title>
+						<type>dialog</type>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var steering = gui.Dialog.new(
+									"sim/gui/voodoomaster/steering/dialog", 
+									"Aircraft/JPack/Voodoomaster/Steering/SteeringDialog.xml"
+								);
+								steering.open();
+							</script>
+						</binding>
+					</item>
+	
+					<item n="2">
+						<title>Migraine Mode</title>
+						<type>switch</type>
+						<binding>
+							<command>property-toggle</command>
+							<property>voodoomaster/migraine-mode</property>
+						</binding>
+					</item>
+	
+					<item n="3">
+						<title>Ground Crew</title>
+						<type>dialog</type>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var crew = gui.Dialog.new(
+									"sim/gui/voodoomaster/services/dialog", 
+									"Aircraft/JPack/Voodoomaster/Services/GroundServiceDialog.xml"
+								);
+								crew.open();
+							</script>
+						</binding>
+					</item>
+				</items>
+			</item>
+
+			<item n="101">
+				<title>SkyNet</title>
+				<type>menu</type>
+		
+				<items>
+					<item n="0">
+						<title>SkyNet Login</title>
+						<type>dialog</type>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var login=gui.Dialog.new("sim/gui/dialogs/ground/dialog", "Aircraft/JPack/SkyNet/Dialogs/Login.xml");
+								login.open();
+							</script>
+						</binding>
+					</item>
+	
+					<item n="1">
+						<title>SkyNet Logout</title>
+						<type>dialog</type>
+						<binding>
+							<command>nasal</command>
+							<script>
+								SkyNet.logout();
+							</script>
+						</binding>
+					</item>
+				</items>
+			</item>
+		</items>
+	<!-- menubar2 -->
+
+</PropertyList>
+

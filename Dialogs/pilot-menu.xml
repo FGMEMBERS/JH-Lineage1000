@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<default>
+		<menu n="3">
+			<item>
+				<name>autopilot</name>
+				<label>Autopilot Settings</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/JPack/Voodoomaster/Dialogs/autopilot9.xml");
+						autopilot.open();
+					</script>
+					<!-- script>
+					 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/VIP/Systems/Lineage1000-autopilot-dlg.xml");
+					 autopilot.open();
+					</script -->
+				</binding>
+			</item>
+		</menu>
+		<menu n="3">
+			<item>
+				<name>autopilot</name>
+				<label>Autopilot Settings</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/VIP/Dialogs/Lineage1000/autopilot9.xml");
+						autopilot.open();
+					</script>
+				</binding>
+			</item>
+		</menu>
+
+                <menu n="5">
+                	<item n="1">
+	        		<label>Radio Stack</label>
+				<binding>
+					<command>nasal</command>
+                            		<script>dialogs.Radio.open()</script>
+                        	</binding>
+                    	</item>
+                </menu>
+
+		<menu n="100">
+			<label>Lineage 1000</label>
+			<enabled type="bool">true</enabled>
+			<item>
+				<name>autostart</name>
+				<label>Autostart</label>
+				<binding>
+					<command>property-toggle</command>
+					<property>sim/model/start-idling</property>
+				</binding>
+			</item>
+
+			<item>
+				<label>----------------------------------------------</label>
+			</item>
+
+			<item>
+				<name>lights</name>
+				<label>Lights</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/VIP/Systems/Lineage1000-lights-dlg.xml");
+						lights.open();
+					</script>
+				</binding>
+			</item>
+
+			<item>
+				<label>Announcements</label>
+     				<binding>
+		       			<command>nasal</command>
+					<script>
+						var mal = gui.Dialog.new("/sim/gui/dialogs/VIP[1]/menu/dialog", "Aircraft/VIP/Systems/Lineage1000-announcements-dlg.xml");
+		        			mal.open();
+       					</script>
+      				</binding>
+     			</item>
+
+			<item>
+				<label>----------------------------------------------</label>
+			</item>
+
+			<item>
+				<name>pushback</name>
+				<label>Pushback</label>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>pushback</dialog-name>
+				</binding>
+			</item>
+
+			<item>
+				<label>Airport Operations</label>
+				<binding>
+       					<command>nasal</command>
+       					<script>
+			  			var mal = gui.Dialog.new("/sim/gui/dialogs/VIP[0]/menu/dialog", "Aircraft/VIP/Systems/Lineage1000-operations-dlg.xml");
+        					mal.open();
+       					</script>
+      				</binding>
+     			</item>
+
+			<item>
+				<label>----------------------------------------------</label>
+			</item>
+
+			<item>
+				<name>tiller</name>
+				<label>Tiller Steering</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var tiller = gui.Dialog.new("sim/gui/dialogs/tiller/dialog", "Aircraft/VIP/Systems/Lineage1000-tiller-dlg.xml");
+						tiller.open();
+					</script>
+				</binding>
+			</item>
+
+			<item>
+				<label>Select Livery</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						aircraft.livery.dialog.open()
+					</script>
+				</binding>
+			</item>
+
+		</menu>
+
+		<menu n="101">
+			<label>Voodoomaster</label>
+			<enabled type="bool">true</enabled>
+
+			<item>
+				<name>Pushback</name>
+				<label>Pushback</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var pushback = gui.Dialog.new(
+							"sim/gui/voodoomaster/services/dialog", 
+							"Aircraft/JPack/Voodoomaster/Services/Push_Pull.xml"
+						);
+						pushback.open();
+					</script>
+				</binding>
+			</item>
+		
+			<item>
+				<name>SteeringMode</name>
+				<label>SteeringConfiguration</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var steering = gui.Dialog.new(
+							"sim/gui/voodoomaster/steering/dialog", 
+							"Aircraft/JPack/Voodoomaster/Steering/SteeringDialog.xml"
+						);
+						steering.open();
+					</script>
+				</binding>
+			</item>
+
+			<item>
+				<name>MigraineMode</name>
+				<label>Migraine mode</label>
+				<binding>
+					<command>property-toggle</command>
+					<property>voodoomaster/migraine-mode</property>
+				</binding>
+			</item>
+
+			<item>
+				<name>GroundCrew</name>
+				<label>Ground Crew</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var crew = gui.Dialog.new(
+							"sim/gui/voodoomaster/services/dialog", 
+							"Aircraft/JPack/Voodoomaster/Services/GroundServiceDialog.xml"
+						);
+						crew.open();
+					</script>
+				</binding>
+			</item>
+		</menu>
+
+		<menu n="102">
+			<name>SkyNet</name>
+			<label>SkyNet</label>
+			<enabled type="bool">true</enabled>
+
+			<item>
+				<name>SkyNetLogin</name>
+				<label>Login</label>
+				<enabled type="bool">true</enabled>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var login=gui.Dialog.new("sim/gui/dialogs/ground/dialog", "Aircraft/JPack/SkyNet/Dialogs/Login.xml");
+						login.open();
+					</script>
+				</binding>
+			</item>
+
+			<item>
+				<name>SkyNetLogout</name>
+				<label>Logout</label>
+				<enabled type="bool">false</enabled>
+				<binding>
+					<command>nasal</command>
+					<script>
+						SkyNet.logout();
+					</script>
+				</binding>
+			</item>
+		</menu>
+	</default>
+
+</PropertyList>
+
