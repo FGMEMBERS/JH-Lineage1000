@@ -452,6 +452,236 @@
 
 	<!-- Autopilot Control Panel -->
 
+	<!-- AP main switch -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>AP</object-name>
+		<object-name>yoke.AP</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/settings/ap-armed</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>AP.light</object-name>
+		<condition>
+			<property>autopilot/settings/ap-armed</property>
+		</condition>
+	</animation>
+
+	<!-- Altitude control -->
+
+	<!-- ALT button -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>ALT</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.switchAlt();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ALT.light</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/locks/altitude</property>
+				<value>altitude-hold</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- ALT Knob Pick Animations -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>ALT.knob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/target-altitude-ft</property>
+				<step>100</step>
+				<max>50000</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/target-altitude-ft</property>
+				<step>-100</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- FPA -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>FPA</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.switchFPA();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>FPA.light</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/locks/altitude</property>
+				<value>fpa-hold</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- FPA Knob Pick Animations -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>FPA.knob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/autoflight/pitch-select</property>
+				<step type="double">1</step>
+				<max>360</max>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/autoflight/pitch-select</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/autoflight/pitch-select</property>
+				<step type="double">-1</step>
+				<min>0</min>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/autoflight/pitch-select</property>
+				<value>360</value>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- VS button -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>VS</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.switchVS();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>VS.light</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/locks/altitude</property>
+				<value>vertical-speed-hold</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- VS Knob Pick Animations -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>VS.knob</object-name>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<step>100</step>
+				<max>3000</max>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<step>-100</step>
+				<min>-3000</min>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- VNAV -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>VNAV</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.switchVNAV();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>VNAV.light</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/locks/altitude</property>
+				<value>vertical-nav</value>
+			</equals>
+		</condition>
+	</animation>
+
+
+
+
+
 	<!-- Knobs Pick Animations -->
 
 	<!-- CRS Knob 1 Pick Animation -->
@@ -671,102 +901,6 @@
 		</action>
 	</animation>
 
-	<!-- ALT Knob Pick Animations -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>ALT.knob</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/altitude-select</property>
-				<step>100</step>
-				<max>50000</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/altitude-select</property>
-				<step>-100</step>
-				<min>0</min>
-			</binding>
-		</action>
-	</animation>
-
-	<!-- VS Knob Pick Animations -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>VS.knob</object-name>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/vertical-speed-select</property>
-				<step>100</step>
-				<max>3000</max>
-			</binding>
-		</action>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/vertical-speed-select</property>
-				<step>-100</step>
-				<min>-3000</min>
-			</binding>
-		</action>
-	</animation>
-
-	<!-- FPA Knob Pick Animations -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>FPA.knob</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/pitch-select</property>
-				<step type="double">1</step>
-				<max>360</max>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/autoflight/pitch-select</property>
-				<value>1</value>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/pitch-select</property>
-				<step type="double">-1</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/autoflight/pitch-select</property>
-				<value>360</value>
-			</binding>
-		</action>
-	</animation>
-
 	<!-- Buttons and Lights Animations -->
 
 	<!-- IAS-MACH -->
@@ -915,30 +1049,6 @@
 		</condition>
 	</animation>
 
-	<!-- AP -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>AP</object-name>
-		<object-name>yoke.AP</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/autoflight/autopilot/engage</property>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>AP.light</object-name>
-		<condition>
-			<property>controls/autoflight/autopilot/engage</property>
-		</condition>
-	</animation>
-
 	<!-- YD -->
 
 	<animation>
@@ -990,7 +1100,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/autoflight/autothrottle-engage</property>
+				<property>/sim/gui/dialogs/autopilot/speed-active</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>vel.enable()</script>
 			</binding>
 		</action>
 	</animation>
@@ -998,30 +1112,7 @@
 		<type>select</type>
 		<object-name>AT.light</object-name>
 		<condition>
-			<property>controls/autoflight/autothrottle-engage</property>
-		</condition>
-	</animation>
-
-	<!-- VNAV -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>VNAV</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/autoflight/vnav-engage</property>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>VNAV.light</object-name>
-		<condition>
-			<property>controls/autoflight/vnav-engage</property>
+			<property>/sim/gui/dialogs/autopilot/speed-active</property>
 		</condition>
 	</animation>
 
@@ -1048,73 +1139,11 @@
 		</condition>
 	</animation>
 
-	<!-- ALT -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>ALT</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/autoflight/alt-engage</property>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>ALT.light</object-name>
-		<condition>
-			<property>controls/autoflight/alt-engage</property>
-		</condition>
-	</animation>
-
-	<!-- FPA -->
-
-	<!-- animation>
-		<type>pick</type>
-		<object-name>FPA</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/autoflight/vertical_mode</property>
-				<value>0</value>
-			</binding>
-		</action>
-	</animation -->
-
 	<animation>
 		<type>select</type>
 		<object-name>FPA.light</object-name>
 		<condition>
 			<property>controls/autoflight/fpa-engage</property>
-		</condition>
-	</animation>
-
-	<!-- VS -->
-
-	<animation>
-		<type>pick</type>
-		<object-name>VS</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/autoflight/vs-engage</property>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>VS.light</object-name>
-		<condition>
-			<property>controls/autoflight/vs-engage</property>
 		</condition>
 	</animation>
 

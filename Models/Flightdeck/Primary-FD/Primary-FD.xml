@@ -666,16 +666,22 @@
 		<object-name>IAS10</object-name>
 		<object-name>IAS1</object-name>
 		<condition>
-			<or>
+			<and>
+				<or>
+					<equals>
+						<property>autopilot/locks/speed</property>
+						<value>speed-with-throttle</value>
+					</equals>
+					<equals>
+						<property>autopilot/locks/speed</property>
+						<value>speed-with-pitch-trim</value>
+					</equals>
+				</or>
 				<equals>
-					<property>autopilot/locks/speed</property>
-					<value>speed-with-throttle</value>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>kts</value>
 				</equals>
-				<equals>
-					<property>autopilot/locks/speed</property>
-					<value>speed-with-pitch-trim</value>
-				</equals>
-			</or>
+			</and>
 		</condition>
 	</animation>
 
@@ -686,10 +692,22 @@
 		<object-name>Mach.1</object-name>
 		<object-name>Mach.01</object-name>
 		<condition>
-			<equals>
-				<property>autopilot/settings/kts-mach-select</property>
-				<value>mach</value>
-			</equals>
+			<and>
+				<or>
+					<equals>
+						<property>autopilot/locks/speed</property>
+						<value>speed-with-throttle</value>
+					</equals>
+					<equals>
+						<property>autopilot/locks/speed</property>
+						<value>speed-with-pitch-trim</value>
+					</equals>
+				</or>
+				<equals>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>mach</value>
+				</equals>
+			</and>
 		</condition>
 	</animation>
 
@@ -941,7 +959,7 @@
 		<object-name>VS1</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>controls/autoflight/vertical-speed-select</property>
+				<property>autopilot/settings/vertical-speed-fpm</property>
 				<value>0</value>
 			</greater-than-equals>
 		</condition>
@@ -1020,7 +1038,7 @@
 		<type>textranslate</type>
 		<object-name>VS-1000</object-name>
 		<property>autopilot/settings/vertical-speed-fpm</property>
-		<factor>0.0001</factor>
+		<factor>-0.0001</factor>
 		<step>1000</step>
 		<axis>
 			<x>0</x>
@@ -1033,7 +1051,7 @@
 		<type>textranslate</type>
 		<object-name>VS-100</object-name>
 		<property>autopilot/settings/vertical-speed-fpm</property>
-		<factor>0.001</factor>
+		<factor>-0.001</factor>
 		<step>100</step>
 		<axis>
 			<x>0</x>
@@ -1046,7 +1064,7 @@
 		<type>textranslate</type>
 		<object-name>VS-10</object-name>
 		<property>autopilot/settings/vertical-speed-fpm</property>
-		<factor>0.01</factor>
+		<factor>-0.01</factor>
 		<step>10</step>
 		<axis>
 			<x>0</x>
@@ -1059,7 +1077,7 @@
 		<type>textranslate</type>
 		<object-name>VS-1</object-name>
 		<property>autopilot/settings/vertical-speed-fpm</property>
-		<factor>0.1</factor>
+		<factor>-0.1</factor>
 		<step>1</step>
 		<axis>
 			<x>0</x>
