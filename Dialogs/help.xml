@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<title>Lineage 1000</title>
+	<key>
+		<name>Delete</name>
+		<desc>toggle thrust reversers</desc>
+	</key>
+	<key>
+		<name>Ctrl-z</name>
+		<desc>toggle master autopilot switch</desc>
+	</key>
+	<key>
+		<name>Ctrl-y</name>
+		<desc>toggle autothrottle switch</desc>
+	</key>
+	<key>
+		<name>Ctrl-b</name>
+		<desc>cycle speedbrake lever setting</desc>
+	</key>
+	<key>
+		<name>Ctrl-k</name>
+		<desc>arm/disarm ground spoilers</desc>
+	</key>
+	<key>
+		<name>w</name>
+		<desc>walk forward toward view direction</desc>
+	</key>
+	<key>
+		<name>s</name>
+		<desc>walk backward from view direction</desc>
+	</key>
+	<key>
+		<name>5</name>
+		<desc>sets rudder, ailerons and trims to neutral but not pitch and elevators</desc>
+	</key>
+
+</PropertyList>
+

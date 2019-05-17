@@ -23,7 +23,7 @@
 
 	<!--
 		Cancelled the JPack include for now, because after five years, the core team was still unable to repair FGRun and even copied thier parser errors in the QT5 launcher. Great job, guys!
-		#### ,aybe later a better solution ####
+		#### maybe later, I can find a better solution ####
 	-->
 
 	<sim>
@@ -59,16 +59,6 @@
 				<file type="string">EMB.xml</file>
 			</livery>
 
-			<!-- Lineage1000>
-				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
-				<heading-bug-deg type="double">0</heading-bug-deg>
-				<nav1-bug-deg type="double">0</nav1-bug-deg>
-				<nav2-bug-deg type="double">0</nav2-bug-deg>
-				<wp-bug-deg type="double">0</wp-bug-deg>
-				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
-				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
-			</Lineage1000 -->
-
 			<!-- JPack: push forces for Voodoomaster Pushback -->
 			<pushback>
 				<kp type="double">300</kp>
@@ -79,6 +69,7 @@
 			</pushback>
 
 			<!-- door n="0">
+				#### for later: Set up door positions for jetways ####
 				<position-x-m>-11.443</position-x-m>
 				<position-y-m>-1.489</position-y-m>
 				<position-z-m> 0.034</position-z-m>
@@ -155,7 +146,7 @@
         		</generic>
     		</multiplay>
 		
-		<!-- #### HUD section if exists -->
+		<!-- HUD section if exists -->
 		<hud>
 			<enable3d>false</enable3d>
 		</hud>
@@ -177,7 +168,6 @@
 		</rendering>
 
 		<!-- All the views (crew stations + 1 more to allow moving around + extras liek Tail Camera) -->
-        
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
@@ -270,43 +260,9 @@
 			</runways>
 		</airport>
 
-		<help>
-			<title>Lineage 1000</title>
-			<key>
-				<name>Delete</name>
-				<desc>toggle thrust reversers</desc>
-			</key>
-			<key>
-				<name>Ctrl-z</name>
-				<desc>toggle master autopilot switch</desc>
-			</key>
-			<key>
-				<name>Ctrl-y</name>
-				<desc>toggle autothrottle switch</desc>
-			</key>
-			<key>
-				<name>Ctrl-b</name>
-				<desc>cycle speedbrake lever setting</desc>
-			</key>
-			<key>
-				<name>Ctrl-k</name>
-				<desc>arm/disarm ground spoilers</desc>
-			</key>
-			<key>
-				<name>w</name>
-				<desc>walk forward toward view direction</desc>
-			</key>
-			<key>
-				<name>s</name>
-				<desc>walk backward from view direction</desc>
-			</key>
-			<key>
-				<name>5</name>
-				<desc>sets rudder, ailerons and trims to neutral but not pitch and elevators</desc>
-			</key>
-		</help>
+		<help include="Aircraft/JH-Lineage1000/Dialogs/help.xml" />
 
-		<menubar include="Aircraft/JH-Lineage1000/Dialogs/pilot-menu.xml"/>
+		<menubar include="Aircraft/JH-Lineage1000/Dialogs/pilot-menu.xml" />
 
 		<!-- Systems -->
 		<systems>
@@ -337,43 +293,51 @@
 	</fdm>
 	
 	<engines>
+
 		<apu>
 			<rpm type="double">0</rpm>
 			<on-fire type="bool">false</on-fire>
 			<running type="bool">false</running>
 			<serviceable type="bool">true</serviceable>
 		</apu>
+
 		<engine n="0">
 			<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 		</engine>
+
 		<engine n="1">
 			<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 		</engine>
+
 	</engines>
 
 	<gear>
+
 		<gear n="0">
 			<tyre-smoke type="int">0</tyre-smoke>
 			<sprayspeed-ms type="double">0</sprayspeed-ms>
 			<spray-density type="double">0</spray-density>
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
+
 		<gear n="1">
 			<tyre-smoke type="int">0</tyre-smoke>
 			<sprayspeed-ms type="double">0</sprayspeed-ms>
 			<spray-density type="double">0</spray-density>
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
+
 		<gear n="2">
 			<tyre-smoke type="int">0</tyre-smoke>
 			<sprayspeed-ms type="double">0</sprayspeed-ms>
 			<spray-density type="double">0</spray-density>
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
+	
 	</gear>
 
 	<consumables>
@@ -413,15 +377,22 @@
 		<weight n="0">
 			<name>Cockpit Crew</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
-			<min-lb type="double">120</min-lb>
-			<max-lb type="double">400</max-lb>
+			<min-lb type="double">220</min-lb>
+			<max-lb type="double">440</max-lb>
 		</weight>
 
 		<weight n="1">
-			<name>Cabin/Passengers</name>
+			<name>Cabin Crew</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">220</min-lb>
+			<max-lb type="double">440</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>Cabin/Passengers</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">12960</max-lb>
+			<max-lb type="double">4180</max-lb>
 		</weight>
 
 	</payload>
@@ -529,6 +500,8 @@
 
 	<!-- #### ai submodels if exist -->
 
+	<!-- keyboard inputs -->
+
 	<input>
 		<keyboard>
 
@@ -617,8 +590,6 @@
 				<binding>
 					<command>property-toggle</command>
 					<property>controls/autoflight/autopilot/engage</property>
-					<!-- command>property-toggle</command>
-					<property>autopilot/settings/engaged</property -->
 				</binding>
 			</key>
 
@@ -697,6 +668,7 @@
 	</input>
 
 	<instrumentation>
+
 		<cdu>
 			<display>IDENT</display>
   			<ident>
@@ -707,6 +679,7 @@
   			<serviceable type="bool">true</serviceable>
   			<altitude_inhg type="bool">true</altitude_inhg>
 		</cdu>
+
 		<fmc>
 			<to-flap type="double">10</to-flap>
 			<vspeeds>
@@ -715,10 +688,12 @@
 				<V2 type="double">0</V2>
 			</vspeeds>
 		</fmc>
+
 		<mfd>
 			<nav-display n="0" type="int">1</nav-display>
 			<nav-display n="1" type="int">1</nav-display>
 		</mfd>
+
 		<nav-compass>
 			<nav-display n="0" type="int">0</nav-display>
 			<nav-display n="1" type="int">0</nav-display>
@@ -755,6 +730,7 @@
 				<file-prefix>Sounds/mk-viii/</file-prefix>
 			</voice>
 		</mk-viii>
+
 	</instrumentation>
 
 	<!-- multiplay>
@@ -764,56 +740,38 @@
 	</multiplay -->
 	
 	<limits>
-		<!-- #### needs rework, just copied form 767-2C -->
+		<!-- values are estimations I got from some X-plane guys, not official -->
+
 		<vne>380</vne>
  
 		<max-positive-g>4.4</max-positive-g>
 		<max-negative-g>-1.76</max-negative-g>
  
 		<max-flap-extension-speed n="0">
-			<flaps>0.167</flaps>
-			<speed>255</speed>
+			<flaps>0.10</flaps>
+			<speed>265</speed>
 		</max-flap-extension-speed>
+
 		<max-flap-extension-speed n="1">
-			<flaps>0.333</flaps>
-			<speed>235</speed>
+			<flaps>0.20</flaps>
+			<speed>240</speed>
 		</max-flap-extension-speed>
 		<max-flap-extension-speed n="2">
-			<flaps>0.667</flaps>
-			<speed>215</speed>
+			<flaps>0.03</flaps>
+			<speed>225</speed>
 		</max-flap-extension-speed>
 		<max-flap-extension-speed n="3">
-			<flaps>0.833</flaps>
-			<speed>205</speed>
-		</max-flap-extension-speed>
-		<max-flap-extension-speed n="4">
-			<flaps>1.000</flaps>
-			<speed>195</speed>
-		</max-flap-extension-speed>
-		<max-flap-extension-speed n="5">
-			<flaps>1.000</flaps>
-			<speed>185</speed>
-		</max-flap-extension-speed>
-		<max-flap-extension-speed n="6">
-			<flaps>1.000</flaps>
-			<speed>175</speed>
-		</max-flap-extension-speed>
-		<max-flap-extension-speed n="7">
-			<flaps>1.000</flaps>
-			<speed>165</speed>
-		</max-flap-extension-speed>
-		<max-flap-extension-speed n="8">
-			<flaps>1.000</flaps>
-			<speed>160</speed>
+			<flaps>0.40</flaps>
+			<speed>210</speed>
 		</max-flap-extension-speed>
 
 		<max-gear-extension-speed>220</max-gear-extension-speed>
 
 		<mass-and-balance>
-			<maximum-ramp-mass-lbs>128000</maximum-ramp-mass-lbs>
-			<maximum-takeoff-mass-lbs>121245</maximum-takeoff-mass-lbs>
-			<maximum-landing-mass-lbs>95000</maximum-landing-mass-lbs>
-			<maximum-zero-fuel-mass-lbs>61910</maximum-zero-fuel-mass-lbs>
+			<maximum-ramp-mass-lbs>120593</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>120152</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>100972</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>80469</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>
 
 	</limits>

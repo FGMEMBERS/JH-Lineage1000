@@ -34,6 +34,7 @@
 		<!-- Vertical Tail Area = 17.2975 sq m (calculated on paper) -->
 	   	<vtailarea unit="FT2">  177.1264 </vtailarea>
 	   	<vtailarm  unit="FT" >   0 </vtailarm>
+
 	   	<location name="AERORP" unit="IN">
      			<x>-80.936 </x>
      			<y>   0.00 </y>
@@ -73,8 +74,17 @@
 			<z> -7.092 </z>
 		</location>
 
-		<pointmass name="Crew">
-			<weight unit="LBS">400</weight>
+		<pointmass name="CockpitCrew">
+			<weight unit="LBS">440</weight>
+			<location name="POINTMASS" unit="IN">
+				<x>-416.458</x>
+				<y>0</y>
+				<z>1.14</z>
+			</location>
+		</pointmass>
+
+		<pointmass name="CabinCrew">
+			<weight unit="LBS">220</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>-416.458</x>
 				<y>0</y>
@@ -83,7 +93,7 @@
 		</pointmass>
 
 		<pointmass name="Passengers">
-			<weight unit="LBS">3000</weight>
+			<weight unit="LBS">1760</weight>
 			<location name="POINTMASS" unit="IN">
 				<x>-100.102</x>
 				<y>0</y>
@@ -279,8 +289,8 @@
 				<z> -5.91 </z>
 			</location>
 			<priority>3</priority>
-			<capacity unit="KG"> 4200 </capacity>
-			<contents unit="KG"> 4200 </contents>
+			<capacity unit="KG"> 4592.50 </capacity>
+			<contents unit="KG"> 4592.50 </contents>
 		</tank>
 
 		<!-- Central Fuel Tank -->
@@ -291,8 +301,8 @@
 				<z> -36.642 </z> 
 			</location>
 			<priority>2</priority>
-			<capacity unit="KG"> 5600 </capacity>
-			<contents unit="KG"> 5600 </contents>
+			<capacity unit="LBS"> 5600 </capacity>
+			<contents unit="LBS"> 5600 </contents>
 		</tank>
 
 		<!-- Fwd. Fuel Tank -->
@@ -303,8 +313,8 @@
 				<z> -36.642 </z>	
 			</location>
 			<priority>1</priority>
-			<capacity unit="KG"> 2874 </capacity>
-			<contents unit="KG"> 2874 </contents>
+			<capacity unit="KG"> 4456.00 </capacity>
+			<contents unit="KG"> 4456.00 </contents>
 		</tank>
 
 		<!-- Rear Fuel Tank -->
@@ -315,8 +325,8 @@
 				<z> -36.642 </z>	
 			</location>
 			<priority>1</priority>
-			<capacity unit="KG"> 2874 </capacity>
-			<contents unit="KG"> 2874 </contents>
+			<capacity unit="KG"> 4374.00 </capacity>
+			<contents unit="KG"> 4374.00 </contents>
 		</tank>
 
 		<!-- Wing Fuel Tank RIGHT -->
@@ -327,8 +337,8 @@
 				<z> -5.91 </z>
 			</location>
 			<priority>3</priority>
-			<capacity unit="KG"> 4200 </capacity>
-			<contents unit="KG"> 4200 </contents>
+			<capacity unit="KG"> 4592.50 </capacity>
+			<contents unit="KG"> 4592.50 </contents>
 		</tank>
 
 		<!-- Trim Fuel Tank -->
@@ -339,8 +349,8 @@
 				<z> 54.372 </z>
 			</location>
 			<priority>4</priority>
-			<capacity unit="KG"> 1800 </capacity>
-			<contents unit="KG"> 1800 </contents>
+			<capacity unit="KG"> 1600.00 </capacity>
+			<contents unit="KG"> 1600.00 </contents>
 		</tank>
 
 	</propulsion>

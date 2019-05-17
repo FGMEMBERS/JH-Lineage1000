@@ -45,7 +45,7 @@
                 </menu>
 
 		<menu n="100">
-			<label>Lineage 1000</label>
+			<label>Lineage</label>
 			<enabled type="bool">true</enabled>
 			<item>
 				<name>autostart</name>
