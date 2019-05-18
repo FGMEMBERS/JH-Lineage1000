@@ -4,17 +4,17 @@
   Author:   Narendran, Aeromatic
 
   Inputs:
-    name:           GE_CF34-10E
+    name:           GE_CF34-10E7-B
     type:           turbine
-    thrust:         18500 lb
+    thrust:         20360 lb with the last update
     augmented?      no
     injected?       no
 -->
 
-<turbine_engine name="GE_CF34-10E">
-  <milthrust> 18500.4 </milthrust>
+<turbine_engine name="GE_CF34-10E-7B">
+  <milthrust> 20360 </milthrust>
   <bypassratio>     5.0 </bypassratio>
-  <tsfc>            0.5 </tsfc>
+  <tsfc>            0.640 </tsfc>
   <bleed>           0.03</bleed>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>

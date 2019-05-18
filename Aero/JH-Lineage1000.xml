@@ -699,11 +699,11 @@
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-1.57	 1.200
-							-0.26	 0.018
-							 0.00	 0.012
-							 0.26	 0.020
-							 1.57	 1.200
+							-1.57	 1.250
+							-0.26	 0.068
+							 0.00	 0.062
+							 0.26	 0.068
+							 1.57	 1.250
 						</tableData>
 					</table>
 				</product>
@@ -742,7 +742,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.01 </value>
+					<value> 0.012 </value>
 				</product>
 			</function>
 
@@ -752,7 +752,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
-					<value>0.003</value>
+					<value>0.005</value>
 				</product>
 			</function>
 
@@ -762,7 +762,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/speedbrake-pos-norm</property>
-					<value>0.07</value>
+					<value>0.10</value>
 				</product>
 			</function>
 
@@ -790,7 +790,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<abs><property>fcs/elevator-pos-norm</property></abs>
-					<value>0.045</value>
+					<value>0.025</value>
 				</product>
 			</function>
 
