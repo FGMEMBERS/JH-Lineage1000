@@ -537,8 +537,8 @@
 				</binding>
 			</key>
 
-			<key n="9">
-				<name>Tab</name>
+			<key n="20">
+				<name>Ctrl-T</name>
 				<desc>Cycle autobrake setting</desc>
 				<binding>
 					<command>property-cycle</command>
