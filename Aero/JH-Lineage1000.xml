@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 
-<fdm_config name="Lineage1000" version="2.0" release="BETA"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+<fdm_config
+	name="Lineage1000" 
+	version="2.0" 
+	release="BETA"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd"
+>
 
 	<fileheader>
   		<author> Narendran Muraleedharan</author>
@@ -117,7 +121,7 @@
    			<rolling_friction> 0.02 </rolling_friction>
 			<spring_coeff unit="LBS/FT"> 180000 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 33957 </damping_coeff>
-   			<max_steer unit="DEG"> 45 </max_steer>
+   			<max_steer unit="DEG"> 70 </max_steer>
    			<brake_group>NONE</brake_group>
    			<retractable>1</retractable>
 		</contact>
@@ -355,6 +359,7 @@
 
 	</propulsion>
 
+	<system file="NWS"/>
 	<system file="pushback"/>
 
 	<flight_control name="FCS: ERJ-190">

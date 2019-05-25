@@ -57,6 +57,16 @@
 			</item>
 
 			<item>
+				<label>Pilots</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var pilots_dialog = lineage1000.PilotsDialog.new();
+					</script>
+				</binding>
+			</item>
+
+			<item>
 				<label>----------------------------------------------</label>
 			</item>
 
@@ -111,7 +121,7 @@
 				<label>----------------------------------------------</label>
 			</item>
 
-			<item>
+			<!-- item>
 				<name>tiller</name>
 				<label>Tiller Steering</label>
 				<binding>
@@ -121,7 +131,7 @@
 						tiller.open();
 					</script>
 				</binding>
-			</item>
+			</item -->
 
 			<item>
 				<label>Select Livery</label>
@@ -154,7 +164,7 @@
 				</binding>
 			</item>
 		
-			<item>
+			<!-- item>
 				<name>SteeringMode</name>
 				<label>SteeringConfiguration</label>
 				<binding>
@@ -167,7 +177,7 @@
 						steering.open();
 					</script>
 				</binding>
-			</item>
+			</item -->
 
 			<item>
 				<name>MigraineMode</name>

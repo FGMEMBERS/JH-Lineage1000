@@ -461,10 +461,20 @@
 			<anti-ice type="string">controls/ice/eng2/auto</anti-ice>
 		</eng2 -->
 
-		<gear>
+		<!-- gear>
 			<brake-parking type="bool">true</brake-parking>
 			<enable-tiller type="bool">true</enable-tiller>
 			<tiller-steer-deg type="float">0</tiller-steer-deg>
+		</gear -->
+
+		<gear>
+			<brake-parking>1</brake-parking>
+			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-enabled type="bool">false</tiller-enabled>
+			<nosegear-steering-enabled type="bool">true</nosegear-steering-enabled>
+			<nosegear-angle type="float">70.0</nosegear-angle>
+			<maingear-angle type="float">0.0</maingear-angle>
+			<nosegear-steering-cmd-norm type="double">0</nosegear-steering-cmd-norm>
 		</gear>
 
 		<lighting>
@@ -797,17 +807,271 @@
 
 	<!-- Voodoomaster plane specific initializations -->
 	<voodoomaster>
-		<steering-mode-rudder type="bool">true</steering-mode-rudder>
-		<steering-mode-aileron type="bool">false</steering-mode-aileron>
-		<migraine-mode type="bool">false</migraine-mode>
+		<dialogs>
+			<!-- fuel-and-payload type="string">Antonov An-124 Weight and Fuel</fuel-and-payload -->
+			<system-settings type="string">Antonov An-124 System Settings</system-settings>
+		</dialogs>
+
+		<pilots>
+			<setting>
+				<name type="string">Nosewheel Steering</name>
+				<current type="int">1</current>
+				<listen type="int">1</listen>
+				<listenprop type="string">/fdm/jsbsim/systems/NWS/engaged</listenprop>
+				<options>
+					<opt>
+						<name type="string">On</name>
+						<pkey type="string">/fdm/jsbsim/systems/NWS/engaged</pkey>
+						<value type="int">1</value>
+					</opt>
+					<opt>
+						<name type="string">Off</name>
+						<pkey type="string">/fdm/jsbsim/systems/NWS/engaged</pkey>
+						<value type="int">0</value>
+					</opt>
+				</options>
+			</setting>
+		</pilots>
+
+		<systems>
+			<electrical>
+				<number-apus type="int">1</number-apus>
+			</electrical>
+
+			<engines>
+				<number type="int">2</number>
+				<set>
+					<name type="string">CF34-10R7-B</name>
+					<number type="int">2</number>
+				</set>
+			</engines>
+
+			<fuel>
+				<number-pumps type="int">2</number-pumps>
+			</fuel>
+		</systems>
+
+		<!-- settings>
+			<setting>
+				<name type="string">Engines</name>
+				<current type="int">0</current>
+				<options>
+					<opt>
+						<name type="string">Ivchenko D-18T</name>
+						<pkey type="string">/engines/engine-set</pkey>
+						<value type="string">DT18T</value>
+					</opt>
+					<opt>
+						<name type="string">Alliance GP7277</name>
+						<pkey type="string">/engines/engine-set</pkey>
+						<value type="string">GP7277</value>
+					</opt>
+				</options>
+			</setting>
+			<setting>
+				<name type="string">Cockpit</name>
+				<current type="int">1</current>
+				<options>
+					<opt>
+						<name type="string">Original</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Original</value>
+					</opt>
+					<opt>
+						<name type="string">Generic Classic</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">GenClassic</value>
+					</opt>
+					<opt>
+						<name type="string">Experimental</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Experimental</value>
+					</opt>
+				</options>
+			</setting>
+		</settings -->
+
+		<internal>
+			<message-header type="string">...</message-header>
+			<message-switcher type="string">...</message-switcher>
+
+			<msg_pump0 type="string">Fuel pumps left wing starting!</msg_pump0>
+			<msg_pump1 type="string">Fuel pumps right wing starting!</msg_pump1>
+
+			<msg_engine0 type="string">Engine 1 starting up!</msg_engine0>
+			<msg_engine1 type="string">Engine 2 starting up!</msg_engine1>
+
+			<msg_engspin0 type="string">Engine 1 spinning up!</msg_engspin0>
+			<msg_engspin1 type="string">Engine 2 spinning up!</msg_engspin1>
+
+			<msg_engwatch0 type="string">Engine 1 is running!</msg_engwatch0>
+			<msg_engwatch1 type="string">Engine 2 is running!</msg_engwatch1>
+
+			<msg_engine0_stop type="string">Engine 1 shutting down!</msg_engine0_stop>
+			<msg_engine1_stop type="string">Engine 2 shutting down!</msg_engine1_stop>
+		</internal>
+
 		<steering-wheel type="int">0</steering-wheel>
 		<steering-type type="string">TriCycle</steering-type>	<!-- Alternativ: Taildragger-lock or Taildragger-steer -->
+		<steering-mode-rudder type="bool">true</steering-mode-rudder>
+		<steering-mode-aileron type="bool">false</steering-mode-aileron>
+		<steering>
+			<steering-type type="string">TriCycle</steering-type>	<!-- Alternativ: Taildragger-lock or TriCycle -->
+			<steering-wheel type="int">0</steering-wheel>
+		</steering>
+
+		<migraine-mode type="bool">false</migraine-mode>
+
 		<model-direction>0.00</model-direction>
+
 		<pushback>
 			<activated type="bool">false</activated>
 		</pushback>
+
 		<engines>2</engines>
+
+		<hud>
+			<mode type="int">0</mode>
+		</hud>
+
+		<route>
+			<marker n="0" type="string"></marker>
+			<number n="0" type="int"></number>
+			<code n="0" type="string"></code>
+			<title n="0" type="string"></title>
+			<bearing n="0" type="float"></bearing>
+			<distance n="0" type="float"></distance>
+
+			<marker n="1" type="string"></marker>
+			<number n="1" type="int"></number>
+			<code n="1" type="string"></code>
+			<title n="1" type="string"></title>
+			<bearing n="1" type="float"></bearing>
+			<distance n="1" type="float"></distance>
+
+			<marker n="2" type="string"></marker>
+			<number n="2" type="int"></number>
+			<code n="2" type="string"></code>
+			<title n="2" type="string"></title>
+			<bearing n="2" type="float"></bearing>
+			<distance n="2" type="float"></distance>
+
+			<marker n="3" type="string"></marker>
+			<number n="3" type="int"></number>
+			<code n="3" type="string"></code>
+			<title n="3" type="string"></title>
+			<bearing n="3" type="float"></bearing>
+			<distance n="3" type="float"></distance>
+
+			<marker n="4" type="string"></marker>
+			<number n="4" type="int"></number>
+			<code n="4" type="string"></code>
+			<title n="4" type="string"></title>
+			<bearing n="4" type="float"></bearing>
+			<distance n="4" type="float"></distance>
+
+			<marker n="5" type="string"></marker>
+			<number n="5" type="int"></number>
+			<code n="5" type="string"></code>
+			<title n="5" type="string"></title>
+			<bearing n="5" type="float"></bearing>
+			<distance n="5" type="float"></distance>
+
+			<marker n="6" type="string"></marker>
+			<number n="6" type="int"></number>
+			<code n="6" type="string"></code>
+			<title n="6" type="string"></title>
+			<bearing n="6" type="float"></bearing>
+			<distance n="6" type="float"></distance>
+
+			<marker n="7" type="string"></marker>
+			<number n="7" type="int"></number>
+			<code n="7" type="string"></code>
+			<title n="7" type="string"></title>
+			<bearing n="7" type="float"></bearing>
+			<distance n="7" type="float"></distance>
+
+			<marker n="8" type="string"></marker>
+			<number n="8" type="int"></number>
+			<code n="8" type="string"></code>
+			<title n="8" type="string"></title>
+			<bearing n="8" type="float"></bearing>
+			<distance n="8" type="float"></distance>
+
+			<marker n="9" type="string"></marker>
+			<number n="9" type="int"></number>
+			<code n="9" type="string"></code>
+			<title n="9" type="string"></title>
+			<bearing n="9" type="float"></bearing>
+			<distance n="9" type="float"></distance>
+
+			<marker n="10" type="string"></marker>
+			<number n="10" type="int"></number>
+			<code n="10" type="string"></code>
+			<title n="10" type="string"></title>
+			<bearing n="10" type="float"></bearing>
+			<distance n="10" type="float"></distance>
+		</route>
+
+		<engines>
+			<fuel_flow_total_pps type="double">0.00</fuel_flow_total_pps>
+			<airtime type="double">0.00</airtime>
+			<range_nm type="double">0.00</range_nm>
+		</engines>
+
 		<menubar2 include="Aircraft/JPack/Voodoomaster/Dialogs/menubar.xml"></menubar2>
+
+		<weather>
+			<relative-wind type="float">0.00</relative-wind>
+		</weather>
+
+		<ground-service>
+			<fuel-truck>
+				<truck n="0">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="1">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="2">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="3">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="4">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="5">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+			</fuel-truck>
+		</ground-service>
+
 	</voodoomaster>
 
 	<skynet include="Aircraft/JH-Lineage1000/SkyNet/SkyNet-Version.xml">
@@ -821,7 +1085,7 @@
 	<nasal>
 		<voodoomaster>
 			<file>Aircraft/JPack/Voodoomaster/Nasal/Autostart/SYS9_0_Autostart_Jet.nas</file>
-			<file>Aircraft/JPack/Voodoomaster/Steering/Steering.nas</file>
+			<!-- file>Aircraft/JPack/Voodoomaster/Steering/Steering.nas</file -->
 		</voodoomaster>
 		<SkyNet>
 			<file>Aircraft/JPack/SkyNet/Nasal/Login.nas</file>
@@ -829,6 +1093,8 @@
 		<lineage1000>
 			<file>Aircraft/JH-Lineage1000/Systems/helpers.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/Pilots/Pilots.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/Settings/Settings.nas</file>
 			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
 			<file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file>
 		</lineage1000>
