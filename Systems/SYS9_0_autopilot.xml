@@ -5,7 +5,7 @@
     Autopilot SYS9 (originally for Voodoomaster test platform)
     JWOCKY: April 2015, adapted for 767-Sentry and variants
 	    May 2015 in 727-230-JSB(copy), StratoFortressH, RA-5
-            Developed in SYS9 Fall 2015- Summwe 2016
+            Developed in SYS9 Fall 2015- Summer 2016
     ================================================================
 -->
 
@@ -34,7 +34,7 @@
 		<input>/autopilot/internal/nav1-track-error-deg</input>
 		<output>/autopilot/internal/nav1-error-5-sec-ahead</output>
 		<seconds>12</seconds>
-		<filter-gain>0.25</filter-gain>
+		<filter-gain>1.00</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
@@ -42,7 +42,7 @@
 		<input>/autopilot/internal/heading-bug-error-deg</input>
 		<output>/autopilot/internal/heading-bug-error-deg-5-sec-ahead</output>
 		<seconds>12</seconds>
-		<filter-gain>0.25</filter-gain>
+		<filter-gain>1.00</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
@@ -50,7 +50,7 @@
 		<input>/autopilot/internal/true-heading-error-deg</input>
 		<output>/autopilot/internal/true-heading-error-deg-5-sec-ahead</output>
 		<seconds>12</seconds>
-		<filter-gain>0.25</filter-gain>
+		<filter-gain>1.00</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
@@ -641,7 +641,7 @@
 			<property>/autopilot/internal/target-roll-deg</property>
 		</output>
 		<config>
-			<Kp>-1.00</Kp>      <!-- proportional gain -->
+			<Kp>-4.00</Kp>      <!-- proportional gain -->
 			<beta>1.0</beta>    <!-- input value weighing factor -->
 			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
 			<gamma>0.0</gamma>  <!-- input value weighing factor for unfiltered derivative error -->
