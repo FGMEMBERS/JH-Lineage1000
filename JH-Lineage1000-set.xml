@@ -272,7 +272,7 @@
 			</electrical>
 
 			<autopilot>
-				<path>Aircraft/JH-Lineage1000/Systems/SYS9_0_autopilot.xml</path>
+				<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS9_0_autopilot.xml</path>
 			</autopilot>
 		</systems>
 
@@ -499,13 +499,13 @@
 
 	<!-- Systems parallel to sim -->
 	<systems>
-		<path>Aircraft/VIP/Systems/Lineage1000/Lineage1000.xml</path>
+		<path>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.xml</path>
 		<electrical>
 			<path>Aircraft/Generic/generic-electrical.xml</path>
 		</electrical>
-		<autopilot>
-			<path>Aircraft/JH-Lineage1000/Systems/SYS9_0_autopilot.xml</path>
-		</autopilot>
+		<!-- autopilot>
+			<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS9_0_autopilot.xml</path>
+		</autopilot -->
 	</systems>
 
 	<!-- #### ai submodels if exist -->
@@ -795,6 +795,7 @@
 			<max-pitch type="float"> 8.0</max-pitch>
 			<min-pitch type="float">-6.0</min-pitch>
 			<bank-angle-limit-deg type="int">35</bank-angle-limit-deg>
+			<propgain-roll type="float">-4.0</propgain-roll>
 		</settings>
 
 		<internal>
