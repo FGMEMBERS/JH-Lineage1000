@@ -333,6 +333,23 @@
 			<layout>vbox</layout>
 
 			<group>
+				<layout>hbox</layout>
+				<checkbox>
+					<label>Velocity Control</label>
+					<halign>fill</halign>
+					<property>/sim/gui/dialogs/autopilot/speed-active</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script>vel.enable()</script>
+					</binding>
+				</checkbox>
+			</group>
+
+			<group>
 				<layout>table</layout>
 				<text>
 					<label>KIAS</label>
@@ -399,23 +416,6 @@
 			</group>
 
 			<hrule/>
-
-			<group>
-				<layout>hbox</layout>
-				<checkbox>
-					<label>Velocity Control</label>
-					<halign>fill</halign>
-					<property>/sim/gui/dialogs/autopilot/speed-active</property>
-					<live>true</live>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>
-					<binding>
-						<command>nasal</command>
-						<script>vel.enable()</script>
-					</binding>
-				</checkbox>
-			</group>
 			<group>
 				<layout>table</layout>
 				<text>

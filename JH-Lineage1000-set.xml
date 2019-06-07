@@ -266,13 +266,12 @@
 
 		<!-- Systems -->
 		<systems>
-			<path>Aircraft/JH-Lineage1000/Systems/Lineage1000.xml</path>
 			<electrical>
 				<path>Aircraft/Generic/generic-electrical.xml</path>
 			</electrical>
 
 			<autopilot>
-				<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS9_0_autopilot.xml</path>
+				<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS11_0_autopilot.xml</path>
 			</autopilot>
 		</systems>
 
@@ -503,9 +502,6 @@
 		<electrical>
 			<path>Aircraft/Generic/generic-electrical.xml</path>
 		</electrical>
-		<!-- autopilot>
-			<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS9_0_autopilot.xml</path>
-		</autopilot -->
 	</systems>
 
 	<!-- #### ai submodels if exist -->
@@ -670,6 +666,18 @@
 					<command>nasal</command>
 					<script>
 						reversethrust.togglereverser();
+					</script>
+				</binding>
+			</key>
+
+			<key n="267">
+				<name>F11</name>
+				<desc>Autopilot Settings</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/JH-Lineage1000/Dialogs/autopilot9.xml");
+						autopilot.open();
 					</script>
 				</binding>
 			</key>
@@ -1083,21 +1091,24 @@
 		<session type="string">null</session>
 	</skynet>
 
+	<lineage1000>
+		<start-idling type="bool">false</start-idling>
+	</lineage1000>
+
+
 	<nasal>
-		<voodoomaster>
-			<file>Aircraft/JPack/Voodoomaster/Nasal/Autostart/SYS9_0_Autostart_Jet.nas</file>
-			<!-- file>Aircraft/JPack/Voodoomaster/Steering/Steering.nas</file -->
-		</voodoomaster>
 		<SkyNet>
 			<file>Aircraft/JPack/SkyNet/Nasal/Login.nas</file>
 		</SkyNet>
 		<lineage1000>
-			<file>Aircraft/JH-Lineage1000/Systems/helpers.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/Autostart/autostart.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS11_0_compatibility.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/Pilots/Pilots.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/Settings/Settings.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.nas</file>
 			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
-			<file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file>
+			<!-- file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file -->
+	        	<file>Aircraft/JH-Lineage1000/Systems/Liveries.nas</file>
 		</lineage1000>
 		<reversethrust>
 			<file>Aircraft/VIP/Nasal/Lineage1000/reversethrustLineage1000.nas</file>
@@ -1114,9 +1125,6 @@
 		<erj>
 			<file>Aircraft/VIP/Nasal/Lineage1000/doorsLineage1000.nas</file>
 		</erj>
-		<livery>
-	        	<file>Aircraft/JH-Lineage1000/Systems/Liveries.nas</file>
-	    	</livery>
 		<dialogs>
 			<file>Aircraft/VIP/Nasal/Lineage1000/radioLineage1000.nas</file>
 		</dialogs>

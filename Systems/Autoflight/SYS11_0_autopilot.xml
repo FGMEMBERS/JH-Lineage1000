@@ -515,7 +515,7 @@
 				<property>/autopilot/internal/min-pitch</property>
 			</min>   <!-- minimum output clamp -->
 			<max>
-				<value>100</value>
+				<value>0.5</value>
 			</max>   <!-- maximum output clamp -->
 		</config>
 	</pid-controller>

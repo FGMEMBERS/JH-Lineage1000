@@ -1,11 +1,6 @@
 # Lineage 1000 SYSTEMS
 #########################
 
-## LIVERY SELECT
-################
-
-aircraft.livery.init("Aircraft/VIP/Models/Liveries/Lineage1000");
-
 ## LIGHTS
 #########
 
@@ -100,8 +95,8 @@ var instruments = {
 	},
 
 	setSpeedBugs: func {
-		setprop("sim/model/ERJ/ias-bug-kt-norm", getprop("autopilot/settings/target-speed-kt") - getprop("velocities/airspeed-kt"));
-		setprop("sim/model/ERJ/mach-bug-kt-norm", (getprop("autopilot/settings/target-speed-mach") - getprop("velocities/mach")) * 600);
+#		setprop("sim/model/ERJ/ias-bug-kt-norm", getprop("autopilot/settings/target-speed-kt") - getprop("velocities/airspeed-kt"));
+#		setprop("sim/model/ERJ/mach-bug-kt-norm", (getprop("autopilot/settings/target-speed-mach") - getprop("velocities/mach")) * 600);
 	},
 
 	setMPProps: func {

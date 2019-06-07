@@ -35,7 +35,7 @@
 				<label>Autostart</label>
 				<binding>
 					<command>property-toggle</command>
-					<property>sim/model/start-idling</property>
+					<property>lineage1000/start-idling</property>
 				</binding>
 			</item>
 
