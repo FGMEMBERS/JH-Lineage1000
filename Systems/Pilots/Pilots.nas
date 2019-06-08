@@ -356,6 +356,7 @@ var PilotsDialog = {
 						me.changed(5);
 					});
 				}
+print("set listener "~i~" at "~me.listeners[i]);
 			}
 		}
 
@@ -363,8 +364,10 @@ var PilotsDialog = {
 		vbox.addItem(hbox2);
 		btnClose=canvas.gui.widgets.Button.new( m._root, canvas.style, {}).setText("Close Window");
 		btnClose.listen("clicked", func{
+print("closing pilot options");
 			for (var i=0; i<6; i+=1) {
 				if (me.listeners[i]!=nil) {
+print("removing listener "~i~" at "~me.listeners[i]);
 					removelistener(me.listeners[i]);
 				}
 			}
