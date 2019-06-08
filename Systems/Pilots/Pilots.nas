@@ -18,7 +18,7 @@ var PilotsDialog = {
 	new: func(width=340,height=160) {
 		var m = {
 			parents: [SettingsDialog],
-			_dlg: canvas.Window.new([width, height], nil)
+			_dlg: canvas.Window.new([width, height], "mytitle")
 		};
 
 		m._dlg.getCanvas(1)
