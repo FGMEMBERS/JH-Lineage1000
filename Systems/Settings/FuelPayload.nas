@@ -57,11 +57,7 @@ var FuelPayloadDialog = {
 		vbox.addItem(hbox2);
 		btnClose=canvas.gui.widgets.Button.new( m._root, canvas.style, {}).setText("Close Window");
 		btnClose.listen("clicked", func{
-			for (var i=0; i<6; i+=1) {
-				if (me.listeners[i]!=nil) {
-					removelistener(me.listeners[i]);
-				}
-			}
+print("pressed close");
 			m._dlg.del();
 		});
 
