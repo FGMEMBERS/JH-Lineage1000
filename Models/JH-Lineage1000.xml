@@ -97,15 +97,15 @@
 		</offsets>
 	</model>
 
-	<!-- model>
+	<model>
 		
 		// Not sure about that FollowMe vehicle, so disabled for now ####
 
 		<name>Followme</name>
-		<path>Aircraft/VIP/Models/Operations/followme.ac</path>
+		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/followme.ac</path>
 		<condition>
 			<and>
-				<! - - #### better with ground speed and weight on wheels ? #### - - >
+				<!-- #### better with ground speed and weight on wheels ? #### -->
 				<equals>
 					<property>controls/switches/followme</property>
 					<value type="bool">true</value>
@@ -116,11 +116,16 @@
 				</less-than>
 			</and>
 		</condition>   
-	</model -->
+		<offsets>
+			<x-m>-16.0</x-m>
+			<y-m>0.00</y-m>
+			<z-m>0.00</z-m>
+		</offsets>
+	</model>
 
 	<!-- model>
 
-		// not sure what this oen does, so disabled for now ####
+		// not sure what this one does, so disabled for now ####
 
 		<name>Operations</name>
 		<path>Aircraft/VIP/Models/Operations/operations.ac</path>

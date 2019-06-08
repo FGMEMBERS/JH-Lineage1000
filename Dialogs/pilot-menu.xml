@@ -90,6 +90,15 @@
 			</item>
 
 			<item>
+				<name>followme</name>
+				<label>Follow Me</label>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/switches/followme</property>
+				</binding>
+			</item>
+
+			<!-- item>
 				<label>Airport Operations</label>
 				<binding>
        					<command>nasal</command>
@@ -98,7 +107,7 @@
         					mal.open();
        					</script>
       				</binding>
-     			</item>
+     			</item -->
 
 			<item>
 				<label>----------------------------------------------</label>
@@ -138,7 +147,7 @@
 
 		</menu>
 
-		<menu n="101">
+		<!-- menu n="101">
 			<label>Voodoomaster</label>
 			<enabled type="bool">true</enabled>
 
@@ -157,7 +166,7 @@
 				</binding>
 			</item>
 		
-			<!-- item>
+			<item>
 				<name>SteeringMode</name>
 				<label>SteeringConfiguration</label>
 				<binding>
@@ -170,7 +179,7 @@
 						steering.open();
 					</script>
 				</binding>
-			</item -->
+			</item>
 
 			<item>
 				<name>MigraineMode</name>
@@ -195,7 +204,7 @@
 					</script>
 				</binding>
 			</item>
-		</menu>
+		</menu -->
 
 		<menu n="102">
 			<name>SkyNet</name>
