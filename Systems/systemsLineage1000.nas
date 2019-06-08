@@ -176,7 +176,6 @@ var weathercontrol=func{
 }
 
 var enginecontrol=func{
-print("called engine control");	
 	var eng0ff=getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps");
 	var eng1ff=getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-flow-rate-pps");
 	var eng2ff=getprop("/fdm/jsbsim/propulsion/engine[2]/fuel-flow-rate-pps");
