@@ -98,9 +98,6 @@
 	</model>
 
 	<model>
-		
-		// Not sure about that FollowMe vehicle, so disabled for now ####
-
 		<name>Followme</name>
 		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/followme.ac</path>
 		<condition>
