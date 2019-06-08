@@ -126,6 +126,16 @@
 				</binding>
 			</item>
 
+			<item>
+				<label>Test Dialog</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var fuelpayload_dialog = lineage1000.FuelPayloadDialog.new();
+					</script>
+				</binding>
+			</item>
+
 		</menu>
 
 		<menu n="101">

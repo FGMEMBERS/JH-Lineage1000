@@ -1105,6 +1105,7 @@
 			<file>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS11_0_compatibility.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/Pilots/Pilots.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/Settings/Settings.nas</file>
+			<file>Aircraft/JH-Lineage1000/Systems/Settings/FuelPayload.nas</file>
 			<file>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.nas</file>
 			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
 			<!-- file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file -->
