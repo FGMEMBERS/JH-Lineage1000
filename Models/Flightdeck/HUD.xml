@@ -7,10 +7,10 @@
 		<type>pick</type>
 		<object-name>Glass.001</object-name>
 		<action>
-			<button>1</button>
+			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/switches/hud-flip</property>
+				<property>/sim/hud/visibility[1]</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -21,12 +21,59 @@
 		<type>pick</type>
 		<object-name>Glass.001</object-name>
 		<action>
-			<button>0</button>
+			<button>1</button>
 			<binding>
-				<command>property-toggle</command>
-				<property>/controls/switches/hud</property>
+				<command>property-cycle</command>
+				<property>/voodoomaster/hud/mode</property>
+				<value>0</value>
+				<!-- 1 reserved for first officer -->
+				<value>2</value>
+				<!-- 3 reserved for radio operator -->
+				<value>4</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>Glass.001</object-name>
+		<action>
+			<button>3</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/sim/hud/current-color</property>
 				<value>0</value>
 				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<value>6</value>
+				<value>7</value>
+				<value>8</value>
+				<value>9</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>Glass.001</object-name>
+		<action>
+			<button>4</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/sim/hud/current-color</property>
+				<value>9</value>
+				<value>8</value>
+				<value>7</value>
+				<value>6</value>
+				<value>5</value>
+				<value>4</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
