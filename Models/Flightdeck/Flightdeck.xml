@@ -452,6 +452,21 @@
 
 	<!-- Autopilot Control Panel -->
 
+        <!-- Nosewheel steering switch, in yoke -->
+	<animation>
+		<type>pick</type>
+		<object-name>yoke.nsw.left</object-name>
+		<object-name>yoke.nsw.right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/fdm/jsbsim/systems/NWS/engaged</property>
+			</binding>
+		</action>
+	</animation>
+
 	<!-- AP main switch -->
 
 	<animation>
