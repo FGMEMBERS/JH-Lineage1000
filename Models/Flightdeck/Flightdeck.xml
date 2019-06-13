@@ -467,16 +467,88 @@
 		</action>
 	</animation>
 
-	<!-- AP main switch -->
+        <!-- PTT -->
+	<animation>
+		<type>pick</type>
+		<object-name>yoke.ptt.left</object-name>
+		<object-name>yoke.ptt.right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/radios/comm-ptt</property>
+                                <value>1</value>
+			</binding>
+                        <mod-up><binding>
+                 		<command>property-assign</command>
+				<property>/controls/radios/comm-ptt</property>
+                                <value>0</value>              
+                        </binding></mod-up>
+		</action>
+	</animation>
 
+        <!-- TCS -->
+	<animation>
+		<type>pick</type>
+		<object-name>yoke.tcs.left</object-name>
+		<object-name>yoke.tcs.right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/autopilot/settings/tcs-armed</property>
+                                <value>1</value>
+			</binding>
+                        <mod-up><binding>
+                 		<command>property-assign</command>
+				<property>/autopilot/settings/tcs-armed</property>
+                                <value>0</value>              
+                        </binding></mod-up>
+		</action>
+	</animation>
+
+       <!-- YOKE UP DOWN AP SETTING -->
+	<animation>
+		<type>pick</type>
+		<object-name>yoke.updown.left</object-name>
+		<object-name>yoke.updown.right</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+
+			</binding>
+		</action>
+
+	</animation>
+
+	<!-- AP main switch -->
 	<animation>
 		<type>pick</type>
 		<object-name>AP</object-name>
-		<object-name>yoke.AP.left</object-name>
-		<object-name>yoke.AP.right</object-name>
+		<object-name>yoke.APtrim.left</object-name>
+		<object-name>yoke.APtrim.right</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/settings/ap-armed</property>
+                                <value>0</value>
+                             </equals></condition>
+		             <command>property-assign</command>
+			     <property>controls/autoflight/yaw-damper[0]/engage</property>
+                             <value>1</value>
+			</binding>
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/settings/ap-armed</property>
@@ -493,9 +565,7 @@
 	</animation>
 
 	<!-- Altitude control -->
-
 	<!-- ALT button -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>ALT</object-name>
@@ -521,7 +591,6 @@
 	</animation>
 
 	<!-- ALT Knob Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>ALT.knob</object-name>
@@ -550,7 +619,6 @@
 	</animation>
 
 	<!-- FPA -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>FPA</object-name>
@@ -576,7 +644,6 @@
 	</animation>
 
 	<!-- FPA Knob Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>FPA.knob</object-name>
@@ -1070,8 +1137,6 @@
 	<animation>
 		<type>pick</type>
 		<object-name>YD</object-name>
-		<object-name>yoke.YD.left</object-name>
-		<object-name>yoke.YD.right</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1446,8 +1511,6 @@
 		<name>Elevator trim pick</name>
 		<type>pick</type>
 		<object-name>trim.elevator</object-name>
-		<object-name>yoke.trim.left</object-name>
-		<object-name>yoke.trim.right</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -1461,6 +1524,42 @@
 		</action>
 		<action>
 			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>-0.05</step>
+				<min>-1</min>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Elevator trim disc</name>
+		<type>pick</type>
+		<object-name>yoke.APtrim.left</object-name>
+		<object-name>yoke.APtrim.right</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/elevator-trim</property>
+                        <value>0</value>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
