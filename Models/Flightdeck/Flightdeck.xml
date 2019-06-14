@@ -495,17 +495,17 @@
 		<object-name>yoke.tcs.right</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">true</repeatable>
+			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-assign</command>
 				<property>/autopilot/settings/tcs-armed</property>
                                 <value>1</value>
 			</binding>
-                        <mod-up><binding>
-                 		<command>property-assign</command>
-				<property>/autopilot/settings/tcs-armed</property>
-                                <value>0</value>              
-                        </binding></mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>/devices/status/mice/mouse/mode</property>
+                                <value>1</value>
+			</binding>
 		</action>
 	</animation>
 

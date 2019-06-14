@@ -36,6 +36,41 @@
 			</binding>
 		</key>
 
+                <!-- Overide TAB behavior to also toggle TCS off  -->
+		<key n="9">
+			<name>TAB</name>
+			<desc>mouse mode or tcs off key</desc>
+			<binding>
+                                <condition><not-equals>
+                                      <property>/autopilot/settings/tcs-armed</property>
+                                      <value>1</value>
+                                </not-equals></condition>
+				<command>property-cycle</command>
+				<property>/devices/status/mice/mouse/mode</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+                                <condition><equals>
+                                      <property>/autopilot/settings/tcs-armed</property>
+                                      <value>1</value>
+                                </equals></condition>
+				<command>property-assign</command>
+				<property>/devices/status/mice/mouse/mode</property>
+				<value>0</value>
+			</binding>
+			<binding>
+                                <condition><equals>
+                                      <property>/autopilot/settings/tcs-armed</property>
+                                      <value>1</value>
+                                </equals></condition>
+				<command>property-assign</command>
+				<property>/autopilot/settings/tcs-armed</property>
+				<value>0</value>
+			</binding>
+		</key>
+
 		<key n="20">
 			<name>Ctrl-T</name>
 			<desc>Cycle autobrake setting</desc>
