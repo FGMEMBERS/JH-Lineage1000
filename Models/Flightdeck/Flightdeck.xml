@@ -518,25 +518,139 @@
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
-
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>vertical-speed-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/vertical-speed-fpm</property>
+			     <step>100</step>  
+			     <max>4500</max>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>pitch-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-pitch-deg</property>
+			     <step>0.1</step>
+			     <max>9</max>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>aoa-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-aoa-deg</property>
+			     <step>1</step>
+			     <max>45</max>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>altitude-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-altitude-ft</property>
+			     <step>100</step>
+                             <min>1000</min>
+			     <max>45000</max>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>agl-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-agl-ft</property>
+			     <step>100</step>
+                             <min>1000</min>
+			     <max>45000</max>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value></value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-altitude-ft</property>
+			     <step>100</step>
+                             <min>1000</min>
+			     <max>45000</max>
 			</binding>
 		</action>
 		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
-
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>vertical-speed-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/vertical-speed-fpm</property>
+			     <step>-100</step>
+			     <min>-4500</min>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>pitch-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-pitch-deg</property>
+			     <step>-0.1</step>
+			     <min>-9</min>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>aoa-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-aoa-deg</property>
+			     <step>-1</step>
+			     <min>-45</min>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>altitude-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-altitude-ft</property>
+			     <step>-100</step>
+			     <min>1000</min>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value>agl-hold</value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-agl-ft</property>
+			     <step>-100</step>
+			     <min>1000</min>
+			</binding>
+			<binding>
+                             <condition><equals>
+                                <property>autopilot/locks/altitude</property>
+                                <value></value>
+                             </equals></condition>
+			     <command>property-adjust</command>
+			     <property>autopilot/settings/target-altitude-ft</property>
+			     <step>-100</step>
+			     <min>1000</min>
 			</binding>
 		</action>
-
 	</animation>
 
 	<!-- AP main switch -->
 	<animation>
 		<type>pick</type>
 		<object-name>AP</object-name>
-		<object-name>yoke.APtrim.left</object-name>
-		<object-name>yoke.APtrim.right</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -552,6 +666,21 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>autopilot/settings/ap-armed</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>yoke.APtrim.left</object-name>
+		<object-name>yoke.APtrim.right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/settings/ap-armed</property>
+                                <value>0</value>
 			</binding>
 		</action>
 	</animation>
