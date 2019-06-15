@@ -467,6 +467,15 @@
 		</action>
 	</animation>
 
+	<animation>
+		<type>select</type>
+		<object-name>yoke.nsw.led.left</object-name>
+		<object-name>yoke.nsw.led.right</object-name>
+		<condition>
+			<property>/fdm/jsbsim/systems/NWS/engaged</property>
+		</condition>
+	</animation>
+
         <!-- PTT -->
 	<animation>
 		<type>pick</type>
@@ -486,6 +495,25 @@
                                 <value>0</value>              
                         </binding></mod-up>
 		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>yoke.ptt.hot.left</object-name>
+		<object-name>yoke.ptt.hot.right</object-name>
+		<condition>
+			<property>/controls/radios/comm-ptt</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>yoke.ptt.off.left</object-name>
+		<object-name>yoke.ptt.off.right</object-name>
+		<condition><equals>
+			<property>/controls/radios/comm-ptt</property>
+                        <value>0</value>
+		</equals></condition>
 	</animation>
 
         <!-- TCS -->
@@ -515,7 +543,7 @@
 		<object-name>yoke.updown.left</object-name>
 		<object-name>yoke.updown.right</object-name>
 		<action>
-			<button>3</button>
+			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
                              <condition><equals>
@@ -582,7 +610,7 @@
 			</binding>
 		</action>
 		<action>
-			<button>4</button>
+			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
                              <condition><equals>
