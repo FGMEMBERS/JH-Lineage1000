@@ -543,7 +543,7 @@
 		<object-name>yoke.updown.left</object-name>
 		<object-name>yoke.updown.right</object-name>
 		<action>
-			<button>3</button>
+			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
                              <condition><equals>
@@ -610,7 +610,7 @@
 			</binding>
 		</action>
 		<action>
-			<button>4</button>
+			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
                              <condition><equals>
