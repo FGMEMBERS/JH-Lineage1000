@@ -25,14 +25,19 @@
 		<object-name>AB</object-name>
         	<object-name>CRS</object-name>
         	<object-name>CRS.knob</object-name>
+        	<object-name>CRS.knob.001</object-name>
         	<object-name>CRS2</object-name>
         	<object-name>CRS2.knob</object-name>
+        	<object-name>CRS2.knob.001</object-name>
         	<object-name>HDG</object-name>
         	<object-name>HDG.knob</object-name>
+        	<object-name>HDG.knob.001</object-name>
         	<object-name>SPD</object-name>
         	<object-name>SPD.knob</object-name>
+        	<object-name>SPD.knob.001</object-name>
         	<object-name>ALT</object-name>
         	<object-name>ALT.knob</object-name>
+        	<object-name>ALT.knob.001</object-name>
         	<object-name>VS</object-name>
         	<object-name>VS.knob</object-name>
         	<object-name>FPA</object-name>
@@ -751,8 +756,8 @@
 	<animation>
 		<type>pick</type>
 		<object-name>ALT.knob</object-name>
+		<object-name>ALT.knob.001</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -763,7 +768,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -804,8 +808,8 @@
 	<animation>
 		<type>pick</type>
 		<object-name>FPA.knob</object-name>
+		<object-name>FPA.knob.001</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -821,7 +825,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -839,7 +842,6 @@
 	</animation>
 
 	<!-- VS button -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>VS</object-name>
@@ -870,7 +872,6 @@
 		<type>pick</type>
 		<object-name>VS.knob</object-name>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -881,7 +882,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<binding>
 				<command>property-adjust</command>
@@ -893,7 +893,6 @@
 	</animation>
 
 	<!-- VNAV -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>VNAV</object-name>
@@ -928,8 +927,8 @@
 	<animation>
 		<type>pick</type>
 		<object-name>CRS.knob</object-name>
+		<object-name>CRS.knob.001</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -951,7 +950,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -979,31 +977,9 @@
 	<animation>
 		<type>pick</type>
 		<object-name>CRS2.knob</object-name>
-		<action>
-			<button>0</button>
+		<object-name>CRS2.knob.001</object-name>
+                   <action>
 			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step type="double">1</step>
-				<max>360</max>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<greater-than>
-						<property>instrumentation/nav[1]/radials/selected-deg</property>
-						<value>360</value>
-					</greater-than>
-				</condition>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<value>1</value>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
@@ -1023,6 +999,27 @@
 				<value>360</value>
 			</binding>
 		</action>
+                  <action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<step type="double">1</step>
+				<max>360</max>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<condition>
+					<greater-than-equals>
+						<property>instrumentation/nav[1]/radials/selected-deg</property>
+						<value>360</value>
+					</greater-than-equals>
+				</condition>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<value>0</value>
+			</binding>
+		</action>
 	</animation>
 
 	<!-- HDG Knob Pick Animations -->
@@ -1030,8 +1027,8 @@
 	<animation>
 		<type>pick</type>
 		<object-name>HDG.knob</object-name>
+		<object-name>HDG.knob.001</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -1053,7 +1050,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -1081,8 +1077,8 @@
 	<animation>
 		<type>pick</type>
 		<object-name>SPD.knob</object-name>
+		<object-name>SPD.knob.001</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -1111,7 +1107,6 @@
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -1146,7 +1141,8 @@
 	<!-- IAS-MACH -->
 	<animation>
 		<type>pick</type>
-		<object-name>IAS-MACH</object-name>
+		<object-name>SPD.Knob</object-name>
+		<object-name>SPD.Knob.001</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1164,6 +1160,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>FD</object-name>
+		<object-name>FD.001</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1177,6 +1174,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>FD.light</object-name>
+		<object-name>FD.light.001</object-name>
 		<condition>
 			<property>controls/autoflight/flight-director/engage</property>
 		</condition>
@@ -1312,8 +1310,7 @@
 		</condition>
 	</animation>
 
-	<!-- SRC -->
-
+	<!-- SRC MCPlts.026 MCPlts.025 -->
 	<animation>
 		<type>pick</type>
 		<object-name>SRC</object-name>
@@ -1321,13 +1318,24 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>controls/autoflight/nav-mode</property>
-				<value>0</value>
-				<value>1</value>
-				<value>2</value>
+				<command>property-toggle</command>
+				<property>controls/autoflight/src-mode</property>
 			</binding>
 		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>MCPlts.026</object-name>
+		<condition><not>
+			<property>controls/autoflight/src-mode</property>
+		</not></condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>MCPlts.025</object-name>
+		<condition>
+			<property>controls/autoflight/src-mode</property>
+		</condition>
 	</animation>
 
 	<!-- A/T -->
@@ -1375,14 +1383,6 @@
 		<object-name>FLCH.light</object-name>
 		<condition>
 			<property>controls/autoflight/flch-engage</property>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>FPA.light</object-name>
-		<condition>
-			<property>controls/autoflight/fpa-engage</property>
 		</condition>
 	</animation>
 
