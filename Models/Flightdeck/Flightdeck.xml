@@ -40,6 +40,7 @@
         	<object-name>ALT.knob.001</object-name>
         	<object-name>VS</object-name>
         	<object-name>VS.knob</object-name>
+        	<object-name>VS.knob.001</object-name>
         	<object-name>FPA</object-name>
         	<object-name>FPA.knob</object-name>
         	<object-name>IAS-MACH</object-name>
@@ -758,6 +759,16 @@
 		<object-name>ALT.knob</object-name>
 		<object-name>ALT.knob.001</object-name>
 		<action>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/settings/altitude-unit</property>
+                                <value>ft</value>
+                                <value>m</value>
+			</binding>
+		</action>
+		<action>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
@@ -774,7 +785,7 @@
 				<command>property-adjust</command>
 				<property>autopilot/settings/target-altitude-ft</property>
 				<step>-100</step>
-				<min>0</min>
+				<min>1000</min>
 			</binding>
 		</action>
 	</animation>
@@ -814,14 +825,9 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/autoflight/pitch-select</property>
-				<step type="double">1</step>
-				<max>360</max>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/autoflight/pitch-select</property>
-				<value>1</value>
+				<property>autopilot/settings/target-pitch-deg</property>
+				<step type="double">0.1</step>
+				<max>9.9</max>
 			</binding>
 		</action>
 		<action>
@@ -829,14 +835,9 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/autoflight/pitch-select</property>
-				<step type="double">-1</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/autoflight/pitch-select</property>
-				<value>360</value>
+				<property>autopilot/settings/target-pitch-deg</property>
+				<step type="double">-0.1</step>
+				<min>-9.9</min>
 			</binding>
 		</action>
 	</animation>
@@ -867,14 +868,18 @@
 	</animation>
 
 	<!-- VS Knob Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>VS.knob</object-name>
+		<object-name>VS.knob.001</object-name>
 		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
+                                <condition><equals>
+		                	<property>autopilot/locks/altitude</property>
+                                        <value>vertical-speed-hold</value>
+                                </equals></condition>
 				<command>property-adjust</command>
 				<property>autopilot/settings/vertical-speed-fpm</property>
 				<step>100</step>
@@ -884,6 +889,10 @@
 		<action>
 			<button>3</button>
 			<binding>
+                                <condition><equals>
+		                	<property>autopilot/locks/altitude</property>
+                                        <value>vertical-speed-hold</value>
+                                </equals></condition>
 				<command>property-adjust</command>
 				<property>autopilot/settings/vertical-speed-fpm</property>
 				<step>-100</step>
@@ -917,36 +926,31 @@
 		</condition>
 	</animation>
 
-
-
-
-
 	<!-- Knobs Pick Animations -->
-
 	<!-- CRS Knob 1 Pick Animation -->
 	<animation>
 		<type>pick</type>
 		<object-name>CRS.knob</object-name>
 		<object-name>CRS.knob.001</object-name>
 		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+                                <!-- To be completed: Set NAV[0] heading to Direct -->
+				<script>crs.dir()</script>
+			</binding>
+                </action>
+		<action>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
 				<step type="double">1</step>
+                                <min>0</min>
 				<max>360</max>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<greater-than>
-						<property>instrumentation/nav[0]/radials/selected-deg</property>
-						<value>360</value>
-					</greater-than>
-				</condition>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<value>1</value>
+                                <wrap>true</wrap>
 			</binding>
 		</action>
 		<action>
@@ -957,123 +961,93 @@
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
 				<step type="double">-1</step>
 				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<less-than-equals>
-						<property>instrumentation/nav[0]/radials/selected-deg</property>
-						<value>0</value>
-					</less-than-equals>
-				</condition>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<value>360</value>
+				<max>360</max>
+                                <wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>
 
 	<!-- CRS Knob 2 Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>CRS2.knob</object-name>
 		<object-name>CRS2.knob.001</object-name>
-                   <action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+                                <!-- To be completed: Set NAV[1] heading to Direct -->
+				<script>crs2.dir()</script>
+			</binding>
+                </action>
+		<action>
 			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/nav[1]/radials/selected-deg</property>
+				<step type="double">1</step>
+                                <min>0</min>
+				<max>360</max>
+                                <wrap>true</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/radials/selected-deg</property>
 				<step type="double">-1</step>
 				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<less-than-equals>
-						<property>instrumentation/nav[1]/radials/selected-deg</property>
-						<value>0</value>
-					</less-than-equals>
-				</condition>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<value>360</value>
-			</binding>
-		</action>
-                  <action>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step type="double">1</step>
 				<max>360</max>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<greater-than-equals>
-						<property>instrumentation/nav[1]/radials/selected-deg</property>
-						<value>360</value>
-					</greater-than-equals>
-				</condition>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<value>0</value>
+                                <wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>
 
 	<!-- HDG Knob Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>HDG.knob</object-name>
 		<object-name>HDG.knob.001</object-name>
 		<action>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/autoflight/heading-select</property>
-				<step type="double">1</step>
-				<max>500</max>
+				<command>nasal</command>
+                                <!-- To be completed: Set AP Heading to curent magnetic -->
+				<script>hdg.sync()</script>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<greater-than-equals>
-						<property>controls/autoflight/heading-select</property>
-						<value>360</value>
-					</greater-than-equals>
-				</condition>
-				<property>controls/autoflight/heading-select</property>
-				<value>0</value>
-			</binding>
-		</action>
+                </action>
 		<action>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-assign</command>
-				<condition>
-					<less-than-equals>
-						<property>controls/autoflight/heading-select</property>
-						<value>0</value>
-					</less-than-equals>
-				</condition>
-				<property>controls/autoflight/heading-select</property>
-				<value>360</value>
-			</binding>
+		        <button>3</button>
+		        <repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/autoflight/heading-select</property>
-				<step type="double">-1</step>
-				<min>-100</min>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<step>1</step>
+                                <min>0</min>
+				<max>360</max>
+                                <wrap>true</wrap>
+			</binding>
+                </action>
+		<action>
+		        <button>4</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<step>-1</step>
+                                <min>0</min>
+				<max>360</max>
+                                <wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>
 
 	<!-- SPD Knob Pick Animations -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>SPD.knob</object-name>
@@ -1083,27 +1057,23 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<condition>
-					<equals>
-						<property>controls/autoflight/speed-mode</property>
-						<value>0</value>
-					</equals>
-				</condition>
-				<property>controls/autoflight/speed-select</property>
+				<condition><equals>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>kts</value>
+                                </equals></condition>
+				<property>autopilot/settings/target-speed-kt</property>
 				<step>1</step>
 				<max>350</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<condition>
-					<equals>
-						<property>controls/autoflight/speed-mode</property>
-						<value>1</value>
-					</equals>
-				</condition>
-				<property>controls/autoflight/mach-select</property>
+				<condition><equals>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>mach</value>
+                                </equals></condition>
+				<property>autopilot/settings/target-speed-mach</property>
 				<step>0.01</step>
-				<max>1</max>
+				<max>0.99</max>
 			</binding>
 		</action>
 		<action>
@@ -1111,52 +1081,51 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<condition>
-					<equals>
-						<property>controls/autoflight/speed-mode</property>
-						<value>0</value>
-					</equals>
-				</condition>
-				<property>controls/autoflight/speed-select</property>
+				<condition><equals>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>kts</value>
+                                </equals></condition>
+				<property>autopilot/settings/target-speed-kt</property>
 				<step>-1</step>
-				<min>0</min>
+				<min>130</min>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<condition>
-					<equals>
-						<property>controls/autoflight/speed-mode</property>
-						<value>1</value>
-					</equals>
-				</condition>
-				<property>controls/autoflight/mach-select</property>
+				<condition><equals>
+					<property>autopilot/settings/kts-mach-select</property>
+					<value>mach</value>
+                                </equals></condition>
+				<property>autopilot/settings/target-speed-mach</property>
 				<step>-0.01</step>
-				<min>0</min>
+				<min>0.35</min>
 			</binding>
 		</action>
-	</animation>
-
-	<!-- Buttons and Lights Animations -->
-
-	<!-- IAS-MACH -->
-	<animation>
-		<type>pick</type>
-		<object-name>SPD.Knob</object-name>
-		<object-name>SPD.Knob.001</object-name>
+	        <!-- IAS-MACH and Speed mode -->
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/autoflight/speed-mode</property>
-				<value>0</value>
-				<value>1</value>
+				<property>autopilot/settings/kts-mach-select</property>
+				<value>kts</value>
+				<value>mach</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+                                <!-- function to set speed knob depending on mode below is still missing -->
+				<property>autopilot/settings/speed-mode</property>
+				<value>fms</value>
+				<value>man</value>
 			</binding>
 		</action>
 	</animation>
 
+	<!-- Buttons and Lights Animations -->
 	<!-- FD -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>FD</object-name>
@@ -1181,7 +1150,6 @@
 	</animation>
 
 	<!-- NAV -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>NAV</object-name>
@@ -1209,7 +1177,6 @@
 	</animation>
 
 	<!-- HDG -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>HDG</object-name>
@@ -1237,7 +1204,6 @@
 	</animation>
 
 	<!-- APP -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>APP</object-name>
@@ -1260,7 +1226,6 @@
 	</animation>
 
 	<!-- BANK -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>BANK</object-name>
@@ -1269,9 +1234,9 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/autoflight/bank-angle-select</property>
+				<property>autopilot/settings/bank-angle-limit-deg</property>
 				<value>16</value>
-				<value>30</value>
+				<value>35</value>
 			</binding>
 		</action>
 	</animation>
@@ -1281,7 +1246,7 @@
 		<object-name>BANK.light</object-name>
 		<condition>
 			<equals>
-				<property>controls/autoflight/bank-angle-select</property>
+				<property>autopilot/settings/bank-angle-limit-deg</property>
 				<value>16</value>
 			</equals>
 		</condition>
