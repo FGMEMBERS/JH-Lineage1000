@@ -25,22 +25,22 @@
 		<object-name>AB</object-name>
         	<object-name>CRS</object-name>
         	<object-name>CRS.knob</object-name>
-        	<object-name>CRS.knob.001</object-name>
+        	<object-name>CRS.knob.led</object-name>
         	<object-name>CRS2</object-name>
         	<object-name>CRS2.knob</object-name>
-        	<object-name>CRS2.knob.001</object-name>
+        	<object-name>CRS2.knob.led</object-name>
         	<object-name>HDG</object-name>
         	<object-name>HDG.knob</object-name>
-        	<object-name>HDG.knob.001</object-name>
+        	<object-name>HDG.knob.led</object-name>
         	<object-name>SPD</object-name>
         	<object-name>SPD.knob</object-name>
-        	<object-name>SPD.knob.001</object-name>
+        	<object-name>SPD.knob.led</object-name>
         	<object-name>ALT</object-name>
         	<object-name>ALT.knob</object-name>
-        	<object-name>ALT.knob.001</object-name>
+        	<object-name>ALT.knob.led</object-name>
         	<object-name>VS</object-name>
         	<object-name>VS.knob</object-name>
-        	<object-name>VS.knob.001</object-name>
+        	<object-name>VS.knob.led</object-name>
         	<object-name>FPA</object-name>
         	<object-name>FPA.knob</object-name>
         	<object-name>IAS-MACH</object-name>
@@ -53,7 +53,18 @@
         	<object-name>SRC</object-name>
         	<object-name>AT</object-name>
         	<object-name>VNAV</object-name>
-        	<object-name>FLCH</object-name>
+        	<object-name>HSI</object-name>
+        	<object-name>BRG.top</object-name>
+        	<object-name>BRG.bottom</object-name>
+        	<object-name>WX</object-name>
+        	<object-name>PREV</object-name>
+        	<object-name>FPR</object-name>
+        	<object-name>FMS</object-name>
+        	<object-name>VL</object-name>
+        	<object-name>BARO.knob.left</object-name>
+        	<object-name>BARO.knob.right</object-name>
+        	<object-name>MINIMUMS.knob.left</object-name>
+        	<object-name>MINIMUMS.knob.right</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>1.0</green>
@@ -745,6 +756,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>ALT.light</object-name>
+		<object-name>ALT.knob.led</object-name>
 		<condition>
 			<equals>
 				<property>autopilot/locks/altitude</property>
@@ -757,7 +769,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>ALT.knob</object-name>
-		<object-name>ALT.knob.001</object-name>
+		<object-name>ALT.knob.led</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">true</repeatable>
@@ -819,7 +831,6 @@
 	<animation>
 		<type>pick</type>
 		<object-name>FPA.knob</object-name>
-		<object-name>FPA.knob.001</object-name>
 		<action>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
@@ -859,6 +870,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>VS.light</object-name>
+		<object-name>VS.knob.led</object-name>
 		<condition>
 			<equals>
 				<property>autopilot/locks/altitude</property>
@@ -871,7 +883,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>VS.knob</object-name>
-		<object-name>VS.knob.001</object-name>
+		<object-name>VS.knob.led</object-name>
 		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
@@ -931,7 +943,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>CRS.knob</object-name>
-		<object-name>CRS.knob.001</object-name>
+		<object-name>CRS.knob.led</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -971,7 +983,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>CRS2.knob</object-name>
-		<object-name>CRS2.knob.001</object-name>
+		<object-name>CRS2.knob.led</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1011,7 +1023,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>HDG.knob</object-name>
-		<object-name>HDG.knob.001</object-name>
+		<object-name>HDG.knob.led</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1051,7 +1063,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>SPD.knob</object-name>
-		<object-name>SPD.knob.001</object-name>
+		<object-name>SPD.knob.led</object-name>
 		<action>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
@@ -1129,7 +1141,6 @@
 	<animation>
 		<type>pick</type>
 		<object-name>FD</object-name>
-		<object-name>FD.001</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1143,7 +1154,6 @@
 	<animation>
 		<type>select</type>
 		<object-name>FD.light</object-name>
-		<object-name>FD.light.001</object-name>
 		<condition>
 			<property>controls/autoflight/flight-director/engage</property>
 		</condition>
@@ -1195,6 +1205,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>HDG.light</object-name>
+		<object-name>HDG.knob.led</object-name>
 		<condition>
 			<equals>
 				<property>controls/autoflight/lateral-mode</property>
@@ -1323,6 +1334,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>AT.light</object-name>
+		<object-name>SPD.knob.led</object-name>
 		<condition>
 			<property>/sim/gui/dialogs/autopilot/speed-active</property>
 		</condition>
