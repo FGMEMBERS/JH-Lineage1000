@@ -1456,6 +1456,127 @@
 		</action>
 	</animation>
 
+        <!-- BARO AND MINIMUMS -->
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.cpt</object-name>
+		<object-name>BARO.knob.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+                                <property>instrumentation/altimeter/setting-inhg</property>
+                                <value>29.92</value> 
+			</binding>
+                </action>
+		<action>
+		        <button>3</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>0.01</step>
+                                <min>0</min>
+			</binding>
+                </action>
+		<action>
+		        <button>4</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>-0.01</step>
+                                <min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.cpt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/altimeter-unit</property>
+                                <value>in</value>
+                                <value>hpa</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.fo</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/altimeter-unit</property>
+                                <value>in</value>
+                                <value>hpa</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.cpt</object-name>
+		<object-name>MINIMUMS.knob.fo</object-name>
+		<action>
+		        <button>3</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/minimums-descent-height-ft</property>
+				<step>50</step>
+                                <min>0</min>
+                                <max>5000</max>
+                                <wrap>false</wrap>
+			</binding>
+                </action>
+		<action>
+		        <button>4</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/minimums-descent-height-ft</property>
+				<step>-50</step>
+                                <min>0</min>
+                                <max>5000</max>
+                                <wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.cpt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/minimums-set</property>
+                                <value>ra</value>
+                                <value>baro</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.fo</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/minimums-set</property>
+                                <value>ra</value>
+                                <value>baro</value>
+			</binding>
+                </action>
+	</animation>
+
 	<!-- NAV -->
 	<animation>
 		<type>pick</type>
