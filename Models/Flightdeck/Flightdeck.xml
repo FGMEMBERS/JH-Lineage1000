@@ -23,12 +23,10 @@
 		<object-name>e1.case</object-name>
 		<object-name>e2.case</object-name>
 		<object-name>AB</object-name>
-        	<object-name>CRS</object-name>
-        	<object-name>CRS.knob</object-name>
-        	<object-name>CRS.knob.led</object-name>
-        	<object-name>CRS2</object-name>
-        	<object-name>CRS2.knob</object-name>
-        	<object-name>CRS2.knob.led</object-name>
+        	<object-name>CRS.knob.cpt</object-name>
+        	<object-name>CRS.knob.led.cpt</object-name>
+        	<object-name>CRS.knob.fo</object-name>
+        	<object-name>CRS.knob.led.fo</object-name>
         	<object-name>HDG</object-name>
         	<object-name>HDG.knob</object-name>
         	<object-name>HDG.knob.led</object-name>
@@ -44,7 +42,8 @@
         	<object-name>FPA</object-name>
         	<object-name>FPA.knob</object-name>
         	<object-name>IAS-MACH</object-name>
-        	<object-name>FD</object-name>
+        	<object-name>FD.cpt</object-name>
+        	<object-name>FD.fo</object-name>
         	<object-name>NAV</object-name>
         	<object-name>APP</object-name>
         	<object-name>BANK</object-name>
@@ -53,18 +52,26 @@
         	<object-name>SRC</object-name>
         	<object-name>AT</object-name>
         	<object-name>VNAV</object-name>
-        	<object-name>HSI</object-name>
-        	<object-name>BRG.top</object-name>
-        	<object-name>BRG.bottom</object-name>
-        	<object-name>WX</object-name>
-        	<object-name>PREV</object-name>
-        	<object-name>FPR</object-name>
-        	<object-name>FMS</object-name>
-        	<object-name>VL</object-name>
-        	<object-name>BARO.knob.left</object-name>
-        	<object-name>BARO.knob.right</object-name>
-        	<object-name>MINIMUMS.knob.left</object-name>
-        	<object-name>MINIMUMS.knob.right</object-name>
+        	<object-name>HSI.cpt</object-name>
+        	<object-name>HSI.fo</object-name>
+        	<object-name>BRG.top.cpt</object-name>
+        	<object-name>BRG.bottom.cpt</object-name>
+        	<object-name>BRG.top.cpt</object-name>
+        	<object-name>BRG.bottom.fo</object-name>
+        	<object-name>WX.cpt</object-name>
+        	<object-name>WX.fo</object-name>
+        	<object-name>PREV.cpt</object-name>
+        	<object-name>PREV.fo</object-name>
+        	<object-name>FPR.cpt</object-name>
+        	<object-name>FPR.fo</object-name>
+        	<object-name>FMS.cpt</object-name>
+        	<object-name>FMS.fo</object-name>
+        	<object-name>VL.cpt</object-name>
+        	<object-name>VL.fo</object-name>
+        	<object-name>BARO.knob.cpt</object-name>
+        	<object-name>BARO.knob.fo</object-name>
+        	<object-name>MINIMUMS.knob.cpt</object-name>
+        	<object-name>MINIMUMS.knob.fo</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>1.0</green>
@@ -93,7 +100,6 @@
 	</animation>
 
 	<!-- HUD -->
-
 	<model>
 		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/HUD.xml</path>
 		<offsets>
@@ -113,7 +119,6 @@
 	</model>
 
 	<!-- Overhead Compass -->
-
 	<animation>
 		<type>textranslate</type>
 		<object-name>compass.indicator</object-name>
@@ -942,8 +947,8 @@
 	<!-- CRS Knob 1 Pick Animation -->
 	<animation>
 		<type>pick</type>
-		<object-name>CRS.knob</object-name>
-		<object-name>CRS.knob.led</object-name>
+		<object-name>CRS.knob.cpt</object-name>
+		<object-name>CRS.knob.led.cpt</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -982,8 +987,8 @@
 	<!-- CRS Knob 2 Pick Animations -->
 	<animation>
 		<type>pick</type>
-		<object-name>CRS2.knob</object-name>
-		<object-name>CRS2.knob.led</object-name>
+		<object-name>CRS.knob.fo</object-name>
+		<object-name>CRS.knob.led.fo</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1137,26 +1142,439 @@
 	</animation>
 
 	<!-- Buttons and Lights Animations -->
-	<!-- FD -->
+
+        <!-- PFD controllers -->
+	<!-- PAGER -->
 	<animation>
 		<type>pick</type>
-		<object-name>FD</object-name>
+		<object-name>FD.cpt</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/autoflight/flight-director/engage</property>
+				<property>autopilot/pfd[0]/flight-director</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FD.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/pfd[1]/flight-director</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>HSI.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/pager</property>
+                                <value>compass</value>
+                                <value>arc</value>
+                                <value>map</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>HSI.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/pager</property>
+                                <value>compass</value>
+                                <value>arc</value>
+                                <value>map</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>WX.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition>
+                                      <or>
+                                            <equals>
+                                                  <property>autopilot/pfd[0]/pager</property>
+                                                  <value>arc</value>
+                                            </equals>
+                                            <equals>
+                                                  <property>autopilot/pfd[0]/pager</property>
+                                                  <value>map</value>
+                                            </equals>
+                                      </or>
+                                </condition>
+				<command>property-toggle</command>
+				<property>autopilot/pfd[0]/weather-radar</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>WX.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition>
+                                      <or>
+                                            <equals>
+                                                  <property>autopilot/pfd[1]/pager</property>
+                                                  <value>arc</value>
+                                            </equals>
+                                            <equals>
+                                                  <property>autopilot/pfd[1]/pager</property>
+                                                  <value>map</value>
+                                            </equals>
+                                      </or>
+                                </condition>
+				<command>property-toggle</command>
+				<property>autopilot/pfd[1]/weather-radar</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FPR.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/pfd[0]/pager</property>
+                                <value>flight-path-reference</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FPR.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/pfd[1]/pager</property>
+                                <value>flight-path-reference</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PREV.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition><or>
+                                       <equals>
+                                              <property>autopilot/pfd[0]/nav-source</property>
+                                              <value>fms1</value>
+                                       </equals>
+                                       <equals>
+                                              <property>autopilot/pfd[0]/nav-source</property>
+                                              <value>fms2</value>
+                                       </equals>
+                                </or></condition>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/preview-mode</property>
+                                <value>on-side</value>
+                                <value>opposite-side</value>
+                                <value>disabled</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PREV.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition><or>
+                                       <equals>
+                                              <property>autopilot/pfd[1]/nav-source</property>
+                                              <value>fms1</value>
+                                       </equals>
+                                       <equals>
+                                              <property>autopilot/pfd[1]/nav-source</property>
+                                              <value>fms2</value>
+                                       </equals>
+                                </or></condition>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/preview-mode</property>
+                                <value>on-side</value>
+                                <value>opposite-side</value>
+                                <value>disabled</value>
 			</binding>
 		</action>
 	</animation>
 
+       <!-- Navigation Source -->
 	<animation>
-		<type>select</type>
-		<object-name>FD.light</object-name>
-		<condition>
-			<property>controls/autoflight/flight-director/engage</property>
-		</condition>
+		<type>pick</type>
+		<object-name>FMS.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/nav-source</property>
+                                <value>fms1</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMS.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/nav-source</property>
+                                <value>fms1</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>VL.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/nav-source</property>
+                                <value>vor1</value>
+                                <value>loc1</value>
+                                <value>vor2</value>
+                                <value>loc2</value>
+			</binding>
+                        <binding>
+                               <command>property-assign</command>
+                               <property>autopilot/pfd[0]/preview-mode</property>
+                               <value>disabled</value>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>VL.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/nav-source</property>
+                                <value>vor1</value>
+                                <value>loc1</value>
+                                <value>vor2</value>
+                                <value>loc2</value>
+			</binding>
+                        <binding>
+                               <command>property-assign</command>
+                               <property>autopilot/pfd[1]/preview-mode</property>
+                               <value>disabled</value>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.top.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/brg-source</property>
+                                <value>vor1</value>
+                                <value>adf1</value>
+                                <value>fms1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.top.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/brg-source</property>
+                                <value>vor1</value>
+                                <value>adf1</value>
+                                <value>fms1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.bottom.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/brg-source</property>
+                                <value>vor2</value>
+                                <value>adf2</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.bottom.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/brg-source</property>
+                                <value>vor2</value>
+                                <value>adf2</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+
+        <!-- BARO AND MINIMUMS -->
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.cpt</object-name>
+		<object-name>BARO.knob.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+                                <property>instrumentation/altimeter/setting-inhg</property>
+                                <value>29.92</value> 
+			</binding>
+                </action>
+		<action>
+		        <button>3</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>0.01</step>
+                                <min>0</min>
+			</binding>
+                </action>
+		<action>
+		        <button>4</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>-0.01</step>
+                                <min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.cpt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/altimeter-unit</property>
+                                <value>in</value>
+                                <value>hpa</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BARO.knob.fo</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/altimeter-unit</property>
+                                <value>in</value>
+                                <value>hpa</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.cpt</object-name>
+		<object-name>MINIMUMS.knob.fo</object-name>
+		<action>
+		        <button>3</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/minimums-descent-height-ft</property>
+				<step>50</step>
+                                <min>0</min>
+                                <max>5000</max>
+                                <wrap>false</wrap>
+			</binding>
+                </action>
+		<action>
+		        <button>4</button>
+		        <repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/minimums-descent-height-ft</property>
+				<step>-50</step>
+                                <min>0</min>
+                                <max>5000</max>
+                                <wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.cpt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/minimums-set</property>
+                                <value>ra</value>
+                                <value>baro</value>
+			</binding>
+                </action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>MINIMUMS.knob.fo</object-name>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/minimums-set</property>
+                                <value>ra</value>
+                                <value>baro</value>
+			</binding>
+                </action>
 	</animation>
 
 	<!-- NAV -->
