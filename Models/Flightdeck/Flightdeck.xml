@@ -23,12 +23,10 @@
 		<object-name>e1.case</object-name>
 		<object-name>e2.case</object-name>
 		<object-name>AB</object-name>
-        	<object-name>CRS</object-name>
-        	<object-name>CRS.knob</object-name>
-        	<object-name>CRS.knob.led</object-name>
-        	<object-name>CRS2</object-name>
-        	<object-name>CRS2.knob</object-name>
-        	<object-name>CRS2.knob.led</object-name>
+        	<object-name>CRS.knob.cpt</object-name>
+        	<object-name>CRS.knob.led.cpt</object-name>
+        	<object-name>CRS.knob.fo</object-name>
+        	<object-name>CRS.knob.led.fo</object-name>
         	<object-name>HDG</object-name>
         	<object-name>HDG.knob</object-name>
         	<object-name>HDG.knob.led</object-name>
@@ -53,18 +51,26 @@
         	<object-name>SRC</object-name>
         	<object-name>AT</object-name>
         	<object-name>VNAV</object-name>
-        	<object-name>HSI</object-name>
-        	<object-name>BRG.top</object-name>
-        	<object-name>BRG.bottom</object-name>
-        	<object-name>WX</object-name>
-        	<object-name>PREV</object-name>
-        	<object-name>FPR</object-name>
-        	<object-name>FMS</object-name>
-        	<object-name>VL</object-name>
-        	<object-name>BARO.knob.left</object-name>
-        	<object-name>BARO.knob.right</object-name>
-        	<object-name>MINIMUMS.knob.left</object-name>
-        	<object-name>MINIMUMS.knob.right</object-name>
+        	<object-name>HSI.cpt</object-name>
+        	<object-name>HSI.fo</object-name>
+        	<object-name>BRG.top.cpt</object-name>
+        	<object-name>BRG.bottom.cpt</object-name>
+        	<object-name>BRG.top.cpt</object-name>
+        	<object-name>BRG.bottom.fo</object-name>
+        	<object-name>WX.cpt</object-name>
+        	<object-name>WX.fo</object-name>
+        	<object-name>PREV.cpt</object-name>
+        	<object-name>PREV.fo</object-name>
+        	<object-name>FPR.cpt</object-name>
+        	<object-name>FPR.fo</object-name>
+        	<object-name>FMS.cpt</object-name>
+        	<object-name>FMS.fo</object-name>
+        	<object-name>VL.cpt</object-name>
+        	<object-name>VL.fo</object-name>
+        	<object-name>BARO.knob.cpt</object-name>
+        	<object-name>BARO.knob.fo</object-name>
+        	<object-name>MINIMUMS.knob.cpt</object-name>
+        	<object-name>MINIMUMS.knob.fo</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>1.0</green>
@@ -942,8 +948,8 @@
 	<!-- CRS Knob 1 Pick Animation -->
 	<animation>
 		<type>pick</type>
-		<object-name>CRS.knob</object-name>
-		<object-name>CRS.knob.led</object-name>
+		<object-name>CRS.knob.cpt</object-name>
+		<object-name>CRS.knob.led.cpt</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -982,8 +988,8 @@
 	<!-- CRS Knob 2 Pick Animations -->
 	<animation>
 		<type>pick</type>
-		<object-name>CRS2.knob</object-name>
-		<object-name>CRS2.knob.led</object-name>
+		<object-name>CRS.knob.fo</object-name>
+		<object-name>CRS.knob.led.fo</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
