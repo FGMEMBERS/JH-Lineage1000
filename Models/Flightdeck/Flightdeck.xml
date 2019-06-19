@@ -100,7 +100,6 @@
 	</animation>
 
 	<!-- HUD -->
-
 	<model>
 		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/HUD.xml</path>
 		<offsets>
@@ -120,7 +119,6 @@
 	</model>
 
 	<!-- Overhead Compass -->
-
 	<animation>
 		<type>textranslate</type>
 		<object-name>compass.indicator</object-name>
@@ -1144,7 +1142,9 @@
 	</animation>
 
 	<!-- Buttons and Lights Animations -->
-	<!-- FD -->
+
+        <!-- PFD controllers -->
+	<!-- PAGER -->
 	<animation>
 		<type>pick</type>
 		<object-name>FD.cpt</object-name>
@@ -1169,7 +1169,292 @@
 			</binding>
 		</action>
 	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>HSI.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/pager</property>
+                                <value>compass</value>
+                                <value>arc</value>
+                                <value>map</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>HSI.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/pager</property>
+                                <value>compass</value>
+                                <value>arc</value>
+                                <value>map</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>WX.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition>
+                                      <or>
+                                            <equals>
+                                                  <property>autopilot/pfd[0]/pager</property>
+                                                  <value>arc</value>
+                                            </equals>
+                                            <equals>
+                                                  <property>autopilot/pfd[0]/pager</property>
+                                                  <value>map</value>
+                                            </equals>
+                                      </or>
+                                </condition>
+				<command>property-toggle</command>
+				<property>autopilot/pfd[0]/weather-radar</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>WX.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition>
+                                      <or>
+                                            <equals>
+                                                  <property>autopilot/pfd[1]/pager</property>
+                                                  <value>arc</value>
+                                            </equals>
+                                            <equals>
+                                                  <property>autopilot/pfd[1]/pager</property>
+                                                  <value>map</value>
+                                            </equals>
+                                      </or>
+                                </condition>
+				<command>property-toggle</command>
+				<property>autopilot/pfd[1]/weather-radar</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FPR.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/pfd[0]/pager</property>
+                                <value>flight-path-reference</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FPR.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/pfd[1]/pager</property>
+                                <value>flight-path-reference</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PREV.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition><or>
+                                       <equals>
+                                              <property>autopilot/pfd[0]/nav-source</property>
+                                              <value>fms1</value>
+                                       </equals>
+                                       <equals>
+                                              <property>autopilot/pfd[0]/nav-source</property>
+                                              <value>fms2</value>
+                                       </equals>
+                                </or></condition>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/preview-mode</property>
+                                <value>on-side</value>
+                                <value>opposite-side</value>
+                                <value>disabled</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PREV.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+                                <condition><or>
+                                       <equals>
+                                              <property>autopilot/pfd[1]/nav-source</property>
+                                              <value>fms1</value>
+                                       </equals>
+                                       <equals>
+                                              <property>autopilot/pfd[1]/nav-source</property>
+                                              <value>fms2</value>
+                                       </equals>
+                                </or></condition>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/preview-mode</property>
+                                <value>on-side</value>
+                                <value>opposite-side</value>
+                                <value>disabled</value>
+			</binding>
+		</action>
+	</animation>
 
+       <!-- Navigation Source -->
+	<animation>
+		<type>pick</type>
+		<object-name>FMS.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/nav-source</property>
+                                <value>fms1</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FMS.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/nav-source</property>
+                                <value>fms1</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>VL.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/nav-source</property>
+                                <value>vor1</value>
+                                <value>loc1</value>
+                                <value>vor2</value>
+                                <value>loc2</value>
+			</binding>
+                        <binding>
+                               <command>property-assign</command>
+                               <property>autopilot/pfd[0]/preview-mode</property>
+                               <value>disabled</value>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>VL.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/nav-source</property>
+                                <value>vor1</value>
+                                <value>loc1</value>
+                                <value>vor2</value>
+                                <value>loc2</value>
+			</binding>
+                        <binding>
+                               <command>property-assign</command>
+                               <property>autopilot/pfd[1]/preview-mode</property>
+                               <value>disabled</value>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.top.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/brg-source</property>
+                                <value>vor1</value>
+                                <value>adf1</value>
+                                <value>fms1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.top.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/brg-source</property>
+                                <value>vor1</value>
+                                <value>adf1</value>
+                                <value>fms1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.bottom.cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/brg-source</property>
+                                <value>vor2</value>
+                                <value>adf2</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>BRG.bottom.fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/brg-source</property>
+                                <value>vor2</value>
+                                <value>adf2</value>
+                                <value>fms2</value>
+			</binding>
+		</action>
+	</animation>
 
 	<!-- NAV -->
 	<animation>
