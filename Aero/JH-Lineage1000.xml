@@ -222,8 +222,8 @@
 
 	</ground_reactions>
 
-	<!-- 2 x General Electric CF34-10E7-B Engines -->
 	<propulsion>
+		<!-- 2 x General Electric CF34-10E7-B Engines -->
 
 		<engine file="GE_CF34-10E7-B">
 			<location unit="IN">

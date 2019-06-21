@@ -11,6 +11,17 @@
 
 <PropertyList>
 
+	<logic>
+		<name>switch-logic-active</name>
+		<input>
+			<equals>
+				<property>autopilot/settings/ap-armed</property>
+				<value>true</value>
+			</equals>
+		</input>
+		<output>autopilot/internal/ap-active</output>
+	</logic>
+
 	<predict-simple>
 		<name>predicted altitude 5 seconds ahead</name>
 		<debug>false</debug>
@@ -363,10 +374,13 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<equals>        
-					<property>/autopilot/locks/altitude</property>
-					<value>altitude-hold</value>
-				</equals>
+				<and>
+					<equals>        
+						<property>/autopilot/locks/altitude</property>
+						<value>altitude-hold</value>
+					</equals>
+					<property>/autopilot/internal/ap-active</property>
+				</and>				
 			</condition>
 		</enable>
 		<input>
@@ -436,16 +450,19 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<or>
-					<equals>
-						<property>/autopilot/locks/altitude</property>
-						<value>vertical-speed-hold</value>
-					</equals>
-					<equals>        
-						<property>/autopilot/locks/altitude</property>
-						<value>altitude-hold</value>
-					</equals>
-				</or>
+				<and>
+					<or>
+						<equals>
+							<property>/autopilot/locks/altitude</property>
+							<value>vertical-speed-hold</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
+							<value>altitude-hold</value>
+						</equals>
+					</or>
+					<property>/autopilot/internal/ap-active</property>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -490,6 +507,7 @@
 						<property>/instrumentation/nav[0]/gs-in-range</property>
 						<value>true</value>
 					</equals>
+					<property>/autopilot/internal/ap-active</property>
 				</and>
 			</condition>
 		</enable>
@@ -534,6 +552,7 @@
 						<property>/instrumentation/nav[0]/gs-in-range</property>
 						<value>false</value>
 					</equals>
+					<property>/autopilot/internal/ap-active</property>
 				</and>
 			</condition>
 		</enable>
@@ -564,20 +583,23 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<or>
-					<equals>
-						<property>/autopilot/locks/heading</property>
-						<value>dg-heading-hold</value>
-					</equals>
-					<equals>
-	    					<property>/autopilot/locks/heading</property>
-						<value>true-heading-hold</value>
-					</equals>
-					<equals>
-	    					<property>/autopilot/locks/heading</property>
-						<value>nav1-hold</value>
-					</equals>
-				</or>
+				<and>
+					<or>
+						<equals>
+							<property>/autopilot/locks/heading</property>
+							<value>dg-heading-hold</value>
+						</equals>
+						<equals>
+		    					<property>/autopilot/locks/heading</property>
+							<value>true-heading-hold</value>
+						</equals>
+						<equals>
+		    					<property>/autopilot/locks/heading</property>
+							<value>nav1-hold</value>
+						</equals>
+					</or>
+					<property>/autopilot/internal/ap-active</property>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -662,10 +684,13 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<not-equals>
-					<property>/autopilot/locks/heading</property>
-					<value />
-				</not-equals>
+				<and>
+					<not-equals>
+						<property>/autopilot/locks/heading</property>
+						<value />
+					</not-equals>
+					<property>/autopilot/internal/ap-active</property>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -724,10 +749,13 @@
 		<debug>false</debug>
 		<enable>
 			<condition>
-				<not-equals>
-					<property>/autopilot/locks/altitude</property>
-					<value />
-				</not-equals>
+				<and>
+					<not-equals>
+						<property>/autopilot/locks/altitude</property>
+						<value />
+					</not-equals>
+					<property>/autopilot/internal/ap-active</property>
+				</and>				
 			</condition>
 		</enable>
 		<input>
@@ -771,6 +799,7 @@
 						<value>kts</value>
 					</equals>
 					<property>/sim/gui/dialogs/autopilot/speed-active</property>
+					<property>/autopilot/internal/ap-active</property>
 				</and>
 			</condition>
 		</enable>
@@ -818,7 +847,12 @@
 						<property>/autopilot/settings/kts-mach-select</property>
 						<value>mach</value>
 					</equals>
+					<equals>
+						<property>/autopilot/internal/ap-active</property>
+						<value>true</value>
+					</equals>
 					<property>/sim/gui/dialogs/autopilot/speed-active</property>
+					<property>/autopilot/internal/ap-active</property>
 				</and>
 			</condition>
 		</enable>

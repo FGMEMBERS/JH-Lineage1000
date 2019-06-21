@@ -740,6 +740,7 @@
 		</settings>
 
 		<internal>
+			<ap-active type="bool">false</ap-active>
 			<target-pitch-deg type="float">0.00</target-pitch-deg>
 			<max-pitch type="float"> 8.0</max-pitch>
 			<min-pitch type="float">-6.0</min-pitch>
