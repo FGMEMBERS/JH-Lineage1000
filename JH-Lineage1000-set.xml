@@ -247,6 +247,16 @@
 					<green type="float">0.0</green>
 					<blue type="float">0.0</blue>
 				</color>
+	
+				<color n="10">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">1.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.0</blue>
+				</color>
 
 			</palette>
  
