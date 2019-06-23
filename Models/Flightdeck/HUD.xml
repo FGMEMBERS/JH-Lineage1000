@@ -52,6 +52,7 @@
 				<value>7</value>
 				<value>8</value>
 				<value>9</value>
+				<value>10</value>
 			</binding>
 		</action>
 	</animation>
@@ -64,6 +65,7 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/sim/hud/current-color</property>
+				<value>10</value>
 				<value>9</value>
 				<value>8</value>
 				<value>7</value>
