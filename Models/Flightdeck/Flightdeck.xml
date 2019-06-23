@@ -757,6 +757,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>nasal</command>
+				<script>lineage1000.ALT_Sync();</script>
+
+			</binding>
+			<binding>
+				<command>nasal</command>
 				<script>lineage1000.switchAlt();</script>
 			</binding>
 		</action>
@@ -818,9 +823,20 @@
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
+                        <!--
 			<binding>
 				<command>nasal</command>
 				<script>lineage1000.switchFPA();</script>
+			</binding>
+                        -->
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.FPA_Sync();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>autopilot/locks/altitude</property>
+                                <value>pitch-hold</value>
 			</binding>
 		</action>
 	</animation>
@@ -831,7 +847,7 @@
 		<condition>
 			<equals>
 				<property>autopilot/locks/altitude</property>
-				<value>fpa-hold</value>
+				<value>pitch-hold</value>
 			</equals>
 		</condition>
 	</animation>
@@ -869,6 +885,10 @@
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.VS_Sync();</script>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>lineage1000.switchVS();</script>
@@ -958,8 +978,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>nasal</command>
-                                <!-- To be completed: Set NAV[0] heading to Direct -->
-				<script>crs.dir()</script>
+				<script>lineage1000.CRS_dir_nav0()</script>
 			</binding>
                 </action>
 		<action>
@@ -998,8 +1017,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>nasal</command>
-                                <!-- To be completed: Set NAV[1] heading to Direct -->
-				<script>crs2.dir()</script>
+				<script>lineage1000.CRS_dir_nav1()</script>
 			</binding>
                 </action>
 		<action>
@@ -1038,8 +1056,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>nasal</command>
-                                <!-- To be completed: Set AP Heading to curent magnetic -->
-				<script>hdg.sync()</script>
+				<script>lineage1000.HDG_Sync()</script>
 			</binding>
                 </action>
 		<action>
@@ -1589,10 +1606,9 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>controls/autoflight/lateral-mode</property>
-				<value>2</value>
-				<value>0</value>
+				<command>property-assign</command>
+				<property>autopilot/locks/heading</property>
+				<value>true-heading-hold</value>
 			</binding>
 		</action>
 	</animation>
@@ -1602,8 +1618,8 @@
 		<object-name>NAV.light</object-name>
 		<condition>
 			<equals>
-				<property>controls/autoflight/lateral-mode</property>
-				<value>2</value>
+				<property>autopilot/locks/heading</property>
+				<value>true-heading-hold</value>
 			</equals>
 		</condition>
 	</animation>
@@ -1616,10 +1632,9 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>controls/autoflight/lateral-mode</property>
-				<value>1</value>
-				<value>0</value>
+				<command>property-assign</command>
+				<property>autopilot/locks/heading</property>
+                                <value>dg-heading-hold</value>
 			</binding>
 		</action>
 	</animation>
@@ -1630,8 +1645,8 @@
 		<object-name>HDG.knob.led</object-name>
 		<condition>
 			<equals>
-				<property>controls/autoflight/lateral-mode</property>
-				<value>1</value>
+				<property>autopilot/locks/heading</property>
+				<value>dg-heading-hold</value>
 			</equals>
 		</condition>
 	</animation>
@@ -1668,7 +1683,7 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>autopilot/settings/bank-angle-limit-deg</property>
-				<value>16</value>
+				<value>17</value>
 				<value>35</value>
 			</binding>
 		</action>
@@ -1744,26 +1759,35 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-				<property>/sim/gui/dialogs/autopilot/speed-active</property>
+				<command>nasal</command>
+				<script>lineage1000.SPD_Sync()</script>
+                                <value></value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/locks/speed</property>
+                                <value>speed-with-throttle</value>
+                                <value></value>
+			</binding>
+                        <!--
 			<binding>
 				<command>nasal</command>
 				<script>vel.enable()</script>
 			</binding>
+                        -->
 		</action>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>AT.light</object-name>
 		<object-name>SPD.knob.led</object-name>
-		<condition>
-			<property>/sim/gui/dialogs/autopilot/speed-active</property>
-		</condition>
+		<condition><equals>
+			<property>/autopilot/locks/speed</property>
+			<value>speed-with-throttle</value>
+		</equals></condition>
 	</animation>
 
 	<!-- FLCH -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>FLCH</object-name>
