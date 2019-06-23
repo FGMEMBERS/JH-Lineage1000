@@ -714,8 +714,8 @@
                                 <value>0</value>
                              </equals></condition>
 		             <command>property-assign</command>
-			     <property>controls/autoflight/yaw-damper[0]/engage</property>
-                             <value>1</value>
+			     <property>controls/flight/auto-coordination</property>
+                             <value>true</value>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
@@ -1695,7 +1695,7 @@
 		<condition>
 			<equals>
 				<property>autopilot/settings/bank-angle-limit-deg</property>
-				<value>16</value>
+				<value>17</value>
 			</equals>
 		</condition>
 	</animation>
@@ -1710,7 +1710,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/autoflight/yaw-damper[0]/engage</property>
+				<property>controls/flight/auto-coordination</property>
 			</binding>
 		</action>
 	</animation>
@@ -1719,7 +1719,7 @@
 		<type>select</type>
 		<object-name>YD.light</object-name>
 		<condition>
-			<property>controls/autoflight/yaw-damper[0]/engage</property>
+			<property>controls/flight/auto-coordination</property>
 		</condition>
 	</animation>
 
