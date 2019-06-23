@@ -709,15 +709,27 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-                             <condition><equals>
-                                <property>autopilot/settings/ap-armed</property>
-                                <value>0</value>
-                             </equals></condition>
+                             <condition><and>
+                                <equals>
+                                    <property>autopilot/settings/ap-armed</property>
+                                    <value>0</value>
+                                </equals>
+                                <greater-than-equals>
+                                    <property>position/altitude-agl-ft</property>
+                                    <value>400</value>
+                                </greater-than-equals>
+                             </and></condition>
 		             <command>property-assign</command>
 			     <property>controls/flight/auto-coordination</property>
                              <value>true</value>
 			</binding>
 			<binding>
+                          <condition>
+                                  <greater-than-equals>
+                                    <property>position/altitude-agl-ft</property>
+                                    <value>400</value>
+                                 </greater-than-equals>
+                           </condition>
 				<command>property-toggle</command>
 				<property>autopilot/settings/ap-armed</property>
 			</binding>
