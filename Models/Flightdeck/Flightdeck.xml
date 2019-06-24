@@ -730,8 +730,8 @@
                                     <value>400</value>
                                  </greater-than-equals>
                            </condition>
-				<command>property-toggle</command>
-				<property>autopilot/settings/ap-armed</property>
+		           <command>nasal</command>
+			   <script>lineage1000.AP_Toggle()</script>
 			</binding>
 		</action>
 	</animation>
@@ -824,6 +824,10 @@
 				<property>autopilot/settings/target-altitude-ft</property>
 				<step>-100</step>
 				<min>1000</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.ALT_Sync(getprop("autopilot/settings/target-altitude-ft"))</script>
 			</binding>
 		</action>
 	</animation>
@@ -1159,6 +1163,10 @@
 				<property>autopilot/settings/kts-mach-select</property>
 				<value>kts</value>
 				<value>mach</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.SPD_Sync()</script>
 			</binding>
 		</action>
 		<action>
@@ -1771,14 +1779,14 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>lineage1000.SPD_Sync()</script>
-                                <value></value>
-			</binding>
-			<binding>
 				<command>property-cycle</command>
 				<property>autopilot/locks/speed</property>
                                 <value>speed-with-throttle</value>
+                                <value></value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>lineage1000.SPD_Sync()</script>
                                 <value></value>
 			</binding>
                         <!--

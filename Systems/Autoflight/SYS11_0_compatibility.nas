@@ -110,8 +110,28 @@ var VS_Sync = func () {
     setprop("autopilot/settings/vertical-speed-fpm",current_vs);
 }
 
-var ALT_Sync = func () {
-    setprop("autopilot/settings/target-altitude-ft",getprop("position/altitude-ft"));
+var ALT_min = func (min_agl=1000){
+        var current_elev =  getprop("/position/ground-elev-ft");
+	if (current_elev == nil) { current_elev = 0;}
+    	var min_alt_ft = min_agl + current_elev;
+    	setprop("autopilot/internal/min-alt-ft", min_alt_ft);
+    }
+settimer (ALT_min, 10);
+
+var ALTLimit = func (alt){
+    var min_alt = getprop("autopilot/internal/min-alt-ft");
+    if (alt < min_alt) {
+       alt = min_alt;
+    }
+    return (alt);
+}
+
+var ALT_Sync = func (alt_set=nil) {
+    if (alt_set==nil){
+       var alt_set = getprop("position/altitude-ft");
+    }
+    alt_set = ALTLimit (alt_set);
+    setprop("autopilot/settings/target-altitude-ft", alt_set);
 }
 
 var KIASLimit = func (KIAS, low=130, high=320) {
@@ -137,11 +157,19 @@ var SPD_Sync = func () {
     setprop("autopilot/settings/target-speed-mach", current_Mach);
 }
 
-var AP_Start_Clean = func () {
-    #AP starts clean with conservation of Heading and pitch
-    HDG_Sync();
-    FPA_Sync();
-    setprop("autopilot/locks/heading","dg-heading-hold");
-    setprop("autopilot/locks/altitude","pitch-hold");
-    setprop("autopilot/settings/ap-armed",true);
+var AP_Toggle = func () {
+    if (getprop("autopilot/settings/ap-armed")){
+       setprop("autopilot/settings/ap-armed", "false");
+       return ("AP off");
+    }
+    if (getprop("autopilot/locks/heading")==nil){
+       HDG_Sync();
+       setprop("autopilot/locks/heading","dg-heading-hold");      
+    }
+    if (getprop("autopilot/locks/altitude")==nil) {
+       FPA_Sync();
+       setprop("autopilot/locks/altitude","pitch-hold");
+    }
+    setprop("autopilot/settings/ap-armed","true");
+    return ("AP on");
 }
