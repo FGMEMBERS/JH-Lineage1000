@@ -158,18 +158,28 @@ var SPD_Sync = func () {
 }
 
 var AP_Toggle = func () {
+    #When AP is engaged; then disengage
     if (getprop("autopilot/settings/ap-armed")){
        setprop("autopilot/settings/ap-armed", "false");
        return ("AP off");
     }
+
+    #When AP is not engaged; first sync to current condition
+    HDG_Sync();
+    FPA_Sync();
+    VS_Sync();
+    ALT_Sync();
+    SPD_Sync();
+    
+    #then engage HDG or FPA by default if no option pre-selected
     if (getprop("autopilot/locks/heading")==nil){
-       HDG_Sync();
        setprop("autopilot/locks/heading","dg-heading-hold");      
     }
     if (getprop("autopilot/locks/altitude")==nil) {
-       FPA_Sync();
        setprop("autopilot/locks/altitude","pitch-hold");
     }
+
+    #Finally engage autopilot
     setprop("autopilot/settings/ap-armed","true");
     return ("AP on");
 }
