@@ -3,18 +3,9 @@
 <PropertyList>
 
 	<path>Aircraft/JH-Lineage1000/Models/Flightdeck.ac</path>
+ 
+<!-- Audio Control Panel-->
 
-  <!-- Audio Control Panel
-  <PropertyList include="acp/acp.xml"/>-->
-
-  <instrumentation>
-       <acp>
-           <audio>
-                  <output-selector type="string">hdph</output-selector>
-                  <satcom type="bool">false</satcom>
-           </audio> 
-       </acp>
-  </instrumentation>
   <!-- Status Leds -->
   <!-- mic selectors -->
   <animation>
@@ -972,6 +963,7 @@
       </binding>
     </action>
   </animation>
+<!-- end ACP -->
 
 
 	<animation>

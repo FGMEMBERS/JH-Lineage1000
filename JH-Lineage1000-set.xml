@@ -629,8 +629,19 @@
 	<input include="Aircraft/JH-Lineage1000/Dialogs/pilot-keys.xml" />
 
 	<instrumentation>
-
-		<cdu>
+          <acp>
+            <mic>
+                <auto-mask type="string">auto</auto-mask>
+                <vhf1 type="bool">true</vhf1>
+            </mic>
+            <audio>
+                <backup type="string">norm</backup>
+                <output-selector type="string">hdph</output-selector>
+                <last-selected type="string">vhf1</last-selected>
+                <vhf1 type="bool">true</vhf1>
+            </audio> 
+          </acp> 
+ 		<cdu>
 			<display>IDENT</display>
   			<ident>
    				<model>Lineage 1000</model>
