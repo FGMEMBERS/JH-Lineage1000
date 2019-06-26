@@ -3,6 +3,968 @@
 <PropertyList>
 
 	<path>Aircraft/JH-Lineage1000/Models/Flightdeck.ac</path>
+ 
+<!-- Audio Control Panel-->
+
+  <!-- Status Leds -->
+  <!-- mic selectors -->
+  <animation>
+    <type>select</type>
+    <object-name>mic.vhf1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/vhf1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mic.vhf2.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/vhf2</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mic.vhf3.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/vhf3</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mic.hf.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/hf</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>satcom.ctr.button.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/satcom</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mic.pa.led</object-name>
+    <condition>
+      <property>instrumentation/acp/mic/pa</property>
+    </condition>
+  </animation>
+
+  <!-- audio selectors -->
+  <animation>
+    <type>select</type>
+    <object-name>aud.vhf1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/vhf1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.vhf2.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/vhf2</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.vhf3.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/vhf3</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.hf.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/hf</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.sat.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/satcom</property>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>aud.nav1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/nav1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.nav2.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/nav2</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.nav3.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/nav3</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.adf1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/adf1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.adf2.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/adf2</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>acp.filter.id.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/filter-id</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.nav1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/nav1</property>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>aud.dme1.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/dme1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.dme2.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/dme2</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.mkr.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/mkr</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.pa.led</object-name>
+    <condition>
+      <property>instrumentation/acp/audio/pa</property>
+    </condition>
+  </animation>
+
+  <!-- Output selectors -->
+  <animation>
+    <type>select</type>
+    <object-name>aud.selection.headphone.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/audio/output-selector</property>
+      <value>hdph</value>
+    </equals></condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.selection.interphone.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/audio/output-selector</property>
+      <value>inph</value>
+    </equals></condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>aud.selection.speaker.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/audio/output-selector</property>
+      <value>spkr</value>
+    </equals></condition>
+  </animation>
+
+  <!--TBC: Intercoms. Flashing on call, or reply (faster), and steady when on -->
+  <animation>
+    <type>select</type>
+    <object-name>interphone.emer.led</object-name>
+    <condition>
+      <property>instrumentation/acp/interphone/emer-led</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>interphone.ramp.led</object-name>
+    <condition>
+      <property>instrumentation/acp/interphone/ramp-led</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>interphone.cabin.led</object-name>
+    <condition>
+      <property>instrumentation/acp/interphone/cabin-led</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>acp.selcal.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/interphone/selcal</property>
+      <value>on</value>
+    </equals></condition>
+  </animation>
+
+  <!-- mask mic switch -->
+  <animation>
+    <type>select</type>
+    <object-name>auto.mask.mic.switch.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/mic/auto-mask</property>
+      <value>mask</value>
+    </equals></condition>
+  </animation>
+
+  <!-- backup audio and volume control button/knob -->
+  <animation>
+    <type>select</type>
+    <object-name>backup.volume.switch.led</object-name>
+    <condition><equals>
+      <property>instrumentation/acp/audio/backup</property>
+      <value>bkup</value>
+    </equals></condition>
+  </animation>
+
+  <!-- Mic activation -->
+  <animation>
+    <type>pick</type>
+    <object-name>mic.vhf1</object-name>
+    <object-name>mic.vhf1.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/mic/vhf1</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>mic.vhf2</object-name>
+    <object-name>mic.vhf2.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/mic/vhf2</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>mic.vhf3</object-name>
+    <object-name>mic.vhf3.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/mic/vhf3</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>mic.hf</object-name>
+    <object-name>mic.hf.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/mic/hf</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>satcom.ctr.button</object-name>
+    <object-name>satcom.ctr.button.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>nasal</command>
+	<script>print("satcom not available");</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>mic.pa</object-name>
+    <object-name>mic.pa.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/mic/pa</property>
+      </binding>
+    </action>
+  </animation>
+  
+  <!-- audio selectors --> 
+  <animation>
+    <type>pick</type>
+    <object-name>aud.vhf1</object-name>
+    <object-name>aud.vhf1.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/vhf1</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>vhf1</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/vhf1</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.vhf2</object-name>
+    <object-name>aud.vhf2.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/vhf2</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>vhf2</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/vhf2</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.vhf3</object-name>
+    <object-name>aud.vhf3.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/vhf3</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>vhf3</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/vhf3</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.hf</object-name>
+    <object-name>aud.hf.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/hf</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>hf</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/hf</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.sat</object-name>
+    <object-name>aud.sat.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>nasal</command>
+	<script>print("satcom not available");</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.nav1</object-name>
+    <object-name>aud.nav1.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/nav1</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>nav1</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/nav1</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.nav2</object-name>
+    <object-name>aud.nav2.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/nav2</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>nav2</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/nav2</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.nav3</object-name>
+    <object-name>aud.nav3.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/nav3</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>nav3</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/nav3</property>
+      </binding>
+    </action>
+  </animation>
+
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.adf1</object-name>
+    <object-name>aud.adf1.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/adf1</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>adf1</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/adf1</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.adf2</object-name>
+    <object-name>aud.adf2.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/adf2</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>adf2</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/adf2</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.dme1</object-name>
+    <object-name>aud.dme1.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/dme1</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>dme1</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/dme1</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.dme2</object-name>
+    <object-name>aud.dme2.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/dme2</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>dme2</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/dme2</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.mkr</object-name>
+    <object-name>aud.mkr.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/mkr</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>mkr</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/mkr</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.pa</object-name>
+    <object-name>aud.pa.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<condition><and>
+          <not>
+	  <property>instrumentation/acp/audio/pa</property>
+	  </not>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </and></condition>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/last-selected</property>
+	<value>pa</value>
+      </binding>
+      <binding>
+	<condition>
+          <equals>
+             <property>instrumentation/acp/audio/backup</property>
+             <value>norm</value> 
+          </equals>
+         </condition>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/pa</property>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- filter id audio -->
+  <animation>
+    <type>pick</type>
+    <object-name>acp.filter.id</object-name>
+    <object-name>acp.filter.id.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-toggle</command>
+	<property>instrumentation/acp/audio/filter-id</property>
+      </binding>
+    </action>
+  </animation>
+
+
+  <!-- audio selection buttons -->
+  <animation>
+    <type>pick</type>
+    <object-name>aud.selection.speaker</object-name>
+    <object-name>aud.selection.speaker.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/output-selector</property>
+	<value>spkr</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.selection.interphone</object-name>
+    <object-name>aud.selection.interphone.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/output-selector</property>
+	<value>inph</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>aud.selection.headphone</object-name>
+    <object-name>aud.selection.headphone.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-assign</command>
+	<property>instrumentation/acp/audio/output-selector</property>
+	<value>hdph</value>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- backup volume button knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>backup.volume.switch</object-name>
+    <object-name>backup.volume.switch.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-cycle</command>
+	<property>instrumentation/acp/audio/backup</property>
+	<value>norm</value>
+	<value>bkup</value>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <condition><equals>
+           <property>instrumentation/acp/audio/backup</property>
+           <value>bkup</value>
+        </equals></condition>
+	<command>property-adjust</command>
+	<property>instrumentation/acp/audio/backup-volume</property>
+	<step>5</step>
+	<max>100</max>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <condition><equals>
+           <property>instrumentation/acp/audio/backup</property>
+           <value>bkup</value>
+        </equals></condition>
+	<command>property-adjust</command>
+	<property>instrumentation/acp/audio/backup-volume</property>
+	<step>-5</step>
+	<min>0</min>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- backup volume button knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>auto.mask.mic.switch</object-name>
+    <object-name>auto.mask.mic.switch.led</object-name>
+    <action>
+      <button>0</button>
+      <repeatable type="bool">false</repeatable>
+      <binding>
+	<command>property-cycle</command>
+	<property>instrumentation/acp/mic/auto-mask</property>
+	<value>auto</value>
+	<value>mask</value>
+      </binding>
+    </action>
+  </animation>
+<!-- end ACP -->
+
 
 	<animation>
 		<type>translate</type>
