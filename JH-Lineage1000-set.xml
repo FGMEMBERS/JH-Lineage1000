@@ -30,6 +30,7 @@
 
 		<description>Embraer Lineage 1000E (190-100 EBJ)</description>
 		<author>Peter Brendt</author>
+		<author>IAHM-COL</author>
 		<author>Narendran Muraleedharan</author>
 		
 		<aircraft-version>V03.00.00</aircraft-version>
@@ -639,7 +640,14 @@
                 <output-selector type="string">hdph</output-selector>
                 <last-selected type="string">vhf1</last-selected>
                 <vhf1 type="bool">true</vhf1>
-            </audio> 
+            </audio>
+	    <interphone>
+	      <emer type="string">call-off</emer>
+	      <ramp type="string">call-off</ramp>
+	      <cabin type="string">call-off</cabin>
+	      <selcal type="string">call-off</selcal>
+	      <selcal-display type="string">----</selcal-display>
+	    </interphone>
           </acp> 
  		<cdu>
 			<display>IDENT</display>
