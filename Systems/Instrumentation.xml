@@ -25,15 +25,6 @@ file, these values will be used (they are hardcoded).
 
 <PropertyList>
 
-	<adf>
-		<name>adf</name>
-		<number>0</number>
-	</adf>
-
-	<adf>
-		<name>adf</name>
-		<number>1</number>
-	</adf>
 
 	<airspeed-indicator>
 		<name>airspeed-indicator</name>
@@ -69,15 +60,65 @@ file, these values will be used (they are hardcoded).
 		<number>0</number>
 	</clock>
 
+        <!-- Radio and Comm Stacks -->
+        <!-- Radio stack; 3 VHF and one HF (global frequency) -->
+	<comm-radio>
+		<name>comm</name>
+		<number>0</number>
+	</comm-radio>
+	<comm-radio>
+		<name>comm</name>
+		<number>1</number>
+	</comm-radio>
+	<comm-radio>
+		<name>comm</name>
+		<number>2</number>
+	</comm-radio>
+	<comm-radio>
+		<name>hf</name>
+		<number>0</number>
+	</comm-radio>
+
+        <!-- Three NAV -->
+	<nav-radio>
+		<name>nav</name>
+		<number>0</number>
+	</nav-radio>
+	<nav-radio>
+		<name>nav</name>
+		<number>1</number>
+	</nav-radio>
+	<nav-radio>
+		<name>nav</name>
+		<number>2</number>
+	</nav-radio>
+
+        <!-- Two ADF -->
+	<adf>
+		<name>adf</name>
+		<number>0</number>
+	</adf>
+	<adf>
+		<name>adf</name>
+		<number>1</number>
+	</adf>
+
+        <!-- Two DME -->
 	<dme>
 		<name>dme</name>
 		<number>0</number>
 	</dme>
+	<dme>
+		<name>dme</name>
+		<number>1</number>
+	</dme>
 
+        <!-- One MKR -->
 	<marker-beacon>
 		<name>marker-beacon</name>
 		<number>0</number>
 	</marker-beacon>
+        <!-- end  Radio and Comm Stacks -->
 
 	<heading-indicator>
 		<name>heading-indicator</name>
@@ -95,15 +136,6 @@ file, these values will be used (they are hardcoded).
 		<number>0</number>
 	</magnetic-compass>
 
-	<nav-radio>
-		<name>nav</name>
-		<number>0</number>
-	</nav-radio>
-
-	<nav-radio>
-		<name>nav</name>
-		<number>1</number>
-	</nav-radio>
 
 	<slip-skid-ball>
 		<name>slip-skid-ball</name>

@@ -648,7 +648,15 @@
 	      <selcal type="string">call-off</selcal>
 	      <selcal-display type="string">----</selcal-display>
 	    </interphone>
-          </acp> 
+          </acp>
+          <hf>
+                 <frequencies>
+                        <selected-mhz>122.75</selected-mhz>
+                        <selected-mhz-fmt>122.75</selected-mhz-fmt>
+                        <standby-mhz>122.75</standby-mhz>
+                        <standby-mhz-fmt>122.75</standby-mhz-fmt>
+                 </frequencies>
+          </hf>
  		<cdu>
 			<display>IDENT</display>
   			<ident>
