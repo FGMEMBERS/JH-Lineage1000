@@ -2247,7 +2247,7 @@
 		<width>60</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwT:%3d</format>
+		<format>MwT: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>
@@ -2277,7 +2277,7 @@
 		<width>40</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwT:%3d</format>
+		<format>MwT: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>
@@ -2307,7 +2307,7 @@
 		<width>40</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwT:%3d</format>
+		<format>MwT: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>
@@ -2337,7 +2337,7 @@
 		<width>60</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwP:%3d</format>
+		<format>MwP: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>
@@ -2367,7 +2367,7 @@
 		<width>40</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwP:%3d</format>
+		<format>MwP: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>
@@ -2397,7 +2397,7 @@
 		<width>40</width>
 		<height>8</height>
 		<box>true</box>
-		<format>MwP:%3d</format>
+		<format>MwP: %4.2f</format>
 		<halign>left</halign>
 		<input>
 			<property>/autopilot/settings/target-speed-mach</property>

@@ -1,6 +1,5 @@
 #### AP buttons in cockpit ####
 
-
 ####################################################################
 #                                                                  #
 # Some general functions to convert units                          #
@@ -241,27 +240,42 @@ var ALT_Sync = func (alt_set=nil) {
 	}
 }
 
+
+####################################################################
+#                                                                  #
+# Speed functions                                                  #
+#                                                                  #
+####################################################################
+
 var KIASLimit = func (KIAS, low=130, high=320) {
-    if (KIAS < low) { KIAS = low;}
-    if (KIAS > high) { KIAS = high;}
-    return (KIAS);
+	if (KIAS < low) { KIAS = low;}
+	if (KIAS > high) { KIAS = high;}
+	return(KIAS);
 }
 
 var MachLimit = func (mach, low=0.35, high=0.82) {
-    if (mach < low) { mach = low;}
-    if (mach > high) { mach = high;}
-    return (mach);
+	if (mach < low) { mach = low;}
+	if (mach > high) { mach = high;}
+	return(mach);
 }
+
 var SPD_Sync = func () {
-    var current_KIAS = getprop("velocities/airspeed-kt");
-    var current_Mach = getprop("velocities/mach");
+	var current_KIAS = getprop("velocities/airspeed-kt");
+	var current_Mach = getprop("velocities/mach");
+	var current_KIAS_target=getprop("autopilot/settings/target-speed-kt");
+	var current_MACH_target=getprop("autopilot/settings/target-speed-kt");
 
-    #LIMIT Speed Set by AP
-    current_KIAS = KIASLimit(current_KIAS);
-    current_Mach = MachLimit(current_Mach);
+	#LIMIT Speed Set by AP
+	current_KIAS = KIASLimit(current_KIAS);
+	current_Mach = MachLimit(current_Mach);
 
-    setprop("autopilot/settings/target-speed-kt", current_KIAS);
-    setprop("autopilot/settings/target-speed-mach", current_Mach);
+	#### this is kind of clumsy, but I need a way to prevent an already set kias value from being overwritten by the current actual speed
+	if (current_KIAS_target==nil) {
+		setprop("autopilot/settings/target-speed-kt", current_KIAS);
+	}
+	if (current_MACH_target==nil) {
+		setprop("autopilot/settings/target-speed-mach", current_Mach);
+	}
 }
 
 var AP_Toggle = func () {
