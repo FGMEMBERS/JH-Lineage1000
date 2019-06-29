@@ -209,6 +209,7 @@ var ALT_min = func (min_agl=1000){
 	settimer (ALT_min, 5);
 }
 
+var ALTLimit=func(alt=0) {
 	var unit = getprop("autopilot/settings/altitude-unit");
 	var min_alt = 1000;
 	if (unit=="ft") {
@@ -219,7 +220,7 @@ var ALT_min = func (min_agl=1000){
 	if (alt < min_alt) {
 		alt = min_alt;
 	}
-	return (alt);
+	return(alt);
 }
 
 var ALT_Sync = func (alt_set=nil) {
