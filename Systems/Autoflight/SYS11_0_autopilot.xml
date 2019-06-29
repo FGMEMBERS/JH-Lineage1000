@@ -180,6 +180,10 @@
 					<or>
 						<equals>        
 							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
 							<value>altitude-hold</value>
 						</equals>
 						<equals>        
@@ -233,6 +237,10 @@
 					<or>
 						<equals>        
 							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
 							<value>altitude-hold</value>
 						</equals>
 						<equals>        
@@ -279,6 +287,10 @@
 			<condition>
 				<and>
 					<or>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
+						</equals>
 						<equals>        
 							<property>/autopilot/locks/altitude</property>
 							<value>altitude-hold</value>
@@ -329,6 +341,10 @@
 					<or>
 						<equals>        
 							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
 							<value>altitude-hold</value>
 						</equals>
 						<equals>        
@@ -375,10 +391,16 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>        
-						<property>/autopilot/locks/altitude</property>
-						<value>altitude-hold</value>
-					</equals>
+					<or>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
+							<value>altitude-hold</value>
+						</equals>
+					</or>
 					<property>/autopilot/internal/ap-active</property>
 				</and>				
 			</condition>
@@ -455,6 +477,10 @@
 						<equals>
 							<property>/autopilot/locks/altitude</property>
 							<value>vertical-speed-hold</value>
+						</equals>
+						<equals>        
+							<property>/autopilot/locks/altitude</property>
+							<value>flightlevel-change</value>
 						</equals>
 						<equals>        
 							<property>/autopilot/locks/altitude</property>

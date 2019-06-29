@@ -774,6 +774,11 @@
 			<min-pitch type="float">-6.0</min-pitch>
 			<bank-angle-limit-deg type="int">35</bank-angle-limit-deg>
 			<propgain-roll type="float">-4.0</propgain-roll>
+			<altitude-unit type="string">ft</altitude-unit>
+			<buffered-altitude-m type="int">0</buffered-altitude-m>
+			<buffered-altitude-ft type="int">0</buffered-altitude-ft>
+			<target-altitude-m type="int">0</target-altitude-m>
+			<target-altitude-ft type="int">0</target-altitude-ft>
 		</settings>
 
 		<internal>
@@ -781,6 +786,8 @@
 			<target-pitch-deg type="float">0.00</target-pitch-deg>
 			<max-pitch type="float"> 8.0</max-pitch>
 			<min-pitch type="float">-6.0</min-pitch>
+			<min-alt-ft type="int">1000</min-alt-ft>
+			<min-alt-m type="int">305</min-alt-m>
 		</internal>
 
 	</autopilot>

@@ -1,5 +1,57 @@
 #### AP buttons in cockpit ####
 
+
+####################################################################
+#                                                                  #
+# Some general functions to convert units                          #
+#                                                                  #
+####################################################################
+
+var initialize=func() {
+	#### some things can't be initialized clean from the xml, for example empty strings
+	setprop("autopilot/locks/altitude", "");
+}
+
+var sync_units_ft=func() {
+	var valuetarget=getprop("autopilot/settings/target-altitude-ft");
+	if (valuetarget!=nil) {
+		setprop("autopilot/settings/target-altitude-m", valuetarget*0.3048);
+	}
+
+	var valuebuffered=getprop("autopilot/settings/buffered-altitude-ft");
+	if (valuebuffered!=nil) {
+		setprop("autopilot/settings/buffered-altitude-m", valuebuffered*0.3048);
+	}
+
+	var valuemin=getprop("autopilot/internal/min-alt-ft");
+	if (valuemin!=nil) {
+		setprop("autopilot/internal/min-alt-m", valuemin*0.3048);
+	}
+}
+
+var sync_units_m=func() {
+	var valuetarget=getprop("autopilot/settings/target-altitude-m");
+	if (valuetarget!=nil) {
+		setprop("autopilot/settings/target-altitude-ft", valuetarget/0.3048);
+	}
+
+	var valuebuffered=getprop("autopilot/settings/buffered-altitude-m");
+	if (valuebuffered!=nil) {
+		setprop("autopilot/settings/buffered-altitude-ft", valuebuffered/0.3048);
+	}
+
+	var valuemin=getprop("autopilot/internal/min-alt-m");
+	if (valuemin!=nil) {
+		setprop("autopilot/internal/min-alt-ft", valuemin/0.3048);
+	}
+}
+
+####################################################################
+#                                                                  #
+# Switches                                                         #
+#                                                                  #
+####################################################################
+
 var switchAlt=func() {
 	var oldprop=getprop("autopilot/locks/altitude");
 	var sysprop=0;
@@ -10,6 +62,25 @@ var switchAlt=func() {
 		sysprop=0;
 	} else {
 		newprop="altitude-hold";
+		sysprop=1;
+	}
+
+	setprop("autopilot/locks/altitude", newprop);
+	setprop("sim/gui/dialogs/autopilot/altitude-active", sysprop);
+}
+
+var switchFLCH=func() {
+	var oldprop=getprop("autopilot/locks/altitude");
+	var sysprop=0;
+	var newprop="";
+
+	if (oldprop=="flightlevel-change") {
+		newprop="";
+		sysprop=0;
+	} else {
+		newprop="flightlevel-change";
+		setprop("autopilot/settings/target-altitude-ft", getprop("autopilot/settings/buffered-altitude-ft"));
+		setprop("autopilot/settings/target-altitude-m", getprop("autopilot/settings/buffered-altitude-m"));
 		sysprop=1;
 	}
 
@@ -110,28 +181,63 @@ var VS_Sync = func () {
     setprop("autopilot/settings/vertical-speed-fpm",current_vs);
 }
 
-var ALT_min = func (min_agl=1000){
-        var current_elev =  getprop("/position/ground-elev-ft");
-	if (current_elev == nil) { current_elev = 0;}
-    	var min_alt_ft = min_agl + current_elev;
-    	setprop("autopilot/internal/min-alt-ft", min_alt_ft);
-    }
-settimer (ALT_min, 10);
+####################################################################
+#                                                                  #
+# ALT functions                                                    #
+#                                                                  #
+####################################################################
 
-var ALTLimit = func (alt){
-    var min_alt = getprop("autopilot/internal/min-alt-ft");
-    if (alt < min_alt) {
-       alt = min_alt;
-    }
-    return (alt);
+var ALT_min = func (min_agl=1000){
+
+	#### updating minimum altitude
+	var current_elev =  getprop("/position/ground-elev-ft");
+	if (current_elev == nil) { current_elev = 0;}
+	var min_alt_ft = min_agl + current_elev;
+	setprop("autopilot/internal/min-alt-ft", min_alt_ft);
+
+	#### control predicted altitude for change from flightlevel-change to altitude-hold
+	var mode=getprop("autopilot/locks/altitude");
+	var difference=0.00;
+	if (mode=="flightlevel-change") {
+		difference=abs(getprop("autopilot/settings/target-altitude-ft")-getprop("autopilot/internal/altitude-60-sec-ahead"));
+		if (difference<100) {
+			#### when near enough to the target altitude, chenge from flightlevel-change to altitude-hold
+			setprop("autopilot/locks/altitude", "altitude-hold");
+		}
+	}
+	#### making sure, this is called in 5 seconds again
+	settimer (ALT_min, 5);
+}
+
+	var unit = getprop("autopilot/settings/altitude-unit");
+	var min_alt = 1000;
+	if (unit=="ft") {
+		min_alt=getprop("autopilot/internal/min-alt-ft");
+	} else {
+		min_alt=getprop("autopilot/internal/min-alt-m");
+	}
+	if (alt < min_alt) {
+		alt = min_alt;
+	}
+	return (alt);
 }
 
 var ALT_Sync = func (alt_set=nil) {
-    if (alt_set==nil){
-       var alt_set = getprop("position/altitude-ft");
-    }
-    alt_set = ALTLimit (alt_set);
-    setprop("autopilot/settings/target-altitude-ft", alt_set);
+	var unit = getprop("autopilot/settings/altitude-unit");
+	if (alt_set==nil) {
+		var alt_set = 0;
+		if (unit=="ft") {
+			alt_set=getprop("position/altitude-ft");
+		} else {
+			alt_set=getprop("position/altitude-ft");
+		}
+	}
+	alt_set = ALTLimit (alt_set);
+	if (unit=="ft") {
+		setprop("autopilot/settings/target-altitude-ft", alt_set);
+	} else {
+		setprop("autopilot/settings/target-altitude-m", alt_set);
+	}
 }
 
 var KIASLimit = func (KIAS, low=130, high=320) {
@@ -158,28 +264,46 @@ var SPD_Sync = func () {
 }
 
 var AP_Toggle = func () {
-    #When AP is engaged; then disengage
-    if (getprop("autopilot/settings/ap-armed")){
-       setprop("autopilot/settings/ap-armed", "false");
-       return ("AP off");
-    }
+	var result="";
+	if (getprop("autopilot/settings/ap-armed")){
+		#When AP is engaged; then disengage
+		setprop("autopilot/settings/ap-armed", "false");
+		result="AP off";
+	} else {
 
-    #When AP is not engaged; first sync to current condition
-    HDG_Sync();
-    FPA_Sync();
-    VS_Sync();
-    ALT_Sync();
-    SPD_Sync();
+		#When AP is not engaged; first sync to current condition
+		HDG_Sync();
+		FPA_Sync();
+		VS_Sync();
+		ALT_Sync();
+		SPD_Sync();
     
-    #then engage HDG or FPA by default if no option pre-selected
-    if (getprop("autopilot/locks/heading")==nil){
-       setprop("autopilot/locks/heading","dg-heading-hold");      
-    }
-    if (getprop("autopilot/locks/altitude")==nil) {
-       setprop("autopilot/locks/altitude","pitch-hold");
-    }
+		#then engage HDG or FPA by default if no option pre-selected
+		#### checking for "" instead of nil because old-school programmers like me make sure things are initialized whenever possible
+		if (getprop("autopilot/locks/heading")=="") {
+			setprop("autopilot/locks/heading","dg-heading-hold");      
+		}
+		if (getprop("autopilot/locks/altitude")=="") {
+			setprop("autopilot/locks/altitude","pitch-hold");
+		}
 
-    #Finally engage autopilot
-    setprop("autopilot/settings/ap-armed","true");
-    return ("AP on");
+		#Finally engage autopilot
+		setprop("autopilot/settings/ap-armed","true");
+		result="AP on";
+	}
+	#### Always go for the defined in and out, never just return away from an if-branch because the 
+	#### NASAL interpreter can leave bytes in the internal stack and that can later lead to ominous segment fault errors
+	return(result);
 }
+
+initialize();
+#### put all the settimers and setlisteners to the end, makes it easier to find ####
+settimer (ALT_min, 5);
+#### those call conversion functions on top of the file
+var listener_target_alt_ft = setlistener("autopilot/settings/target-altitude-ft", sync_units_ft, 0, 0);
+var listener_target_alt_m = setlistener("autopilot/settings/target-altitude-m", sync_units_m, 0, 0);
+var listener_buffered_alt_ft = setlistener("autopilot/settings/buffered-altitude-ft", sync_units_ft, 0, 0);
+var listener_buffered_alt_m = setlistener("autopilot/settings/buffered-altitude-m", sync_units_m, 0, 0);
+var listener_min_alt_ft = setlistener("autopilot/settings/buffered-altitude-ft", sync_units_ft, 0, 0);
+var listener_min_alt_m = setlistener("autopilot/settings/buffered-altitude-m", sync_units_m, 0, 0);
+
