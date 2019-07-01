@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>acp.ac</path>
+        <params>
+           <audio>/instrumentation/acp[0]/audio</audio>
+           <mic>/instrumentation/acp[0]/mic</mic>
+           <interphone>/instrumentation/acp[0]/interphone</interphone>
+        </params>
+
+	<animation>
+		<type>select</type>
+		<object-name>mic.vhf1.led</object-name>
+		<condition>
+			<property alias="../../../params/mic/vhf1"/>
+		</condition>
+	</animation>
+
+
+</PropertyList>

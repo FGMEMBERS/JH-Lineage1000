@@ -630,25 +630,7 @@
 	<input include="Aircraft/JH-Lineage1000/Dialogs/pilot-keys.xml" />
 
 	<instrumentation>
-          <acp>
-            <mic>
-                <auto-mask type="string">auto</auto-mask>
-                <vhf1 type="bool">true</vhf1>
-            </mic>
-            <audio>
-                <backup type="string">norm</backup>
-                <output-selector type="string">hdph</output-selector>
-                <last-selected type="string">vhf1</last-selected>
-                <vhf1 type="bool">true</vhf1>
-            </audio>
-	    <interphone>
-	      <emer type="string">call-off</emer>
-	      <ramp type="string">call-off</ramp>
-	      <cabin type="string">call-off</cabin>
-	      <selcal type="string">call-off</selcal>
-	      <selcal-display type="string">----</selcal-display>
-	    </interphone>
-          </acp>
+
           <hf>
                  <frequencies>
                         <selected-mhz>122.75</selected-mhz>
