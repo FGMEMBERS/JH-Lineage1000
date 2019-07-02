@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>acp.ac</path>
+        <params>
+           <comm-mic>/instrumentation/acp[0]/comm/mic</comm-mic>
+           <comm-mic-mask>/instrumentation/acp[0]/comm/mic-mask</comm-mic-mask>
+           <comm-audio>/instrumentation/acp[0]/comm/audio</comm-audio>
+           <audio-nav1>/instrumentation/acp[0]/audio/nav1</audio-nav1>
+           <audio-nav2>/instrumentation/acp[0]/audio/nav2</audio-nav2>
+           <audio-nav3>/instrumentation/acp[0]/audio/nav3</audio-nav3>
+           <audio-adf1>/instrumentation/acp[0]/audio/adf1</audio-adf1>
+           <audio-adf2>/instrumentation/acp[0]/audio/adf2</audio-adf2>
+           <audio-dme1>/instrumentation/acp[0]/audio/dme1</audio-dme1>
+           <audio-dme2>/instrumentation/acp[0]/audio/dme2</audio-dme2>
+           <audio-mkr>/instrumentation/acp[0]/audio/mkr</audio-mkr>
+           <audio-filter-id>/instrumentation/acp[0]/audio/filter-id</audio-filter-id>
+           <audio-last-selected>/instrumentation/acp[0]/audio/last-selected</audio-last-selected>
+           <audio-volume>/instrumentation/acp[0]/audio/volume</audio-volume>
+           <audio-backup>/instrumentation/acp[0]/audio/backup</audio-backup>
+           <audio-backup-volume>/instrumentation/acp[0]/audio/backup-volume</audio-backup-volume>
+           <audio-output>/instrumentation/acp[0]/audio/output</audio-output>
+           <interphone-emer>/instrumentation/acp[0]/interphone/emer</interphone-emer>
+           <interphone-ramp>/instrumentation/acp[0]/interphone/ramp</interphone-ramp>
+           <interphone-cab>/instrumentation/acp[0]/interphone/cab</interphone-cab>
+           <interphone-selcal>/instrumentation/acp[0]/interphone/selcal</interphone-selcal>
+           <interphone-display>/instrumentation/acp[0]/interphone/display</interphone-display>
+           <battery-on>/instrumentation/acp[0]/battery-on</battery-on>
+           <active-on-view>/instrumentation/acp[0]/active-on-view</active-on-view>
+        </params>
+
+	<!-- Status Leds -->
+	<!-- mic selectors -->
+	<animation>
+		<type>select</type>
+		<object-name>mic.vhf1.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf1</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>mic.vhf2.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf2</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>mic.vhf3.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf3</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>mic.hf.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>hf</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>satcom.ctr.button.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>sat</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>mic.pa.led</object-name>
+		<condition>
+                        <property alias="../../../params/comm-mic"/>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>pa</value>
+                        </equals>
+                </condition>
+	</animation>
+
+	<!-- audio selectors -->
+	<animation>
+		<type>select</type>
+		<object-name>aud.vhf1.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf1</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.vhf2.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf2</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.vhf3.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>vhf3</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.hf.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>hf</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.sat.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>sat</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.pa.led</object-name>
+		<condition>
+                        <equals>
+			      <property alias="../../../../params/comm-audio"/>
+			      <value>pa</value>
+                        </equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.nav1.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-nav1"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.nav2.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-nav2"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.nav3.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-nav3"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.adf1.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-adf1"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.adf2.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-adf2"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.dme1.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-dme1"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.dme2.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-dme2"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.mkr.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-mkr"/>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>acp.filter.id.led</object-name>
+		<condition>
+                        <property alias="../../../params/audio-filter-id"/>
+		</condition>
+	</animation>
+
+	<!-- Output selectors -->
+	<animation>
+		<type>select</type>
+		<object-name>aud.selection.headphone.led</object-name>
+		<condition>
+			<equals>
+			      <property alias="../../../../params/audio-output"/>
+                    	      <value>headphone</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>aud.selection.interphone.led</object-name>
+		<condition>
+			<equals>
+			      <property alias="../../../../params/audio-output"/>
+			      <value>interphone</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+	  <type>select</type>
+	  <object-name>aud.selection.speaker.led</object-name>
+		<condition>
+			<equals>
+			      <property alias="../../../../params/audio-output"/>
+			      <value>speaker</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- Interphone  -->
+	<animation>
+		<type>select</type>
+		<object-name>interphone.emer.led</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-emer"/>
+				<value>call-on</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.emer.led</object-name>
+		<object-name>interphone.emer</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property alias="../../../../../params/interphone-emer"/>
+					<value>call-stdby</value>
+				</equals>
+				<equals>
+					<property alias="../../../../../params/interphone-emer"/>
+					<value>call-in</value>
+				</equals>
+			</or>
+		</condition>
+		<branch-duration-sec>0.8</branch-duration-sec>
+		<branch-duration-sec>0.4</branch-duration-sec>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.emer.led</object-name>
+		<object-name>interphone.emer</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-emer"/>
+				<value>call-replied</value>
+			</equals>
+		</condition>
+		<branch-duration-sec>0.4</branch-duration-sec>
+		<branch-duration-sec>0.2</branch-duration-sec>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>interphone.ramp.led</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-ramp"/>
+				<value>call-on</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.ramp.led</object-name>
+		<object-name>interphone.ramp</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property alias="../../../../../params/interphone-ramp"/>
+					<value>call-stdby</value>
+				</equals>
+				<equals>
+					<property alias="../../../../../params/interphone-ramp"/>
+					<value>call-in</value>
+				</equals>
+			</or>
+		</condition>
+		<branch-duration-sec>0.8</branch-duration-sec>
+		<branch-duration-sec>0.4</branch-duration-sec>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.ramp.led</object-name>
+		<object-name>interphone.ramp</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-ramp"/>
+				<value>call-replied</value>
+			</equals>
+		</condition>
+		<branch-duration-sec>0.4</branch-duration-sec>
+		<branch-duration-sec>0.2</branch-duration-sec>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>interphone.cabin.led</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-cabin"/>
+				<value>call-on</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.cabin.led</object-name>
+		<object-name>interphone.cabin</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property alias="../../../../../params/interphone-cabin"/>
+					<value>call-stdby</value>
+				</equals>
+				<equals>
+					<property alias="../../../../../params/interphone-cabin"/>
+					<value>call-in</value>
+				</equals>
+			</or>
+		</condition>
+		<branch-duration-sec>0.8</branch-duration-sec>
+		<branch-duration-sec>0.4</branch-duration-sec>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>interphone.cabin.led</object-name>
+		<object-name>interphone.cabin</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-cabin"/>
+				<value>call-replied</value>
+			</equals>
+		</condition>
+		<branch-duration-sec>0.4</branch-duration-sec>
+		<branch-duration-sec>0.2</branch-duration-sec>
+	</animation>
+
+	<animation>
+		<type>timed</type>
+		<object-name>acp.selcal.led</object-name>
+		<object-name>acp.selcal</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/interphone-selcal"/>
+				<value>call-in</value>
+			</equals>
+		</condition>
+		<branch-duration-sec>0.8</branch-duration-sec>
+		<branch-duration-sec>0.4</branch-duration-sec>
+	</animation>
+	
+	<!-- mask mic switch -->
+	<animation>
+		<type>select</type>
+		<object-name>auto.mask.mic.switch.led</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/comm-mic-mask"/>
+				<value>mask</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- backup audio and volume control button/knob -->
+	<animation>
+		<type>select</type>
+		<object-name>backup.volume.switch.led</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/audio-backup"/>
+				<value>backup</value>
+			</equals>
+		</condition>
+	</animation>
+
+
+</PropertyList>
