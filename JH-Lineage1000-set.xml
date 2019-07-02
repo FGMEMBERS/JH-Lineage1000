@@ -694,6 +694,38 @@
               <battery-on type="bool">true</battery-on>
               <active-on-view type="string">first-officer</active-on-view>
           </acp>
+          <acp  n="2">
+              <comm>
+                  <mic type="bool">true</mic>
+                  <mic-mask type="string">auto</mic-mask>
+                  <audio type="string">sat</audio>
+              </comm>
+              <audio>
+                  <nav1 type="bool">false</nav1>
+                  <nav2 type="bool">false</nav2>
+                  <nav3 type="bool">true</nav3>
+                  <adf1 type="bool">false</adf1>
+                  <adf2 type="bool">false</adf2>
+                  <dme1 type="bool">false</dme1>
+                  <dme2 type="bool">true</dme2>
+                  <mkr type="bool">true</mkr>
+                  <filter-id type="bool">true</filter-id>
+                  <last-selected type="string">nav3</last-selected>
+                  <volume type="double">77</volume>
+                  <backup type="string">norm</backup>
+                  <backup-volume type="double">0</backup-volume>
+                  <output type="string">headphone</output>
+              </audio>
+              <interphone>
+                  <emer type="string">call-off</emer>
+                  <ramp type="string">call-off</ramp>
+                  <cab type="string">call-off</cab>
+                  <selcal type="string">call-off</selcal>
+                  <display type="string">----</display>
+              </interphone>
+              <battery-on type="bool">true</battery-on>
+              <active-on-view type="string">observer</active-on-view>
+          </acp>
           <hf>
                  <frequencies>
                         <selected-mhz>122.75</selected-mhz>
@@ -1119,6 +1151,9 @@
 
 
 	<nasal>
+                <acp>
+	        	<file>Models/Flightdeck/acp/acp.nas</file>
+                </acp>
 		<SkyNet>
 			<file>Aircraft/JPack/SkyNet/Nasal/Login.nas</file>
 		</SkyNet>
