@@ -453,8 +453,386 @@
 		</condition>
 	</animation>
 
+	<!-- Mic selectors -->
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.vhf1</object-name>
+	  <object-name>mic.vhf1.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>vhf1</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>vhf1</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf1</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf1</value>
+	    </binding>
+	  </action>
+	</animation>
 
-	<!-- audio selectors --> 
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.vhf2</object-name>
+	  <object-name>mic.vhf2.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>vhf2</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>vhf2</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf2</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf2</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.vhf3</object-name>
+	  <object-name>mic.vhf3.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>vhf3</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>vhf3</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf3</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf3</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.hf</object-name>
+	  <object-name>mic.hf.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>hf</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>hf</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>hf</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>hf</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.sat</object-name>
+	  <object-name>mic.sat.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>sat</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>sat</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>sat</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>sat</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>mic.pa</object-name>
+	  <object-name>mic.pa.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/comm-audio"/>
+		  <value>pa</value>
+		</equals>
+	      </condition>
+	      <command>property-toggle</command>
+	      <property alias="../../../../params/comm-mic"/>
+	    </binding>
+	    <binding>
+	      <condition>
+		<not>
+		  <equals>
+		    <property alias="../../../../../../../params/comm-audio"/>
+		    <value>pa</value>
+		  </equals>
+		</not>
+	      </condition>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-mic"/>
+	      <value>true</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>pa</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>pa</value>
+	    </binding>
+	  </action>
+	</animation>
+	
+	<!-- audio selectors -->
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.vhf1</object-name>
+	  <object-name>aud.vhf1.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf1</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf1</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.vhf2</object-name>
+	  <object-name>aud.vhf2.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf2</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf2</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.vhf3</object-name>
+	  <object-name>aud.vhf3.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>vhf3</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>vhf3</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.hf</object-name>
+	  <object-name>aud.hf.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>hf</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>hf</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.sat</object-name>
+	  <object-name>aud.sat.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>sat</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>sat</value>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>pick</type>
+	  <object-name>aud.pa</object-name>
+	  <object-name>aud.pa.led</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/audio-last-selected"/>
+	      <value>pa</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property alias="../../../../params/comm-audio"/>
+	      <value>pa</value>
+	    </binding>
+	  </action>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>aud.nav1</object-name>
