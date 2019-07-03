@@ -27,7 +27,7 @@
            <interphone-selcal>/instrumentation/acp[0]/interphone/selcal</interphone-selcal>
            <interphone-display>/instrumentation/acp[0]/interphone/display</interphone-display>
            <battery-on>/instrumentation/acp[0]/battery-on</battery-on>
-           <active-on-view>/instrumentation/acp[0]/active-on-view</active-on-view>
+           <active>/instrumentation/acp[0]/active</active>
         </params>
 
 	<!-- Status Leds -->

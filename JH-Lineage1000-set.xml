@@ -660,7 +660,7 @@
                   <display type="string">----</display>
               </interphone>
               <battery-on type="bool">true</battery-on>
-              <active-on-view type="string">captain</active-on-view>
+              <active type="bool">true</active>
           </acp>
           <acp  n="1">
               <comm>
@@ -692,7 +692,7 @@
                   <display type="string">----</display>
               </interphone>
               <battery-on type="bool">true</battery-on>
-              <active-on-view type="string">first-officer</active-on-view>
+              <active type="bool">false</active>
           </acp>
           <acp  n="2">
               <comm>
@@ -724,7 +724,7 @@
                   <display type="string">----</display>
               </interphone>
               <battery-on type="bool">true</battery-on>
-              <active-on-view type="string">observer</active-on-view>
+              <active type="bool">false</active>
           </acp>
           <hf>
                  <frequencies>
