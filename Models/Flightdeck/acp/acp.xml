@@ -18,6 +18,8 @@
            <audio-filter-id>/instrumentation/acp[0]/audio/filter-id</audio-filter-id>
            <audio-last-selected>/instrumentation/acp[0]/audio/last-selected</audio-last-selected>
            <audio-volume>/instrumentation/acp[0]/audio/volume</audio-volume>
+           <audio-volume-sat>/instrumentation/acp[0]/audio/volume-sat</audio-volume-sat>
+           <audio-volume-pa>/instrumentation/acp[0]/audio/volume-pa</audio-volume-pa>
            <audio-backup>/instrumentation/acp[0]/audio/backup</audio-backup>
            <audio-backup-volume>/instrumentation/acp[0]/audio/backup-volume</audio-backup-volume>
            <audio-output>/instrumentation/acp[0]/audio/output</audio-output>
@@ -831,8 +833,8 @@
 				</condition>
 				<command>property-adjust</command>
 				<property alias="../../../../params/audio-backup-volume"/>
-				<step>5</step>
-				<max>100</max>
+				<step>0.05</step>
+				<max>1.00</max>
 			</binding>
 		</action>
 		<action>
@@ -847,8 +849,8 @@
 				</condition>
 				<command>property-adjust</command>
 				<property alias="../../../../params/audio-backup-volume"/>
-				<step>-5</step>
-				<min>0</min>
+				<step>-0.05</step>
+				<min>0.00</min>
 			</binding>
 		</action>
 	</animation>
@@ -1165,169 +1167,169 @@
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[0]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[1]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf3</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[2]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>hf</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/hf/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>sat</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property alias="../../../../params/audio-volume"/>
-				<step>5</step>
+				<property alias="../../../../params/audio-volume-sat"/>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[0]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[1]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav3</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[2]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>adf1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/adf[0]/volume-norm</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>adf2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/adf[1]/volume-norm</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>dme1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/dme[0]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>dme2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/dme[1]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>mkr</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/marker-beacon[0]/volume</property>
-				<step>5</step>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>pa</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property alias="../../../../params/audio-volume"/>
-				<step>5</step>
+				<property alias="../../../../params/audio-volume-pa"/>
+				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
 		</action>
@@ -1337,169 +1339,169 @@
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[0]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[1]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>vhf3</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/comm[2]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>hf</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/hf/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>sat</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property alias="../../../../params/audio-volume"/>
-				<step>-5</step>
+				<property alias="../../../../params/audio-volume-sat"/>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[0]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[1]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>nav3</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/nav[2]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>adf1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/adf[0]/volume-norm</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>adf2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/adf[1]/volume-norm</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>dme1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/dme[0]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>dme2</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/dme[1]/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>mkr</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
 				<property>/instrumentation/marker-beacon/volume</property>
-				<step>-5</step>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property alias="../../../../params/audio-last-selected"/>
+						<property alias="../../../../../../params/audio-last-selected"/>
 						<value>pa</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property alias="../../../../params/audio-volume"/>
-				<step>-5</step>
+				<property alias="../../../../params/audio-volume-pa"/>
+				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
 		</action>

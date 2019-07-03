@@ -133,6 +133,8 @@
                           <audio-filter-id>/instrumentation/acp[1]/audio/filter-id</audio-filter-id>
                           <audio-last-selected>/instrumentation/acp[1]/audio/last-selected</audio-last-selected>
                           <audio-volume>/instrumentation/acp[1]/audio/volume</audio-volume>
+                          <audio-volume-sat>/instrumentation/acp[1]/audio/volume-sat</audio-volume-sat>
+                          <audio-volume-pa>/instrumentation/acp[1]/audio/volume-pa</audio-volume-pa>
                           <audio-backup>/instrumentation/acp[1]/audio/backup</audio-backup>
                           <audio-backup-volume>/instrumentation/acp[1]/audio/backup-volume</audio-backup-volume>
                           <audio-output>/instrumentation/acp[1]/audio/output</audio-output>
@@ -172,6 +174,8 @@
                           <audio-filter-id>/instrumentation/acp[2]/audio/filter-id</audio-filter-id>
                           <audio-last-selected>/instrumentation/acp[2]/audio/last-selected</audio-last-selected>
                           <audio-volume>/instrumentation/acp[2]/audio/volume</audio-volume>
+			  <audio-volume-sat>/instrumentation/acp[2]/audio/volume-sat</audio-volume-sat>
+                          <audio-volume-pa>/instrumentation/acp[2]/audio/volume-pa</audio-volume-pa>
                           <audio-backup>/instrumentation/acp[2]/audio/backup</audio-backup>
                           <audio-backup-volume>/instrumentation/acp[2]/audio/backup-volume</audio-backup-volume>
                           <audio-output>/instrumentation/acp[2]/audio/output</audio-output>
