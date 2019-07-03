@@ -142,7 +142,7 @@
                           <interphone-selcal>/instrumentation/acp[1]/interphone/selcal</interphone-selcal>
                           <interphone-display>/instrumentation/acp[1]/interphone/display</interphone-display>
                           <battery-on>/instrumentation/acp[1]/battery-on</battery-on>
-                          <active-on-view>/instrumentation/acp[1]/active-on-view</active-on-view>
+                          <active>/instrumentation/acp[1]/active-on-view</active>
                     </params>
                 </overlay>
 	</model>
@@ -181,8 +181,55 @@
                           <interphone-selcal>/instrumentation/acp[2]/interphone/selcal</interphone-selcal>
                           <interphone-display>/instrumentation/acp[2]/interphone/display</interphone-display>
                           <battery-on>/instrumentation/acp[2]/battery-on</battery-on>
-                          <active-on-view>/instrumentation/acp[2]/active-on-view</active-on-view>
+                          <active>/instrumentation/acp[2]/active</active>
                     </params>
+                </overlay>
+	</model>
+	<model>
+		<path>acp/hdph.xml</path>
+		<offsets>
+		   <x-m>-11.28164</x-m>
+		   <y-m>-1.26668</y-m>
+		   <z-m>0.84376</z-m>
+                   <heading-deg>258.012</heading-deg><!-- Rz -->
+                   <roll-deg>-77.595</roll-deg><!-- Rx -->
+                   <pitch-deg>24.003</pitch-deg><!-- -Ry -->
+		</offsets>
+	</model>
+	<model>
+		<path>acp/hdph.xml</path>
+		<offsets>
+		   <x-m>-11.32023</x-m>
+		   <y-m>1.37156</y-m>
+		   <z-m>0.93587</z-m>
+                   <heading-deg>45.335</heading-deg>
+                   <roll-deg>-30.633</roll-deg>
+                   <pitch-deg>7</pitch-deg>
+		</offsets>
+                <overlay>
+                   <params>
+                       <acp-active>/instrumentation/acp[1]/active</acp-active>
+                       <acp-inactive1>/instrumentation/acp[0]/active</acp-inactive1>
+                       <acp-inactive2>/instrumentation/acp[2]/active</acp-inactive2>                       
+                   </params>
+                </overlay>
+	</model>
+	<model>
+		<path>acp/hdph.xml</path>
+		<offsets>
+		   <x-m>-10.90411</x-m>
+		   <y-m>1.01356</y-m>
+		   <z-m>1.33130</z-m>
+                   <heading-deg>0</heading-deg>
+                   <roll-deg>0</roll-deg>
+                   <pitch-deg>0</pitch-deg>
+		</offsets>
+               <overlay>
+                   <params>
+                       <acp-active>/instrumentation/acp[2]/active</acp-active>
+                       <acp-inactive1>/instrumentation/acp[0]/active</acp-inactive1>
+                       <acp-inactive2>/instrumentation/acp[1]/active</acp-inactive2>                       
+                   </params>
                 </overlay>
 	</model>
 

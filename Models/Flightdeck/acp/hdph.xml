@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>hdph.ac</path>
+        <params>
+            <acp-active>/instrumentation/acp[0]/active</acp-active>
+            <acp-inactive1>/instrumentation/acp[1]/active</acp-inactive1>
+            <acp-inactive2>/instrumentation/acp[2]/active</acp-inactive2>
+        </params>
+
+        <animation>
+           <name>select acp</name>
+           <type>pick</type>
+           <object-name>headphones</object-name>
+           <object-name>headphones.microphone</object-name>
+           <action>
+               <button>0</button>
+               <repeatable>false</repeatable>
+               <binding>
+                   <command>property-assign</command>
+                   <property alias="../../../../params/acp-active"/>
+                   <value>true</value>
+               </binding>
+               <binding>
+                   <command>property-assign</command>
+                   <property alias="../../../../params/acp-inactive1"/>
+                   <value>false</value>
+               </binding>
+               <binding>
+                   <command>property-assign</command>
+                   <property alias="../../../../params/acp-inactive2"/>
+                   <value>false</value>
+               </binding>
+           </action>
+        </animation>
+
+</PropertyList>

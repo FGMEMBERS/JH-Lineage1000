@@ -27,7 +27,7 @@
            <interphone-selcal>/instrumentation/acp[0]/interphone/selcal</interphone-selcal>
            <interphone-display>/instrumentation/acp[0]/interphone/display</interphone-display>
            <battery-on>/instrumentation/acp[0]/battery-on</battery-on>
-           <active-on-view>/instrumentation/acp[0]/active-on-view</active-on-view>
+           <active>/instrumentation/acp[0]/active</active>
         </params>
 
 	<!-- Status Leds -->
@@ -373,7 +373,7 @@
 		<object-name>interphone.cabin.led</object-name>
 		<condition>
 			<equals>
-				<property alias="../../../../params/interphone-cabin"/>
+				<property alias="../../../../params/interphone-cab"/>
 				<value>call-on</value>
 			</equals>
 		</condition>
@@ -386,11 +386,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property alias="../../../../../params/interphone-cabin"/>
+					<property alias="../../../../../params/interphone-cab"/>
 					<value>call-stdby</value>
 				</equals>
 				<equals>
-					<property alias="../../../../../params/interphone-cabin"/>
+					<property alias="../../../../../params/interphone-cab"/>
 					<value>call-in</value>
 				</equals>
 			</or>
@@ -405,7 +405,7 @@
 		<object-name>interphone.cabin</object-name>
 		<condition>
 			<equals>
-				<property alias="../../../../params/interphone-cabin"/>
+				<property alias="../../../../params/interphone-cab"/>
 				<value>call-replied</value>
 			</equals>
 		</condition>
@@ -451,5 +451,1058 @@
 		</condition>
 	</animation>
 
+
+	<!-- audio selectors --> 
+	<animation>
+		<type>pick</type>
+		<object-name>aud.nav1</object-name>
+		<object-name>aud.nav1.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-nav1"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>nav1</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-nav1"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.nav2</object-name>
+		<object-name>aud.nav2.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-nav2"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>nav2</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-nav2"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.nav3</object-name>
+		<object-name>aud.nav3.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-nav3"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>nav3</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-nav3"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.adf1</object-name>
+		<object-name>aud.adf1.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-adf1"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>adf1</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-adf1"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.adf2</object-name>
+		<object-name>aud.adf2.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-adf2"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>adf2</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-adf2"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.dme1</object-name>
+		<object-name>aud.dme1.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-dme1"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>dme1</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-dme1"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.dme2</object-name>
+		<object-name>aud.dme2.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-dme2"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>dme2</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-dme2"/>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.mkr</object-name>
+		<object-name>aud.mkr.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<not>
+							<property alias="../../../../../../../params/audio-mkr"/>
+						</not>
+						<equals>
+							<property alias="../../../../../../../params/audio-backup"/>
+							<value>norm</value> 
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-last-selected"/>
+				<value>mkr</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>norm</value> 
+					</equals>
+				</condition>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-mkr"/>
+			</binding>
+		</action>
+	</animation>
+
+
+	<!-- filter id audio -->
+	<animation>
+		<type>pick</type>
+		<object-name>acp.filter.id</object-name>
+		<object-name>acp.filter.id.base</object-name>
+		<object-name>acp.filter.id.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property alias="../../../../params/audio-filter-id"/>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- audio selection buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>aud.selection.speaker</object-name>
+		<object-name>aud.selection.speaker.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-output"/>
+				<value>speaker</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.selection.interphone</object-name>
+		<object-name>aud.selection.interphone.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-output"/>
+				<value>interphone</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>aud.selection.headphone</object-name>
+		<object-name>aud.selection.headphone.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property alias="../../../../params/audio-output"/>
+				<value>headphone</value>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- backup volume button knob -->
+	<animation>
+		<type>pick</type>
+		<object-name>backup.volume.switch</object-name>
+		<object-name>backup.volume.switch.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/audio-backup"/>
+				<value>norm</value>
+				<value>backup</value>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>backup</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-backup-volume"/>
+				<step>5</step>
+				<max>100</max>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/audio-backup"/>
+						<value>backup</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-backup-volume"/>
+				<step>-5</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- mask mic button  -->
+	<animation>
+		<type>pick</type>
+		<object-name>auto.mask.mic.switch</object-name>
+		<object-name>auto.mask.mic.switch.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/comm-mic-mask"/>
+				<value>auto</value>
+				<value>mask</value>
+			</binding>
+		</action>
+	</animation>
+
+        <!-- Interphone -->
+        <!-- Select Call -->
+	<animation>
+		<type>pick</type>
+		<object-name>acp.selcal</object-name>
+		<object-name>acp.selcal.base</object-name>
+		<object-name>acp.selcal.led</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<not>
+						<property alias="../../../../../../params/interphone-selcal"/>
+						<value>call-in</value>
+					</not>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-display"/>
+				<value type="string">----</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-selcal"/>
+							<value>call-in</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-in</value>
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-display"/>
+				<value type="string">CABIN</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-selcal"/>
+							<value>call-in</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-in</value>
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-display"/>
+				<value type="string">RAMP</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-selcal"/>
+							<value>call-in</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-in</value>
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-display"/>
+				<value type="string">EMER</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>interphone.emer.led</object-name>
+		<object-name>interphone.emer</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-emer"/>
+						<value>call-off</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-emer"/>
+				<value>call-stdby</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-on</value>
+						</equals>
+						<not>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-in</value>
+						</not>
+						<not>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-in</value>
+						</not>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-selcal"/>
+				<value>call-off</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-emer"/>
+						<value>call-on</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-emer"/>
+				<value>call-off</value>
+			</binding>
+			<binding>
+				<condition>
+					<or>
+						<equals>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-replied</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-in</value>
+						</equals>
+					</or>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-emer"/>
+				<value>call-on</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>interphone.ramp.led</object-name>
+		<object-name>interphone.ramp</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-ramp"/>
+						<value>call-off</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-ramp"/>
+				<value>call-stdby</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-on</value>
+						</equals>
+						<not>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-in</value>
+						</not>
+						<not>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-in</value>
+						</not>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-selcal"/>
+				<value>call-off</value>
+			</binding>	    
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-ramp"/>
+						<value>call-on</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-ramp"/>
+				<value>call-off</value>
+			</binding>
+			<binding>
+				<condition>
+					<or>
+						<equals>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-replied</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-in</value>
+						</equals>
+					</or>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-ramp"/>
+				<value>call-on</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>interphone.cabin.led</object-name>
+		<object-name>interphone.cabin</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-cab"/>
+						<value>call-off</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-cab"/>
+				<value>call-stdby</value>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-on</value>
+						</equals>
+						<not>
+							<property alias="../../../../../../../params/interphone-ramp"/>
+							<value>call-in</value>
+						</not>
+						<not>
+							<property alias="../../../../../../../params/interphone-emer"/>
+							<value>call-in</value>
+						</not>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-selcal"/>
+				<value>call-off</value>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../../../params/interphone-cab"/>
+						<value>call-on</value>
+					</equals>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-cab"/>
+				<value>call-off</value>
+			</binding>
+			<binding>
+				<condition>
+					<or>
+						<equals>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-replied</value>
+						</equals>
+						<equals>
+							<property alias="../../../../../../../params/interphone-cab"/>
+							<value>call-in</value>
+						</equals>
+					</or>
+				</condition>
+				<command>property-assign</command>
+				<property alias="../../../../params/interphone-cab"/>
+				<value>call-on</value>
+			</binding>
+		</action>
+	</animation>
+
+        <!-- Master Volume Knob -->
+	<animation>
+		<type>pick</type>
+		<object-name>acp.volume.knob</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[0]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[1]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf3</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[2]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>hf</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/hf/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>sat</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-volume"/>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[0]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[1]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav3</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[2]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>adf1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/adf[0]/volume-norm</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>adf2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/adf[1]/volume-norm</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>dme1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/dme[0]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>dme2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/dme[1]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>mkr</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/marker-beacon[0]/volume</property>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>pa</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-volume"/>
+				<step>5</step>
+				<max>1.00</max>	      
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[0]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[1]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>vhf3</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/comm[2]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>hf</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/hf/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>sat</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-volume"/>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[0]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[1]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>nav3</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/nav[2]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>adf1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/adf[0]/volume-norm</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>adf2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/adf[1]/volume-norm</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>dme1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/dme[0]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>dme2</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/dme[1]/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>mkr</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/instrumentation/marker-beacon/volume</property>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property alias="../../../../params/audio-last-selected"/>
+						<value>pa</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property alias="../../../../params/audio-volume"/>
+				<step>-5</step>
+				<min>0.00</min>	      
+			</binding>
+		</action>
+	</animation>
 
 </PropertyList>
