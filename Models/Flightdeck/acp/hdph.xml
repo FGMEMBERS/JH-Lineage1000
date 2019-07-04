@@ -19,17 +19,17 @@
                <repeatable>false</repeatable>
                <binding>
                    <command>property-assign</command>
-                   <property alias="../../../../params/acp-active"/>
+                   <property alias="/params/acp-active"/>
                    <value>true</value>
                </binding>
                <binding>
                    <command>property-assign</command>
-                   <property alias="../../../../params/acp-inactive1"/>
+                   <property alias="/params/acp-inactive1"/>
                    <value>false</value>
                </binding>
                <binding>
                    <command>property-assign</command>
-                   <property alias="../../../../params/acp-inactive2"/>
+                   <property alias="/params/acp-inactive2"/>
                    <value>false</value>
                </binding>
            </action>
