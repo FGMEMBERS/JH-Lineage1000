@@ -453,6 +453,20 @@
 		</condition>
 	</animation>
 
+
+<!-- test -->
+	<animation>
+	  <type>pick</type>
+	  <object-name>acp.display</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.test()</script>
+            </binding>
+          </action></animation>
+
 	<!-- Mic selectors -->
 	<animation>
 	  <type>pick</type>
