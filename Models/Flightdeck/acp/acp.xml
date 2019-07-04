@@ -467,6 +467,10 @@
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>vhf1</value>
 		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-toggle</command>
 	      <property alias="../../../../params/comm-mic"/>
@@ -479,17 +483,33 @@
 		    <value>vhf1</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf1</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf1</value>
@@ -510,6 +530,10 @@
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>vhf2</value>
 		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-toggle</command>
 	      <property alias="../../../../params/comm-mic"/>
@@ -522,17 +546,33 @@
 		    <value>vhf2</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf2</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf2</value>
@@ -553,6 +593,10 @@
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>vhf3</value>
 		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-toggle</command>
 	      <property alias="../../../../params/comm-mic"/>
@@ -565,17 +609,33 @@
 		    <value>vhf3</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf3</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf3</value>
@@ -596,6 +656,10 @@
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>hf</value>
 		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-toggle</command>
 	      <property alias="../../../../params/comm-mic"/>
@@ -608,17 +672,33 @@
 		    <value>hf</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>hf</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>hf</value>
@@ -628,8 +708,8 @@
 
 	<animation>
 	  <type>pick</type>
-	  <object-name>mic.sat</object-name>
-	  <object-name>mic.sat.led</object-name>
+	  <object-name>satcom.ctr.button</object-name>
+	  <object-name>satcom.ctr.button.led</object-name>
 	  <action>
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
@@ -638,6 +718,10 @@
 		<equals>
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>sat</value>
+		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
 		</equals>
 	      </condition>
 	      <command>property-toggle</command>
@@ -651,17 +735,33 @@
 		    <value>sat</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>sat</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>sat</value>
@@ -682,6 +782,10 @@
 		  <property alias="../../../../../../params/comm-audio"/>
 		  <value>pa</value>
 		</equals>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-toggle</command>
 	      <property alias="../../../../params/comm-mic"/>
@@ -694,17 +798,33 @@
 		    <value>pa</value>
 		  </equals>
 		</not>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
 	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-mic"/>
 	      <value>true</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>pa</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>pa</value>
@@ -721,11 +841,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf1</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf1</value>
@@ -741,11 +873,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf2</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf2</value>
@@ -761,11 +905,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>vhf3</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>vhf3</value>
@@ -781,11 +937,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>hf</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>hf</value>
@@ -801,11 +969,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>sat</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>sat</value>
@@ -821,11 +1001,23 @@
 	    <button>0</button>
 	    <repeatable type="bool">false</repeatable>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/audio-last-selected"/>
 	      <value>pa</value>
 	    </binding>
 	    <binding>
+	      <condition>
+		<equals>
+		  <property alias="../../../../../../params/audio-backup"/>
+		  <value>norm</value>
+		</equals>
+	      </condition>
 	      <command>property-assign</command>
 	      <property alias="../../../../params/comm-audio"/>
 	      <value>pa</value>
