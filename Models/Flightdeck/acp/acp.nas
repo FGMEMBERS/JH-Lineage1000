@@ -242,8 +242,8 @@ var stack = {
 	 return false;
     },
     toggleMicMask : func () {
-    	 if (me.micMask == "auto") {me.mask = "mask"; return (me.mask);}
-	 if (me.micMask == "mask") {me.mask = "auto"; return (me.mask);}
+    	 if (me.isAutoMicMask()) {me.mask = "mask"; return (me.mask);}
+	 if (me.isMaskMicMask()) {me.mask = "auto"; return (me.mask);}
     },
     setMicMask : func (value="auto") {
     	 #defaults to auto
@@ -417,8 +417,8 @@ var stack = {
 	 return false;
     },
     toggleBackup : func () {
-    	 if (me.backup == "norm") {me.backup = "backup"; return (me.backup);}
-	 if (me.backup == "backup") {me.backup = "norm"; return (me.backup);}
+    	 if (me.isDisabledBackup()) {me.backup = "backup"; return (me.backup);}
+	 if (me.isEnabledBackup()) {me.backup = "norm"; return (me.backup);}
     },
     setBackup : func (value="norm") {
     	 #defaults to norm
@@ -434,6 +434,9 @@ var stack = {
     isDisabledBackup : func () {
          if (me.backup == "norm") { return true; }
 	 return false;
+    },
+    getBackup : func () {
+    	 return me.backup;
     },
     setVolumeInstrument : func (id) {
          me.volumeUpdate();
@@ -467,7 +470,12 @@ var stack = {
          return me.volume;
     },
     getDisplay : func () {
-    	 return (me.lastSelected~": "~me.volume);
+    	 if (me.isDisabledBackup()){
+	     	 return (me.getLastSelected()~": "~me.getVolume());
+	};
+    	 if (me.isEnabledBackup()){
+	     	 return (me.getBackup()~": "~me.getVolume());
+	};
     },
     update : func () {
     	   var fgcom = false;
