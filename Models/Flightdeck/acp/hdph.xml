@@ -7,6 +7,7 @@
             <acp-active>/instrumentation/acp[0]/active</acp-active>
             <acp-inactive1>/instrumentation/acp[1]/active</acp-inactive1>
             <acp-inactive2>/instrumentation/acp[2]/active</acp-inactive2>
+            <audio-output>/instrumentation/acp[0]/audio/output</audio-output>
         </params>
 
         <animation>
@@ -31,6 +32,15 @@
                    <command>property-assign</command>
                    <property alias="/params/acp-inactive2"/>
                    <value>false</value>
+               </binding>
+               <binding>
+                   <command>property-assign</command>
+                   <property alias="/params/audio-output"/>
+                   <value>headphone</value>
+               </binding>
+               <binding>
+                   <command>nasal</command>
+                   <script>acp.update()</script>
                </binding>
            </action>
         </animation>

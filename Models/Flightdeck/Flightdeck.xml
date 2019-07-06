@@ -214,7 +214,8 @@
                    <params>
                        <acp-active>/instrumentation/acp[1]/active</acp-active>
                        <acp-inactive1>/instrumentation/acp[0]/active</acp-inactive1>
-                       <acp-inactive2>/instrumentation/acp[2]/active</acp-inactive2>                       
+                       <acp-inactive2>/instrumentation/acp[2]/active</acp-inactive2>
+                       <audio-output>/instrumentation/acp[1]/audio/output</audio-output>                       
                    </params>
                 </overlay>
 	</model>
@@ -232,7 +233,8 @@
                    <params>
                        <acp-active>/instrumentation/acp[2]/active</acp-active>
                        <acp-inactive1>/instrumentation/acp[0]/active</acp-inactive1>
-                       <acp-inactive2>/instrumentation/acp[1]/active</acp-inactive2>                       
+                       <acp-inactive2>/instrumentation/acp[1]/active</acp-inactive2>
+                       <audio-output>/instrumentation/acp[2]/audio/output</audio-output>                       
                    </params>
                 </overlay>
 	</model>

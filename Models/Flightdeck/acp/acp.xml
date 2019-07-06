@@ -453,6 +453,19 @@
 		</condition>
 	</animation>
 
+        <!-- Display; currently as a gui.popupTip -->
+	<animation>
+	  <type>pick</type>
+	  <object-name>acp.display</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+                <command>nasal</command>
+                <script>gui.popupTip(acp.getDisplay(), 5);</script>
+            </binding>
+          </action></animation>
+
 	<!-- Mic selectors -->
 	<animation>
 	  <type>pick</type>
@@ -514,6 +527,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf1</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -577,6 +594,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf2</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -640,6 +661,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf3</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -703,6 +728,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>hf</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -766,6 +795,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>sat</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -829,6 +862,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>pa</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 	
@@ -862,6 +899,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf1</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -894,6 +935,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf2</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -926,6 +971,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>vhf3</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -958,6 +1007,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>hf</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -990,6 +1043,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>sat</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 
@@ -1022,6 +1079,10 @@
 	      <property alias="/params/comm-audio"/>
 	      <value>pa</value>
 	    </binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 	  </action>
 	</animation>
 	
@@ -1058,6 +1119,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-nav1"/>
 			</binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 		</action>
 	</animation>
 
@@ -1094,6 +1159,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-nav2"/>
 			</binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 		</action>
 	</animation>
 
@@ -1130,6 +1199,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-nav3"/>
 			</binding>
+	    <binding>
+                <command>nasal</command>
+                <script>acp.update()</script>
+            </binding>
 		</action>
 	</animation>
 
@@ -1165,7 +1238,11 @@
 				</condition>
 				<command>property-toggle</command>
 				<property alias="/params/audio-adf1"/>
-			</binding>
+	    		</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1202,6 +1279,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-adf2"/>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+           		 </binding>
 		</action>
 	</animation>
 
@@ -1238,6 +1319,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-dme1"/>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1274,6 +1359,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-dme2"/>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1310,6 +1399,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-mkr"/>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1327,6 +1420,10 @@
 				<command>property-toggle</command>
 				<property alias="/params/audio-filter-id"/>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1343,6 +1440,10 @@
 				<property alias="/params/audio-output"/>
 				<value>speaker</value>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1358,6 +1459,10 @@
 				<property alias="/params/audio-output"/>
 				<value>interphone</value>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1373,6 +1478,10 @@
 				<property alias="/params/audio-output"/>
 				<value>headphone</value>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1390,6 +1499,10 @@
 				<value>norm</value>
 				<value>backup</value>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.updateVolumes()</script>
+            		</binding>
 		</action>
 		<action>
 			<button>3</button>
@@ -1406,6 +1519,10 @@
 				<step>0.05</step>
 				<max>1.00</max>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.updateVolumes()</script>
+            		</binding>
 		</action>
 		<action>
 			<button>4</button>
@@ -1422,6 +1539,10 @@
 				<step>-0.05</step>
 				<min>0.00</min>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.updateVolumes()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1439,6 +1560,10 @@
 				<value>auto</value>
 				<value>mask</value>
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.update()</script>
+            		</binding>
 		</action>
 	</animation>
 
@@ -1902,6 +2027,10 @@
 				<step>0.05</step>
 				<max>1.00</max>	      
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.updateVolumes()</script>
+            		</binding>
 		</action>
 		<action>
 			<button>4</button>
@@ -2074,6 +2203,10 @@
 				<step>-0.05</step>
 				<min>0.00</min>	      
 			</binding>
+	    		<binding>
+                		<command>nasal</command>
+                		<script>acp.updateVolumes()</script>
+            		</binding>
 		</action>
 	</animation>
 
