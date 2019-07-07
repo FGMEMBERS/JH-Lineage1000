@@ -238,6 +238,28 @@
                    </params>
                 </overlay>
 	</model>
+	<model>
+		<path>acp/paPTT.xml</path>
+		<offsets>
+		   <x-m>-11.61539</x-m>
+		   <y-m>-0.20594</y-m>
+		   <z-m>0.64886</z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>acp/paPTT.xml</path>
+		<offsets>
+		   <x-m>-11.61539</x-m>
+		   <y-m>0.12511</y-m>
+		   <z-m>0.64886</z-m>
+		</offsets>
+                <overlay>
+                   <params>
+                       <paPTT-id>/instrumentation/acp[1]/paPTT/id</paPTT-id>
+                   </params>
+                </overlay>
+	</model>
+
 
 	<!-- HUD -->
 	<model>

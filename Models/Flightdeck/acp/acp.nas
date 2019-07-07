@@ -30,6 +30,13 @@
 #@        Updates the active instrument by connecting it          @#
 #@        to the Lineage 1000 Systems				  @#
 #@                    	     	    	       	      		  @#
+#@   acp.paPTTHold();						  @#
+#@        Holds the comm audio of stack id to PA                  @#
+#@        on the pressed side of the instrument  		  @#	
+#@								  @#
+#@   acp.paPTTRelease();   	    	      	   		  @#
+#@        Releases the last pressed comm audio of stack           @#
+#@	  	       						  @#	  
 ####################################################################
 
 
@@ -242,8 +249,8 @@ var stack = {
 	 return false;
     },
     toggleMicMask : func () {
-    	 if (me.micMask == "auto") {me.mask = "mask"; return (me.mask);}
-	 if (me.micMask == "mask") {me.mask = "auto"; return (me.mask);}
+    	 if (me.isAutoMicMask()) {me.mask = "mask"; return (me.mask);}
+	 if (me.isMaskMicMask()) {me.mask = "auto"; return (me.mask);}
     },
     setMicMask : func (value="auto") {
     	 #defaults to auto
@@ -417,8 +424,8 @@ var stack = {
 	 return false;
     },
     toggleBackup : func () {
-    	 if (me.backup == "norm") {me.backup = "backup"; return (me.backup);}
-	 if (me.backup == "backup") {me.backup = "norm"; return (me.backup);}
+    	 if (me.isDisabledBackup()) {me.backup = "backup"; return (me.backup);}
+	 if (me.isEnabledBackup()) {me.backup = "norm"; return (me.backup);}
     },
     setBackup : func (value="norm") {
     	 #defaults to norm
@@ -434,6 +441,9 @@ var stack = {
     isDisabledBackup : func () {
          if (me.backup == "norm") { return true; }
 	 return false;
+    },
+    getBackup : func () {
+    	 return me.backup;
     },
     setVolumeInstrument : func (id) {
          me.volumeUpdate();
@@ -467,7 +477,12 @@ var stack = {
          return me.volume;
     },
     getDisplay : func () {
-    	 return (me.lastSelected~": "~me.volume);
+    	 if (me.isDisabledBackup()){
+	     	 return (me.getLastSelected()~": "~me.getVolume());
+	};
+    	 if (me.isEnabledBackup()){
+	     	 return (me.getBackup()~": "~me.getVolume());
+	};
     },
     update : func () {
     	   var fgcom = false;
@@ -491,7 +506,48 @@ var stack = {
     }
 };
 
+#define a class buffer: it stores a memory of every acp instrument's status,
+#and define a memory object of such class, to operate globally
+var buffer = { 
+    instrument:std.Vector.new(),
+    new:func () {
+    	     var buffer = {parents:[buffer]};
+	     buffer.instrument.clear();
+    	     for (var index=0; index < stackSize; index=index+1){
+    	     	 buffer.instrument.append(stack.new(index));
+    	     };
+    	     return (buffer);
+    },
+    update:func () {
+    	     me.new();
+    }
+};
+var memory = buffer.new(); 
 
+#Stack Class with paPTT actions
+var paPTT  = {
+    id:0,
+    new : func (id=nil) {
+    	var paPTT = {parents:[stack, paPTT]};
+	#id defaults to pilot's instrument (0)
+    	if (id==nil) { id=0; }
+    	if (id>stackSize-1) { id = 0; }
+	paPTT.id = id;
+	paPTT.loadInstrument(id);
+	paPTT.setVolumeInstrument(id);
+	paPTT.setCommAudio("pa");
+	paPTT.setMic(true);
+	return paPTT;
+    },
+    hold : func () {
+    	me.setInstrument(me.id);
+    },
+    release :  func () {
+    	memory.instrument.vector[me.id].setInstrument(me.id);
+    }
+};
+#Stores last Pressed paPTT button to hold it and restores it on release
+var lastPressedpaPTT=0;
 
 ##########################################################################
 #									 #
@@ -521,6 +577,22 @@ var update = func () {
     #Note: It updates the active ACP, by connecting its properties to the Lineage Systems
     var object = stack.new();
     object.update();
+    memory.update();
+};
+
+var paPTTHold = func ( ){
+    #gets ID of last pressed paPTT button, and restores IDs
+    lastPressedpaPTT = getprop("/instrumentation/acp[0]/paPTT/pressed");
+    for (var index=0; index < stackSize; index=index+1){
+    	setprop ("/instrumentation/acp["~index~"]/paPTT/id", index);
+    };
+    var object = paPTT.new(lastPressedpaPTT);
+    object.hold();
+};
+
+var paPTTRelease = func ( ){
+    var object = paPTT.new(lastPressedpaPTT);
+    object.release();
 };
 
 ##Initializer

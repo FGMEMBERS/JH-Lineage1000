@@ -661,6 +661,10 @@
                   <selcal type="string">call-off</selcal>
                   <display type="string">----</display>
               </interphone>
+              <paPTT>
+                  <id type="int">0</id>
+                  <pressed type="int">0</pressed>
+              </paPTT>
               <battery-on type="bool">true</battery-on>
               <active type="bool">true</active>
           </acp>
@@ -695,6 +699,9 @@
                   <selcal type="string">call-off</selcal>
                   <display type="string">----</display>
               </interphone>
+              <paPTT>
+                  <id type="int">1</id>
+              </paPTT>
               <battery-on type="bool">true</battery-on>
               <active type="bool">false</active>
           </acp>
@@ -729,6 +736,9 @@
                   <selcal type="string">call-off</selcal>
                   <display type="string">----</display>
               </interphone>
+              <paPTT>
+                  <id type="int">2</id>
+              </paPTT>
               <battery-on type="bool">true</battery-on>
               <active type="bool">false</active>
           </acp>
