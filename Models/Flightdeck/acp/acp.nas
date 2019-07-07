@@ -30,15 +30,13 @@
 #@        Updates the active instrument by connecting it          @#
 #@        to the Lineage 1000 Systems				  @#
 #@                    	     	    	       	      		  @#
-#@   acp.paPTTHold(id);						  @#
+#@   acp.paPTTHold();						  @#
 #@        Holds the comm audio of stack id to PA                  @#
-#@        Lineage1000:						  @#	
-#@        id=0 (pilot), id=1 (first officer), id=2 (observer)     @#
+#@        on the pressed side of the instrument  		  @#	
 #@								  @#
-#@   acp.paPTTRelease(id);   	    	      	   		  @#
-#@        Releases the comm audio of stack id to previous status  @#
-#@        (i.e. before paPTTHold)		                  @#
-@#	  	       						  @#			  
+#@   acp.paPTTRelease();   	    	      	   		  @#
+#@        Releases the last pressed comm audio of stack           @#
+#@	  	       						  @#	  
 ####################################################################
 
 
@@ -518,7 +516,6 @@ var buffer = {
     	     for (var index=0; index < stackSize; index=index+1){
     	     	 buffer.instrument.append(stack.new(index));
     	     };
-	     print (buffer.instrument.size());
     	     return (buffer);
     },
     update:func () {
@@ -539,6 +536,7 @@ var paPTT  = {
 	paPTT.loadInstrument(id);
 	paPTT.setVolumeInstrument(id);
 	paPTT.setCommAudio("pa");
+	paPTT.setMic(true);
 	return paPTT;
     },
     hold : func () {
@@ -548,6 +546,8 @@ var paPTT  = {
     	memory.instrument.vector[me.id].setInstrument(me.id);
     }
 };
+#Stores last Pressed paPTT button to hold it and restores it on release
+var lastPressedpaPTT=0;
 
 ##########################################################################
 #									 #
@@ -580,19 +580,18 @@ var update = func () {
     memory.update();
 };
 
-var paPTTHold = func (id=nil){
-    #defaults to pilot (id = 0)
-    if (id == nil) { id = 0;}
-    if (id > stackSize - 1 ) { id = 0; }
-    var object = paPTT.new(id);
+var paPTTHold = func ( ){
+    #gets ID of last pressed paPTT button, and restores IDs
+    lastPressedpaPTT = getprop("/instrumentation/acp[0]/paPTT/pressed");
+    for (var index=0; index < stackSize; index=index+1){
+    	setprop ("/instrumentation/acp["~index~"]/paPTT/id", index);
+    };
+    var object = paPTT.new(lastPressedpaPTT);
     object.hold();
 };
 
-var paPTTRelease = func (id=nil){
-    #defaults to pilot (id = 0)
-    if (id == nil) { id = 0;}
-    if (id > stackSize - 1 ) { id = 0; }
-    var object = paPTT.new(id);
+var paPTTRelease = func ( ){
+    var object = paPTT.new(lastPressedpaPTT);
     object.release();
 };
 

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>paPTT.ac</path>
+        <params>
+            <paPTT-id>/instrumentation/acp[0]/paPTT/id</paPTT-id>
+        </params>
+
+        <animation>
+           <name>select acp</name>
+           <type>pick</type>
+           <object-name>paPTT.button</object-name>
+           <action>
+               <button>0</button>
+               <repeatable>true</repeatable>
+               <binding>
+                   <command>property-swap</command>
+                   <property alias="/params/paPTT-id"/>
+                   <property>/instrumentation/acp[0]/paPTT/pressed</property>
+               </binding>
+               <binding>
+                   <command>nasal</command>
+                   <script>acp.paPTTHold()</script>
+               </binding>
+               <mod-up><binding>
+                   <command>nasal</command>
+                   <script>acp.paPTTRelease()</script>
+               </binding></mod-up>
+           </action>
+        </animation>
+
+</PropertyList>
