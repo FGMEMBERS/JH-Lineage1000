@@ -30,6 +30,15 @@
 #@        Updates the active instrument by connecting it          @#
 #@        to the Lineage 1000 Systems				  @#
 #@                    	     	    	       	      		  @#
+#@   acp.paPTTHold(id);						  @#
+#@        Holds the comm audio of stack id to PA                  @#
+#@        Lineage1000:						  @#	
+#@        id=0 (pilot), id=1 (first officer), id=2 (observer)     @#
+#@								  @#
+#@   acp.paPTTRelease(id);   	    	      	   		  @#
+#@        Releases the comm audio of stack id to previous status  @#
+#@        (i.e. before paPTTHold)		                  @#
+@#	  	       						  @#			  
 ####################################################################
 
 
@@ -499,7 +508,46 @@ var stack = {
     }
 };
 
+#define a class buffer: it stores a memory of every acp instrument's status,
+#and define a memory object of such class, to operate globally
+var buffer = { 
+    instrument:std.Vector.new(),
+    new:func () {
+    	     var buffer = {parents:[buffer]};
+	     buffer.instrument.clear();
+    	     for (var index=0; index < stackSize; index=index+1){
+    	     	 buffer.instrument.append(stack.new(index));
+    	     };
+	     print (buffer.instrument.size());
+    	     return (buffer);
+    },
+    update:func () {
+    	     me.new();
+    }
+};
+var memory = buffer.new(); 
 
+#Stack Class with paPTT actions
+var paPTT  = {
+    id:0,
+    new : func (id=nil) {
+    	var paPTT = {parents:[stack, paPTT]};
+	#id defaults to pilot's instrument (0)
+    	if (id==nil) { id=0; }
+    	if (id>stackSize-1) { id = 0; }
+	paPTT.id = id;
+	paPTT.loadInstrument(id);
+	paPTT.setVolumeInstrument(id);
+	paPTT.setCommAudio("pa");
+	return paPTT;
+    },
+    hold : func () {
+    	me.setInstrument(me.id);
+    },
+    release :  func () {
+    	memory.instrument.vector[me.id].setInstrument(me.id);
+    }
+};
 
 ##########################################################################
 #									 #
@@ -529,6 +577,23 @@ var update = func () {
     #Note: It updates the active ACP, by connecting its properties to the Lineage Systems
     var object = stack.new();
     object.update();
+    memory.update();
+};
+
+var paPTTHold = func (id=nil){
+    #defaults to pilot (id = 0)
+    if (id == nil) { id = 0;}
+    if (id > stackSize - 1 ) { id = 0; }
+    var object = paPTT.new(id);
+    object.hold();
+};
+
+var paPTTRelease = func (id=nil){
+    #defaults to pilot (id = 0)
+    if (id == nil) { id = 0;}
+    if (id > stackSize - 1 ) { id = 0; }
+    var object = paPTT.new(id);
+    object.release();
 };
 
 ##Initializer
