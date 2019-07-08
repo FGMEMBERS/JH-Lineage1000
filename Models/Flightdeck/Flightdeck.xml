@@ -122,6 +122,7 @@
                           <index>/instrumentation/acp[1]/paPTT/id</index>
                           <comm-mic>/instrumentation/acp[1]/comm/mic</comm-mic>
                           <comm-mic-mask>/instrumentation/acp[1]/comm/mic-mask</comm-mic-mask>
+                          <comm-mic-mask-auto>/instrumentation/acp[1]/comm/mic-mask-auto</comm-mic-mask-auto>
                           <comm-audio>/instrumentation/acp[1]/comm/audio</comm-audio>
                           <audio-nav1>/instrumentation/acp[1]/audio/nav1</audio-nav1>
                           <audio-nav2>/instrumentation/acp[1]/audio/nav2</audio-nav2>
@@ -137,6 +138,7 @@
                           <audio-volume-sat>/instrumentation/acp[1]/audio/volume-sat</audio-volume-sat>
                           <audio-volume-pa>/instrumentation/acp[1]/audio/volume-pa</audio-volume-pa>
                           <audio-backup>/instrumentation/acp[1]/audio/backup</audio-backup>
+                          <audio-backup-norm>/instrumentation/acp[1]/audio/backup-norm</audio-backup-norm>
                           <audio-backup-volume>/instrumentation/acp[1]/audio/backup-volume</audio-backup-volume>
                           <audio-output>/instrumentation/acp[1]/audio/output</audio-output>
                           <interphone-emer>/instrumentation/acp[1]/interphone/emer</interphone-emer>
@@ -164,6 +166,7 @@
                           <index>/instrumentation/acp[2]/paPTT/id</index>
                           <comm-mic>/instrumentation/acp[2]/comm/mic</comm-mic>
                           <comm-mic-mask>/instrumentation/acp[2]/comm/mic-mask</comm-mic-mask>
+                          <comm-mic-mask-auto>/instrumentation/acp[2]/comm/mic-mask-auto</comm-mic-mask-auto>
                           <comm-audio>/instrumentation/acp[2]/comm/audio</comm-audio>
                           <audio-nav1>/instrumentation/acp[2]/audio/nav1</audio-nav1>
                           <audio-nav2>/instrumentation/acp[2]/audio/nav2</audio-nav2>
@@ -179,6 +182,7 @@
 			  <audio-volume-sat>/instrumentation/acp[2]/audio/volume-sat</audio-volume-sat>
                           <audio-volume-pa>/instrumentation/acp[2]/audio/volume-pa</audio-volume-pa>
                           <audio-backup>/instrumentation/acp[2]/audio/backup</audio-backup>
+                          <audio-backup-norm>/instrumentation/acp[2]/audio/backup-norm</audio-backup-norm>
                           <audio-backup-volume>/instrumentation/acp[2]/audio/backup-volume</audio-backup-volume>
                           <audio-output>/instrumentation/acp[2]/audio/output</audio-output>
                           <interphone-emer>/instrumentation/acp[2]/interphone/emer</interphone-emer>

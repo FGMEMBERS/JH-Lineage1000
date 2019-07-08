@@ -634,6 +634,7 @@
               <comm>
                   <mic type="bool">true</mic>
                   <mic-mask type="string">auto</mic-mask>
+                  <mic-mask-auto type="string">1</mic-mask-auto>
                   <audio type="string">sat</audio>
               </comm>
               <audio>
@@ -651,6 +652,7 @@
 		  <volume-sat type="double">0.5</volume-sat>
 		  <volume-pa type="double">0.5</volume-pa>
                   <backup type="string">norm</backup>
+                  <backup-norm type="string">1</backup-norm>
                   <backup-volume type="double">1.0</backup-volume>
                   <output type="string">headphone</output>
               </audio>
@@ -672,6 +674,7 @@
               <comm>
                   <mic type="bool">true</mic>
                   <mic-mask type="string">auto</mic-mask>
+                  <mic-mask-auto type="string">1</mic-mask-auto>
                   <audio type="string">hf</audio>
               </comm>
               <audio>
@@ -689,6 +692,7 @@
 		  <volume-sat type="double">0.5</volume-sat>
 		  <volume-pa type="double">0.5</volume-pa>
                   <backup type="string">norm</backup>
+                  <backup-norm type="string">1</backup-norm>
                   <backup-volume type="double">1.0</backup-volume>
                   <output type="string">headphone</output>
               </audio>
@@ -709,6 +713,7 @@
               <comm>
                   <mic type="bool">true</mic>
                   <mic-mask type="string">auto</mic-mask>
+                  <mic-mask-auto type="string">1</mic-mask-auto>
                   <audio type="string">sat</audio>
               </comm>
               <audio>
@@ -726,6 +731,7 @@
 		  <volume-sat type="double">0.5</volume-sat>
 		  <volume-pa type="double">0.5</volume-pa>
                   <backup type="string">norm</backup>
+                  <backup-norm type="string">1</backup-norm>
                   <backup-volume type="double">0.0</backup-volume>
                   <output type="string">headphone</output>
               </audio>

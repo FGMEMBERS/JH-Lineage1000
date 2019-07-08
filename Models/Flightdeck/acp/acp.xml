@@ -7,6 +7,7 @@
            <index>/instrumentation/acp[0]/paPTT/id</index>
            <comm-mic>/instrumentation/acp[0]/comm/mic</comm-mic>
            <comm-mic-mask>/instrumentation/acp[0]/comm/mic-mask</comm-mic-mask>
+           <comm-mic-mask-auto>/instrumentation/acp[0]/comm/mic-mask-auto</comm-mic-mask-auto>
            <comm-audio>/instrumentation/acp[0]/comm/audio</comm-audio>
            <audio-nav1>/instrumentation/acp[0]/audio/nav1</audio-nav1>
            <audio-nav2>/instrumentation/acp[0]/audio/nav2</audio-nav2>
@@ -22,6 +23,7 @@
            <audio-volume-sat>/instrumentation/acp[0]/audio/volume-sat</audio-volume-sat>
            <audio-volume-pa>/instrumentation/acp[0]/audio/volume-pa</audio-volume-pa>
            <audio-backup>/instrumentation/acp[0]/audio/backup</audio-backup>
+           <audio-backup-norm>/instrumentation/acp[0]/audio/backup-norm</audio-backup-norm>
            <audio-backup-volume>/instrumentation/acp[0]/audio/backup-volume</audio-backup-volume>
            <audio-output>/instrumentation/acp[0]/audio/output</audio-output>
            <interphone-emer>/instrumentation/acp[0]/interphone/emer</interphone-emer>
@@ -1528,6 +1530,12 @@
 				<value>norm</value>
 				<value>backup</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="/params/audio-backup-norm"/>
+				<value>1</value>
+				<value>0</value>
+			</binding>
 	    		<binding>
                 		<command>nasal</command>
                 		<script>acp.update()</script>
@@ -1588,6 +1596,12 @@
 				<property alias="/params/comm-mic-mask"/>
 				<value>auto</value>
 				<value>mask</value>
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="/params/comm-mic-mask-auto"/>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 	    		<binding>
                 		<command>nasal</command>
@@ -2238,5 +2252,66 @@
             		</binding>
 		</action>
 	</animation>
+
+        <animation>
+            <type>rotate</type>
+            <object-name>backup.volume.switch</object-name>
+            <object-name>backup.volume.switch.led</object-name>
+            <property alias="/params/audio-backup-volume"/>
+            <offset-deg  alias="/params/audio-backup-volume"/>
+            <factor>-180</factor>
+            <center>
+               <x-m>0.08282</x-m>
+               <y-m>0.01408</y-m>
+               <z-m>0.000006</z-m>
+            </center>
+            <axis>
+               <x>0</x>
+               <y>0</y>
+               <z>1</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>backup.volume.switch</object-name>
+            <object-name>backup.volume.switch.led</object-name>
+            <property alias="/params/audio-backup-norm"/>
+            <interpolation>
+	        <entry><ind>0</ind><dep>0.006</dep></entry>
+	        <entry><ind>1</ind><dep>0</dep></entry>
+            </interpolation>
+            <center>
+               <x-m>0.08282</x-m>
+               <y-m>0.01408</y-m>
+               <z-m>0.000006</z-m>
+            </center>
+            <axis>
+               <x>0</x>
+               <y>0</y>
+               <z>1</z>
+            </axis>
+        </animation>
+
+        <animation>
+            <type>translate</type>
+            <object-name>auto.mask.mic.switch</object-name>
+	    <object-name>auto.mask.mic.switch.led</object-name>
+            <property alias="/params/comm-mic-mask-auto"/>
+            <interpolation>
+	        <entry><ind>0</ind><dep>0.006</dep></entry>
+	        <entry><ind>1</ind><dep>0</dep></entry>
+            </interpolation>
+            <center>
+               <x-m>0.08279</x-m>
+               <y-m>0.02829</y-m>
+               <z-m>0.000006</z-m>
+            </center>
+            <axis>
+               <x>0</x>
+               <y>0</y>
+               <z>1</z>
+            </axis>
+        </animation>
 
 </PropertyList>
