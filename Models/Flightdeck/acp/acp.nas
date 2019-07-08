@@ -541,9 +541,11 @@ var paPTT  = {
     },
     hold : func () {
     	me.setInstrument(me.id);
+	me.update();
     },
     release :  func () {
     	memory.instrument.vector[me.id].setInstrument(me.id);
+	me.update();
     }
 };
 #Stores last Pressed paPTT button to hold it and restores it on release

@@ -4,6 +4,7 @@
 
 	<path>acp.ac</path>
         <params>
+           <index>/instrumentation/acp[0]/paPTT/id</index>
            <comm-mic>/instrumentation/acp[0]/comm/mic</comm-mic>
            <comm-mic-mask>/instrumentation/acp[0]/comm/mic-mask</comm-mic-mask>
            <comm-audio>/instrumentation/acp[0]/comm/audio</comm-audio>
@@ -1494,6 +1495,34 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+                                <condition>
+                                   <or>
+                                    <equals>
+                                      <property alias="/params/index"/>
+                                      <value>0</value>
+                                    </equals>
+                                    <equals>
+                                      <property alias="/params/index"/>
+                                      <value>2</value>
+                                    </equals>
+                                   </or>
+                                </condition>
+				<command>property-assign</command>
+				<property alias="/params/comm-audio"/>
+				<value>vhf1</value>
+			</binding>
+			<binding>
+                                <condition>
+                                    <equals>
+                                      <property alias="/params/index"/>
+                                      <value>1</value>
+                                    </equals>
+                                </condition>
+				<command>property-assign</command>
+				<property alias="/params/comm-audio"/>
+				<value>vhf2</value>
+			</binding>
+			<binding>
 				<command>property-cycle</command>
 				<property alias="/params/audio-backup"/>
 				<value>norm</value>
@@ -1501,7 +1530,7 @@
 			</binding>
 	    		<binding>
                 		<command>nasal</command>
-                		<script>acp.updateVolumes()</script>
+                		<script>acp.update()</script>
             		</binding>
 		</action>
 		<action>

@@ -23,9 +23,19 @@
                    <command>nasal</command>
                    <script>acp.paPTTHold()</script>
                </binding>
+               <binding>
+                   <command>property-assign</command>
+                   <property>/controls/radios/comm-ptt</property>
+                   <value>1</value>
+               </binding>
                <mod-up><binding>
                    <command>nasal</command>
                    <script>acp.paPTTRelease()</script>
+               </binding>
+              <binding>
+                   <command>property-assign</command>
+                   <property>/controls/radios/comm-ptt</property>
+                   <value>0</value>
                </binding></mod-up>
            </action>
         </animation>
