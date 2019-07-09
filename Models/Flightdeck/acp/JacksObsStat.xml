@@ -4,8 +4,78 @@
 
 	<path>JacksObsStat.ac</path>
         <params>
-            <obs-mic>/instrumentation/acp[0]/obsStation/mic</obs-mic>
-            <obs-mic-norm>/instrumentation/acp[0]/obsStation/mic-norm</obs-mic-norm>
+            <obs-mic>/instrumentation/acp[2]/obsStation/mic</obs-mic>
+            <obs-mic-norm>/instrumentation/acp[2]/obsStation/mic-norm</obs-mic-norm>
         </params>
+
+        <animation>
+           <type>rotate</type>
+           <object-name>mic.switch</object-name>
+           <property alias="/params/obs-mic-norm"/>
+           <factor>50</factor>
+           <offset-deg  alias="/params/obs-mic-norm"/>
+           <center>   
+              <x-m>0.02582</x-m><y-m>0.02258</y-m><z-m>0.001</z-m>
+           </center>
+           <axis>   
+              <x>0</x><y>1</y><z>0</z>
+           </axis>
+        </animation>
+
+        <animation>
+           <type>pick</type>
+           <object-name>mic.switch</object-name>
+           <object-name>mic.switch.base</object-name>
+	  <action>
+	    <button>0</button>
+            <button>4</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+                 <command>property-cycle</command>
+                 <property alias="/params/obs-mic"/>
+                 <value>hot</value>
+                 <value>off</value>
+                 <value>ptt</value>
+                 <wrap>false</wrap>
+            </binding>
+	    <binding>
+                 <command>property-cycle</command>
+                 <property alias="/params/obs-mic-norm"/>
+                 <value>-1</value>
+                 <value>0</value>
+                 <value>1</value>
+                 <wrap>false</wrap>
+            </binding>
+	    <binding>
+                 <command>nasal</command>
+                 <script>acp.observerMicUpdate()</script>
+            </binding>
+           </action>
+           <action>
+	    <button>1</button>
+            <button>3</button>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+                 <command>property-cycle</command>
+                 <property alias="/params/obs-mic"/>
+                 <value>ptt</value>
+                 <value>off</value>
+                 <value>hot</value>
+                 <wrap>false</wrap>
+            </binding>
+	    <binding>
+                 <command>property-cycle</command>
+                 <property alias="/params/obs-mic-norm"/>
+                 <value>1</value>
+                 <value>0</value>
+                 <value>-1</value>
+                 <wrap>false</wrap>
+            </binding>
+	    <binding>
+                 <command>nasal</command>
+                 <script>acp.observerMicUpdate()</script>
+            </binding>
+           </action>
+        </animation>
 
 </PropertyList>

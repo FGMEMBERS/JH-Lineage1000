@@ -745,6 +745,10 @@
               <paPTT>
                   <id type="int">2</id>
               </paPTT>
+              <obsStation>
+                 <mic type="string">off</mic>
+                 <mic-norm type="int">0</mic-norm>
+              </obsStation>
               <battery-on type="bool">true</battery-on>
               <active type="bool">false</active>
           </acp>

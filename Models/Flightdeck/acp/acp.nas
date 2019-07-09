@@ -36,7 +36,11 @@
 #@								  @#
 #@   acp.paPTTRelease();   	    	      	   		  @#
 #@        Releases the last pressed comm audio of stack           @#
-#@	  	       						  @#	  
+#@	  	       						  @#
+#@   acp.observerMicUpdate();                                     @#    	
+#@	  Connects the Microphone switch status (off/hot/ptt)     @#
+#@        in the Observer Station (id=2) to the systems  	  @#
+#@	  	       						  @#
 ####################################################################
 
 
@@ -580,6 +584,7 @@ var update = func () {
     var object = stack.new();
     object.update();
     memory.update();
+    observerMicUpdate();
 };
 
 var paPTTHold = func ( ){
@@ -596,6 +601,20 @@ var paPTTRelease = func ( ){
     var object = paPTT.new(lastPressedpaPTT);
     object.release();
 };
+
+var observerMicUpdate = func (id=2) {
+    var station = stack.new(id);
+    var stationMic = getprop ("/instrumentation/acp["~id~"]/obsStation/mic");
+    station.setMic(false);
+    if (stationMic != "off") {station.setMic(true);}
+    station.setInstrument(id);
+    setprop("/controls/radios/comm-ptt", 0);
+    if (station.isActive()){
+       if (stationMic == "hot"){
+         setprop("/controls/radios/comm-ptt", 1);
+       }
+    }
+ }
 
 ##Initializer
 ##Note: It runs an update on the active ACP once during initializing.
