@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>JacksObsStat.ac</path>
+        <params>
+            <obs-mic>/instrumentation/acp[0]/obsStation/mic</obs-mic>
+            <obs-mic-norm>/instrumentation/acp[0]/obsStation/mic-norm</obs-mic-norm>
+        </params>
+
+</PropertyList>
