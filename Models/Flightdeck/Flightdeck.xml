@@ -265,6 +265,17 @@
                    </params>
                 </overlay>
 	</model>
+	<model>
+		<path>acp/JacksObsStat.xml</path>
+ 		<offsets>
+		   <x-m>-11.02329</x-m>
+		   <y-m>0.75421</y-m>
+		   <z-m>0.82701</z-m>
+                   <heading-deg>-90</heading-deg>
+                   <roll-deg>0</roll-deg>
+                   <pitch-deg>34</pitch-deg>
+		</offsets>
+        </model>
 
 
 	<!-- HUD -->
