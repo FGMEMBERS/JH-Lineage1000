@@ -419,6 +419,17 @@
 	</animation>
 
 	<animation>
+		<type>select</type>
+		<object-name>acp.selcal.led</object-name>
+		<condition>
+			<equals>
+				<property alias="/params/interphone-selcal"/>
+				<value>call-on</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
 		<type>timed</type>
 		<object-name>acp.selcal.led</object-name>
 		<object-name>acp.selcal</object-name>
@@ -432,6 +443,7 @@
 		<branch-duration-sec>0.4</branch-duration-sec>
 	</animation>
 	
+
 	<!-- mask mic switch -->
 	<animation>
 		<type>select</type>
