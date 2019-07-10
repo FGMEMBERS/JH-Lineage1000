@@ -1050,6 +1050,28 @@
 			</binding>
 		</action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+	    <object-name>ALT.knob</object-name>
+            <property>autopilot/settings/buffered-altitude-ft</property>
+            <offset-deg alias="autopilot/settings/buffered-altitude-ft"/>
+            <factor>10</factor>
+            <axis>
+               <x1-m>-12.41090</x1-m><y1-m>0.03998</y1-m><z1-m>1.20391</z1-m>
+               <x2-m>-12.43045</x2-m><y2-m>0.03998</y2-m><z2-m>1.20265</z2-m>
+            </axis>
+        </animation>
+        <animation>
+            <type>rotate</type>
+	    <object-name>ALT.knob</object-name>
+            <property>autopilot/settings/buffered-altitude-m</property>
+            <offset-deg alias="autopilot/settings/buffered-altitude-m"/>
+            <factor>10</factor>
+            <axis>
+               <x1-m>-12.41090</x1-m><y1-m>0.03998</y1-m><z1-m>1.20391</z1-m>
+               <x2-m>-12.43045</x2-m><y2-m>0.03998</y2-m><z2-m>1.20265</z2-m>
+            </axis>
+        </animation>
 
 	<!-- FLCH -->
 	<animation>
@@ -1138,6 +1160,23 @@
 			</binding>
 		</action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>FPA.knob</object-name>
+            <property>autopilot/settings/target-pitch-deg</property>
+            <offset-deg alias="autopilot/settings/target-pitch-deg"/>
+            <factor>-100</factor>
+            <center>
+               <x-m>-12.41041</x-m>
+               <y-m>0.08268</y-m>
+               <z-m>1.20394</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
 
 	<!-- VS button -->
 	<animation>
@@ -1345,6 +1384,17 @@
 			</binding>
 		</action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+	    <object-name>HDG.knob</object-name>
+            <property>autopilot/settings/heading-bug-deg</property>
+            <offset-deg alias="autopilot/settings/heading-bug-deg"/>
+            <factor>10</factor>
+            <axis>
+               <x1-m>-12.41090</x1-m><y1-m>-0.14647</y1-m><z1-m>1.20391</z1-m>
+               <x2-m>-12.43045</x2-m><y2-m>-0.14647</y2-m><z2-m>1.20265</z2-m>
+            </axis>
+        </animation>
 
 	<!-- SPD Knob Pick Animations -->
 	<animation>
@@ -1424,8 +1474,33 @@
 				<value>fms</value>
 				<value>man</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+                                <!-- function to set speed knob depending on mode below is still missing -->
+				<property>autopilot/settings/speed-mode-norm</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
 		</action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>SPD.knob</object-name>
+            <property>autopilot/settings/speed-mode-norm</property>
+            <offset-deg alias="autopilot/settings/speed-mode-norm"/>
+            <factor>40</factor>
+            <center>
+               <x-m>-12.41118</x-m>
+               <y-m>-0.04163</y-m>
+               <z-m>1.20441</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
+
 
 	<!-- Buttons and Lights Animations -->
 
@@ -1789,8 +1864,31 @@
                                 <value>in</value>
                                 <value>hpa</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/altimeter-unit-norm</property>
+                                <value>1</value>
+                                <value>0</value>
+			</binding>
                 </action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>BARO.knob.cpt</object-name>
+            <property>autopilot/pfd[0]/altimeter-unit-norm</property>
+            <offset-deg  alias="autopilot/pfd[0]/altimeter-unit-norm"/>
+            <factor>40</factor>
+            <center>
+               <x-m>-12.41245</x-m>
+               <y-m>-0.39621</y-m>
+               <z-m>1.21961</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
 	<animation>
 		<type>pick</type>
 		<object-name>BARO.knob.fo</object-name>
@@ -1803,8 +1901,31 @@
                                 <value>in</value>
                                 <value>hpa</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/altimeter-unit-norm</property>
+                                <value>1</value>
+                                <value>0</value>
+			</binding>
                 </action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>BARO.knob.fo</object-name>
+            <property>autopilot/pfd[1]/altimeter-unit-norm</property>
+            <offset-deg  alias="autopilot/pfd[1]/altimeter-unit-norm"/>
+            <factor>40</factor>
+            <center>
+               <x-m>-12.41240</x-m>
+               <y-m>0.26305</y-m>
+               <z-m>1.21866</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
 	<animation>
 		<type>pick</type>
 		<object-name>MINIMUMS.knob.cpt</object-name>
@@ -1846,8 +1967,31 @@
                                 <value>ra</value>
                                 <value>baro</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[0]/minimums-set-norm</property>
+                                <value>1</value>
+                                <value>0</value>
+			</binding>
                 </action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>MINIMUMS.knob.cpt</object-name>
+            <property>autopilot/pfd[0]/minimums-set-norm</property>
+            <offset-deg  alias="autopilot/pfd[0]/minimums-set-norm"/>
+            <factor>40</factor>
+            <center>
+               <x-m>-12.40867</x-m>
+               <y-m>-0.27027</y-m>
+               <z-m>1.22066</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
 	<animation>
 		<type>pick</type>
 		<object-name>MINIMUMS.knob.fo</object-name>
@@ -1860,8 +2004,31 @@
                                 <value>ra</value>
                                 <value>baro</value>
 			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/pfd[1]/minimums-set-norm</property>
+                                <value>1</value>
+                                <value>0</value>
+			</binding>
                 </action>
 	</animation>
+        <animation>
+            <type>rotate</type>
+            <object-name>MINIMUMS.knob.fo</object-name>
+            <property>autopilot/pfd[1]/minimums-set-norm</property>
+            <offset-deg  alias="autopilot/pfd[1]/minimums-set-norm"/>
+            <factor>40</factor>
+            <center>
+               <x-m>-12.40909</x-m>
+               <y-m>0.38899</y-m>
+               <z-m>1.22010</z-m>
+            </center>
+            <axis>
+               <x>1</x>
+               <y>0</y>
+               <z>0</z>
+            </axis>
+        </animation>
 
 	<!-- NAV -->
 	<animation>
