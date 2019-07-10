@@ -903,8 +903,8 @@
 					</and>
 				</condition>
 				<command>property-assign</command>
-				<property>controls/flight/auto-coordination</property>
-				<value>true</value>
+				     <property>controls/autoflight/yaw-damper[0]/engage</property>
+	                             <value>1</value>
 			</binding>
 			<binding>
 				<condition>
@@ -2142,7 +2142,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/flight/auto-coordination</property>
+				<property>controls/autoflight/yaw-damper[0]/engage</property>
 			</binding>
 		</action>
 	</animation>
@@ -2151,7 +2151,7 @@
 		<type>select</type>
 		<object-name>YD.light</object-name>
 		<condition>
-			<property>controls/flight/auto-coordination</property>
+			<property>controls/autoflight/yaw-damper[0]/engage</property>
 		</condition>
 	</animation>
 
