@@ -1199,12 +1199,21 @@
 	<animation>
 		<type>select</type>
 		<object-name>VS.light</object-name>
-		<object-name>VS.knob.led</object-name>
 		<condition>
 			<equals>
 				<property>autopilot/locks/altitude</property>
 				<value>vertical-speed-hold</value>
 			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>VS.knob.led</object-name>
+		<condition>
+			<not-equals>
+				<property>autopilot/locks/altitude</property>
+				<value>vertical-speed-hold</value>
+			</not-equals>
 		</condition>
 	</animation>
 
