@@ -1733,9 +1733,7 @@
 				<command>property-cycle</command>
 				<property>autopilot/pfd[0]/nav-source</property>
                                 <value>vor1</value>
-                                <value>loc1</value>
                                 <value>vor2</value>
-                                <value>loc2</value>
 			</binding>
                         <binding>
                                <command>property-assign</command>
@@ -1754,9 +1752,7 @@
 				<command>property-cycle</command>
 				<property>autopilot/pfd[1]/nav-source</property>
                                 <value>vor1</value>
-                                <value>loc1</value>
                                 <value>vor2</value>
-                                <value>loc2</value>
 			</binding>
                         <binding>
                                <command>property-assign</command>
