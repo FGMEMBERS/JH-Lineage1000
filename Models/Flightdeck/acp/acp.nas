@@ -614,7 +614,7 @@ var observerMicUpdate = func (id=2) {
 	    setprop("/controls/radios/comm-ptt", 1);
 	}
     }
-}
+};
 
 ##Initializer
 ##Note: It runs an update on the active ACP once during initializing.

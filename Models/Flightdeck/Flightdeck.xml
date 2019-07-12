@@ -903,8 +903,8 @@
 					</and>
 				</condition>
 				<command>property-assign</command>
-				     <property>controls/autoflight/yaw-damper[0]/engage</property>
-	                             <value>1</value>
+				     <property>autopilot/settings/yawdamper</property>
+	                             <value>true</value>
 			</binding>
 			<binding>
 				<condition>
@@ -2138,7 +2138,6 @@
 	</animation>
 
 	<!-- YD -->
-
 	<animation>
 		<type>pick</type>
 		<object-name>YD</object-name>
@@ -2147,16 +2146,15 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/autoflight/yaw-damper[0]/engage</property>
+				<property>autopilot/settings/yawdamper</property>
 			</binding>
 		</action>
 	</animation>
-
 	<animation>
 		<type>select</type>
 		<object-name>YD.light</object-name>
 		<condition>
-			<property>controls/autoflight/yaw-damper[0]/engage</property>
+			<property>autopilot/settings/yawdamper</property>
 		</condition>
 	</animation>
 

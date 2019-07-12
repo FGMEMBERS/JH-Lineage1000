@@ -869,12 +869,11 @@
     
 	<!-- Autopilot initialization -->
 	<autopilot>
-
 		<settings>
 			<ap-armed type="bool">false</ap-armed>
 			<kts-mach-select type="string">kts</kts-mach-select>
-			<max-pitch type="float"> 8.0</max-pitch>
-			<min-pitch type="float">-6.0</min-pitch>
+			<max-pitch type="float">9.9</max-pitch>
+			<min-pitch type="float">-9.9</min-pitch>
 			<bank-angle-limit-deg type="int">35</bank-angle-limit-deg>
 			<propgain-roll type="float">-4.0</propgain-roll>
 			<altitude-unit type="string">ft</altitude-unit>
@@ -882,8 +881,8 @@
 			<buffered-altitude-ft type="int">0</buffered-altitude-ft>
 			<target-altitude-m type="int">0</target-altitude-m>
 			<target-altitude-ft type="int">0</target-altitude-ft>
+                        <yawdamper type="bool">false</yawdamper>
 		</settings>
-
 		<internal>
 			<ap-active type="bool">false</ap-active>
 			<target-pitch-deg type="float">0.00</target-pitch-deg>
@@ -892,7 +891,6 @@
 			<min-alt-ft type="int">1000</min-alt-ft>
 			<min-alt-m type="int">305</min-alt-m>
 		</internal>
-
 	</autopilot>
 
 	<!-- Voodoomaster plane specific initializations -->
