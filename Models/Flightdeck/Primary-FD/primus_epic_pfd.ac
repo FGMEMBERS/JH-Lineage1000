@@ -13,7 +13,7 @@ name "glideslope.needle.lateral"
 loc 0.00262703 0.0414562 0.0584312
 data 8
 Mesh.065
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 3
 0.002752 -0.0386291 -0.0581896
@@ -32,7 +32,7 @@ name "GSlateralbar"
 loc 0.00262703 0.0414562 0.0584312
 data 8
 Mesh.037
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 6
 0.002383 -0.0361146 -0.0583986
@@ -910,7 +910,7 @@ name "AI"
 loc 0.00314791 -0.014979 0.0019031
 data 9
 Plane.034
-texture "pfd-1.rgb"
+texture "pfd-1.png"
 crease 30.000000
 numvert 4
 0 0.116384 -0.0466544
@@ -931,7 +931,7 @@ name "ALTribbon"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.009
-texture "alttape.rgb"
+texture "alttape.png"
 crease 30.000000
 numvert 4
 0.002453 0.107945 -0.0754101
@@ -952,7 +952,7 @@ name "ALTribbon.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.005
-texture "alttape.rgb"
+texture "alttape.png"
 crease 30.000000
 numvert 4
 0.001392 0.107945 -0.0754101
@@ -973,7 +973,7 @@ name "ASIribbon"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.030
-texture "speedtape.rgb"
+texture "speedtape.png"
 crease 30.000000
 numvert 4
 0.001848 0.10697 0.057911
@@ -994,7 +994,7 @@ name "CAlt10"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.043
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003159 0.0522136 -0.0688767
@@ -1015,7 +1015,7 @@ name "CAlt100"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.026
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003166 0.0658464 -0.0636815
@@ -1041,7 +1041,7 @@ name "CAlt1000"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.024
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003166 0.0658464 -0.0592358
@@ -1067,7 +1067,7 @@ name "CAlt10000"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.012
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003166 0.0658464 -0.0547901
@@ -1093,7 +1093,7 @@ name "Asitext"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.019
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003239 0.0636085 0.0729643
@@ -1119,7 +1119,7 @@ name "Asitext.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.027
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003239 0.0636085 0.0668867
@@ -1145,7 +1145,7 @@ name "Asitext.002"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.028
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003239 0.0682007 0.0609985
@@ -1171,7 +1171,7 @@ name "CRSneedle.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.076
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.003014 -0.0643324 -0.00171843
@@ -1192,7 +1192,7 @@ name "FDbars"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.016
-texture "pfd-2.rgb"
+texture "pfd-2.png"
 crease 30.000000
 numvert 6
 0.001998 0.0533736 -0.0260192
@@ -1245,7 +1245,7 @@ name "glideslope.needle"
 loc 0.00262703 -0.00703242 0.000676635
 data 8
 Mesh.065
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 3
 0.002752 0.0605794 -0.0433209
@@ -1264,7 +1264,7 @@ name "GSbar"
 loc 0.00262703 -0.00703242 0.000676635
 data 8
 Mesh.037
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 6
 0.002383 0.0785692 -0.0427078
@@ -1294,7 +1294,7 @@ name "NAV1pointer"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.070
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 21
 0.002728 -0.0208923 -0.00396125
@@ -1543,7 +1543,7 @@ name "Plane"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.062
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 9
 0.002349 0.0552747 -0.00898349
@@ -1589,7 +1589,7 @@ name "Plane.003"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.072
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 24
 0.003052 0.0646669 0.0677448
@@ -1774,7 +1774,7 @@ name "VSIneedle"
 loc 0.00161364 -0.00703242 0.000676635
 data 5
 Plane
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 12
 0.00379 -0.0454577 -0.0571438
@@ -1846,7 +1846,7 @@ name "alttext"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.040
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00262 0.123063 -0.0560151
@@ -1867,7 +1867,7 @@ name "alttext.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.006
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00262 0.123063 -0.0611128
@@ -1888,7 +1888,7 @@ name "alttext.002"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.013
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00262 0.123063 -0.0662104
@@ -1909,7 +1909,7 @@ name "alttext.003"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.014
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00262 0.121156 -0.0701661
@@ -1930,7 +1930,7 @@ name "alttext.004"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.015
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00262 0.121156 -0.0741152
@@ -1951,7 +1951,7 @@ name "arc"
 loc 0.00161365 -0.00703242 0.000676639
 data 10
 Circle.003
-texture "pfd-1.rgb"
+texture "pfd-1.png"
 crease 30.000000
 numvert 17
 0.001674 -0.0215191 -0.0454751
@@ -2074,7 +2074,7 @@ name "crt.arc"
 loc 0.00161364 -0.00703242 0.000676635
 data 10
 Circle.002
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 31
 0.002475 0.00170924 -0.00507545
@@ -2232,7 +2232,7 @@ name "crt.et"
 loc 0.00161364 -0.0282811 -0.0205961
 data 9
 Plane.031
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 8
 0.002732 -0.0757171 -0.0579373
@@ -2264,7 +2264,7 @@ name "crt.gspd"
 loc 0.00161364 -0.0282811 -0.0205961
 data 9
 Plane.030
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 8
 0.002752 -0.0757171 -0.0579395
@@ -2296,7 +2296,7 @@ name "crt.rose"
 loc 0.00161364 -0.00703242 0.000676635
 data 6
 Circle
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 31
 0.002475 0.00170924 -0.00507545
@@ -2454,7 +2454,7 @@ name "crt.ttg"
 loc 0.00161364 -0.0282811 -0.0205961
 data 9
 Plane.029
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 8
 0.002752 -0.0757171 -0.052442
@@ -2486,7 +2486,7 @@ name "hdgbug"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.017
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 12
 0.002454 -0.00583335 -0.00039135
@@ -2536,7 +2536,7 @@ name "inhg"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.084
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 8
 0.002604 0.010268 -0.0793203
@@ -2568,7 +2568,7 @@ name "inhg.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.085
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0111552 -0.0542612
@@ -2589,7 +2589,7 @@ name "inhg.002"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.086
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0111552 -0.0586094
@@ -2610,7 +2610,7 @@ name "inhg.003"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.087
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0111552 -0.065206
@@ -2631,7 +2631,7 @@ name "inhg.004"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.088
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0111552 -0.0694034
@@ -2652,7 +2652,7 @@ name "mach"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.052
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00267 0.00582878 0.0757272
@@ -2673,7 +2673,7 @@ name "mach.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.055
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0106494 0.0709588
@@ -2694,7 +2694,7 @@ name "mach.002"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.029
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0106494 0.0662104
@@ -2715,7 +2715,7 @@ name "mach.003"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.031
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.0106494 0.061462
@@ -2736,7 +2736,7 @@ name "mach.msg"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.081
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.00242 0.00270259 0.0606538
@@ -2757,7 +2757,7 @@ name "nav1msg"
 loc 0.00161364 -0.0232288 -0.000180849
 data 8
 Mesh.075
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 4
 0.002288 -0.0408928 0.0569276
@@ -2778,7 +2778,7 @@ name "nav2msg"
 loc 0.00161364 -0.0232288 -0.000180848
 data 8
 Mesh.069
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 crease 30.000000
 numvert 4
 0.002288 -0.0514155 0.0569276
@@ -2799,7 +2799,7 @@ name "navdst.001"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.092
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 -0.00170924 -0.0369528
@@ -2820,7 +2820,7 @@ name "navdst.002"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.091
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 -0.00170924 -0.0408032
@@ -2841,7 +2841,7 @@ name "navdst.003"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.090
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 -0.00170924 -0.0446536
@@ -2862,7 +2862,7 @@ name "navdst.004"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.089
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 -0.00170924 -0.0503221
@@ -2883,7 +2883,7 @@ name "navsrc"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.082
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 4
 0.002604 0.00333742 -0.0550472
@@ -2904,7 +2904,7 @@ name "navsrc.nm"
 loc 0.00161364 -0.00703242 0.000676635
 data 8
 Mesh.083
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 8
 0.002604 -0.00627408 -0.0461868
@@ -2936,7 +2936,7 @@ name "rose"
 loc 0.00161364 -0.00703242 0.000676635
 data 10
 Circle.001
-texture "pfd-1.rgb"
+texture "pfd-1.png"
 crease 30.000000
 numvert 17
 0.001659 -0.0155727 -0.027681
@@ -3057,7 +3057,7 @@ kids 0
 OBJECT poly
 name "rect"
 loc 0.00389647 -0.105912 0.00131281
-texture "pfd-2.rgb"
+texture "pfd-2.png"
 crease 45.000000
 numvert 4
 0 -0.0179768 -0.090186
@@ -3366,7 +3366,7 @@ name "AI.001"
 loc 0.00390614 0.062879 0.000248507
 data 8
 Mesh.003
-texture "pfd-2.rgb"
+texture "pfd-2.png"
 crease 30.000000
 numvert 54
 -9.67016e-06 0.05536 -0.090186
@@ -3735,7 +3735,7 @@ name "CRSneedle"
 loc 0.00161364 -0.00703242 0.000676636
 data 8
 Mesh.039
-texture "p1000text.rgb"
+texture "p1000text.png"
 crease 30.000000
 numvert 18
 0.003026 -0.0106083 -6.65896e-06

@@ -25,7 +25,7 @@ kids 0
 OBJECT poly
 name "LHn2.004"
 loc 0.00480405 -0.0106813 -0.257596
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.327127
@@ -49,7 +49,7 @@ kids 0
 OBJECT poly
 name "LHn2.002"
 loc 0.00480405 -0.0106813 -0.257596
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.317444
@@ -73,7 +73,7 @@ kids 0
 OBJECT poly
 name "LHn2.003"
 loc 0.00480405 -0.0106813 -0.257596
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.322285
@@ -97,7 +97,7 @@ kids 0
 OBJECT poly
 name "LHn2.001"
 loc 0.00480405 -0.0106813 -0.257596
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.312602
@@ -121,7 +121,7 @@ kids 0
 OBJECT poly
 name "RHn2.004"
 loc 0.00480405 -0.0105011 -0.286087
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.303312
@@ -145,7 +145,7 @@ kids 0
 OBJECT poly
 name "RHn2.001"
 loc 0.00480405 -0.0105011 -0.286087
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.288787
@@ -169,7 +169,7 @@ kids 0
 OBJECT poly
 name "RHn2.002"
 loc 0.00480405 -0.0105011 -0.286087
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.293628
@@ -193,7 +193,7 @@ kids 0
 OBJECT poly
 name "RHn2.003"
 loc 0.00480405 -0.0105011 -0.286087
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.298471
@@ -1495,7 +1495,7 @@ kids 0
 OBJECT poly
 name "Lpph.003"
 loc 0.00480405 -0.0337939 -0.181084
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0448045 0.253389
@@ -1519,7 +1519,7 @@ kids 0
 OBJECT poly
 name "LHn1.004"
 loc 0.00480405 0.0419789 -0.257985
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.332065
@@ -1543,7 +1543,7 @@ kids 0
 OBJECT poly
 name "LHn1.002"
 loc 0.00480405 0.0419789 -0.257985
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.32238
@@ -1567,7 +1567,7 @@ kids 0
 OBJECT poly
 name "LHn1.003"
 loc 0.00480405 0.0419789 -0.257985
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.327223
@@ -1591,7 +1591,7 @@ kids 0
 OBJECT poly
 name "LHn1.001"
 loc 0.00480405 0.0419789 -0.257985
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.317539
@@ -1615,7 +1615,7 @@ kids 0
 OBJECT poly
 name "Ltank.004"
 loc 0.00480405 -0.0397779 -0.215354
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.296477
@@ -1670,7 +1670,7 @@ kids 0
 OBJECT poly
 name "Ctank.004"
 loc 0.00480405 -0.0462734 -0.250205
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0365897 0.266362
@@ -1694,7 +1694,7 @@ kids 0
 OBJECT poly
 name "Rtank.004"
 loc 0.00480405 -0.0727547 -0.188585
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.236601
@@ -1718,7 +1718,7 @@ kids 0
 OBJECT poly
 name "Rtank.002"
 loc 0.00480405 -0.0727547 -0.188585
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.226552
@@ -1742,7 +1742,7 @@ kids 0
 OBJECT poly
 name "Lpph.002"
 loc 0.00480405 -0.0337939 -0.181084
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0448045 0.249034
@@ -1766,7 +1766,7 @@ kids 0
 OBJECT poly
 name "LHvolts.002"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.00192346 0.244355
@@ -1790,7 +1790,7 @@ kids 0
 OBJECT poly
 name "LHvolts.001"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.00192346 0.239312
@@ -1814,7 +1814,7 @@ kids 0
 OBJECT poly
 name "Ltank.001"
 loc 0.00480405 -0.0397779 -0.215354
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.281404
@@ -1838,7 +1838,7 @@ kids 0
 OBJECT poly
 name "Ltank.002"
 loc 0.00480405 -0.0397779 -0.215354
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.286429
@@ -1862,7 +1862,7 @@ kids 0
 OBJECT poly
 name "Ltank.003"
 loc 0.00480405 -0.0397779 -0.215354
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.291452
@@ -1886,7 +1886,7 @@ kids 0
 OBJECT poly
 name "Lpph.001"
 loc 0.00480405 -0.0337939 -0.181084
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0448045 0.244677
@@ -1910,7 +1910,7 @@ kids 0
 OBJECT poly
 name "Rtank.003"
 loc 0.00480405 -0.0727547 -0.188585
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.231576
@@ -1934,7 +1934,7 @@ kids 0
 OBJECT poly
 name "Rtank.001"
 loc 0.00480405 -0.0727547 -0.188585
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0309567 0.221528
@@ -1958,7 +1958,7 @@ kids 0
 OBJECT poly
 name "RHamps.001"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 -0.00797447 0.185374
@@ -1982,7 +1982,7 @@ kids 0
 OBJECT poly
 name "RHamps.002"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 -0.00797447 0.190417
@@ -2006,7 +2006,7 @@ kids 0
 OBJECT poly
 name "RHn1.004"
 loc 0.00480405 0.0421591 -0.286476
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.30825
@@ -2030,7 +2030,7 @@ kids 0
 OBJECT poly
 name "RHn1.001"
 loc 0.00480405 0.0421591 -0.286476
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.293723
@@ -2054,7 +2054,7 @@ kids 0
 OBJECT poly
 name "RHn1.002"
 loc 0.00480405 0.0421591 -0.286476
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.298564
@@ -2078,7 +2078,7 @@ kids 0
 OBJECT poly
 name "Lpph.004"
 loc 0.00480405 -0.0337939 -0.181084
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0448045 0.257747
@@ -2102,7 +2102,7 @@ kids 0
 OBJECT poly
 name "Tfuel.004"
 loc 0.00480405 -0.0633213 -0.165256
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0424505 0.20992
@@ -2126,7 +2126,7 @@ kids 0
 OBJECT poly
 name "Tfuel.005"
 loc 0.00480405 -0.0633213 -0.165256
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0424505 0.214345
@@ -2150,7 +2150,7 @@ kids 0
 OBJECT poly
 name "Tfuel.001"
 loc 0.00480405 -0.0633213 -0.165256
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0424505 0.196589
@@ -2174,7 +2174,7 @@ kids 0
 OBJECT poly
 name "Tfuel.002"
 loc 0.00480405 -0.0633213 -0.165256
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0424505 0.201075
@@ -2198,7 +2198,7 @@ kids 0
 OBJECT poly
 name "Tfuel.003"
 loc 0.00480405 -0.0633213 -0.165256
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0424505 0.205499
@@ -2222,7 +2222,7 @@ kids 0
 OBJECT poly
 name "RHvolts.001"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.00192346 0.185374
@@ -2246,7 +2246,7 @@ kids 0
 OBJECT poly
 name "RHvolts.002"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.00192346 0.190417
@@ -2270,7 +2270,7 @@ kids 0
 OBJECT poly
 name "LHamps.002"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 -0.00797447 0.244355
@@ -2294,7 +2294,7 @@ kids 0
 OBJECT poly
 name "LHamps.001"
 loc 0.00480405 0.022678 -0.263269
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 -0.00797447 0.239312
@@ -2318,7 +2318,7 @@ kids 0
 OBJECT poly
 name "Rpph.003"
 loc 0.00480405 -0.0376888 -0.18765
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0486994 0.201143
@@ -2342,7 +2342,7 @@ kids 0
 OBJECT poly
 name "Rpph.002"
 loc 0.00480405 -0.0376888 -0.18765
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0486994 0.196786
@@ -2366,7 +2366,7 @@ kids 0
 OBJECT poly
 name "Rpph.001"
 loc 0.00480405 -0.0376888 -0.18765
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0486994 0.192431
@@ -2390,7 +2390,7 @@ kids 0
 OBJECT poly
 name "Rpph.004"
 loc 0.00480405 -0.0376888 -0.18765
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0486994 0.205499
@@ -2414,7 +2414,7 @@ kids 0
 OBJECT poly
 name "Ctank.003"
 loc 0.00480405 -0.0462734 -0.250205
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0365897 0.261338
@@ -2438,7 +2438,7 @@ kids 0
 OBJECT poly
 name "Ctank.001"
 loc 0.00480405 -0.0462734 -0.250205
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0365897 0.25129
@@ -2462,7 +2462,7 @@ kids 0
 OBJECT poly
 name "Ctank.002"
 loc 0.00480405 -0.0462734 -0.250205
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0365897 0.256313
@@ -2486,7 +2486,7 @@ kids 0
 OBJECT poly
 name "RHn1.003"
 loc 0.00480405 0.0421591 -0.286476
-texture "eicas.rgb"
+texture "eicas2.png"
 crease 30.000000
 numvert 4
 0 0.0378463 0.303407
