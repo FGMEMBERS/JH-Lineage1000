@@ -1,6 +1,6 @@
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Standby-Altitude/Standby-Altitude.ac</path>
+	<path>Standby-Altitude.ac</path>
 
 	<animation>
 		<type>textranslate</type>

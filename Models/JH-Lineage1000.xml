@@ -4,7 +4,7 @@
 
 	<nasal>
 		<load>
-			var livery_update = aircraft.livery_update.new("Aircraft/JH-Lineage1000/Models/Liveries", 10);
+			var livery_update = aircraft.livery_update.new("Liveries", 10);
         	</load>
 
 	        <unload>
@@ -27,7 +27,7 @@
 	<!-- Fuselage, Wings, Tail, Engines, ... -->
 	<model>
 		<name>Aircraft</name>
-		<path>Aircraft/JH-Lineage1000/Models/Outside/Outside.xml</path>
+		<path>Outside/Outside.xml</path>
 	</model>
 
 	<animation>
@@ -55,13 +55,13 @@
 	<!-- Interior Cabin -->
 	<model>
 		<name>Cabin</name>
-	    	<path>Aircraft/JH-Lineage1000/Models/Cabin/Cabin.xml</path>
+	    	<path>Cabin/Cabin.xml</path>
 	</model>
 
 	<!-- Flightdeck -->
 	<model>
 		<name>Flightdeck</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Flightdeck.xml</path>
+		<path>Flightdeck/Flightdeck.xml</path>
 		<offsets>
 			<x-m>-2</x-m>
 		</offsets>
@@ -70,7 +70,7 @@
 	<!-- Deployable Stairs -->
 	<model>
 		<name>Stairs</name>
-		<path>Aircraft/JH-Lineage1000/Models/Stairs/Stairs.xml</path>
+		<path>Stairs/Stairs.xml</path>
 	</model>
 
 	<!-- Ram Air Turbine -->
@@ -89,7 +89,7 @@
 
 	<model>
 		<name>Pushback</name>
-		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert.xml</path>
+		<path>Airport/Services/Goldhofert.xml</path>
 		<offsets>
 			<x-m>-16.4</x-m>
 			<y-m>0</y-m>
@@ -99,7 +99,7 @@
 
 	<model>
 		<name>Followme</name>
-		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/followme.ac</path>
+		<path>Airport/Services/followme.ac</path>
 		<condition>
 			<and>
 				<!-- #### better with ground speed and weight on wheels ? #### -->
@@ -216,7 +216,7 @@
 	<!-- Aircraft Lighting -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-nose.xml</path>
+		<path>Lights/landing-nose.xml</path>
 		<name>NoseGearLandinglight</name>     
 		<condition>
 			<equals>
@@ -232,7 +232,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-port.xml</path>
+		<path>Lights/landing-port.xml</path>
 		<name>LeftWingLandinglight</name>
 		<condition>
 			<equals>
@@ -248,7 +248,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/landing-stbd.xml</path>
+		<path>Lights/landing-stbd.xml</path>
 		<name>RightWingLandinglight</name>
 		<condition>
 			<equals>
@@ -264,7 +264,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/beacon.xml</path>
+		<path>Lights/beacon.xml</path>
 		<name>Beaconlight.top</name>     
 		<offsets>
 			<x-m>4.18</x-m>
@@ -274,7 +274,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/beacon.xml</path>
+		<path>Lights/beacon.xml</path>
 		<name>Beaconlight.bottom</name>     
 		<offsets>
 			<x-m>-9.62</x-m>
@@ -286,7 +286,7 @@
 	<!-- Tyre Smoke -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-nose.xml</path>
+		<path>Effects/tyre-smoke-nose.xml</path>
 		<name>Tyre Smoke Nose</name>     
 		<offsets>
 			<x-m>-12.54</x-m>
@@ -296,7 +296,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-left.xml</path>
+		<path>Effects/tyre-smoke-left.xml</path>
 		<name>Tyre Smoke Left</name>     
 		<offsets>
 			<x-m>-0.88</x-m>
@@ -306,7 +306,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/tyre-smoke-right.xml</path>
+		<path>Effects/tyre-smoke-right.xml</path>
 		<name>Tyre Smoke Right</name>     
 		<offsets>
 			<x-m>-0.88</x-m>

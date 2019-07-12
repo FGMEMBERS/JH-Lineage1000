@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck/HUD.ac</path>
+	<path>HUD.ac</path>
 
 	<animation>
 		<type>pick</type>

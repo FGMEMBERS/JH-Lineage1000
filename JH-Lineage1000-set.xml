@@ -29,9 +29,9 @@
 	<sim>
 
 		<description>Embraer Lineage 1000E (190-100 EBJ)</description>
-		<author>Peter Brendt</author>
-		<author>IAHM-COL</author>
-		<author>Narendran Muraleedharan</author>
+		<author type="string">Peter Brendt</author>
+		<author type="string">IAHM-COL</author>
+		<author type="string">Narendran Muraleedharan</author>
 		
 		<aircraft-version>V03.00.00</aircraft-version>
 		<minimum-fg-version>2018.2.1</minimum-fg-version>
@@ -49,12 +49,12 @@
 
 		<!-- Splash screen while loading -->
 		<startup>
-			<splash-texture>Aircraft/JH-Lineage1000/Splashes/JH-Lineage1000.png</splash-texture>
+			<splash-texture>Splashes/JH-Lineage1000.png</splash-texture>
 		</startup>
 
 		<!-- Settings for model -->
 		<model>
-			<path>Aircraft/JH-Lineage1000/Models/JH-Lineage1000.xml</path>
+			<path>Models/JH-Lineage1000.xml</path>
 
 			<livery>
 				<file type="string">EMB.xml</file>
@@ -99,7 +99,7 @@
 
 		<sound>
 			<audible>true</audible>
-			<path>Aircraft/JH-Lineage1000/Sounds/Sounds.xml</path>
+			<path>Sounds/Sounds.xml</path>
 		</sound>
 
 		<autostart>
@@ -117,7 +117,7 @@
 		<virtual-cockpit archive="y">true</virtual-cockpit>
 
 		<instrumentation>
-			<path>Aircraft/JH-Lineage1000/Systems/Instrumentation.xml</path>
+			<path>Systems/Instrumentation.xml</path>
 		</instrumentation>
 
 		<!-- MP section if exists -->
@@ -146,7 +146,7 @@
 		<!-- HUD section -->
 		<hud>
 			<enable3d>false</enable3d>
-			<path n="1">Aircraft/JH-Lineage1000/Systems/HUD/hud.xml</path>
+			<path n="1">Systems/HUD/hud.xml</path>
 			<visibility n="1">false</visibility>
 			<palette>
 				<color n="0">
@@ -378,9 +378,9 @@
 			</runways>
 		</airport>
 
-		<help include="Aircraft/JH-Lineage1000/Dialogs/help.xml" />
+		<help include="Dialogs/help.xml" />
 
-		<menubar include="Aircraft/JH-Lineage1000/Dialogs/pilot-menu.xml" />
+		<menubar include="Dialogs/pilot-menu.xml" />
 
 		<!-- Systems -->
 		<systems>
@@ -389,7 +389,7 @@
 			</electrical>
 
 			<autopilot>
-				<path>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS11_0_autopilot.xml</path>
+				<path>Systems/Autopilot/SYS11_0_autopilot.xml</path>
 			</autopilot>
 		</systems>
 
@@ -618,7 +618,7 @@
 
 	<!-- Systems parallel to sim -->
 	<systems>
-		<path>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.xml</path>
+		<path>Systems/systemsLineage1000.xml</path>
 		<electrical>
 			<path>Aircraft/Generic/generic-electrical.xml</path>
 		</electrical>
@@ -627,7 +627,7 @@
 	<!-- #### ai submodels if exist -->
 
 	<!-- keyboard inputs -->
-	<input include="Aircraft/JH-Lineage1000/Dialogs/pilot-keys.xml" />
+	<input include="Dialogs/pilot-keys.xml" />
 
 	<instrumentation>
           <acp  n="0" >
@@ -1161,7 +1161,7 @@
 
 	</voodoomaster>
 
-	<!-- skynet include="Aircraft/JH-Lineage1000/SkyNet/SkyNet-Version.xml">
+	<!-- skynet include="SkyNet/SkyNet-Version.xml">
 		<username type="string">"*"</username>
 		<callsign type="string">"*"</callsign>
 		<password type="string">"****"</password>
@@ -1182,15 +1182,15 @@
 			<file>Aircraft/JPack/SkyNet/Nasal/Login.nas</file>
 		</SkyNet>
 		<lineage1000>
-			<file>Aircraft/JH-Lineage1000/Systems/Autostart/autostart.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/Autoflight/SYS11_0_compatibility.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/Pilots/Pilots.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/Settings/Settings.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/Settings/FuelPayload.nas</file>
-			<file>Aircraft/JH-Lineage1000/Systems/systemsLineage1000.nas</file>
+			<file>Systems/Autostart/autostart.nas</file>
+			<file>Systems/Autopilot/SYS11_0_compatibility.nas</file>
+			<file>Systems/Pilots/Pilots.nas</file>
+			<file>Systems/Settings/Settings.nas</file>
+			<file>Systems/Settings/FuelPayload.nas</file>
+			<file>Systems/systemsLineage1000.nas</file>
 			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
 			<!-- file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file -->
-	        	<file>Aircraft/JH-Lineage1000/Systems/Liveries.nas</file>
+	        	<file>Systems/Liveries.nas</file>
 		</lineage1000>
 		<reversethrust>
 			<file>Aircraft/VIP/Nasal/Lineage1000/reversethrustLineage1000.nas</file>

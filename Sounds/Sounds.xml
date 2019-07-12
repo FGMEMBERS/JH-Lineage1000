@@ -5,7 +5,7 @@
 	<fx>
 		<engine>
 			<name>left engine</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/jet.wav</path>
+        		<path>Sounds/jet.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<not>
@@ -32,7 +32,7 @@
 
     		<engine>
         		<name>left n1</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/whine.wav</path>
+        		<path>Sounds/whine.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<greater-than>
@@ -67,7 +67,7 @@
 
     		<engine>
         		<name>left n1_2</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/turbine.wav</path>
+        		<path>Sounds/turbine.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<greater-than>
@@ -102,7 +102,7 @@
     
     		<engine>
         		<name>left reverse thrust</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/reverser.wav</path>
+        		<path>Sounds/reverser.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<and>
@@ -135,7 +135,7 @@
 
     		<engine>
         		<name>left engine inside</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/inside.wav</path>
+        		<path>Sounds/inside.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<and>
@@ -173,7 +173,7 @@
 
     		<engine>
         		<name>right engine</name>
-       			<path>Aircraft/JH-Lineage1000/Sounds/jet.wav</path>
+       			<path>Sounds/jet.wav</path>
        			<mode>looped</mode>
        			<condition>
      				<not>
@@ -200,7 +200,7 @@
 
     		<engine>
         		<name>right n1</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/whine.wav</path>
+        		<path>Sounds/whine.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<greater-than>
@@ -235,7 +235,7 @@
 
     		<engine>
         		<name>right n1_2</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/turbine.wav</path>
+        		<path>Sounds/turbine.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<greater-than>
@@ -270,7 +270,7 @@
 
     		<engine>
         		<name>right reverse thrust</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/reverser.wav</path>
+        		<path>Sounds/reverser.wav</path>
         		<mode>looped</mode>
         		<condition>
 	            		<and>
@@ -303,7 +303,7 @@
 
     		<engine>
         		<name>right engine inside</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/inside.wav</path>
+        		<path>Sounds/inside.wav</path>
         		<mode>looped</mode>
         		<condition>
             			<and>
@@ -342,7 +342,7 @@
     		<gear1>
         		<name>gear</name>
         		<mode>in-transit</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/gear.wav</path>
+        		<path>Sounds/gear.wav</path>
         		<property>/gear/gear[0]/position-norm</property>
         		<volume>
             			<property>sim/sound/effects/volume</property>
@@ -364,7 +364,7 @@
     		<!-- gear1>
 			#### gear lock sound missing
         		<name>gear-lock</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/Lineage1000/gear-lck.wav</path>
+        		<path>Sounds/gear-lck.wav</path>
         		<condition>
             			<equals>
                 			<property>/gear/gear[0]/position-norm</property>
@@ -386,7 +386,7 @@
      		<rumblefront>
         		<name>nose wheel rumble</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/rumble.wav</path>
+        		<path>Sounds/rumble.wav</path>
         		<condition>
             			<property>/gear/gear[0]/wow</property>
         		</condition>
@@ -407,7 +407,7 @@
     		<rumblemain>
         		<name>main gear rumble</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/rumble.wav</path>
+        		<path>Sounds/rumble.wav</path>
         		<condition>
             			<or>
                 			<property>/gear/gear[1]/wow</property>
@@ -430,7 +430,7 @@
 
 		<squeal0>
         		<name>squeal</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/touchdown.wav</path>
+        		<path>Sounds/touchdown.wav</path>
         		<condition>
             		<or>
                 		<property>/gear/gear[0]/wow</property>
@@ -470,7 +470,7 @@
 
     		<squeal1>
       			<name>squeal</name>
-      			<path>Aircraft/JH-Lineage1000/Sounds/Roll.wav</path>
+      			<path>Sounds/Roll.wav</path>
       			<condition>
         			<property>/gear/gear[0]/wow</property>
       			</condition>
@@ -499,7 +499,7 @@
     		<flap>
         		<name>flaps</name>
         		<mode>in-transit</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/flaps.wav</path>
+        		<path>Sounds/flaps.wav</path>
         		<property>/surface-positions/flap-pos-norm</property>
         		<volume>
             			<property>sim/sound/effects/volume</property>
@@ -517,7 +517,7 @@
     		<wind>
         		<name>wind</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/wind.wav</path>
+        		<path>Sounds/wind.wav</path>
         		<property>/velocities/airspeed-kt</property>
         		<volume>
             			<property>/position/altitude-ft</property>
@@ -549,7 +549,7 @@
     		<stall>
         		<name>stall</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/stall.wav</path>
+        		<path>Sounds/stall.wav</path>
         		<condition>
             			<property>sim/sound/stall-horn</property>
         		</condition>
@@ -568,7 +568,7 @@
     		<speedbrake>
         		<name>speedbrake</name>
         		<mode>in-transit</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/spd-brk.wav</path>
+        		<path>Sounds/spd-brk.wav</path>
         		<property>/surface-positions/speedbrake-pos-norm</property>
         		<volume>
             			<property>sim/sound/effects/volume</property>
@@ -586,7 +586,7 @@
     		<engines>
         		<name>left reverse-thrust</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/reverser.wav</path>
+        		<path>Sounds/reverser.wav</path>
         		<condition>
             			<property>engines/engine[0]/running</property>
         		</condition>
@@ -608,7 +608,7 @@
     		<engines>
         		<name>right reverse-thrust</name>
         		<mode>looped</mode>
-        		<path>Aircraft/JH-Lineage1000/Sounds/reverser.wav</path>
+        		<path>Sounds/reverser.wav</path>
         		<condition>
             			<property>engines/engine[1]/running</property>
         		</condition>
@@ -630,7 +630,7 @@
 		<!-- Seatbelt/No smoking signs -->
     		<seatbelt>
         		<name>Seatbelt sign</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/cabinalert.wav</path>
+        		<path>Sounds/cabinalert.wav</path>
         		<mode>once</mode>
         		<condition>
             			<property>sim/sound/seatbelt-sign</property>
@@ -649,7 +649,7 @@
 
     		<nosmoke>
         		<name>No smoking sign</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/cabinalert.wav</path>
+        		<path>Sounds/cabinalert.wav</path>
         		<mode>once</mode>
         		<condition>
             			<property>sim/sound/no-smoking-sign</property>
@@ -669,7 +669,7 @@
     		<!-- Overspeed warning -->
 	    		<overspeed>
         		<name>Overspeed warning</name>
-        		<path>Aircraft/JH-Lineage1000/Sounds/Ovspd.wav</path>
+        		<path>Sounds/Ovspd.wav</path>
         		<mode>looped</mode>
         		<condition>
         	    		<greater-than>
@@ -692,7 +692,7 @@
 		<!-- Announcements -->
 		<announcement>
 			<name>welcome</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/welcome.wav</path>
+ 			<path>Sounds/welcome.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/welcome</property>
@@ -711,7 +711,7 @@
 
 		<announcement>
 			<name>safety</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/safety.wav</path>
+ 			<path>Sounds/safety.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/safety</property>
@@ -730,7 +730,7 @@
 
 		<announcement>
 			<name>cruise</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/cruise.wav</path>
+ 			<path>Sounds/cruise.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/cruise</property>
@@ -749,7 +749,7 @@
 
 		<announcement>
 			<name>climb</name>
-			<path>Aircraft/JH-Lineage1000/Sounds/climb.wav</path>
+			<path>Sounds/climb.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/climb</property>
@@ -768,7 +768,7 @@
 
 		<announcement>
 			<name>cruise-seatbelt</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/cruise-seatbelt.wav</path>
+ 			<path>Sounds/cruise-seatbelt.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/cruise-seatbelt</property>
@@ -787,7 +787,7 @@
 
 		<announcement>
 			<name>turbulence</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/turbulence.wav</path>
+ 			<path>Sounds/turbulence.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/turbulence</property>
@@ -806,7 +806,7 @@
 
 		<announcement>
 			<name>descent</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/descent.wav</path>
+ 			<path>Sounds/descent.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/descent</property>
@@ -825,7 +825,7 @@
 
 		<announcement>
 			<name>land</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/land.wav</path>
+ 			<path>Sounds/land.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/land</property>
@@ -844,7 +844,7 @@
 
 		<announcement>
 			<name>gate</name>
-			<path>Aircraft/JH-Lineage1000/Sounds/gate.wav</path>
+			<path>Sounds/gate.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/gate</property>
@@ -863,7 +863,7 @@
 
 		<announcement>
 			<name>emergency</name>
- 			<path>Aircraft/JH-Lineage1000/Sounds/emergency.wav</path>
+ 			<path>Sounds/emergency.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/emergency</property>
@@ -882,7 +882,7 @@
 
 		<announcement>
 			<name>pretakeoff</name>
-			<path>Aircraft/JH-Lineage1000/Sounds/pretakeoff.wav</path>
+			<path>Sounds/pretakeoff.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/pretakeoff</property>
@@ -901,7 +901,7 @@
 
 		<announcement>
 			<name>boarding2</name>
-			<path>Aircraft/JH-Lineage1000/Sounds/music2.wav</path>
+			<path>Sounds/music2.wav</path>
  			<mode>looped</mode>
  			<condition>
   				<property>sim/sound/music2</property>
@@ -920,7 +920,7 @@
 
 		<announcement>
 			<name>brace</name>
-			<path>Aircraft/JH-Lineage1000/Sounds/brace.wav</path>
+			<path>Sounds/brace.wav</path>
  			<mode>once</mode>
  			<condition>
   				<property>sim/sound/brace</property>

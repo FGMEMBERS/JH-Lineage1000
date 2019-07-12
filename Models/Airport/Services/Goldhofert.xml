@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert.ac</path>
+	<path>Goldhofert.ac</path>
 
 	<!-- 
 		Trucks models and artworks courtesy of XPGoodWay Team
@@ -10,7 +10,7 @@
 	-->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert-warning-light.xml</path>
+		<path>Goldhofert-warning-light.xml</path>
  		<offsets>
 			<x-m>-5.408</x-m>
 			<y-m>0.260</y-m>
@@ -20,7 +20,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert-warning-light.xml</path>
+		<path>Goldhofert-warning-light.xml</path>
 		<offsets>
 			<x-m>-4.281</x-m>
 			<y-m>0.260</y-m>

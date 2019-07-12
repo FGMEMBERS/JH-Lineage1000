@@ -31,7 +31,7 @@
 		<inherits-from>Effects/lightmap</inherits-from>
 		<parameters>
 			<texture n="1">
-				<image>Aircraft/JH-Lineage1000/Models/Effects/lightmap.png</image>
+				<image>../Effects/lightmap.png</image>
 			</texture>
 			<condition>
 				<use>controls/lighting/logo</use>
@@ -45,7 +45,7 @@
 		<inherits-from>Effects/lightmap</inherits-from>
 		<parameters>
 			<texture n="1">
-				<image>Aircraft/JH-Lineage1000/Models/Effects/lightmap.png</image>
+				<image>../Effects/lightmap.png</image>
 			</texture>
 			<condition>
 				<use>controls/lighting/landing-lights[0]</use>
@@ -1162,7 +1162,7 @@
 	<!-- Green Naviagation Light -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/greennav.xml</path>
+		<path>../Lights/greennav.xml</path>
 		<name>greennav</name>     
 		<offsets>
 			<x-m>2.69</x-m>
@@ -1174,7 +1174,7 @@
 	<!-- Red Naviagation Light -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/rednav.xml</path>
+		<path>../Lights/rednav.xml</path>
 		<name>rednav</name>     
 		<offsets>
 			<x-m>2.69</x-m>
@@ -1186,7 +1186,7 @@
 	<!-- Left Strobe light -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/strobe.xml</path>
+		<path>../Lights/strobe.xml</path>
 		<name>strobe.left</name>     
 		<offsets>
 			<x-m>2.69</x-m>
@@ -1198,7 +1198,7 @@
 	<!-- Right Strobe light -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/strobe.xml</path>
+		<path>../Lights/strobe.xml</path>
 		<name>strobe.right</name>     
 		<offsets>
 			<x-m>2.69</x-m>
@@ -1212,7 +1212,7 @@
 	<!-- Contrails -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/contrail.xml</path>
+		<path>../Effects/contrail.xml</path>
 		<name>contrails.left</name>     
 		<offsets>
 			<x-m>-1.07</x-m>
@@ -1222,7 +1222,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/contrail.xml</path>
+		<path>../Effects/contrail.xml</path>
 		<name>contrails.right</name>     
 		<offsets>
 			<x-m>-1.07</x-m>
@@ -1236,7 +1236,7 @@
 	####
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/wingtip-trails.xml</path>
+		<path>../Effects/wingtip-trails.xml</path>
 		<name>wingtiptrails.left</name>     
 		<offsets>
 			<x-m>1.81</x-m>
@@ -1246,7 +1246,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/wingtip-trails.xml</path>
+		<path>../Effects/wingtip-trails.xml</path>
 		<name>wingtiptrails.right</name>     
 		<offsets>
 			<x-m>1.81</x-m>
@@ -1258,7 +1258,7 @@
 	<!-- Wet Runway Moisture -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/wet-runway-nose.xml</path>
+		<path>../Effects/wet-runway-nose.xml</path>
 		<name>wet-runway-nose</name>     
 		<offsets>
 			<x-m>-12.77</x-m>
@@ -1268,7 +1268,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/wet-runway.xml</path>
+		<path>../Effects/wet-runway.xml</path>
 		<name>wet-runway-left</name>     
 		<offsets>
 			<x-m>-1.07</x-m>
@@ -1278,7 +1278,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Effects/wet-runway.xml</path>
+		<path>../Effects/wet-runway.xml</path>
 		<name>wet-runway-right</name>     
 		<offsets>
 			<x-m>-1.07</x-m>

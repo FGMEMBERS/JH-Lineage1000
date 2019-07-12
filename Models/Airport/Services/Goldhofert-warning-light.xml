@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Airport/Services/Goldhofert-warning-light.ac</path>
+	<path>Goldhofert-warning-light.ac</path>
 
 	<animation>
 		<type>rotate</type>

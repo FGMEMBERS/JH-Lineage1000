@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
   
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck/EICAS/primus_epic_eicas.ac</path>
+	<path>primus_epic_eicas.ac</path>
 
 	<!-- Power on/off -->
 	<animation>

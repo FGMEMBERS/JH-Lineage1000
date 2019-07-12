@@ -2,13 +2,13 @@
 
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Lights/strobe.ac</path>
+	<path>strobe.ac</path>
 
 	<!-- EXTRA MODELS -->
 	<!-- 3d light cone -->
 	<model>
 		<name>Cone</name>
-		<path>Aircraft/JH-Lineage1000/Models/Lights/light-cone.xml</path>
+		<path>light-cone.xml</path>
 		<offsets>
 		<pitch-deg>-8</pitch-deg>
 		</offsets>
