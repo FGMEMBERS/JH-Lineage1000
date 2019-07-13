@@ -5,7 +5,7 @@
     <model>
         <livery>
             <name type="string">The Porcupine Project </name>
-            <texture>Porcupine.png</texture>
+            <texture>Liveries/Porcupine.png</texture>
         </livery>
     </model>
 </sim>
