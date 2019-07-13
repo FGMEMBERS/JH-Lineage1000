@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<particlesystem>
-		<texture>../../Models/Effects/fire.png</texture>
+		<texture>fire.png</texture>
 		<emissive>true</emissive>
 		<lighting>false</lighting>
 		<offsets>

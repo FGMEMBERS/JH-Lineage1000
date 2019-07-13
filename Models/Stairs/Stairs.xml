@@ -2,13 +2,13 @@
 
 <PropertyList>
   
-	<path>Aircraft/JH-Lineage1000/Models/Stairs/Stair.ac</path>
+	<path>Stair.ac</path>
 
 	<effect>
 		<inherits-from>Effects/lightmap</inherits-from>
 		<parameters>
 			<texture n="1">
-				<image>Aircraft/JH-Lineage1000/Models/Effects/lightmap.png</image>
+				<image>../Effects/lightmap.png</image>
 			</texture>
 			<condition>
 				<use>controls/lighting/landing-lights[0]</use>

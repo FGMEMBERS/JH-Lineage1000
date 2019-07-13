@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck.ac</path>
+	<path>../Flightdeck.ac</path>
  
 	<animation>
 		<type>translate</type>
@@ -280,7 +280,7 @@
 
 	<!-- HUD -->
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/HUD.xml</path>
+		<path>HUD.xml</path>
 		<offsets>
 			<x-m>-12.3478</x-m>
 			<y-m>-0.533936</y-m>
@@ -289,7 +289,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/HUD1.xml</path>
+		<path>HUD1.xml</path>
 		<offsets>
 			<x-m>-12.3478</x-m>
 			<y-m>0.533936</y-m>
@@ -488,7 +488,7 @@
 	
 	<model>
 		<name>Overhead Panel</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Overhead/Overhead.xml</path>
+		<path>Overhead/Overhead.xml</path>
 	</model>
 
 	<!-- Yokes Animation -->
@@ -550,7 +550,7 @@
 
 	<model>
 		<name>Standby AI</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Standby-Attitude/Standby-Attitude.xml</path>
+		<path>Standby-Attitude/Standby-Attitude.xml</path>
 		<offsets>
 			<x-m>-12.5489</x-m>
 			<y-m>-0.15</y-m>
@@ -561,7 +561,7 @@
 
 	<model>
 		<name>Standby Altimeter</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Standby-Altitude/Standby-Altitude.xml</path>
+		<path>Standby-Altitude/Standby-Altitude.xml</path>
 		<offsets>
 			<x-m>-12.5489</x-m>
 			<y-m>0.17</y-m>
@@ -572,7 +572,7 @@
 
 	<model>
 		<name>Primary Flight Display Left</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Primary-FD/Primary-FD.xml</path>
+		<path>Primary-FD/Primary-FD.xml</path>
 		<offsets>
 			<x-m>-12.53</x-m>
 			<y-m>-0.53</y-m>
@@ -583,7 +583,7 @@
 
 	<model>
 		<name>Primary Flight Display Right</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Primary-FD/Primary-FD.xml</path>
+		<path>Primary-FD/Primary-FD.xml</path>
 		<offsets>
 			<x-m>-12.53</x-m>
 			<y-m>0.55</y-m>
@@ -594,7 +594,7 @@
 
 	<model>
 		<name>Main Flight Display Right</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Main-FD/Main-FD2.xml</path>
+		<path>Main-FD/Main-FD2.xml</path>
 		<offsets>
 			<x-m>-12.53</x-m>
 			<y-m>0.33</y-m>
@@ -605,7 +605,7 @@
 
 	<model>
 		<name>Main Flight Display Left</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Main-FD/Main-FD.xml</path>
+		<path>Main-FD/Main-FD.xml</path>
 		<offsets>
 			<x-m>-12.53</x-m>
 			<y-m>-0.31</y-m>
@@ -616,7 +616,7 @@
 
 	<model>
 		<name>EICAS Panel</name>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/EICAS/EICAS.xml</path>
+		<path>EICAS/EICAS.xml</path>
 		<offsets>
 			<x-m>-12.53</x-m>
 			<y-m>0</y-m>
@@ -628,7 +628,7 @@
 	<!-- CDUs -->
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/CDU/boeing.xml</path>
+		<path>CDU/boeing.xml</path>
 		<offsets>
 			<x-m>-12.3423</x-m>
 			<y-m>-0.1387</y-m>
@@ -641,7 +641,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/JH-Lineage1000/Models/Flightdeck/CDU/boeing.xml</path>
+		<path>CDU/boeing.xml</path>
 		<offsets>
 			<x-m>-12.3423</x-m>
 			<y-m>0.1387</y-m>

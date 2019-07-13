@@ -1,6 +1,6 @@
 <PropertyList>
 
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Standby-Attitude/Standby-Attitude.ac</path>
+	<path>Standby-Attitude.ac</path>
 
 	<animation>
 		<type>texmultiple</type>

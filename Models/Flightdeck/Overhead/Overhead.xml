@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
   
-	<path>Aircraft/JH-Lineage1000/Models/Flightdeck/Overhead/Overhead.ac</path>
+	<path>Overhead.ac</path>
 
 	<!-- Overhead Panel Pick and Select Animations -->
 

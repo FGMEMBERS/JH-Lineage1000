@@ -25,7 +25,7 @@ name "sign"
 loc -0.655712 -0.24369 -0.0422457
 data 17
 Mesh1 Group2 Grou
-texture "follow_me.rgb"
+texture "follow_me.png"
 crease 30.000000
 numvert 4
 3.46263 1.92859 0.369929
@@ -2282,7 +2282,7 @@ name "Tyre4"
 loc 2.51228 0.0359479 -0.680648
 data 21
 Mesh99 wheel_rf2 Grou
-texture "followme_wheel.rgb"
+texture "followme_wheel.png"
 crease 30.000000
 numvert 252
 -0.164043 0.0711652 -0.0984806
@@ -4512,7 +4512,7 @@ name "Tyre1"
 loc 0.0247269 0.0451261 0.627788
 data 21
 Mesh16 wheel_lf_d1 Gr
-texture "followme_wheel.rgb"
+texture "followme_wheel.png"
 crease 30.000000
 numvert 252
 -0.00868607 0.1036 -0.0092051
@@ -6742,7 +6742,7 @@ name "Tyre2"
 loc 0.0241127 0.0451261 -0.682382
 data 21
 Mesh25 wheel_rf_d1 Gr
-texture "followme_wheel.rgb"
+texture "followme_wheel.png"
 crease 30.000000
 numvert 252
 -0.0080719 0.1036 -0.0206925
@@ -14563,7 +14563,7 @@ OBJECT poly
 name "Mesh76 body1 Grou.004"
 data 21
 Mesh76 body1 Grou.004
-texture "followmeoutside_sider.rgb"
+texture "followmeoutside_sider.png"
 crease 30.000000
 numvert 234
 0.350468 0.600827 0.755946
@@ -17131,7 +17131,7 @@ OBJECT poly
 name "Mesh76 body1 Grou.002"
 data 21
 Mesh76 body1 Grou.002
-texture "followmeoutside_sidel.rgb"
+texture "followmeoutside_sidel.png"
 crease 30.000000
 numvert 243
 0.145615 0.282399 -0.525554
@@ -21035,7 +21035,7 @@ OBJECT poly
 name "Mesh76 body1 Grou"
 data 17
 Mesh76 body1 Grou
-texture "followmeoutside_top.rgb"
+texture "followmeoutside_top.png"
 crease 30.000000
 numvert 197
 0.201672 0.822682 0.471226
@@ -23495,7 +23495,7 @@ name "Tyre3"
 loc 2.5129 0.0359479 0.626053
 data 21
 Mesh15 wheel_lb_d1 Gr
-texture "followme_wheel.rgb"
+texture "followme_wheel.png"
 crease 30.000000
 numvert 252
 -0.0110512 0.103598 -0.00747049
@@ -39994,7 +39994,7 @@ OBJECT poly
 name "Mesh7 door_rf_hi1 Gro"
 data 21
 Mesh7 door_rf_hi1 Gro
-texture "Material1.rgb"
+texture "Material1.png"
 crease 30.000000
 numvert 10
 1.66318 0.441491 -0.705565
@@ -40278,7 +40278,7 @@ OBJECT poly
 name "Mesh6 door_rf_hi1.003"
 data 21
 Mesh6 door_rf_hi1.003
-texture "followmeoutside_sidel.rgb"
+texture "followmeoutside_sidel.png"
 crease 30.000000
 numvert 57
 1.15555 0.409249 -0.776194
@@ -40794,7 +40794,7 @@ OBJECT poly
 name "Mesh6 door_rf_hi1.002"
 data 21
 Mesh6 door_rf_hi1.002
-texture "Material1.rgb"
+texture "Material1.png"
 crease 30.000000
 numvert 14
 1.56212 0.847095 -0.702747
@@ -43221,7 +43221,7 @@ OBJECT poly
 name "Mesh28 door_lf_hi"
 data 17
 Mesh28 door_lf_hi
-texture "Material1.rgb"
+texture "Material1.png"
 crease 30.000000
 numvert 9
 1.98184 0.73603 0.712394
@@ -43431,7 +43431,7 @@ OBJECT poly
 name "Mesh27 door_lf_hi.003"
 data 21
 Mesh27 door_lf_hi.003
-texture "followmeoutside_sider.rgb"
+texture "followmeoutside_sider.png"
 crease 30.000000
 numvert 57
 1.15953 0.31759 0.757613
@@ -43935,7 +43935,7 @@ OBJECT poly
 name "Mesh27 door_lf_hi.002"
 data 21
 Mesh27 door_lf_hi.002
-texture "Material1.rgb"
+texture "Material1.png"
 crease 30.000000
 numvert 10
 1.56212 0.847095 0.702747

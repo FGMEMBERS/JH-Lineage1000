@@ -10,7 +10,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/JH-Lineage1000/Dialogs/autopilot9.xml");
+						var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Dialogs/autopilot9.xml");
 						autopilot.open();
 					</script>
 				</binding>
@@ -18,8 +18,8 @@
 		</menu>
 
                 <menu n="5">
-                	<item n="1">
-	        		<label>Radio Stack</label>
+                	<item>
+	        		<label>Radio Settings</label>
 				<binding>
 					<command>nasal</command>
                             		<script>dialogs.Radio.open()</script>
@@ -59,7 +59,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/VIP/Systems/Lineage1000-lights-dlg.xml");
+						var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Dialogs/lights.xml");
 						lights.open();
 					</script>
 				</binding>
@@ -70,7 +70,7 @@
      				<binding>
 		       			<command>nasal</command>
 					<script>
-						var mal = gui.Dialog.new("/sim/gui/dialogs/VIP[1]/menu/dialog", "Aircraft/VIP/Systems/Lineage1000-announcements-dlg.xml");
+						var mal = gui.Dialog.new("/sim/gui/dialogs/Lineage1000[1]/menu/dialog", "Dialogs/announcements.xml");
 		        			mal.open();
        					</script>
       				</binding>
@@ -103,7 +103,7 @@
 				<binding>
        					<command>nasal</command>
        					<script>
-			  			var mal = gui.Dialog.new("/sim/gui/dialogs/VIP[0]/menu/dialog", "Aircraft/VIP/Systems/Lineage1000-operations-dlg.xml");
+			  			var mal = gui.Dialog.new("/sim/gui/dialogs/Lineage1000[0]/menu/dialog", "Dialogs/operations.xml");
         					mal.open();
        					</script>
       				</binding>
@@ -119,7 +119,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						var tiller = gui.Dialog.new("sim/gui/dialogs/tiller/dialog", "Aircraft/VIP/Systems/Lineage1000-tiller-dlg.xml");
+						var tiller = gui.Dialog.new("sim/gui/dialogs/tiller/dialog", "Dialogs/tiller.xml");
 						tiller.open();
 					</script>
 				</binding>
@@ -159,7 +159,7 @@
 					<script>
 						var pushback = gui.Dialog.new(
 							"sim/gui/voodoomaster/services/dialog", 
-							"Aircraft/JPack/Voodoomaster/Services/Push_Pull.xml"
+							"Dialogs/Services/Push_Pull.xml"
 						);
 						pushback.open();
 					</script>
@@ -174,7 +174,7 @@
 					<script>
 						var steering = gui.Dialog.new(
 							"sim/gui/voodoomaster/steering/dialog", 
-							"Aircraft/JPack/Voodoomaster/Steering/SteeringDialog.xml"
+							"Dialogs/Steering/SteeringDialog.xml"
 						);
 						steering.open();
 					</script>
@@ -198,7 +198,7 @@
 					<script>
 						var crew = gui.Dialog.new(
 							"sim/gui/voodoomaster/services/dialog", 
-							"Aircraft/JPack/Voodoomaster/Services/GroundServiceDialog.xml"
+							"Dialogs/Services/GroundServiceDialog.xml"
 						);
 						crew.open();
 					</script>
