@@ -238,12 +238,22 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "autopilot9.xml");
+					var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Dialogs/autopilot9.xml");
 					autopilot.open();
 				</script>
 			</binding>
 		</key>
-		
+
+                <key n="268">
+                	<name>F12</name>
+	        	<desc>Radio Settings</desc>
+			<binding>
+				<command>nasal</command>
+                        	<script>dialogs.Radio.open()</script>
+                        </binding>
+                </key>
+
+
 	</keyboard>
 
 </PropertyList>
