@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../Flightdeck.ac</path>
+	<path>Flightdeck.ac</path>
  
 	<animation>
 		<type>translate</type>
