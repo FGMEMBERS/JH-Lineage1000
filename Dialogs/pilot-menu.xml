@@ -18,8 +18,8 @@
 		</menu>
 
                 <menu n="5">
-                	<item n="1">
-	        		<label>Radio Stack</label>
+                	<item>
+	        		<label>Radio Settings</label>
 				<binding>
 					<command>nasal</command>
                             		<script>dialogs.Radio.open()</script>
