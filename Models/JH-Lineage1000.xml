@@ -76,7 +76,7 @@
 	<!-- Ram Air Turbine -->
 	<model>
 		<name>RAT</name>
-		<path>Aircraft/VIP/Models/Lineage1000/RAT.xml</path>
+		<path>RAT/RAT.xml</path>
 		<offsets>
 			<x-m>2.0</x-m>
 			<y-m>0</y-m>
@@ -125,7 +125,7 @@
 		// not sure what this one does, so disabled for now ####
 
 		<name>Operations</name>
-		<path>Aircraft/VIP/Models/Operations/operations.ac</path>
+		<path>Operations/operations.ac</path>
 		<condition>
 			<and>
 				<! - - #### better with ground speed and weight on wheels ? #### - - >
@@ -146,7 +146,7 @@
 		// not sure what this one does, so disabled for now
 
 		<name>Ground Emergency</name>
-		<path>Aircraft/VIP/Models/Operations/emergency-land.ac</path>
+		<path>Operations/emergency-land.ac</path>
 		<offsets>
 			<x-m> -2</x-m>    
 		</offsets>
@@ -169,7 +169,7 @@
 		// not sure what this one does, so disabled for now
 
 		<name>Ground Emergency</name>
-		<path>Aircraft/VIP/Models/Operations/emergency-land2.ac</path>
+		<path>Operations/emergency-land2.ac</path>
 		<offsets>
 			<x-m> 4</x-m>    
 		</offsets>
@@ -193,7 +193,7 @@
 		// not sure what this one does, so disabled for now
 
 		<name>Water Emergency Left</name>
-		<path>Aircraft/VIP/Models/Operations/emergency-water-tilt-left.ac</path>
+		<path>Operations/emergency-water-tilt-left.ac</path>
 		<offsets>
 			<x-m> -2</x-m>    
 		</offsets>

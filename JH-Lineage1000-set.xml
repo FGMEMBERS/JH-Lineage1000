@@ -1188,27 +1188,27 @@
 			<file>Systems/Settings/Settings.nas</file>
 			<file>Systems/Settings/FuelPayload.nas</file>
 			<file>Systems/systemsLineage1000.nas</file>
-			<file>Aircraft/VIP/Nasal/Lineage1000/electricalLineage1000.nas</file>
-			<!-- file>Aircraft/VIP/Nasal/Lineage1000/v-speedsLineage1000.nas</file -->
+			<file>Systems/Nasal/electricalLineage1000.nas</file>
+			<!-- file>Systems/Nasal/v-speedsLineage1000.nas</file -->
 	        	<file>Systems/Liveries.nas</file>
 		</lineage1000>
 		<reversethrust>
-			<file>Aircraft/VIP/Nasal/Lineage1000/reversethrustLineage1000.nas</file>
+			<file>Systems/Nasal/reversethrustLineage1000.nas</file>
 		</reversethrust>
 		<tyresmoke>
-			<file>Aircraft/VIP/Nasal/Lineage1000/tyresmokeLineage1000.nas</file>
+			<file>Systems/Nasal/tyresmokeLineage1000.nas</file>
 		</tyresmoke>
 		<walk>
-			<file>Aircraft/VIP/Nasal/Lineage1000/walkLineage1000.nas</file>
+			<file>Systems/Nasal/walkLineage1000.nas</file>
 		</walk>
 		<cdu>
-			<file>Aircraft/VIP/Common/cdu/boeing.nas</file>
+			<file>Models/Flightdeck/CDU/boeing.nas</file>
 		</cdu>
 		<erj>
-			<file>Aircraft/VIP/Nasal/Lineage1000/doorsLineage1000.nas</file>
+			<file>Systems/Nasal/doorsLineage1000.nas</file>
 		</erj>
 		<dialogs>
-			<file>Aircraft/VIP/Nasal/Lineage1000/radioLineage1000.nas</file>
+			<file>Systems/Nasal/radioLineage1000.nas</file>
 		</dialogs>
 	</nasal>
 
