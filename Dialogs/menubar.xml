@@ -85,7 +85,7 @@
 							<script>
 								var pushback = gui.Dialog.new(
 									"sim/gui/voodoomaster/services/dialog", 
-									"Aircraft/JPack/Voodoomaster/Services/Push_Pull.xml"
+									"Dialogs/Services/Push_Pull.xml"
 								);
 								pushback.open();
 							</script>
@@ -100,7 +100,7 @@
 							<script>
 								var steering = gui.Dialog.new(
 									"sim/gui/voodoomaster/steering/dialog", 
-									"Aircraft/JPack/Voodoomaster/Steering/SteeringDialog.xml"
+									"Dialogs/Steering/SteeringDialog.xml"
 								);
 								steering.open();
 							</script>
@@ -124,7 +124,7 @@
 							<script>
 								var crew = gui.Dialog.new(
 									"sim/gui/voodoomaster/services/dialog", 
-									"Aircraft/JPack/Voodoomaster/Services/GroundServiceDialog.xml"
+									"Dialogs/Services/GroundServiceDialog.xml"
 								);
 								crew.open();
 							</script>

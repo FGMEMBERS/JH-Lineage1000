@@ -2,8 +2,8 @@
 
 <!-- 
 	This is a derivative of the ERJ-190 which is part of the E-Jet-Family by 
-	Narendran Muraleedharan. The original had some glitches and ommissions and the
-	Lineage 1000 has an extended range which meant adding a new tank with all the 
+	Narendran Muraleedharan. The original had some glitches and ommissions. The
+	Lineage 1000 has an extended range, which meant adding a new tank with all the 
 	bells and whistles.
 	
 	Lineage 1000 by Peter Brendt. All 3D taken from ERJ-190 above. Base platform to 
@@ -11,12 +11,11 @@
 	Phil (TheMadGreek). Additional tank, new autopilot, expanded CDU ...
 	
 	2018 Refurbish for the JWocky Hangar:
-	Many systems are broken over time, Embraer updated the Lineage to 1000E, more infos about tanks
+	Many systems had been broken over time, Embraer updated the Lineage to 1000E, more infos about tanks
 	became available, FG had new versions and by all means, I had a long break and need to refurbish
 	my plane builder skills again too.
 
 	License : GPL 2.0
-    		
  -->
 
 <PropertyList>
@@ -60,7 +59,7 @@
 				<file type="string">EMB.xml</file>
 			</livery>
 
-			<!-- JPack: push forces for Voodoomaster Pushback -->
+			<!-- Push forces, for Voodoomaster Pushback -->
 			<pushback>
 				<kp type="double">400</kp>
 				<ki type="double">50</ki>
@@ -1103,7 +1102,7 @@
 			<range_nm type="double">0.00</range_nm>
 		</engines>
 
-		<!-- menubar2 include="Aircraft/JPack/Voodoomaster/Dialogs/menubar.xml"></menubar2 -->
+		<!-- menubar2 include="Dialogs/menubar.xml"></menubar2 -->
 		<hud>
 			<mode type="int">0</mode>
 		</hud>
