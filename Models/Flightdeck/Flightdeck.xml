@@ -2204,12 +2204,10 @@
 				<script>lineage1000.SPD_Sync()</script>
                                 <value></value>
 			</binding>
-                        <!--
 			<binding>
 				<command>nasal</command>
-				<script>vel.enable()</script>
+				<script>lineage1000.Speed_Enabled()</script>
 			</binding>
-                        -->
 		</action>
 	</animation>
 	<animation>
