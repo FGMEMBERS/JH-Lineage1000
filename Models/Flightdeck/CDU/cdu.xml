@@ -1,16 +1,9 @@
 <PropertyList>
 
-<path>boeing.ac</path>
+<path>cdu.ac</path>
 
 <animation> 
 	<type>material</type> 
-	<texture alias="../../texture"/> 
-	<!-- emission>
-		<red>0.5</red>
-		<green>0.4</green>
-		<blue>0.2</blue>
-		<factor-prop>controls/lighting/instruments-norm</factor-prop>
-	</emission -->
 </animation>
 
 <animation>
@@ -96,7 +89,7 @@
 	<inherits-from>Effects/lightmap</inherits-from>
 	<parameters>
 		<texture n="1">
-			<image>boeing_lightmap.png</image>
+			<image>cdu_lightmap.png</image>
 		</texture>
 		<condition><use>/instrumentation/cdu/serviceable</use></condition>
 		<factor><use>/controls/lighting/panel-norm</use></factor>
@@ -1832,5 +1825,98 @@
 		</binding>
 	</action>
 </animation>
+
+<!-- Buttons with functions not yet implemented -->
+<animation>
+	<type>pick</type>
+	<object-name>Btn.altn</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("ALTN");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.vnav</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("VNAV");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.fix</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("FIX");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.hold</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("HOLD");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.fmc-comm</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("FMC COMM");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.prog</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("PROG");</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Btn.exec</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>  
+		<binding>
+			<command>nasal</command>
+			<script>cdu.TBC("EXEC");</script>
+		</binding>
+	</action>
+</animation>
+
 
 </PropertyList>

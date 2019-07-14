@@ -1205,7 +1205,7 @@
 			<file>Systems/Nasal/walkLineage1000.nas</file>
 		</walk>
 		<cdu>
-			<file>Models/Flightdeck/CDU/boeing.nas</file>
+			<file>Models/Flightdeck/CDU/cdu.nas</file>
 		</cdu>
 		<erj>
 			<file>Systems/Nasal/doorsLineage1000.nas</file>

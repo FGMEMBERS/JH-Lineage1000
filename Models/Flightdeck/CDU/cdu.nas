@@ -945,3 +945,7 @@ print("pageact=", pageact);
 _setlistener("/sim/signals/fdm-initialized", cdu);
 var pagekey_listener=setlistener("/instrumentation/cdu/page", changePage);
 
+var TBC = func (btn=nil){
+    print (btn~": function not yet implemented");
+    return (2); ##ERROR 2: Btn functions not yet implemented 
+}
