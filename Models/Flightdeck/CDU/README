@@ -2,8 +2,9 @@
 
 # AUTHORS
 
-	Gijs de Rooy	- Nasal and XML
+	Gijs de Rooy	        - Nasal and XML
 	Syd Adams		- Boeing model and texture
+        IAHM-COL and JWocky     - Adaption to the Lineage1000
 
 # WIKI
 
@@ -17,9 +18,6 @@ Add the following tags below the </sim> tag of your aircraft's -set.xml file.
 		...
 		
 		<cdu>
-			<config>
-				<texture>boeing_brown.png</texture>
-			</config>
 			<display>IDENT</display>
 			<ident>
 				<model>747-400</model>
@@ -35,18 +33,11 @@ Add the following tags below the </sim> tag of your aircraft's -set.xml file.
 Each single CDU unit must be set in your aircraft's model .xml file, like:
 
 	<model>
-		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
+		<path>cdu/cdu.xml</path>
 		<offsets>
 			<x-m> 0.858</x-m>
 			<y-m> 0.186</y-m>
 			<z-m> 0.489</z-m>
 			<pitch-deg>-75</pitch-deg>
 		</offsets>
-		<overlay>
-			<texture>boeing_brown.png</texture>
-		</overlay>
 	</model>
-
-Currently there are two textures to choose from:
-	- boeing_brown.png
-	- boeing_grey.png
