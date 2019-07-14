@@ -890,6 +890,10 @@
 			<min-alt-ft type="int">1000</min-alt-ft>
 			<min-alt-m type="int">305</min-alt-m>
 		</internal>
+                <locks>
+                       <heading type="string"></heading>
+                       <altitude type="string"></altitude>
+                </locks>
 	</autopilot>
 
 	<!-- Voodoomaster plane specific initializations -->

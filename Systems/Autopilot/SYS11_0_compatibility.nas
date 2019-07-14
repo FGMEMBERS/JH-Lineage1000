@@ -278,6 +278,12 @@ var SPD_Sync = func () {
 	}
 }
 
+var Speed_Enabled = func (prop="sim/gui/dialogs/autopilot/dialog", path="Dialogs/autopilot9.xml") {
+    var ap = gui.Dialog.new (prop, path);
+    ap.open();
+    ap.close();
+}
+
 var AP_Toggle = func () {
 	var result="";
 	if (getprop("autopilot/settings/ap-armed")){
