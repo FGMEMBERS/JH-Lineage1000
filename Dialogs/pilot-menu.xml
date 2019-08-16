@@ -18,11 +18,15 @@
 		</menu>
 
                 <menu n="5">
-                	<item>
-	        		<label>Radio Settings</label>
+                	<item n="5">
+				<name>radio</name>
+	        		<label>Radio Settings Changed</label>
 				<binding>
 					<command>nasal</command>
-                            		<script>dialogs.Radio.open()</script>
+                            		<script>
+						var radio = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Dialogs/radio.xml");
+						radio.open();
+					</script>
                         	</binding>
                     	</item>
                 </menu>
