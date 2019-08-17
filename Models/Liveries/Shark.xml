@@ -4,7 +4,7 @@
 <sim>
     <model>
         <livery>
-            <name type="string">Shark Livery</name>
+            <name type="string">E2 Shark</name>
             <texture>/../../Models/Liveries/shark.png</texture>
         </livery>
     </model>
