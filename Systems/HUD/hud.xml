@@ -2091,7 +2091,7 @@
 	</label>
 
 	<label>
-		<name>buffered alt</name>
+		<name>buffered speed setting</name>
 		<x>-30</x>
 		<y>30</y>
 		<width>60</width>
@@ -2104,10 +2104,6 @@
 		</input>
 		<condition>
 			<and>
-				<!-- equals>
-					<property>/autopilot/locks/speed</property>
-					<value>speed-with-throttle</value>
-				</equals -->
 				<equals>
 					<property>/autopilot/settings/kts-mach-select</property>
 					<value>kts</value>
@@ -2119,7 +2115,6 @@
 			</and>
 		</condition>
 	</label>
-
 
 	<label>
 		<name>speed-mode</name>
@@ -2292,6 +2287,32 @@
 				<equals>
 					<property>/autopilot/settings/kts-mach-select</property>
 					<value>mach</value>
+				</equals>
+				<equals>
+					<property>/voodoomaster/hud/mode</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</condition>
+	</label>
+
+	<label>
+		<name>buffered speed setting</name>
+		<x>-30</x>
+		<y>30</y>
+		<width>60</width>
+		<height>8</height>
+		<box>true</box>
+		<format>MwT: %4.2f</format>
+		<halign>left</halign>
+		<input>
+			<property>/autopilot/settings/target-speed-mach</property>
+		</input>
+		<condition>
+			<and>
+				<equals>
+					<property>/autopilot/settings/kts-mach-select</property>
+					<value>nach</value>
 				</equals>
 				<equals>
 					<property>/voodoomaster/hud/mode</property>
