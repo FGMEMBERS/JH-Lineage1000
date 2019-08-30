@@ -261,20 +261,28 @@ var MachLimit = func (mach, low=0.35, high=0.82) {
 
 var SPD_Sync = func () {
 	var current_KIAS = getprop("velocities/airspeed-kt");
-	var current_Mach = getprop("velocities/mach");
+	var current_MACH = getprop("velocities/mach");
 	var current_KIAS_target=getprop("autopilot/settings/target-speed-kt");
-	var current_MACH_target=getprop("autopilot/settings/target-speed-kt");
+	var current_MACH_target=getprop("autopilot/settings/target-speed-mach");
 
 	#LIMIT Speed Set by AP
 	current_KIAS = KIASLimit(current_KIAS);
-	current_Mach = MachLimit(current_Mach);
+	current_MACH = MachLimit(current_MACH);
 
 	#### this is kind of clumsy, but I need a way to prevent an already set kias value from being overwritten by the current actual speed
 	if (current_KIAS_target==nil) {
 		setprop("autopilot/settings/target-speed-kt", current_KIAS);
+	} else {
+		if (current_KIAS>current_KIAS_target) {
+			setprop("autopilot/settings/target-speed-kt", current_KIAS);
+		}
 	}
 	if (current_MACH_target==nil) {
-		setprop("autopilot/settings/target-speed-mach", current_Mach);
+		setprop("autopilot/settings/target-speed-mach", current_MACH);
+	} else {
+		if (current_MACH>current_MACH_target) {
+			setprop("autopilot/settings/target-speed-mach", current_MACH);
+		}
 	}
 }
 
