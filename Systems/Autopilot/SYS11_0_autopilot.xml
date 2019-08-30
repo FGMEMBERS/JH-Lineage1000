@@ -628,14 +628,32 @@
 				</and>
 			</condition>
 		</enable>
+
 		<input>
 			<condition>
-				<equals>
-					<property>/autopilot/locks/heading</property>
-					<value>dg-heading-hold</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<property>autopilot/settings/yawdamper</property>
+				</and>
 			</condition>
 			<property>/autopilot/internal/heading-bug-error-deg-5-sec-ahead</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<not>
+						<property>autopilot/settings/yawdamper</property>
+					</not>
+				</and>
+			</condition>
+			<property>/autopilot/internal/heading-bug-error-deg</property>
 		</input>
 		<reference>
 			<condition>
@@ -649,12 +667,29 @@
 
 		<input>
 			<condition>
-				<equals>
-					<property>/autopilot/locks/heading</property>
-					<value>true-heading-hold</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>true-heading-hold</value>
+					</equals>
+					<property>autopilot/settings/yawdamper</property>
+				</and>
 			</condition>
 			<property>/autopilot/internal/true-heading-error-deg-5-sec-ahead</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>true-heading-hold</value>
+					</equals>
+					<not>
+						<property>autopilot/settings/yawdamper</property>
+					</not>
+				</and>
+			</condition>
+			<property>/autopilot/internal/true-heading-error-deg</property>
 		</input>
 		<reference>
 			<condition>
@@ -770,7 +805,7 @@
 		</config>
 	</pid-controller>
   
-	<pid-controller>
+	<!-- pid-controller>
 		<name>System Command: Yaw damper</name>
 		<debug>false</debug>
 		<enable>
@@ -788,16 +823,16 @@
 			<property>controls/flight/rudder</property>
 		</output>
 		<config>
-			<Kp>-0.001</Kp>		<!-- proportional gain -->
-			<beta>1.0</beta>	<!-- input value weighing factor -->
-			<alpha>0.1</alpha>	<!-- low pass filter weighing factor -->
-			<gamma>0.0</gamma>	<!-- input value weighing factor for unfiltered derivative error -->
-			<Ti>10</Ti>        	<!-- integrator time -->
-			<Td>0.001</Td>     	<!-- derivator time -->
-			<u_min>-0.25</u_min> 	<!-- minimum output clamp -->
-			<u_max>0.25</u_max>  	<!-- maximum output clamp -->
+			<Kp>-0.001</Kp>		<! - - proportional gain - - >
+			<beta>1.0</beta>	<! - - input value weighing factor - - >
+			<alpha>0.1</alpha>	<! - - low pass filter weighing factor - - >
+			<gamma>0.0</gamma>	<! - - input value weighing factor for unfiltered derivative error - - >
+			<Ti>10</Ti>        	<! - - integrator time - - >
+			<Td>0.001</Td>     	<! - - derivator time  - ->
+			<u_min>-0.25</u_min> 	<! - - minimum output clamp - - >
+			<u_max>0.25</u_max>  	<! - - maximum output clamp - - >
 		</config>
-	</pid-controller>
+	</pid-controller -->
   
 	<pid-controller>
 		<name>System Command: Pitch</name>
