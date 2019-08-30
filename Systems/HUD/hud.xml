@@ -2091,6 +2091,37 @@
 	</label>
 
 	<label>
+		<name>buffered alt</name>
+		<x>-30</x>
+		<y>30</y>
+		<width>60</width>
+		<height>8</height>
+		<box>true</box>
+		<format>KwT:%3d</format>
+		<halign>left</halign>
+		<input>
+			<property>/autopilot/settings/target-speed-kt</property>
+		</input>
+		<condition>
+			<and>
+				<!-- equals>
+					<property>/autopilot/locks/speed</property>
+					<value>speed-with-throttle</value>
+				</equals -->
+				<equals>
+					<property>/autopilot/settings/kts-mach-select</property>
+					<value>kts</value>
+				</equals>
+				<equals>
+					<property>/voodoomaster/hud/mode</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</condition>
+	</label>
+
+
+	<label>
 		<name>speed-mode</name>
 		<x>-20</x>
 		<y>38</y>
