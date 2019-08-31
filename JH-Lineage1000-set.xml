@@ -105,14 +105,6 @@
 			<started>0</started>
 		</autostart>
 
-		<flaps>
-			<setting>0.00</setting>
-			<setting>0.10</setting>
-			<setting>0.20</setting>
-			<setting>0.30</setting>
-			<setting>0.40</setting>
-		</flaps>
-
 		<virtual-cockpit archive="y">true</virtual-cockpit>
 
 		<instrumentation>
@@ -400,6 +392,9 @@
 
 	<fdm>
 		<jsbsim>
+			<!-- fcs>
+				<flap-setting type="int">0</flap-setting>
+			</fcs -->
 			<systems>
 				<pushback>
 					<linked type="int">0</linked>
