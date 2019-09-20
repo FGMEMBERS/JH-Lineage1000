@@ -29,6 +29,25 @@
 	</label>
 
 	<label>
+		<name>FLAPS</name>
+		<width>1</width>
+		<height>1</height>
+		<format>F:%1d</format>
+		<x>-125</x>
+		<y>60</y>
+		<input>
+			<property>/fdm/jsbsim/systems/flap-setting</property>
+		</input>
+		<halign>left</halign>
+		<condition>
+			<equals>
+				<property>/voodoomaster/hud/mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</label>
+
+	<label>
 		<name>FIRST_OFFICER_TXT</name>
 		<width>1</width>
 		<height>1</height>
