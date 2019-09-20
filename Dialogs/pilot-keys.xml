@@ -242,6 +242,15 @@
 				<min>0</min>
 				<max>6</max>
 			</binding>
+			<mod-ctrl>
+				<binding>
+					<command>property-adjust</command>
+					<property>/fdm/jsbsim/systems/flap-setting</property>
+					<step>-1</step>
+					<min>0</min>
+					<max>6</max>
+				</binding>
+			</mod-ctrl>
 		</key>
 
 		<key n="93">
@@ -252,8 +261,17 @@
 				<property>/fdm/jsbsim/systems/flap-setting</property>
 				<step>1</step>
 				<min>0</min>
-				<max>6</max>
+				<max>4</max>
 			</binding>
+			<mod-ctrl>
+				<binding>
+					<command>property-adjust</command>
+					<property>/fdm/jsbsim/systems/flap-setting</property>
+					<step>1</step>
+					<min>5</min>
+					<max>6</max>
+				</binding>
+			</mod-ctrl>
 		</key>
 
 		<key n="267">
