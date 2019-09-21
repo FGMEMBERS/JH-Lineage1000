@@ -86,17 +86,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Flapneedle</object-name>
-		<property>surface-positions/flap-pos-norm</property>
-		<interpolation>
-			<entry>
-				<ind>0.0</ind>
-				<dep>0.0</dep>
-			</entry>
-			<entry>
-				<ind>1.0</ind>
-				<dep>30.0</dep>
-			</entry>
-		</interpolation>
+		<property>fdm/jsbsim/systems/flap-setting</property>
+		<factor>4.0</factor>
 		<center>
 			<x-m>0</x-m>
 			<y-m>-0.0421</y-m>

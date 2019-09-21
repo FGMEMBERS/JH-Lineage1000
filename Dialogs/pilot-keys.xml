@@ -232,6 +232,48 @@
 			</binding>
 		</key>
 
+		<key n="91">
+			<name>FlapsIn</name>
+			<desc>Pull flaps and slats in</desc>
+			<binding>
+				<command>property-adjust</command>
+				<property>/fdm/jsbsim/systems/flap-setting</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>6</max>
+			</binding>
+			<mod-ctrl>
+				<binding>
+					<command>property-adjust</command>
+					<property>/fdm/jsbsim/systems/flap-setting</property>
+					<step>-1</step>
+					<min>0</min>
+					<max>6</max>
+				</binding>
+			</mod-ctrl>
+		</key>
+
+		<key n="93">
+			<name>FlapsOut</name>
+			<desc>Push flaps and slats out</desc>
+			<binding>
+				<command>property-adjust</command>
+				<property>/fdm/jsbsim/systems/flap-setting</property>
+				<step>1</step>
+				<min>0</min>
+				<max>4</max>
+			</binding>
+			<mod-ctrl>
+				<binding>
+					<command>property-adjust</command>
+					<property>/fdm/jsbsim/systems/flap-setting</property>
+					<step>1</step>
+					<min>5</min>
+					<max>6</max>
+				</binding>
+			</mod-ctrl>
+		</key>
+
 		<key n="267">
 			<name>F11</name>
 			<desc>Autopilot Settings</desc>

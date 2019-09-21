@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<system name="NWS">
+
+	<property>systems/flap-setting</property>
+	<property>systems/flap-cmd-norm2</property>
+	<property>systems/slat-cmd-norm2</property>
+
+	<channel name="Flaps_Stats">
+
+		<scheduled_gain name="flap_translator1">
+			<input>systems/flap-setting</input>
+			<table>
+				<independentVar lookup="row">systems/flap-setting</independentVar>
+				<tableData>
+					0     0.00
+					1     0.07
+					2     0.10
+					3     0.20
+					4     0.20
+					5     0.20
+					6     0.37
+				</tableData>
+			</table>
+			<output>systems/flap-cmd-norm2</output>
+		</scheduled_gain>
+
+		<scheduled_gain name="flap_translator2">
+			<input>systems/flap-setting</input>
+			<table>
+				<independentVar lookup="row">systems/flap-setting</independentVar>
+				<tableData>
+					0     0.00
+					1     0.15
+					2     0.15
+					3     0.15
+					4     0.25
+					5     0.25
+					6     0.25
+				</tableData>
+			</table>
+			<output>systems/slat-cmd-norm2</output>
+		</scheduled_gain>
+
+	</channel>
+
+</system>
