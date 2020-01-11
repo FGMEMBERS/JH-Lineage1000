@@ -17,14 +17,16 @@ var sync_units_ft=func() {
 		setprop("autopilot/settings/target-altitude-m", valuetarget*0.3048);
 	}
 
-	var valuebuffered=getprop("autopilot/settings/buffered-altitude-ft");
-	if (valuebuffered!=nil) {
-		setprop("autopilot/settings/buffered-altitude-m", valuebuffered*0.3048);
-	}
-
 	var valuemin=getprop("autopilot/internal/min-alt-ft");
 	if (valuemin!=nil) {
 		setprop("autopilot/internal/min-alt-m", valuemin*0.3048);
+	}
+}
+
+var sync_units_buffered_ft=func() {
+	var valuebuffered=getprop("autopilot/settings/buffered-altitude-ft");
+	if (valuebuffered!=nil) {
+		setprop("autopilot/settings/buffered-altitude-m", valuebuffered*0.3048);
 	}
 }
 
@@ -34,14 +36,16 @@ var sync_units_m=func() {
 		setprop("autopilot/settings/target-altitude-ft", valuetarget/0.3048);
 	}
 
-	var valuebuffered=getprop("autopilot/settings/buffered-altitude-m");
-	if (valuebuffered!=nil) {
-		setprop("autopilot/settings/buffered-altitude-ft", valuebuffered/0.3048);
-	}
-
 	var valuemin=getprop("autopilot/internal/min-alt-m");
 	if (valuemin!=nil) {
 		setprop("autopilot/internal/min-alt-ft", valuemin/0.3048);
+	}
+}
+
+var sync_units_buffered_m=func() {
+	var valuebuffered=getprop("autopilot/settings/buffered-altitude-m");
+	if (valuebuffered!=nil) {
+		setprop("autopilot/settings/buffered-altitude-ft", valuebuffered/0.3048);
 	}
 }
 
@@ -229,14 +233,14 @@ var ALT_Sync = func (alt_set=nil) {
 		if (unit=="ft") {
 			alt_set=getprop("position/altitude-ft");
 		} else {
-			alt_set=getprop("position/altitude-ft");
+			alt_set=getprop("position/altitude-m");
 		}
 	}
-	alt_set = ALTLimit (alt_set);
+	alt_set = ALTLimit(alt_set);
 	if (unit=="ft") {
-		setprop("autopilot/settings/target-altitude-ft", alt_set);
+		setprop("autopilot/settings/buffered-altitude-ft", alt_set);
 	} else {
-		setprop("autopilot/settings/target-altitude-m", alt_set);
+		setprop("autopilot/settings/buffered-altitude-m", alt_set);
 	}
 }
 
@@ -331,8 +335,6 @@ settimer (ALT_min, 5);
 #### those call conversion functions on top of the file
 var listener_target_alt_ft = setlistener("autopilot/settings/target-altitude-ft", sync_units_ft, 0, 0);
 var listener_target_alt_m = setlistener("autopilot/settings/target-altitude-m", sync_units_m, 0, 0);
-var listener_buffered_alt_ft = setlistener("autopilot/settings/buffered-altitude-ft", sync_units_ft, 0, 0);
-var listener_buffered_alt_m = setlistener("autopilot/settings/buffered-altitude-m", sync_units_m, 0, 0);
-var listener_min_alt_ft = setlistener("autopilot/settings/buffered-altitude-ft", sync_units_ft, 0, 0);
-var listener_min_alt_m = setlistener("autopilot/settings/buffered-altitude-m", sync_units_m, 0, 0);
+var listener_buffered_alt_ft = setlistener("autopilot/settings/buffered-altitude-ft", sync_units_buffered_ft, 0, 0);
+var listener_buffered_alt_m = setlistener("autopilot/settings/buffered-altitude-m", sync_units_buffered_m, 0, 0);
 
