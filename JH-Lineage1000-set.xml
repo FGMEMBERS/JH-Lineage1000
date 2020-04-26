@@ -21,7 +21,7 @@
 <PropertyList>
 
 	<!--
-		Cancelled the JPack include for now, because after five years, the core team was still unable to repair FGRun and even copied thier parser errors in the QT5 launcher. Great job, guys!
+		Cancelled the JPack include for now, because after five years, the core team was still unable to repair FGRun and even 			copied their parser errors in the QT5 launcher. Great job, guys!
 		#### maybe later, I can find a better solution ####
 	-->
 
@@ -37,10 +37,10 @@
 		<status>pre-beta</status>
 
 		<rating>
-			<FDM type="int">3</FDM>
-			<systems type="int">2</systems>
-			<cockpit type="int">4</cockpit>
-			<model type="int">4</model>
+			<FDM type="int">	3</FDM>
+			<systems type="int">	2</systems>
+			<cockpit type="int">	4</cockpit>
+			<model type="int">	4</model>
 		</rating>
 
 		<flight-model>jsb</flight-model>
@@ -75,6 +75,7 @@
 				<position-z-m> 0.034</position-z-m>
 				<jetway-hood-deg>8</jetway-hood-deg>
             		</door -->
+
 		</model>
 
 		<!-- Subsection for submodels if submodels exist -->
