@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<system name="NWS">
+<system name="FlapConverter">
 
 	<property>systems/flap-setting</property>
 	<property>systems/flap-cmd-norm2</property>
