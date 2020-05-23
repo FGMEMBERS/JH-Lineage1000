@@ -53,7 +53,7 @@
 
 		<!-- Settings for model -->
 		<model>
-			<path>Models/JH-Lineage1000.xml</path>
+			<path>Aircraft/JH-Lineage1000/Models/JH-Lineage1000.xml</path>
 
 			<livery>
 				<file type="string">EMB.xml</file>
