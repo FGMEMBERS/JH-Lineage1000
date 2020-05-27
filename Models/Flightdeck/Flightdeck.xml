@@ -2292,35 +2292,68 @@
 		</action>
 	</animation>
 
-	<!-- Flaps Lever -->
-
+	<!-- Flap/Slat Lever -->
 	<animation>
-		<type>translate</type>
-		<object-name>FlapLever</object-name>
-		<property>/controls/flight/flaps</property>
-		<factor>-0.2</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0.1</z>
-		</axis>
+	  <type>translate</type>
+	  <object-name>FlapLever</object-name>
+	  <property>/fdm/jsbsim/systems/flap-setting</property>
+	  <axis>
+	    <x1-m>-11.79402</x1-m>
+	    <y1-m>0.14722</y1-m>
+	    <z1-m>0.65392</z1-m>
+	    <x2-m>-11.69583</x2-m>
+	    <y2-m>0.14722</y2-m>
+	    <z2-m>0.64865</z2-m>
+	  </axis>
+	  <interpolation>
+	    <entry><ind>0</ind><dep>0</dep></entry>
+	    <entry><ind>1</ind><dep>0.017842</dep></entry>
+	    <entry><ind>2</ind><dep>0.032219</dep></entry>
+	    <entry><ind>3</ind><dep>0.047797</dep></entry>
+	    <entry><ind>4</ind><dep>0.061237</dep></entry>
+	    <entry><ind>5</ind><dep>0.077079</dep></entry>
+	    <entry><ind>6</ind><dep>0.093435</dep></entry>
+	  </interpolation>
 	</animation>
 
 	<animation>
-		<type>pick</type>
-		<object-name>FlapLever</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>/controls/flight/flaps</property>
-			</binding>
-		</action>
+	  <type>knob</type>
+	  <object-name>FlapLever</object-name>
+	  <action>
+	    <binding>
+	      <condition>
+		<not><equals>
+		  <property>/fdm/jsbsim/systems/flap-setting</property>
+		  <value>4</value>
+		</equals></not>
+	      </condition>
+	      <command>property-adjust</command>
+	      <property>/fdm/jsbsim/systems/flap-setting</property>
+	      <factor>-1</factor>
+	      <min>0</min>
+	      <max>6</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
+	  <shift-action>
+	    <binding>
+	      <condition>
+		<equals>
+		  <property>/fdm/jsbsim/systems/flap-setting</property>
+		  <value>4</value>
+		</equals>
+	      </condition>
+	      <command>property-adjust</command>
+	      <property>/fdm/jsbsim/systems/flap-setting</property>
+	      <factor>-1</factor>
+	      <min>3</min>
+	      <max>5</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </shift-action>
 	</animation>
 
 	<!-- Gear Lever -->
-
 	<animation>
 		<type>rotate</type>
 		<object-name>GearLever</object-name>

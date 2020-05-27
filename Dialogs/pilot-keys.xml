@@ -233,45 +233,46 @@
 		</key>
 
 		<key n="91">
-			<name>FlapsIn</name>
-			<desc>Pull flaps and slats in</desc>
-			<binding>
-				<command>property-adjust</command>
-				<property>/fdm/jsbsim/systems/flap-setting</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>6</max>
-			</binding>
-			<mod-ctrl>
-				<binding>
-					<command>property-adjust</command>
-					<property>/fdm/jsbsim/systems/flap-setting</property>
-					<step>-1</step>
-					<min>0</min>
-					<max>6</max>
-				</binding>
-			</mod-ctrl>
+		  <name>FlapsIn</name>
+		  <desc>Pull flaps and slats in</desc>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>/fdm/jsbsim/systems/flap-setting</property>
+		    <step>-1</step>
+		    <min>0</min>
+		    <max>6</max>
+		  </binding>
 		</key>
 
 		<key n="93">
-			<name>FlapsOut</name>
-			<desc>Push flaps and slats out</desc>
-			<binding>
-				<command>property-adjust</command>
-				<property>/fdm/jsbsim/systems/flap-setting</property>
-				<step>1</step>
-				<min>0</min>
-				<max>4</max>
-			</binding>
-			<mod-ctrl>
-				<binding>
-					<command>property-adjust</command>
-					<property>/fdm/jsbsim/systems/flap-setting</property>
-					<step>1</step>
-					<min>5</min>
-					<max>6</max>
-				</binding>
-			</mod-ctrl>
+		  <name>FlapsOut</name>
+		  <desc>Push flaps and slats out</desc>
+		  <binding>
+		    <condition>
+		      <not><equals>
+			<property>/fdm/jsbsim/systems/flap-setting</property>
+			<value>4</value>
+		      </equals></not>
+		    </condition>
+		    <command>property-adjust</command>
+		    <property>/fdm/jsbsim/systems/flap-setting</property>
+		    <step>1</step>
+		    <min>0</min>
+		    <max>6</max>
+		  </binding>
+		  <mod-ctrl>
+		    <binding>
+		      <condition>
+			<equals>
+			  <property>/fdm/jsbsim/systems/flap-setting</property>
+			  <value>4</value>
+			</equals>
+		      </condition>
+		      <command>property-assign</command>
+		      <property>/fdm/jsbsim/systems/flap-setting</property>
+		      <value>5</value>
+		    </binding>
+		  </mod-ctrl>
 		</key>
 
 		<key n="267">

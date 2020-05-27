@@ -2414,7 +2414,7 @@ kids 0
 OBJECT poly
 name "map-disk"
 loc -0.000255223 -0.0107485 0.000311628
-texture "world-map.jpg"
+texture "world-map.png"
 crease 45.000000
 numvert 21
 0 0 0.085
