@@ -2387,95 +2387,152 @@
 	</animation>
 
 	<!-- Throttles -->
+	<animation>
+	  <type>translate</type>
+	  <object-name>ThrottleLeft</object-name>
+	  <object-name>ThrottleLeftBase</object-name>
+	  <object-name>ThrottleLeft.GA</object-name>
+	  <object-name>ThrottleLeft.apOff</object-name>
+	  <property>/controls/engines/engine[0]/throttle</property>
+	  <axis>
+	    <x1-m>-11.93350</x1-m>
+	    <y1-m>-0.02616</y1-m>
+	    <z1-m>0.66072</z1-m>
+	    <x2-m>-12.03886</x2-m>
+	    <y2-m>-0.02616</y2-m>
+	    <z2-m>0.66638</z2-m>
+	  </axis>
+	  <factor>0.08346792</factor>
+	</animation>
 
 	<animation>
-		<type>rotate</type>
-		<object-name>ThrottleLeft</object-name>
-		<property>/controls/engines/engine[0]/throttle</property>
-		<factor>-30</factor>
-		<center>
-			<x-m>-11.9975</x-m>
-			<y-m>0</y-m>
-			<z-m>0.4988</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+	  <type>translate</type>
+	  <object-name>ThrottleRight</object-name>
+	  <object-name>ThrottleRightBase</object-name>
+	  <object-name>ThrottleRight.GA</object-name>
+	  <object-name>ThrottleRight.apOff</object-name>
+	  <property>/controls/engines/engine[1]/throttle</property>
+	  <axis>
+	    <x1-m>-11.93350</x1-m>
+	    <y1-m>0.02918</y1-m>
+	    <z1-m>0.66072</z1-m>
+	    <x2-m>-12.03886</x2-m>
+	    <y2-m>0.02918</y2-m>
+	    <z2-m>0.66638</z2-m>
+	  </axis>
+	  <factor>0.08346792</factor>
+	</animation>
+
+	<animation>
+	  <type>knob</type>
+	  <name>Throttle Left knob</name>
+	  <object-name>ThrottleLeft</object-name>
+	  <action>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[0]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[1]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
+	  <shift-action>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[0]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </shift-action>
+	</animation>
+
+	<animation>
+	  <type>knob</type>
+	  <name>Throttle Right knob</name>
+	  <object-name>ThrottleRight</object-name>
+	  <action>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[0]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[1]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
+	  <shift-action>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/engines/engine[1]/throttle</property>
+	      <factor>0.05</factor>
+	      <min>0</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </shift-action>
+	</animation>
+
+	<animation>
+	  <name>Throttle Go around buttons</name>
+	  <type>pick</type>
+	  <object-name>ThrottleLeft.GA</object-name>
+	  <object-name>ThrottleRight.GA</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable>false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property>/controls/engines/engine[0]/throttle</property>
+              <value>1</value>
+	    </binding>
+	    <binding>
+	      <command>property-assign</command>
+	      <property>/controls/engines/engine[1]/throttle</property>
+              <value>1</value>
+	    </binding>
+	    <binding>
+	      <command>property-cycle</command>
+	      <property>/autopilot/settings/toga-mode</property>
+	      <value>TO</value>
+	      <value>GA</value>
+	      <value>WSHR</value>
+	    </binding>
+	  </action>
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
-		<object-name>ThrottleRight</object-name>
-		<property>/controls/engines/engine[1]/throttle</property>
-		<factor>-30</factor>
-		<center>
-			<x-m>-11.9975</x-m>
-			<y-m>0</y-m>
-			<z-m>0.4988</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Left Throttle pick</name>
-		<type>pick</type>
-		<object-name>ThrottleLeft</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/engines/engine[0]/throttle</property>
-				<step>0.05</step>
-				<max>99.99</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/engines/engine[0]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<name>Right Throttle pick</name>
-		<type>pick</type>
-		<object-name>ThrottleRight</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/engines/engine[1]/throttle</property>
-				<step>0.05</step>
-				<max>99.99</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/engines/engine[1]/throttle</property>
-				<step>-0.05</step>
-				<min>0</min>
-			</binding>
-		</action>
+	  <name>Throtle AP off Buttons</name>
+	  <type>pick</type>
+	  <object-name>ThrottleLeft.apOff</object-name>
+	  <object-name>ThrottleRight.apOff</object-name>
+	  <action>
+	    <button>0</button>
+	    <repeatable>false</repeatable>
+	    <binding>
+	      <command>property-assign</command>
+	      <property>autopilot/locks/speed</property>
+              <value></value>
+	    </binding>
+	  </action>
 	</animation>
 
 	<!-- Trimmers -->
