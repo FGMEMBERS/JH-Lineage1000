@@ -2258,38 +2258,40 @@
 	</animation>
 
 	<!-- Speedbrake Lever -->
-
 	<animation>
-		<type>rotate</type>
-		<object-name>BrkLever</object-name>
-		<property>/controls/flight/speedbrake</property>
-		<factor>60</factor>
-		<center>
-			<x-m>-11.9985</x-m>
-			<y-m>0</y-m>
-			<z-m>0.6258</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+	  <type>translate</type>
+	  <object-name>BrkLever</object-name>
+	  <property>/controls/flight/speedbrake</property>
+	  <axis>
+	    <x1-m>-12.03035</x1-m>
+	    <y1-m>-0.07380</y1-m>
+	    <z1-m>0.66861</z1-m>
+	    <x2-m>-11.92499</x2-m>
+	    <y2-m>-0.07380</y2-m>
+	    <z2-m>0.66295</z2-m>
+	  </axis>
+	  <interpolation>
+	    <entry><ind>0</ind><dep>0</dep></entry>
+	    <entry><ind>0.25</ind><dep>0.024308</dep></entry>
+	    <entry><ind>0.5</ind><dep>0.050333</dep></entry>
+	    <entry><ind>0.75</ind><dep>0.074612</dep></entry>
+	    <entry><ind>1</ind><dep>0.10933</dep></entry>
+	  </interpolation>
 	</animation>
 
 	<animation>
-		<type>pick</type>
-		<object-name>BrkLever</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/flight/speedbrake</property>
-				<value>0</value>
-				<value>0.5</value>
-				<value>1</value>
-			</binding>
-		</action>
+	  <type>knob</type>
+	  <object-name>BrkLever</object-name>
+	  <action>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>/controls/flight/speedbrake</property>
+	      <factor>-0.25</factor>
+	      <wrap>false</wrap>
+	      <min>0</min>
+	      <max>1</max>
+	    </binding>
+	  </action>
 	</animation>
 
 	<!-- Flap/Slat Lever -->

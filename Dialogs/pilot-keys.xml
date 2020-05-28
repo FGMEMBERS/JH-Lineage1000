@@ -25,15 +25,26 @@
 		</key>
 
 		<key n="2">
-			<name>Ctrl-b</name>
-			<desc>Cycle speedbrake setting</desc>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/flight/speedbrake-lever</property>
-				<value>0</value>
-				<value>0.5</value>
-				<value>1</value>
-			</binding>
+		  <name>Ctrl-b</name>
+		  <desc>Cycle speedbrake setting</desc>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/speedbrake</property>
+		    <step>0.25</step>
+		    <min>0</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <mod-shift>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/speedbrake</property>
+		    <step>-0.25</step>
+		    <min>0</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  </mod-shift>
 		</key>
 
                 <!-- Overide TAB behavior to also toggle TCS off  -->
@@ -236,6 +247,12 @@
 		  <name>FlapsIn</name>
 		  <desc>Pull flaps and slats in</desc>
 		  <binding>
+		    <condition>
+		      <not><equals>
+			<property>/fdm/jsbsim/systems/flap-setting</property>
+			<value>4</value>
+		      </equals></not>
+		    </condition>
 		    <command>property-adjust</command>
 		    <property>/fdm/jsbsim/systems/flap-setting</property>
 		    <step>-1</step>
@@ -260,21 +277,40 @@
 		    <min>0</min>
 		    <max>6</max>
 		  </binding>
-		  <mod-ctrl>
-		    <binding>
-		      <condition>
-			<equals>
-			  <property>/fdm/jsbsim/systems/flap-setting</property>
-			  <value>4</value>
-			</equals>
-		      </condition>
-		      <command>property-assign</command>
-		      <property>/fdm/jsbsim/systems/flap-setting</property>
-		      <value>5</value>
-		    </binding>
-		  </mod-ctrl>
 		</key>
 
+		<key n="125">
+		  <name>FlapsOut Gated</name>
+		  <desc>flaps and slats gated-out</desc>
+		  <binding>
+		    <condition>
+		      <equals>
+			<property>/fdm/jsbsim/systems/flap-setting</property>
+			<value>4</value>
+		      </equals>
+		    </condition>
+		    <command>property-assign</command>
+		    <property>/fdm/jsbsim/systems/flap-setting</property>
+		    <value>5</value>
+		  </binding>
+		</key>
+
+		<key n="123">
+		  <name>FlapsIn Gated</name>
+		  <desc>flaps and slats gated-in</desc>
+		  <binding>
+		    <condition>
+		      <equals>
+			<property>/fdm/jsbsim/systems/flap-setting</property>
+			<value>4</value>
+		      </equals>
+		    </condition>
+		    <command>property-assign</command>
+		    <property>/fdm/jsbsim/systems/flap-setting</property>
+		    <value>3</value>
+		  </binding>
+		</key>
+		
 		<key n="267">
 			<name>F11</name>
 			<desc>Autopilot Settings</desc>
