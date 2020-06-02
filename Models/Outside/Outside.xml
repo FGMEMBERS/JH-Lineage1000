@@ -339,7 +339,6 @@
 			<z2-m>0.50672</z2-m>
 		</axis>
 	</animation>
-
 	<!-- Right Wing Flaps -->
 	<animation>
 		<type>rotate</type>
@@ -371,6 +370,116 @@
 		</axis>
 	</animation>
 
+	<!-- Slats -->
+	<!-- Left Wing slats -->
+	<animation>
+		<type>translate</type>
+		<object-name>slat.l.1</object-name>
+		<object-name>slat.l.2</object-name>
+		<object-name>slat.l.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<axis>
+		  <x1-m>-1.70614</x1-m>
+		  <y1-m>-4.67231</y1-m>
+		  <z1-m>0.27825</z1-m>
+		  <x2-m>-2.10680</x2-m>
+		  <y2-m>-4.84385</y2-m>
+		  <z2-m>0.13471</z2-m>
+		</axis>
+		<interpolation>
+		  <entry><ind>0</ind><dep>0</dep></entry>
+		  <entry><ind>15</ind><dep>0.350</dep></entry>
+		  <entry><ind>25</ind><dep>0.350</dep></entry>
+		</interpolation>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>slat.l.1</object-name>
+		<object-name>slat.l.2</object-name>
+		<object-name>slat.l.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<axis>
+		  <x>0</x>
+		  <y>0</y>
+		  <z>1</z>
+		</axis>
+		<interpolation>
+		  <entry><ind>0</ind><dep>0</dep></entry>
+		  <entry><ind>15</ind><dep>1</dep></entry>
+		  <entry><ind>25</ind><dep>1</dep></entry>
+		</interpolation>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>slat.l.1</object-name>
+		<object-name>slat.l.2</object-name>
+		<object-name>slat.l.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<axis>
+			<x1-m>-2.85412</x1-m>
+			<y1-m>-2.18061</y1-m>
+			<z1-m>0.12569</z1-m>
+			<x2-m>2.39525</x2-m>
+			<y2-m>-12.98059</y2-m>
+			<z2-m>0.81255</z2-m>
+		</axis>
+	</animation>
+	<!-- Right Wing slats -->
+	<animation>
+		<type>translate</type>
+		<object-name>slat.r.1</object-name>
+		<object-name>slat.r.2</object-name>
+		<object-name>slat.r.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<axis>
+		  <x1-m>-1.70614</x1-m>
+		  <y1-m>-4.67231</y1-m>
+		  <z1-m>0.27825</z1-m>
+		  <x2-m>-2.10680</x2-m>
+		  <y2-m>-4.84385</y2-m>
+		  <z2-m>0.13471</z2-m>
+		</axis>
+		<interpolation>
+		  <entry><ind>0</ind><dep>0</dep></entry>
+		  <entry><ind>15</ind><dep>0.350</dep></entry>
+		  <entry><ind>25</ind><dep>0.350</dep></entry>
+		</interpolation>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>slat.r.1</object-name>
+		<object-name>slat.r.2</object-name>
+		<object-name>slat.r.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<axis>
+		  <x>0</x>
+		  <y>0</y>
+		  <z>-1</z>
+		</axis>
+		<interpolation>
+		  <entry><ind>0</ind><dep>0</dep></entry>
+		  <entry><ind>15</ind><dep>1</dep></entry>
+		  <entry><ind>25</ind><dep>1</dep></entry>
+		</interpolation>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>slat.r.1</object-name>
+		<object-name>slat.r.2</object-name>
+		<object-name>slat.r.3</object-name>
+		<property>fdm/jsbsim/fcs/slat-pos-deg</property>
+		<factor>-1</factor>
+		<axis>
+			<x1-m>-2.89534</x1-m>
+			<y1-m>2.09019</y1-m>
+			<z1-m>0.12036</z1-m>
+			<x2-m>2.30338</x2-m>
+			<y2-m>12.98489</y2-m>
+			<z2-m>0.81278</z2-m>
+		</axis>
+	</animation>
+
+	
 	<!-- Spoilers -->
 	<animation>
 		<name>Left Inner Spoiler</name>
