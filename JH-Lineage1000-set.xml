@@ -589,6 +589,9 @@
 	</payload>
 
 	<controls>
+	        <flight>
+		  <norm-spoilers-roll type="double">0</norm-spoilers-roll>
+           	</flight>
 
 		<APU>
 			<fire-switch type="bool">false</fire-switch>

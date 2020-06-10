@@ -154,6 +154,7 @@
 				    	setprop("/controls/flight/aileron", 0);
 					setprop("/controls/flight/rudder", 0);
 					setprop("/controls/flight/aileron-trim", 0);
+					setprop("/controls/flight/norm-spoilers-roll", 0);
 					setprop("/controls/flight/rudder-trim", 0);
 				</script>
 			</binding>
@@ -332,8 +333,50 @@
                         </binding>
                 </key>
 
+		<key n="97">
+		  <name>a</name>
+		  <desc>Increase Spoilers roll</desc>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/norm-spoilers-roll</property>
+		    <step>-0.005</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <mod-up>
+		    <binding>
+		      <command>property-assign</command>
+		      <property>controls/flight/norm-spoilers-roll</property>
+		      <value>0.00</value>
+		    </binding>
+		  </mod-up>
+		</key>
+		<key n="65">
+		  <name>A</name>
+		  <desc>Decrease Spoilers roll</desc>
+		  <repeatable>true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/norm-spoilers-roll</property>
+		    <step>0.005</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <mod-up>
+		    <binding>
+		      <command>property-assign</command>
+		      <property>controls/flight/norm-spoilers-roll</property>
+		      <value>0.00</value>
+		    </binding>
+		  </mod-up>
+		</key>
 
-	</keyboard>
+	      </keyboard>
+
+	      
 
 </PropertyList>
 

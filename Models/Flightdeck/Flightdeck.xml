@@ -2536,91 +2536,79 @@
 	</animation>
 
 	<!-- Trimmers -->
-
 	<animation>
-		<name>Rudder trim pick</name>
-		<type>pick</type>
+		<name>Rudder trim knob</name>
+		<type>knob</type>
 		<object-name>trim.rudder</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/rudder-trim</property>
-				<step>0.05</step>
-				<max>1</max>
-			</binding>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/rudder-trim</property>
+		    <factor>0.005</factor>
+		    <wrap>false</wrap>
+		    <min>-1</min>
+		    <max>1</max>
+		  </binding>
 		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/rudder-trim</property>
-				<step>-0.05</step>
-				<min>-1</min>
-			</binding>
-		</action>
+		<shift-action>
+		  <binding>
+		    <command>property-assign</command>
+		    <property>controls/flight/rudder-trim</property>
+		    <value>0.00</value>
+		  </binding>
+		</shift-action>
 	</animation>
 
 	<animation>
-		<name>Aileron trim pick</name>
-		<type>pick</type>
-		<object-name>trim.aileron</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/aileron-trim</property>
-				<step>0.05</step>
-				<max>1</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/aileron-trim</property>
-				<step>-0.05</step>
-				<min>-1</min>
-			</binding>
-		</action>
+	  <name>Spoilers roll trim knob</name>
+	  <type>knob</type>
+	  <object-name>trim.aileron.left</object-name>
+	  <object-name>trim.aileron.right</object-name>
+	  <action>
+	    <repeatable type="bool">true</repeatable>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>controls/flight/norm-spoilers-roll</property>
+	      <factor>0.01</factor>
+	      <max>1</max>
+	      <min>-1</min>
+	    </binding>
+	  </action>
+	  <release>
+	    <binding>
+	      <command>property-assign</command>
+	      <property>controls/flight/norm-spoilers-roll</property>
+	      <value>0.00</value>
+	    </binding>
+	  </release>
 	</animation>
 
 	<animation>
-		<name>Elevator trim pick</name>
-		<type>pick</type>
-		<object-name>trim.elevator</object-name>
+		<name>Elevator trim knob</name>
+		<type>knob</type>
+		<object-name>trim.elevator.up</object-name>
+		<object-name>trim.elevator.down</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>0.05</step>
-				<max>1</max>
-			</binding>
+		  <repeatable type="bool">true</repeatable>
+		  <binding>
+		    <command>property-adjust</command>
+		    <property>controls/flight/elevator-trim</property>
+		    <factor>0.001</factor>
+		    <max>1</max>
+		    <min>-1</min>
+		    <wrap>false</wrap>
+		  </binding>
 		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>-0.05</step>
-				<min>-1</min>
-			</binding>
-		</action>
+		<shift-action>
+		  <repeatable type="bool">true</repeatable>
+		  <binding>
+		    <command>property-assign</command>
+		    <property>controls/flight/elevator-trim</property>
+		    <value>0.00</value>
+		  </binding>
+		</shift-action>
 	</animation>
-
+	
 	<animation>
 		<name>Elevator trim disc</name>
 		<type>pick</type>
@@ -2641,7 +2629,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>0.05</step>
+				<step>0.001</step>
 				<max>1</max>
 			</binding>
 		</action>
@@ -2651,7 +2639,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>-0.05</step>
+				<step>-0.001</step>
 				<min>-1</min>
 			</binding>
 		</action>
