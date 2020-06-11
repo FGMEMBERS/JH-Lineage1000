@@ -153,6 +153,7 @@
 				<script>
 				    	setprop("/controls/flight/aileron", 0);
 					setprop("/controls/flight/rudder", 0);
+					setprop("/controls/flight/elevator", 0);
 					setprop("/controls/flight/aileron-trim", 0);
 					setprop("/controls/flight/norm-spoilers-roll", 0);
 					setprop("/controls/flight/rudder-trim", 0);
@@ -339,17 +340,30 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
+		    <property>controls/flight/aileron-trim</property>
+		    <step>-0.01</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-adjust</command>
 		    <property>controls/flight/norm-spoilers-roll</property>
-		    <step>-0.005</step>
+		    <step>-0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
 		    <wrap>false</wrap>
 		  </binding>
 		  <mod-up>
 		    <binding>
-		      <command>property-assign</command>
-		      <property>controls/flight/norm-spoilers-roll</property>
-		      <value>0.00</value>
+		      <command>nasal</command>
+		      <script>
+			var resetRoll = func(){
+			setprop("controls/flight/aileron-trim",0);
+			setprop("controls/flight/norm-spoilers-roll",0);
+			}
+			settimer(resetRoll, 5); 
+		      </script>
 		    </binding>
 		  </mod-up>
 		</key>
@@ -359,17 +373,30 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
+		    <property>controls/flight/aileron-trim</property>
+		    <step>0.01</step>
+		    <min>-1</min>
+		    <max>1</max>
+		    <wrap>false</wrap>
+		  </binding>
+		  <binding>
+		    <command>property-adjust</command>
 		    <property>controls/flight/norm-spoilers-roll</property>
-		    <step>0.005</step>
+		    <step>0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
 		    <wrap>false</wrap>
 		  </binding>
 		  <mod-up>
 		    <binding>
-		      <command>property-assign</command>
-		      <property>controls/flight/norm-spoilers-roll</property>
-		      <value>0.00</value>
+		      <command>nasal</command>
+		      <script>
+			var resetRoll = func(){
+			setprop("controls/flight/aileron-trim",0);
+			setprop("controls/flight/norm-spoilers-roll",0);
+			}
+			settimer(resetRoll, 5); 
+		      </script>
 		    </binding>
 		  </mod-up>
 		</key>
