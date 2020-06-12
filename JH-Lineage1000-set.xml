@@ -612,7 +612,9 @@
 		</switches>
 
 		<electric>
-			<avionics-switch type="bool">true</avionics-switch>
+		  <avionics-switch type="bool">true</avionics-switch>
+		  <battery1 type="bool">false</battery1>
+		  <battery2 type="bool">false</battery2>
 		</electric>
 
 		<engines>

@@ -196,16 +196,37 @@
 		<name>Battery pick</name>
 		<type>pick</type>
 		<object-name>BATT1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/battery1</property>
+			</binding>
+			<binding>
+			  <command>nasal</command>
+			  <script>lineage1000.dualBattery();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Battery pick</name>
+		<type>pick</type>
 		<object-name>BATT2</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/battery-switch</property>
+				<property>controls/electric/battery2</property>
+			</binding>
+			<binding>
+			  <command>nasal</command>
+			  <script>lineage1000.dualBattery();</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>Generator 1 pick</name>
 		<type>pick</type>
@@ -446,7 +467,7 @@
 		<type>select</type>
 		<object-name>master.light</object-name>
   		<condition>
- 	   	<property>controls/APU/master-switch</property>
+ 	   	<property>controls/electric/external-power</property>
  	 	</condition>
 	</animation>
 
@@ -459,7 +480,7 @@
 	</animation>
 
 	<animation>
-		<name>APU master switch pick</name>
+		<name>GPU switch pick</name>
 		<type>pick</type>
 		<object-name>master</object-name>
 		<action>
@@ -467,7 +488,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/master-switch</property>
+				<property>controls/electric/external-power</property>
 			</binding>
 		</action>
 	</animation>
@@ -667,7 +688,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>BATT1</object-name>
-		<property>controls/electric/battery-switch</property>
+		<property>controls/electric/battery1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>90</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
@@ -684,7 +705,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>BATT2</object-name>
-		<property>controls/electric/battery-switch</property>
+		<property>controls/electric/battery2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>90</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
@@ -698,23 +719,7 @@
 			<z2-m>1.6660</z2-m>
 		</axis>
 	</animation>
-	<animation>
-		<type>rotate</type>
-		<object-name>BATT1</object-name>
-		<property>controls/electric/battery-switch</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>90</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>-12.2185</x1-m>
-			<y1-m>-0.4413</y1-m>
-			<z1-m>1.6709</z1-m>
-			<x2-m>-12.2045</x2-m>
-			<y2-m>-0.4368</y2-m>
-			<z2-m>1.6470</z2-m>
-		</axis>
-	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>generator.1</object-name>

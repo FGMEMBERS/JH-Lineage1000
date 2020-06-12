@@ -37,9 +37,20 @@ setlistener("/lineage1000/start-idling", func(idle) {
 	}
 },0,0);
 
+var dualBattery = func {
+    		var battery1 = getprop ("controls/electric/battery1");
+		var battery2 = getprop ("controls/electric/battery2");	
+		if (battery1 and battery2) {
+		    batstart();
+		}		    
+		else {
+		    setprop("controls/electric/battery-switch",0);
+    		}
+}
+
 var batstart= func {
 	setprop("controls/electric/battery-switch",1);
-	gui.popupTip("System on battery, starting APU!");
+	gui.popupTip("System on battery");
 }
 
 var apustart= func {
