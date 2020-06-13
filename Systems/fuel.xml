@@ -1,0 +1,29 @@
+<?xml version="1.0"?>  
+
+<system name="fuel">
+  <property value="1">/controls/fuel/valves/ac1</property>
+  <property value="1">/controls/fuel/valves/ac2</property>
+  <property value="1">/controls/fuel/valves/dc</property>
+  <property value="0">/controls/fuel/valves/xfeed</property>
+  
+  <channel name="Fuel Xfeed">
+    <switch name="fuel-AC1">
+      <default value="/controls/fuel/valves/ac1"/>
+      <output>systems/fuel/ac1-switch</output>
+    </switch>
+    <switch name="fuel-AC2">
+      <default value="/controls/fuel/valves/ac2"/>
+      <output>systems/fuel/ac2-switch</output>
+    </switch>
+    <switch name="fuel-DC">
+      <default value="/controls/fuel/valves/dc"/>
+      <output>systems/fuel/dc-switch</output>
+    </switch>
+    <switch name="fuel-XFEED">
+      <default value="/controls/fuel/valves/xfeed"/>
+      <output>systems/fuel/xfeed-switch</output>
+    </switch>
+    
+  </channel>
+
+</system>

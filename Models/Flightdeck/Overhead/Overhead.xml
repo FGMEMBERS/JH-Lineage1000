@@ -137,60 +137,71 @@
 	</animation>
 
 	<!-- Fuel Pumps -->
-
 	<animation>
-		<name>Left fuel tank 1 pump pick</name>
-		<type>pick</type>
-		<object-name>fuel.pump.left</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>consumables/fuel/tank[0]/selected</property>
-			</binding>
-		</action>
+	  <name>Fuel AC1 valve</name>
+	  <type>knob</type>
+	  <object-name>fuel.xfeed</object-name>
+	  <action>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>controls/fuel/valves/xfeed</property>
+	      <factor>1</factor>
+	      <min>-1</min>
+	      <max>1</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
 	</animation>
 	<animation>
-		<name>Right fuel tank pump pick</name>
-		<type>pick</type>
-		<object-name>fuel.pump.right</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>consumables/fuel/tank[3]/selected</property>
-			</binding>
-		</action>
+	  <name>Fuel AC1 valve</name>
+	  <type>knob</type>
+	  <object-name>fuel.ac1</object-name>
+	  <action>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>controls/fuel/valves/ac1</property>
+	      <factor>1</factor>
+	      <min>0</min>
+	      <max>2</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
 	</animation>
 	<animation>
-		<name>Center fuel tank pumps pick</name>
-		<type>pick</type>
-		<object-name>fuel.pump.center</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>consumables/fuel/tank[1]/selected</property>
-			</binding>
-		</action>
+	  <name>Fuel AC2 valve</name>
+	  <type>knob</type>
+	  <object-name>fuel.ac2</object-name>
+	  <action>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>controls/fuel/valves/ac2</property>
+	      <factor>1</factor>
+	      <min>0</min>
+	      <max>2</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
 	</animation>
 	<animation>
-		<name>Center fuel tank pumps pick</name>
-		<type>pick</type>
-		<object-name>fuel.pump.center</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>consumables/fuel/tank[2]/selected</property>
-			</binding>
-		</action>
+	  <name>Fuel DC valve</name>
+	  <type>knob</type>
+	  <object-name>fuel.dc</object-name>
+	  <action>
+	    <repeatable type="bool">false</repeatable>
+	    <binding>
+	      <command>property-adjust</command>
+	      <property>controls/fuel/valves/dc</property>
+	      <factor>1</factor>
+	      <min>0</min>
+	      <max>2</max>
+	      <wrap>false</wrap>
+	    </binding>
+	  </action>
 	</animation>
-
+	
 	<!-- Electrical -->
 	<animation>
 		<name>Battery pick</name>
@@ -757,11 +768,12 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>fuel.pump.left</object-name>
-		<property>consumables/fuel/tank[1]/selected</property>
+		<object-name>fuel.ac1</object-name>
+		<property>controls/fuel/valves/ac1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>90</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep>-90</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>-12.2110</x1-m>
@@ -774,38 +786,59 @@
 	</animation>
 	<animation>
 		<type>rotate</type>
-		<object-name>fuel.pump.right</object-name>
-		<property>consumables/fuel/tank[2]/selected</property>
+		<object-name>fuel.ac2</object-name>
+		<property>controls/fuel/valves/ac2</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>90</dep></entry>
+			<entry><ind>0</ind><dep>-90</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>-12.2110</x1-m>
-			<y1-m>-0.1538</y1-m>
-			<z1-m>1.7062</z1-m>
-			<x2-m>-12.1957</x2-m>
-			<y2-m>-0.1528</y2-m>
-			<z2-m>1.6793</z2-m>
+			<x1-m>-12.19790</x1-m>
+			<y1-m>-0.15280</y1-m>
+			<z1-m>1.67905</z1-m>
+			<x2-m>-12.21270</x2-m>
+			<y2-m>-0.15280</y2-m>
+			<z2-m>1.70572</z2-m>
 		</axis>
 	</animation>
 	<animation>
 		<type>rotate</type>
-		<object-name>fuel.pump.center</object-name>
-		<property>consumables/fuel/tank[0]/selected</property>
+		<object-name>fuel.dc</object-name>
+		<property>controls/fuel/valves/dc</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>90</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep>-90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>-12.1633</x1-m>
-			<y1-m>-0.1978</y1-m>
-			<z1-m>1.7323</z1-m>
-			<x2-m>-12.1476</x2-m>
-			<y2-m>-0.1978</y2-m>
-			<z2-m>1.7058</z2-m>
+			<x1-m>-12.16330</x1-m>
+			<y1-m>-0.19901</y1-m>
+			<z1-m>1.73306</z1-m>
+			<x2-m>-12.14850</x2-m>
+			<y2-m>-0.19901</y2-m>
+			<z2-m>1.70638</z2-m>
 		</axis>
 	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>fuel.xfeed</object-name>
+		<property>controls/fuel/valves/xfeed</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-90</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-12.10540</x1-m>
+			<y1-m>-0.19818</y1-m>
+			<z1-m>1.73028</z1-m>
+			<x2-m>-12.12020</x2-m>
+			<y2-m>-0.19818</y2-m>
+			<z2-m>1.75695</z2-m>
+		</axis>
+	</animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>APU.knob</object-name>
