@@ -1,6 +1,8 @@
 <?xml version="1.0"?>  
 
 <system name="fuel">
+  <!-- ac1, ac2, dc; 0=OFF, 1=AUTO, 2=ON-->
+  <!-- xfeed; -1=LEFT TANK, 0=XFEED, 1=RIGHT TANK-->
   <property value="1">/controls/fuel/valves/ac1</property>
   <property value="1">/controls/fuel/valves/ac2</property>
   <property value="1">/controls/fuel/valves/dc</property>
@@ -23,7 +25,99 @@
       <default value="/controls/fuel/valves/xfeed"/>
       <output>systems/fuel/xfeed-switch</output>
     </switch>
-    
   </channel>
 
+  <channel name="Electrical Busses">
+    <switch name="ac-bus1">
+      <default value="0"/>
+      <test logic="OR" value="1">
+	/systems/electrical/left-bus gt 10
+      </test>
+      <output>systems/fuel/electrical/ac-bus1</output>
+    </switch>
+    <switch name="ac-bus2">
+      <default value="0"/>
+      <test logic="OR" value="1">
+	/systems/electrical/right-bus gt 10
+      </test>
+      <output>systems/fuel/electrical/ac-bus2</output>
+    </switch>
+    <switch name="RAT">
+      <default value="/controls/electric/ram-air-turbine"/>
+      <output>systems/fuel/electrical/RAT</output>
+    </switch>
+    <switch name="dc-bus1">
+      <default value="0"/>
+      <test logic="OR" value="1">
+	/controls/electric/APU-generator == 1
+	/controls/electric/external-power == 1
+	/systems/electrical/right-bus gt 3
+      </test>
+      <output>systems/fuel/electrical/dc-bus1</output>
+    </switch>
+    <switch name="dc-bus2">
+      <default value="0"/>
+      <test logic="OR" value="1">
+	/controls/electric/APU-generator == 1
+	/controls/electric/external-power == 1
+	/systems/electrical/left-bus gt 3
+      </test>
+      <output>systems/fuel/electrical/dc-bus2</output> 
+    </switch>
+  </channel>
+
+  <channel name="XFEED">
+    <!-- 0:No Xfeed, 1:Both tanks Xfeed,
+	 2:Left Tank Xfeed, 3:Right Tank Xfeed-->
+    <switch name="xfeed configuration">
+      <default value="0"/>
+      <test logic="OR" value="0">
+	/systems/electrical/right-bus le 15
+	/systems/electrical/right-bus le 15
+      </test>
+      <test value="1">
+	systems/fuel/xfeed-switch == 0
+      </test>
+      <test value="2">
+	systems/fuel/xfeed-switch == -1
+      </test>
+      <test value="3">
+	systems/fuel/xfeed-switch == 1
+      </test>
+      <output>systems/fuel/pump/xfeed-status</output>
+    </switch>
+    <switch name="AC PUMP 1 Status">
+      <default value="0"/>
+      <test logic="OR" value="0">
+	systems/fuel/electrical/ac-bus1 == 0
+	systems/fuel/pump/xfeed-status != 0
+      </test>
+      <test value="1">
+	systems/fuel/ac1-switch != 0
+      </test>
+      <output>systems/fuel/pump/ac1</output>
+    </switch>
+    <switch name="AC PUMP 2 Status">
+      <default value="0"/>
+      <test logic="OR" value="0">
+	systems/fuel/electrical/ac-bus2 == 0
+	systems/fuel/pump/xfeed-status != 0
+      </test>
+      <test value="1">
+	systems/fuel/ac2-switch != 0
+      </test>
+      <output>systems/fuel/pump/ac2</output>
+    </switch>
+    <switch name="DC PUMP  Status">
+      <default value="0"/>
+      <test logic="OR" value="0">
+	systems/fuel/electrical/dc-bus1 == 0
+	systems/fuel/pump/xfeed-status != 0
+      </test>
+      <test value="1">
+	systems/fuel/dc-switch != 0
+      </test>
+      <output>systems/fuel/pump/dc</output>
+    </switch>
+  </channel>
 </system>

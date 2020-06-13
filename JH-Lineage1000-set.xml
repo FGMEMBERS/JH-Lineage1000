@@ -559,6 +559,14 @@
 				<name>Tail Trimmer Fuel Tank</name>
 			</tank>
 
+			<tank n="6">
+			  <name>Left Wing Collector</name>
+			</tank>
+			
+			<tank n="7">
+			  <name>Right Wing Collector</name>
+			</tank>
+
 		</fuel>
 
 	</consumables>
