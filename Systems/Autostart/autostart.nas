@@ -49,7 +49,10 @@ var dualBattery = func {
 }
 
 var batstart= func {
+	setprop("controls/electric/battery1",1);	
+	setprop("controls/electric/battery2",1);
 	setprop("controls/electric/battery-switch",1);
+	setprop("controls/electric/avionics-switch",1);
 	gui.popupTip("System on battery");
 }
 
@@ -391,6 +394,8 @@ var Shutdown = func{
 	setprop("controls/electric/APU-generator",0);
 	setprop("controls/electric/avionics-switch",0);
 	setprop("controls/electric/battery-switch",0);
+	setprop("controls/electric/battery1",0);
+	setprop("controls/electric/battery2",0);
 	setprop("controls/electric/inverter-switch",0);
 	setprop("controls/lighting/instruments-norm",0);
 	setprop("controls/lighting/instrument-norm",0.0);
