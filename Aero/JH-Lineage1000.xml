@@ -278,7 +278,7 @@
 		</engine>
 
 		<!-- Wing Fuel Tank LEFT -->
-		<tank type="FUEL" number="0">
+		<tank type="FUEL" n="0">
 			<location unit="IN">
 				<x> -125.096 </x>
 				<y> -133.96 </y>
@@ -288,19 +288,9 @@
 			<capacity unit="KG"> 4492.50 </capacity>
 			<contents unit="KG"> 4492.50 </contents>
 		</tank>
-		<tank type="FUEL" number="6">
-			<location unit="IN">
-				<x> -125.096 </x>
-				<y> -133.96 </y>
-				<z> -5.91 </z>
-			</location>
-			<priority>1</priority>
-			<capacity unit="KG"> 100 </capacity>
-			<contents unit="KG"> 100 </contents>
-		</tank>
 
 		<!-- Central Fuel Tank -->
-		<tank type="FUEL" number="1">
+		<tank type="FUEL" n="1">
 			<location unit="IN">
 				<x> -130.072 </x> 
 				<y> 0.00 </y>
@@ -312,7 +302,7 @@
 		</tank>
 
 		<!-- Fwd. Fuel Tank -->
-		<tank type="FUEL" number="2">
+		<tank type="FUEL" n="2">
 			<location unit="IN">
 				<x> -142.072 </x>
 				<y> 0.00 </y>
@@ -324,7 +314,7 @@
 		</tank>
 
 		<!-- Rear Fuel Tank -->
-		<tank type="FUEL" number="3">
+		<tank type="FUEL" n="3">
 			<location unit="IN">
 				<x> -118.072 </x>
 				<y> 0.00 </y>
@@ -336,7 +326,7 @@
 		</tank>
 
 		<!-- Wing Fuel Tank RIGHT -->
-		<tank type="FUEL" number="4">
+		<tank type="FUEL" n="4">
 			<location unit="IN">
 				<x> -125.096 </x>
 				<y> 133.96 </y>
@@ -346,19 +336,9 @@
 			<capacity unit="KG"> 4492.50 </capacity>
 			<contents unit="KG"> 4492.50 </contents>
 		</tank>
-		<tank type="FUEL" number="7">
-			<location unit="IN">
-				<x> -125.096 </x>
-				<y> 133.96 </y>
-				<z> -5.91 </z>
-			</location>
-			<priority>4</priority>
-			<capacity unit="KG"> 100 </capacity>
-			<contents unit="KG"> 100 </contents>
-		</tank>
 
 		<!-- Trim Fuel Tank -->
-		<tank type="FUEL" number="5">
+		<tank type="FUEL" n="5">
 			<location unit="IN">
 				<x> 464.864 </x>
 				<y> 0 </y>
@@ -367,6 +347,28 @@
 			<priority>5</priority>
 			<capacity unit="KG"> 1600.00 </capacity>
 			<contents unit="KG"> 1600.00 </contents>
+		</tank>
+
+		<!-- Collector tanks -->
+		<tank type="FUEL" n="6">
+			<location unit="IN">
+				<x> -125.096 </x>
+				<y> -133.96 </y>
+				<z> -5.91 </z>
+			</location>
+			<priority>1</priority>
+			<capacity unit="KG"> 100 </capacity>
+			<contents unit="KG"> 100 </contents>
+		</tank>
+		<tank type="FUEL" n="7">
+			<location unit="IN">
+				<x> -125.096 </x>
+				<y> 133.96 </y>
+				<z> -5.91 </z>
+			</location>
+			<priority>1</priority>
+			<capacity unit="KG"> 100 </capacity>
+			<contents unit="KG"> 100 </contents>
 		</tank>
 
 	</propulsion>
