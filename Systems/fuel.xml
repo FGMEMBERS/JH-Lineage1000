@@ -142,4 +142,84 @@
       <output>systems/fuel/pump/right-powered</output>
     </switch>
   </channel>
+
+  <channel name="Fuel injectors">
+    <summer name="Left engine injector">
+      <input>-propulsion/engine[0]/fuel-flow-rate-pps</input>
+      <output>propulsion/tank[6]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Right engine injector">
+      <input>-propulsion/engine[1]/fuel-flow-rate-pps</input>
+      <output>propulsion/tank[7]/external-flow-rate-pps</output>
+    </summer>
+  </channel>
+  
+  <channel name="XFEED Fuel distributors">
+    <summer name="xfeed-unilateral">
+      <input>-propulsion/tank[6]/external-flow-rate-pps</input>
+      <input>-propulsion/tank[7]/external-flow-rate-pps</input>
+      <output>systems/fuel/flows/xfeed-unilateral</output>
+    </summer>
+    <summer name="xfeed-bilateral">
+      <input>-propulsion/tank[6]/external-flow-rate-pps</input>
+      <output>systems/fuel/flows/xfeed-bilateral</output>
+    </summer>
+    
+    <switch name="xfeedON-draw-left">
+      <default value="0"/>
+      <test value="systems/fuel/flows/xfeed-bilateral">
+	systems/fuel/pump/xfeed-status == 1
+	propulsion/tank[0]/contents-lbs gt 0	
+      </test>
+      <output>systems/fuel/flows/left-draw</output>
+    </switch>
+    <switch name="xfeedON-draw-right">
+      <default value="0"/>
+      <test value="systems/fuel/flows/xfeed-bilateral">
+	systems/fuel/pump/xfeed-status == 1
+	propulsion/tank[4]/contents-lbs gt 0	
+      </test>
+      <output>systems/fuel/flows/right-draw</output>
+    </switch>
+    
+    <switch name="xfeed-left-draw">
+      <default value="systems/fuel/flows/left-draw"/>
+      <test value="systems/fuel/flows/xfeed-unilateral">
+	systems/fuel/pump/xfeed-status == 2
+	propulsion/tank[0]/contents-lbs gt 0
+      </test>
+      <output>systems/fuel/flows/left-draw</output>
+    </switch>
+    
+    <switch name="xfeed-right-draw">
+      <default value="systems/fuel/flows/right-draw"/>
+      <test value="systems/fuel/flows/xfeed-unilateral">
+	systems/fuel/pump/xfeed-status == 3
+	propulsion/tank[4]/contents-lbs gt 0
+      </test>
+      <output>systems/fuel/flows/right-draw</output>
+    </switch>
+
+    <summer name="left-draw">
+      <input>-systems/fuel/flows/left-draw</input>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="right-draw">
+      <input>-systems/fuel/flows/right-draw</input>
+      <output>propulsion/tank[4]/external-flow-rate-pps</output>
+    </summer>
+
+    <summer name="refeed Left">
+      <input>propulsion/tank[6]/external-flow-rate-pps</input>
+      <input>systems/fuel/flows/xfeed-unilateral</input>
+      <output>propulsion/tank[6]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="refeed Right">
+      <input>propulsion/tank[7]/external-flow-rate-pps</input>
+      <input>systems/fuel/flows/xfeed-unilateral</input>
+      <output>propulsion/tank[7]/external-flow-rate-pps</output>
+    </summer>
+    
+  </channel>
+
 </system>
