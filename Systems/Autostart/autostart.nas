@@ -63,21 +63,15 @@ var apustart= func {
 }
 
 var pump0start= func {
-	setprop("controls/fuel/tank[0]/boost-pump[0]", 1);
-	setprop("controls/fuel/tank[0]/boost-pump[1]", 1);
-	gui.popupTip("Fuel pumps wing tank left starting!");
-}
-
-var pump2start= func {
-	setprop("controls/fuel/tank[2]/boost-pump[0]", 1);
-	setprop("controls/fuel/tank[2]/boost-pump[1]", 1);
-	gui.popupTip("Fuel pumps wing tank right starting!");
+	setprop("controls/fuel/tank[6]/boost-pump[0]", 1);
+	setprop("controls/fuel/tank[6]/boost-pump[1]", 1);
+	gui.popupTip("Left fuel pump starting!");
 }
 
 var pump1start= func {
-	setprop("controls/fuel/tank[1]/boost-pump[0]", 1);
-	setprop("controls/fuel/tank[1]/boost-pump[1]", 1);
-	gui.popupTip("Fuel pumps center tank starting!");
+	setprop("controls/fuel/tank[7]/boost-pump[0]", 1);
+	setprop("controls/fuel/tank[7]/boost-pump[1]", 1);
+	gui.popupTip("Right fuel pump starting!");
 }
 
 var eng1start= func {
@@ -332,8 +326,7 @@ var Startup = func {
 	settimer(batstart, 1);
 	settimer(apustart, 6);
 	settimer(pump0start, 8);
-	settimer(pump2start, 10);
-	settimer(pump1start, 12);
+	settimer(pump1start, 10);
 	if (getprop("voodoomaster/engines")>0) {
 		settimer(eng1start, 12);
 	}
@@ -411,12 +404,10 @@ var Shutdown = func{
 	setprop("controls/lighting/landing-light[2]",0);
 	setprop("controls/engines/engine[0]/cutoff",1);
 	setprop("controls/engines/engine[1]/cutoff",1);
-	setprop("controls/fuel/tank/boost-pump",0);
-	setprop("controls/fuel/tank/boost-pump[1]",0);
-	setprop("controls/fuel/tank[1]/boost-pump",0);
-	setprop("controls/fuel/tank[1]/boost-pump[1]",0);
-	setprop("controls/fuel/tank[2]/boost-pump",0);
-	setprop("controls/fuel/tank[2]/boost-pump[1]",0);
+	setprop("controls/fuel/tank[6]/boost-pump",0);
+	setprop("controls/fuel/tank[6]/boost-pump[1]",0);
+	setprop("controls/fuel/tank[7]/boost-pump",0);
+	setprop("controls/fuel/tank[7]/boost-pump[1]",0);
 	setprop("controls/lighting/instrument-lights-norm",0.0);
 	setprop("controls/lighting/efis-norm",0.0);
 	setprop("controls/lighting/panel-norm",0.0);
