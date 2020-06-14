@@ -7,6 +7,7 @@
   <property value="1">/controls/fuel/valves/ac2</property>
   <property value="1">/controls/fuel/valves/dc</property>
   <property value="0">/controls/fuel/valves/xfeed</property>
+  <property value="0">systems/fuel/flows/auxiliar-wing-tank-flow</property>
   
   <channel name="Fuel Xfeed">
     <switch name="fuel-AC1">
@@ -145,81 +146,159 @@
 
   <channel name="Fuel injectors">
     <summer name="Left engine injector">
-      <input>-propulsion/engine[0]/fuel-flow-rate-pps</input>
-      <output>propulsion/tank[6]/external-flow-rate-pps</output>
+      <input>propulsion/engine[0]/fuel-flow-rate-pps</input>
+      <output>systems/fuel/flows/left-injector-rate-pps</output>
     </summer>
     <summer name="Right engine injector">
-      <input>-propulsion/engine[1]/fuel-flow-rate-pps</input>
-      <output>propulsion/tank[7]/external-flow-rate-pps</output>
+      <input>propulsion/engine[1]/fuel-flow-rate-pps</input>
+      <output>systems/fuel/flows/right-injector-rate-pps</output>
     </summer>
   </channel>
   
   <channel name="XFEED Fuel distributors">
     <summer name="xfeed-unilateral">
-      <input>-propulsion/tank[6]/external-flow-rate-pps</input>
-      <input>-propulsion/tank[7]/external-flow-rate-pps</input>
-      <output>systems/fuel/flows/xfeed-unilateral</output>
-    </summer>
-    <summer name="xfeed-bilateral">
-      <input>-propulsion/tank[6]/external-flow-rate-pps</input>
-      <output>systems/fuel/flows/xfeed-bilateral</output>
+      <input>systems/fuel/flows/left-injector-rate-pps</input>
+      <input>systems/fuel/flows/right-injector-rate-pps</input>
+      <output>systems/fuel/flows/unilateral-injector-rate-pps</output>
     </summer>
     
-    <switch name="xfeedON-draw-left">
-      <default value="0"/>
-      <test value="systems/fuel/flows/xfeed-bilateral">
+    <switch name="Left Draw">
+      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <test logic="OR" value="0">
+	systems/fuel/pump/left-powered == 0
+	systems/fuel/pump/xfeed-status == 0
+	systems/fuel/pump/xfeed-status == 3
+	propulsion/tank[0]/contents-lbs == 0
+      </test>
+      <test value="systems/fuel/flows/left-injector-rate-pps">
 	systems/fuel/pump/xfeed-status == 1
 	propulsion/tank[0]/contents-lbs gt 0	
       </test>
       <output>systems/fuel/flows/left-draw</output>
     </switch>
-    <switch name="xfeedON-draw-right">
-      <default value="0"/>
-      <test value="systems/fuel/flows/xfeed-bilateral">
+    <switch name="Right Draw">
+      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <test logic="OR" value="0">
+	systems/fuel/pump/right-powered == 0
+	systems/fuel/pump/xfeed-status == 0
+	systems/fuel/pump/xfeed-status == 2
+	propulsion/tank[4]/contents-lbs == 0
+      </test>
+      <test value="systems/fuel/flows/right-injector-rate-pps">
 	systems/fuel/pump/xfeed-status == 1
 	propulsion/tank[4]/contents-lbs gt 0	
       </test>
       <output>systems/fuel/flows/right-draw</output>
     </switch>
-    
-    <switch name="xfeed-left-draw">
-      <default value="systems/fuel/flows/left-draw"/>
-      <test value="systems/fuel/flows/xfeed-unilateral">
+
+    <!--XFEED aux tanks flow into wings while not empty-->
+    <switch name="xfeed tail trimmer">
+      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <test logic="OR" value="0.0">
+	propulsion/tank[5]/contents-lbs == 0
+	systems/fuel/pump/xfeed-status == 0
+      </test>
+      <output>systems/fuel/flows/trimmer-draw-rate</output>
+    </switch>
+    <switch name="central fuel tank">
+      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <test logic="OR" value="0.0">
+	propulsion/tank[1]/contents-lbs == 0
+	propulsion/tank[2]/contents-lbs gt 0
+	propulsion/tank[3]/contents-lbs gt 0
+      	propulsion/tank[5]/contents-lbs gt 0
+	systems/fuel/pump/xfeed-status == 0
+      </test>
+      <output>systems/fuel/flows/central-draw-rate</output>      
+    </switch>
+    <switch name="xfeed fwd aux">
+      <default value="systems/fuel/flows/left-injector-rate-pps"/>
+      <test logic="OR" value="0.0">
+	propulsion/tank[5]/contents-lbs gt 0
+	propulsion/tank[3]/contents-lbs == 0
+	systems/fuel/pump/xfeed-status == 0
+      </test>
+      <output>systems/fuel/flows/fwdaux-draw-rate</output>
+    </switch>
+    <switch name="xfeed rear aux">
+      <default value="systems/fuel/flows/right-injector-rate-pps"/>
+      <test logic="OR" value="0.0">
+	propulsion/tank[5]/contents-lbs gt 0
+	propulsion/tank[2]/contents-lbs == 0
+	systems/fuel/pump/xfeed-status == 0
+      </test>
+      <output>systems/fuel/flows/rearaux-draw-rate</output>
+    </switch>
+    <summer name="unilateral aux collect">
+      <input>systems/fuel/flows/trimmer-draw-rate</input>
+      <input>systems/fuel/flows/central-draw-rate</input>
+      <input>systems/fuel/flows/fwdaux-draw-rate</input>
+      <input>systems/fuel/flows/rearaux-draw-rate</input>
+      <output>systems/fuel/flows/unilateral-aux-collect-rate</output>
+    </summer>
+    <pure_gain name="systems/fuel/flows/bilateral-aux-collect-rate">
+      <input>systems/fuel/flows/unilateral-aux-collect-rate</input>
+      <gain>0.5</gain>
+    </pure_gain>
+    <switch name="Left collect">
+      <default value="systems/fuel/flows/bilateral-aux-collect-rate"/>
+      <test value="systems/fuel/flows/unilateral-aux-collect-rate">
 	systems/fuel/pump/xfeed-status == 2
-	propulsion/tank[0]/contents-lbs gt 0
       </test>
-      <output>systems/fuel/flows/left-draw</output>
+      <output>systems/fuel/flows/left-aux-collect-rate</output>
     </switch>
-    
-    <switch name="xfeed-right-draw">
-      <default value="systems/fuel/flows/right-draw"/>
-      <test value="systems/fuel/flows/xfeed-unilateral">
+    <switch name="Right collect">
+      <default value="systems/fuel/flows/bilateral-aux-collect-rate"/>
+      <test value="systems/fuel/flows/unilateral-aux-collect-rate">
 	systems/fuel/pump/xfeed-status == 3
-	propulsion/tank[4]/contents-lbs gt 0
       </test>
-      <output>systems/fuel/flows/right-draw</output>
+      <output>systems/fuel/flows/right-aux-collect-rate</output>
     </switch>
-
-    <summer name="left-draw">
-      <input>-systems/fuel/flows/left-draw</input>
-      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    <summer name="tanks total draw">
+      <input>systems/fuel/flows/left-draw</input>
+      <input>systems/fuel/flows/right-draw</input>
+      <output>systems/fuel/flows/xfeed-draw</output>
     </summer>
-    <summer name="right-draw">
-      <input>-systems/fuel/flows/right-draw</input>
-      <output>propulsion/tank[4]/external-flow-rate-pps</output>
-    </summer>
-
-    <summer name="refeed Left">
-      <input>propulsion/tank[6]/external-flow-rate-pps</input>
-      <input>systems/fuel/flows/xfeed-unilateral</input>
+    <pure_gain name="systems/fuel/flows/collector-feed">
+      <input>systems/fuel/flows/xfeed-draw</input>
+      <gain>0.5</gain>
+    </pure_gain>
+    
+    <!--XFEED Fuel transferance -->
+    <summer name="Left collector refeed from wing tanks">
+      <input>systems/fuel/flows/collector-feed</input>
       <output>propulsion/tank[6]/external-flow-rate-pps</output>
     </summer>
-    <summer name="refeed Right">
-      <input>propulsion/tank[7]/external-flow-rate-pps</input>
-      <input>systems/fuel/flows/xfeed-unilateral</input>
+    <summer name="Right collector refeed from wing tanks">
+      <input>systems/fuel/flows/collector-feed</input>
       <output>propulsion/tank[7]/external-flow-rate-pps</output>
     </summer>
-    
+    <summer name="Left wing tank">
+      <input>-systems/fuel/flows/left-draw</input>
+      <input>systems/fuel/flows/left-aux-collect-rate</input>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Right wing tank">
+      <input>-systems/fuel/flows/right-draw</input>
+      <input>systems/fuel/flows/right-aux-collect-rate</input>
+      <output>propulsion/tank[4]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Central tank">
+      <input>-systems/fuel/flows/central-draw-rate</input>
+      <output>propulsion/tank[1]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Fwd Aux tank">
+      <input>-systems/fuel/flows/fwdaux-draw-rate</input>
+      <output>propulsion/tank[2]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Rear Aux tank">
+      <input>-systems/fuel/flows/rearaux-draw-rate</input>
+      <output>propulsion/tank[3]/external-flow-rate-pps</output>
+    </summer>
+    <summer name="Tail Trimmer Aux tank">
+      <input>-systems/fuel/flows/trimmer-draw-rate</input>
+      <output>propulsion/tank[5]/external-flow-rate-pps</output>
+    </summer>    
   </channel>
 
 </system>
