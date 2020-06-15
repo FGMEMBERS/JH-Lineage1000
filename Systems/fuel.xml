@@ -190,10 +190,19 @@
       </test>
       <output>systems/fuel/flows/right-draw</output>
     </switch>
+    <summer name="tanks total draw">
+      <input>systems/fuel/flows/left-draw</input>
+      <input>systems/fuel/flows/right-draw</input>
+      <output>systems/fuel/flows/xfeed-draw</output>
+    </summer>
+    <pure_gain name="systems/fuel/flows/collector-feed">
+      <input>systems/fuel/flows/xfeed-draw</input>
+      <gain>0.5</gain>
+    </pure_gain>
 
     <!--XFEED aux tanks flow into wings while not empty-->
     <switch name="xfeed tail trimmer">
-      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <default value="systems/fuel/flows/xfeed-draw"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[5]/contents-lbs == 0
 	systems/fuel/pump/xfeed-status == 0
@@ -201,7 +210,7 @@
       <output>systems/fuel/flows/trimmer-draw-rate</output>
     </switch>
     <switch name="central fuel tank">
-      <default value="systems/fuel/flows/unilateral-injector-rate-pps"/>
+      <default value="systems/fuel/flows/xfeed-draw"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[1]/contents-lbs == 0
 	propulsion/tank[2]/contents-lbs gt 0
@@ -212,7 +221,7 @@
       <output>systems/fuel/flows/central-draw-rate</output>      
     </switch>
     <switch name="xfeed fwd aux">
-      <default value="systems/fuel/flows/left-injector-rate-pps"/>
+      <default value="systems/fuel/flows/collector-feed"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[5]/contents-lbs gt 0
 	propulsion/tank[2]/contents-lbs == 0
@@ -221,7 +230,7 @@
       <output>systems/fuel/flows/fwdaux-draw-rate</output>
     </switch>
     <switch name="xfeed rear aux">
-      <default value="systems/fuel/flows/right-injector-rate-pps"/>
+      <default value="systems/fuel/flows/collector-feed"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[5]/contents-lbs gt 0
 	propulsion/tank[3]/contents-lbs == 0
@@ -254,15 +263,6 @@
       </test>
       <output>systems/fuel/flows/right-aux-collect-rate</output>
     </switch>
-    <summer name="tanks total draw">
-      <input>systems/fuel/flows/left-draw</input>
-      <input>systems/fuel/flows/right-draw</input>
-      <output>systems/fuel/flows/xfeed-draw</output>
-    </summer>
-    <pure_gain name="systems/fuel/flows/collector-feed">
-      <input>systems/fuel/flows/xfeed-draw</input>
-      <gain>0.5</gain>
-    </pure_gain>
     
     <!--XFEED Fuel transferance -->
     <summer name="Left collector refeed from wing tanks">
