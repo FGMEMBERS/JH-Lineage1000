@@ -262,9 +262,44 @@
 	systems/fuel/pump/xfeed-status == 3
       </test>
       <output>systems/fuel/flows/right-aux-collect-rate</output>
+    </switch>    
+  </channel>
+
+  <channel name="AC Fuel Distributors">
+    <switch name="Left Draw">
+      <default value="systems/fuel/flows/left-draw"/>
+      <test value="systems/fuel/flows/left-injector-rate-pps">
+	systems/fuel/pump/ac1-status != 0
+      </test>
+      <output>systems/fuel/flows/left-draw</output>
     </switch>
+    <switch name="Right Draw">
+      <default value="systems/fuel/flows/right-draw"/>
+      <test value="systems/fuel/flows/right-injector-rate-pps">
+	systems/fuel/pump/ac2-status != 0
+      </test>
+      <output>systems/fuel/flows/right-draw</output>
+    </switch>
+  </channel>
+
+  <channel name="DC Fuel Distributor">
+    <switch name="Left Draw">
+      <default value="systems/fuel/flows/left-draw"/>
+      <test value="0">
+	systems/fuel/pump/dc-status != 0
+      </test>
+      <output>systems/fuel/flows/left-draw</output>
+    </switch>
+    <switch name="Right Draw">
+      <default value="systems/fuel/flows/right-draw"/>
+      <test value="systems/fuel/flows/unilateral-injector-rate-pps">
+	systems/fuel/pump/dc-status != 0
+      </test>
+      <output>systems/fuel/flows/right-draw</output>
+    </switch>
+  </channel>
     
-    <!--XFEED Fuel transferance -->
+  <channel name="Fuel transferance">
     <summer name="Left collector refeed from wing tanks">
       <input>systems/fuel/flows/collector-feed</input>
       <output>propulsion/tank[6]/external-flow-rate-pps</output>
@@ -300,5 +335,5 @@
       <output>propulsion/tank[5]/external-flow-rate-pps</output>
     </summer>    
   </channel>
-
+  
 </system>
