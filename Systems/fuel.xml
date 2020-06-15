@@ -215,7 +215,7 @@
       <default value="systems/fuel/flows/left-injector-rate-pps"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[5]/contents-lbs gt 0
-	propulsion/tank[3]/contents-lbs == 0
+	propulsion/tank[2]/contents-lbs == 0
 	systems/fuel/pump/xfeed-status == 0
       </test>
       <output>systems/fuel/flows/fwdaux-draw-rate</output>
@@ -224,7 +224,7 @@
       <default value="systems/fuel/flows/right-injector-rate-pps"/>
       <test logic="OR" value="0.0">
 	propulsion/tank[5]/contents-lbs gt 0
-	propulsion/tank[2]/contents-lbs == 0
+	propulsion/tank[3]/contents-lbs == 0
 	systems/fuel/pump/xfeed-status == 0
       </test>
       <output>systems/fuel/flows/rearaux-draw-rate</output>
