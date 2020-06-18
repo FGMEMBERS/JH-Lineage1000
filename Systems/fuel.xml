@@ -8,6 +8,100 @@
   <property value="1">/controls/fuel/valves/dc</property>
   <property value="0">/controls/fuel/valves/xfeed</property>
   <property value="0">systems/fuel/flows/auxiliar-wing-tank-flow</property>
+  <property value="1">systems/fuel/eicas/unit-pounds</property>
+  <property value="0">systems/fuel/eicas/unit-kg</property>
+
+  <!--Fuel Flows-->
+  <function name="systems/fuel/eicas/left-ff-pph">
+    <description>Fuel Flow in PPH</description>
+    <integer>
+      <product>
+	<property>systems/fuel/flows/left-injector-rate-pps</property>
+	<value>3600</value> <!--3600s/hour-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/left-ff-kph">
+    <description>Fuel Flow in KPH</description>
+    <integer>
+      <product>
+	<property>systems/fuel/eicas/left-ff-pph</property>
+	<value>0.453592</value> <!--KG per Pound converter-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/right-ff-pph">
+    <description>Fuel Flow in PPH</description>
+    <integer>
+      <product>
+	<property>systems/fuel/flows/right-injector-rate-pps</property>
+	<value>3600</value> <!--3600s/hour-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/right-ff-kph">
+    <description>Fuel Flow in KPH</description>
+    <integer>
+      <product>
+	<property>systems/fuel/eicas/right-ff-pph</property>
+	<value>0.453592</value> <!--KG per Pound converter-->
+      </product>
+    </integer>
+  </function>
+
+  <!--Fuel Quantity-->
+  <function name="systems/fuel/eicas/fuel-qty-lbs">
+    <description>Total fuel on board LBS</description>
+    <integer>
+      <property>propulsion/total-fuel-lbs</property>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/fuel-qty-kg">
+    <description>Total fuel on board KG</description>
+    <integer>
+      <product>
+	<property>systems/fuel/eicas/fuel-qty-lbs</property>
+	<value>0.453592</value> <!--KG per Pound converter-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/left-fuel-qty-lbs">
+    <integer><sum>
+      <property>propulsion/tank[0]/contents-lbs</property>
+      <property>propulsion/tank[6]/contents-lbs</property>
+    </sum></integer>
+  </function>
+  <function name="systems/fuel/eicas/right-fuel-qty-lbs">
+    <integer><sum>
+      <property>propulsion/tank[4]/contents-lbs</property>
+      <property>propulsion/tank[7]/contents-lbs</property>
+    </sum></integer>
+  </function>
+  <function name="systems/fuel/eicas/left-fuel-qty-kg">
+    <description>Left fuel on board KG</description>
+    <integer>
+      <product>
+	<property>systems/fuel/eicas/left-fuel-qty-lbs</property>
+	<value>0.453592</value> <!--KG per Pound converter-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/right-fuel-qty-kg">
+    <description>Right fuel on board KG</description>
+    <integer>
+      <product>
+	<property>systems/fuel/eicas/right-fuel-qty-lbs</property>
+	<value>0.453592</value> <!--KG per Pound converter-->
+      </product>
+    </integer>
+  </function>
+  <function name="systems/fuel/eicas/fuel-balance-delta">
+    <description>registers left right fuel imbalance</description>
+    <abs><difference>
+      <property>systems/fuel/eicas/left-fuel-qty-lbs</property>
+      <property>systems/fuel/eicas/right-fuel-qty-lbs</property> 
+    </difference></abs>
+  </function>
   
   <channel name="Fuel Xfeed">
     <switch name="fuel-AC1">
@@ -334,6 +428,92 @@
       <input>-systems/fuel/flows/trimmer-draw-rate</input>
       <output>propulsion/tank[5]/external-flow-rate-pps</output>
     </summer>    
+  </channel>
+
+  <!-- EICAS indicators -->
+  <channel name="fuel flow">
+    <switch name="unit in kg">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/unit-pounds == 0 
+      </test>
+      <output>systems/fuel/eicas/unit-kg</output>
+    </switch>
+    <switch name="display fuel flow left Green"><!--Dash in amber if false -->
+      <default value="1"/>
+      <test logic="OR" value="0">
+	systems/fuel/eicas/left-ff-pph lt 10
+	systems/fuel/eicas/left-ff-pph gt 9990
+      </test>
+      <output>systems/fuel/eicas/left-ff-display-green</output>
+    </switch>
+    <switch name="display fuel flow right Green"><!--Dash in amber if false -->
+      <default value="1"/>
+      <test logic="OR" value="0">
+	systems/fuel/eicas/right-ff-pph lt 10
+	systems/fuel/eicas/right-ff-pph gt 9990
+      </test>
+      <output>systems/fuel/eicas/right-ff-display-green</output>
+    </switch>
+    <switch name="fuel 1 lo">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/left-fuel-qty-lbs le 880
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-1-lo</output>
+    </switch>
+    <switch name="fuel 1 lo">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/right-fuel-qty-lbs le 880
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-2-lo</output>
+    </switch>
+    <switch name="fuel 1 2 lo">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/alert/fuel-1-lo == 1
+	systems/fuel/eicas/alert/fuel-2-lo == 1
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-1-2-lo</output>
+    </switch>
+    <switch name="AC pump 1 fail">
+      <default value="0"/>
+      <test value="1">
+	/controls/fuel/tank[6]/boost-pump[0] != systems/fuel/pump/left-powered
+      </test>
+      <output>systems/fuel/eicas/alert/pump-1-fail</output>
+    </switch>
+    <switch name="AC pump 2 fail">
+      <default value="0"/>
+      <test value="1">
+	/controls/fuel/tank[7]/boost-pump[0] != systems/fuel/pump/right-powered
+      </test>
+      <output>systems/fuel/eicas/alert/pump-2-fail</output>
+    </switch>
+    <switch name="AC pump 1 2 fail">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/alert/pump-1-fail == 1  
+	systems/fuel/eicas/alert/pump-2-fail == 1 
+      </test>
+      <output>systems/fuel/eicas/alert/pump-1-2-fail</output>
+    </switch>
+    <switch name="fuel imbalance">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/fuel-balance-delta gt 100
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-imbalance</output>
+    </switch>
+    <switch name="xfeed open while imbalance">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/eicas/alert/fuel-imbalance == 1
+	systems/fuel/pump/xfeed-status == 1
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-equal-xfeed-open</output>
+    </switch>
   </channel>
   
 </system>
