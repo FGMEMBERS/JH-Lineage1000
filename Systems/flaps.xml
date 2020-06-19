@@ -5,6 +5,12 @@
 	<property>systems/flap-setting</property>
 	<property>systems/flap-cmd-norm2</property>
 	<property>systems/slat-cmd-norm2</property>
+	<property value="78.05935">metrics/Sflap-sqft</property>
+	<property value="103.2901">metrics/Sslat-sqft</property>
+	<property value="19.39556">metrics/Saileron-sqft</property>
+	<property value="30.73856">metrics/Sspoiler-sqft</property>
+	<property value="78.00063">metrics/Selevator-sqft</property>
+	<property value="84.11574">metrics/Srudder-sqft</property>
 
 	<channel name="Flaps_Stats">
 

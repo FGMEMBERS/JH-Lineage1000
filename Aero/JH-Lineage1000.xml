@@ -374,7 +374,7 @@
 	</propulsion>
 
 	<system file="NWS"/>
-	<system file="Flaps"/>
+	<system file="flaps"/>
 	<system file="pushback"/>
 	<system file="fuel"/>
 
