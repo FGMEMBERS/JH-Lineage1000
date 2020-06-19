@@ -61,7 +61,7 @@
 	</metrics>
 
 	<mass_balance>
-		<!-- I let the intertia values remain as from Aeromatic as I don't know how to calculate it. It should work out as for this is set to an ideal Transonic 			Aircraft. If I feel 			that the plane needs to turn slower, or be heavier in that aspect, I can just increase the value to what I need it to be -->
+		<!-- I let the intertia values remain as from Aeromatic as I don't know how to calculate it. It should work out as for 			this is set to an ideal Transonic Aircraft. If I feel that the plane needs to turn slower, or be heavier in that 			aspect, I can just increase the value to what I need it to be -->
         	<ixx unit="SLUG*FT2">    562000 </ixx>
         	<iyy unit="SLUG*FT2"> 1.473e+06 </iyy>
         	<izz unit="SLUG*FT2">    962000 </izz>
@@ -775,7 +775,7 @@
 						<property>fcs/flap-pos-deg</property>
 						<property>fcs/slat-pos-deg</property>
 					</sum>
-					<value> 0.002948113 </value>
+					<value> 0.02315 </value>
 				</product>
 			</function>
 
@@ -856,7 +856,7 @@
 						<property>fcs/flap-pos-deg</property>
 						<property>fcs/slat-pos-deg</property>
 					</sum>
-					<value> 0.00002358491 </value>
+					<value> 0.000125 </value>
 				</product>
 			</function>
 
