@@ -10,10 +10,12 @@
 >
 
 	<fileheader>
-  		<author> Narendran Muraleedharan</author>
-  		<filecreationdate> 2011-08-08 </filecreationdate>el
-  		<version>$Revision: 1.10 $</version>
-  		<description> Flight Dynamics Model for the Embraer 170 </description>
+	  <author> Peter Brendt, JWocky</author>
+	  <author> Israel Hernandez, IAHM-COL</author>
+	  <author> Narendran Muraleedharan</author>	  
+  	  <filecreationdate> 2020-06-20 </filecreationdate>
+  	  <version>$Revision: 1.11 $</version>
+  	  <description> Flight Dynamics Model for Lineage 1000 </description>
 	</fileheader>
 
 	<!-- UNIT CONVERSIONS :

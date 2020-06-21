@@ -10,6 +10,7 @@
   <property value="0">systems/fuel/flows/auxiliar-wing-tank-flow</property>
   <property value="1">systems/fuel/eicas/unit-pounds</property>
   <property value="0">systems/fuel/eicas/unit-kg</property>
+  <property value="0">/consumables/fuel/tank[0]/temperature_degC</property>
 
   <!--Fuel Flows-->
   <function name="systems/fuel/eicas/left-ff-pph">
@@ -102,6 +103,74 @@
       <property>systems/fuel/eicas/right-fuel-qty-lbs</property> 
     </difference></abs>
   </function>
+
+  <!-- Heat conduction -->
+  <function name="systems/fuel/fcoc/conduction/environmental">
+    <description>Heat conduction via wing</description>
+    <product>
+      <difference>
+	<property>/environment/temperature-degc</property>
+	<property>/consumables/fuel/tank[0]/temperature_degC</property>
+      </difference> <!-- dT-->
+      <value>0.000084</value> <!-- kA/d-->
+    </product>
+  </function>
+  <function name="systems/fuel/fcoc/conduction/left-engine">
+    <description>Heat conduction via fcoc left</description>
+    <product>
+      <difference>
+	<property>/engines/engine[0]/oil-temperature-degc</property>
+	<property>/consumables/fuel/tank[0]/temperature_degC</property>
+      </difference> <!-- dT-->
+      <value>0.000065</value> <!-- kA/d-->
+    </product>
+  </function>
+  <function name="systems/fuel/fcoc/conduction/right-engine">
+    <description>Heat conduction via fcoc left</description>
+    <product>
+      <difference>
+	<property>/engines/engine[1]/oil-temperature-degc</property>
+	<property>/consumables/fuel/tank[0]/temperature_degC</property>
+      </difference> <!-- dT-->
+      <value>0.000065</value> <!-- kA/d-->
+    </product>
+  </function>
+  
+  <function name="systems/fuel/fcoc/fuel-temperature-degC">
+    <integer>
+      <property>/consumables/fuel/tank[0]/temperature_degC</property>
+    </integer>
+  </function>
+  <function name="systems/fuel/fcoc/fuel-temperature-degF">
+    <integer>
+      <sum>
+	<value>32</value>
+	<product>
+	  <value>1.8</value>
+	  <property>/consumables/fuel/tank[0]/temperature_degC</property>
+	</product>
+      </sum>
+    </integer>
+  </function>
+  <function name="/engines/engine[1]/oil-temperature-degc">
+    <product>
+      <difference>
+	<property>/engines/engine[1]/oil-temperature-degf</property>
+	<value>32</value>
+      </difference>
+      <value>0.5555556</value>
+    </product>
+  </function>
+  <function name="/engines/engine[0]/oil-temperature-degc">
+    <product>
+      <difference>
+	<property>/engines/engine[0]/oil-temperature-degf</property>
+	<value>32</value>
+      </difference>
+      <value>0.5555556</value>
+    </product>
+  </function>
+
   
   <channel name="Fuel Xfeed">
     <switch name="fuel-AC1">
@@ -514,6 +583,43 @@
       </test>
       <output>systems/fuel/eicas/alert/fuel-equal-xfeed-open</output>
     </switch>
+    <switch name="freezing fuel">
+      <default value="0"/>
+      <test value="1">
+	systems/fuel/fcoc/fuel-temperature-degC le -48
+      </test>
+      <output>systems/fuel/eicas/alert/fuel-freezing</output>
+    </switch>
+  </channel>
+
+  <channel name="FCOC">
+    <switch name="Fuel temp initializer"><!-- Fuel begins with environment temp-->
+      <default value="/consumables/fuel/tank[0]/temperature_degC"/>
+      <test value="/environment/temperature-degc">
+	sim-time-sec le 30
+      </test>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </switch>
+    <switch><!--temporarily set permanently operational hot engine oil-->
+      <default value="180"/>
+      <output>/engines/engine[0]/oil-temperature-degf</output>
+    </switch>
+    <switch>
+      <default value="180"/>
+      <output>/engines/engine[1]/oil-temperature-degf</output>
+    </switch>
+    
+    <summer name="Heat transfer via wing">
+      <input>/consumables/fuel/tank[0]/temperature_degC</input>
+      <input>systems/fuel/fcoc/conduction/environmental</input>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </summer>
+    <summer name="FCOC heating of fuel">
+      <input>/consumables/fuel/tank[0]/temperature_degC</input>
+      <input>systems/fuel/fcoc/conduction/left-engine</input>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </summer>
+
   </channel>
   
 </system>
