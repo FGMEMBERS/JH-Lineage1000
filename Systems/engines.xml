@@ -4,6 +4,8 @@
   <property value="0">/engines/engine[1]/oil-temperature-degc</property>
   <property value="0">/engines/engine[0]/egt-degc</property>
   <property value="0">/engines/engine[1]/egt-degc</property>
+  <property value="0">systems/engines/eicas/unit-C</property>
+  <property value="1">systems/engines/eicas/unit-F</property>
 
   <!--oil temp-->
   <function name="systems/engines/fcoc/conduction/oil-left-engine">
@@ -12,11 +14,12 @@
       <difference>
 	<product>
 	  <property>/engines/engine[0]/egt-degc</property>
-	  <value>0.0979166667</value>
+	  <value>0.059166666666667</value>
 	</product>
 	<property>/engines/engine[0]/oil-temperature-degc</property>
       </difference> <!-- dT-->
-      <value>0.000136433121019</value> <!-- kA/d-->
+      <value>0.0000136433121019</value> <!-- kA/d-->
+      <property>systems/fuel/pump/left-powered</property>
     </product>
   </function>
   <function name="systems/engines/fcoc/conduction/oil-right-engine">
@@ -25,11 +28,12 @@
       <difference>
 	<product>
 	  <property>/engines/engine[1]/egt-degc</property>
-	  <value>0.0979166667</value>
+	  <value>0.059166666666667</value>
 	</product>
 	<property>/engines/engine[1]/oil-temperature-degc</property>
       </difference> <!-- dT-->
-      <value>0.000136433121019</value> <!-- kA/d-->
+      <value>0.0000136433121019</value> <!-- kA/d-->
+      <property>systems/fuel/pump/right-powered</property>
     </product>
   </function>
   <function name="/engines/engine[0]/oil-temperature-degf">
@@ -70,6 +74,7 @@
       <property>/engines/engine[1]/oil-temperature-degf</property>
     </integer>
   </function>
+
   <!--oil temp-->
 
   <channel name="oil temperature">
@@ -107,5 +112,16 @@
       <output>/engines/engine[1]/oil-temperature-degc</output>
     </summer>
   </channel> 
+
+  <!-- EICAS indicators -->
+  <channel>
+    <switch name="temperature unit in C">
+      <default value="0"/>
+      <test value="1">
+	systems/engines/eicas/unit-F == 0 
+      </test>
+      <output>systems/engines/eicas/unit-C</output>
+    </switch>
+  </channel>
 
 </system>
