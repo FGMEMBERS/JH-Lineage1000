@@ -378,6 +378,7 @@
 	<system file="NWS"/>
 	<system file="flaps"/>
 	<system file="pushback"/>
+	<system file="engines"/>
 	<system file="fuel"/>
 
 	<flight_control name="FCS: ERJ-190">
