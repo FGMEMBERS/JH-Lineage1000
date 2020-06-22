@@ -122,6 +122,35 @@
       </test>
       <output>systems/engines/eicas/unit-C</output>
     </switch>
+    <switch name="left oil temperature alert">
+      <!-- 0: normal, green
+	   1: warning, yellow
+	   2: alert, red
+      -->
+      <default value="0"/>
+      <test value="1">
+	systems/engines/eicas/left-oil-temperature-degF ge 180
+      </test>
+      <test value="2">
+	systems/engines/eicas/left-oil-temperature-degF ge 245
+      </test>
+      <output>systems/engines/eicas/alert/left-oil-temperature-hi</output>
+    </switch>
+    <switch name="right oil temperature alert">
+      <!-- 0: normal, green
+	   1: warning, yellow
+	   2: alert, red
+      -->
+      <default value="0"/>
+      <test value="1">
+	systems/engines/eicas/right-oil-temperature-degF ge 180
+      </test>
+      <test value="2">
+	systems/engines/eicas/right-oil-temperature-degF ge 245
+      </test>
+      <output>systems/engines/eicas/alert/right-oil-temperature-hi</output>
+    </switch>
+
   </channel>
 
 </system>
