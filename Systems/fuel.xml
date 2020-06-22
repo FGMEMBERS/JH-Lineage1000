@@ -11,7 +11,7 @@
   <property value="1">systems/fuel/eicas/unit-pounds</property>
   <property value="0">systems/fuel/eicas/unit-kg</property>
   <property value="0">/consumables/fuel/tank[0]/temperature_degC</property>
-
+	  
   <!--Fuel Flows-->
   <function name="systems/fuel/eicas/left-ff-pph">
     <description>Fuel Flow in PPH</description>
@@ -112,7 +112,7 @@
 	<property>/environment/temperature-degc</property>
 	<property>/consumables/fuel/tank[0]/temperature_degC</property>
       </difference> <!-- dT-->
-      <value>0.000084</value> <!-- kA/d-->
+      <value>0.00084</value> <!-- kA/d-->
     </product>
   </function>
   <function name="systems/fuel/fcoc/conduction/left-engine">
@@ -135,13 +135,12 @@
       <value>0.000065</value> <!-- kA/d-->
     </product>
   </function>
-  
-  <function name="systems/fuel/fcoc/fuel-temperature-degC">
+  <function name="systems/fuel/eicas/fuel-temperature-degC">
     <integer>
       <property>/consumables/fuel/tank[0]/temperature_degC</property>
     </integer>
   </function>
-  <function name="systems/fuel/fcoc/fuel-temperature-degF">
+  <function name="systems/fuel/eicas/fuel-temperature-degF">
     <integer>
       <sum>
 	<value>32</value>
@@ -152,25 +151,6 @@
       </sum>
     </integer>
   </function>
-  <function name="/engines/engine[1]/oil-temperature-degc">
-    <product>
-      <difference>
-	<property>/engines/engine[1]/oil-temperature-degf</property>
-	<value>32</value>
-      </difference>
-      <value>0.5555556</value>
-    </product>
-  </function>
-  <function name="/engines/engine[0]/oil-temperature-degc">
-    <product>
-      <difference>
-	<property>/engines/engine[0]/oil-temperature-degf</property>
-	<value>32</value>
-      </difference>
-      <value>0.5555556</value>
-    </product>
-  </function>
-
   
   <channel name="Fuel Xfeed">
     <switch name="fuel-AC1">
@@ -586,7 +566,7 @@
     <switch name="freezing fuel">
       <default value="0"/>
       <test value="1">
-	systems/fuel/fcoc/fuel-temperature-degC le -48
+	systems/fuel/eicas/fuel-temperature-degC le -48
       </test>
       <output>systems/fuel/eicas/alert/fuel-freezing</output>
     </switch>
@@ -600,16 +580,7 @@
       </test>
       <output>/consumables/fuel/tank[0]/temperature_degC</output>
     </switch>
-    <switch><!--temporarily set permanently operational hot engine oil-->
-      <default value="180"/>
-      <output>/engines/engine[0]/oil-temperature-degf</output>
-    </switch>
-    <switch>
-      <default value="180"/>
-      <output>/engines/engine[1]/oil-temperature-degf</output>
-    </switch>
-    
-    <summer name="Heat transfer via wing">
+     <summer name="Heat transfer via wing">
       <input>/consumables/fuel/tank[0]/temperature_degC</input>
       <input>systems/fuel/fcoc/conduction/environmental</input>
       <output>/consumables/fuel/tank[0]/temperature_degC</output>
@@ -619,7 +590,6 @@
       <input>systems/fuel/fcoc/conduction/left-engine</input>
       <output>/consumables/fuel/tank[0]/temperature_degC</output>
     </summer>
-
   </channel>
-  
+   
 </system>
