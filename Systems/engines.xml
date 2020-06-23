@@ -2,24 +2,59 @@
 
 <system name="engines">
   <property value="0">/engines/engine[1]/oil-temperature-degc</property>
-  <property value="0">/engines/engine[0]/egt-degc</property>
-  <property value="0">/engines/engine[1]/egt-degc</property>
   <property value="0">systems/engines/eicas/unit-C</property>
   <property value="1">systems/engines/eicas/unit-F</property>
+  <property value="0">/engines/engine[0]/egt-degc</property>
+  <property value="0">/engines/engine[1]/egt-degc</property>
 
   <!--oil temp-->
+  <function name="systems/engines/fcoc/conduction/environmental-left">
+    <description>Slow heat dissipation to environment Left</description>
+    <product>
+      <difference>
+	<property>/environment/temperature-degc</property>
+	<property>/engines/engine[0]/oil-temperature-degc</property>
+      </difference> <!-- dT-->
+      <value>0.00000000548</value> <!-- kA/d-->
+    </product>
+  </function>
+  <function name="systems/engines/fcoc/conduction/environmental-right">
+    <description>Slow heat dissipation to environment Right</description>
+    <product>
+      <difference>
+	<property>/environment/temperature-degc</property>
+	<property>/engines/engine[1]/oil-temperature-degc</property>
+      </difference> <!-- dT-->
+      <value>0.00000000548</value> <!-- kA/d-->
+    </product>
+  </function>
+  <function name="systems/engines/fcoc/conduction/heating-left">
+    <description>Engine operation heats oil but cannot dissipate it</description>
+    <ge>
+      <property>/engines/engine[0]/egt-degf</property>
+      <property>/engines/engine[0]/oil-temperature-degf</property>
+    </ge>
+  </function>
+  <function name="systems/engines/fcoc/conduction/heating-right">
+    <description>Engine operation heats oil but cannot dissipate it</description>
+    <ge>
+      <property>/engines/engine[1]/egt-degf</property>
+      <property>/engines/engine[1]/oil-temperature-degf</property>
+    </ge>
+  </function>
   <function name="systems/engines/fcoc/conduction/oil-left-engine">
     <description>Left engine heat transfer to oil</description>
     <product>
       <difference>
 	<product>
-	  <property>/engines/engine[0]/egt-degc</property>
-	  <value>0.059166666666667</value>
+	  <property>/engines/engine[0]/egt-degf</property>
+	  <value>0.101428571428571</value>
 	</product>
 	<property>/engines/engine[0]/oil-temperature-degc</property>
       </difference> <!-- dT-->
       <value>0.0000136433121019</value> <!-- kA/d-->
       <property>systems/fuel/pump/left-powered</property>
+      <property>systems/engines/fcoc/conduction/heating-left</property>
     </product>
   </function>
   <function name="systems/engines/fcoc/conduction/oil-right-engine">
@@ -27,13 +62,14 @@
     <product>
       <difference>
 	<product>
-	  <property>/engines/engine[1]/egt-degc</property>
-	  <value>0.059166666666667</value>
+	  <property>/engines/engine[1]/egt-degf</property>
+	  <value>0.101428571428571</value>
 	</product>
 	<property>/engines/engine[1]/oil-temperature-degc</property>
       </difference> <!-- dT-->
       <value>0.0000136433121019</value> <!-- kA/d-->
       <property>systems/fuel/pump/right-powered</property>
+      <property>systems/engines/fcoc/conduction/heating-right</property>
     </product>
   </function>
   <function name="/engines/engine[0]/oil-temperature-degf">
@@ -75,8 +111,59 @@
     </integer>
   </function>
 
-  <!--oil temp-->
+  <!-- gases temp-->
+  <function name="/engines/engine[0]/itt-degf">
+    <product>
+      <property>/engines/engine[0]/egt-degf</property>
+      <value>1.230769</value><!-- 23percent higher than egt-->
+    </product>
+  </function>
+  <function name="/engines/engine[1]/itt-degf">
+    <product>
+      <property>/engines/engine[1]/egt-degf</property>
+      <value>1.230769</value><!-- 23percent higher than egt-->
+    </product>
+  </function>
+  <function name="/engines/engine[0]/itt-degc">
+    <product>
+      <value>0.5555556</value>
+      <difference>
+	<property>/engines/engine[0]/itt-degf</property>
+	<value>32</value>
+      </difference>
+    </product>
+  </function>
+  <function name="/engines/engine[1]/itt-degc">
+    <product>
+      <value>0.5555556</value>
+      <difference>
+	<property>/engines/engine[1]/itt-degf</property>
+	<value>32</value>
+      </difference>
+    </product>
+  </function>
+  <function name="systems/engines/eicas/left-itt-degC">
+    <integer>
+      <property>/engines/engine[0]/itt-degc</property>
+    </integer>
+  </function>
+  <function name="systems/engines/eicas/left-itt-degF">
+    <integer>
+      <property>/engines/engine[0]/itt-degf</property>
+    </integer>
+  </function>
+  <function name="systems/engines/eicas/right-itt-degC">
+    <integer>
+      <property>/engines/engine[1]/itt-degc</property>
+    </integer>
+  </function>
+  <function name="systems/engines/eicas/right-itt-degF">
+    <integer>
+      <property>/engines/engine[1]/itt-degf</property>
+    </integer>
+  </function>
 
+  <!--oil temp-->
   <channel name="oil temperature">
     <!-- Oil begins with environment temp-->
     <switch name="Oil temp initializer Left">
@@ -103,18 +190,33 @@
       <input>/engines/engine[0]/oil-temperature-degc</input>
       <input>systems/engines/fcoc/conduction/oil-left-engine</input>
       <input>-systems/fuel/fcoc/conduction/left-engine</input>
+      <input>systems/engines/fcoc/conduction/environmental-left</input>
       <output>/engines/engine[0]/oil-temperature-degc</output>
     </summer>
     <summer name="Right engine oil heat FCOC transfers">
       <input>/engines/engine[1]/oil-temperature-degc</input>
       <input>systems/engines/fcoc/conduction/oil-right-engine</input>
       <input>-systems/fuel/fcoc/conduction/right-engine</input>
+      <input>systems/engines/fcoc/conduction/environmental-right</input>
       <output>/engines/engine[1]/oil-temperature-degc</output>
     </summer>
-  </channel> 
+  </channel>
 
+  <channel name="engines combustion temperatures">
+    <!--note: for unknown reason, /engines/engine[x]/egt-degc is in reality
+	the TIT temperature on farenheit!? -->
+    <switch name="left TIT">
+      <default value="/engines/engine[0]/egt-degc"/>
+      <output>/engines/engine[0]/tit</output>
+    </switch>
+    <switch name="right TIT">
+      <default value="/engines/engine[1]/egt-degc"/>
+      <output>/engines/engine[1]/tit</output>
+    </switch>
+  </channel>
+  
   <!-- EICAS indicators -->
-  <channel>
+  <channel name="eicas alert">
     <switch name="temperature unit in C">
       <default value="0"/>
       <test value="1">
@@ -122,11 +224,12 @@
       </test>
       <output>systems/engines/eicas/unit-C</output>
     </switch>
-    <switch name="left oil temperature alert">
-      <!-- 0: normal, green
-	   1: warning, yellow
-	   2: alert, red
+    <!-- temperature alerts
+	 0: normal, green
+	 1: warning, yellow
+	 2: alert, red
       -->
+    <switch name="left oil temperature alert">
       <default value="0"/>
       <test value="1">
 	systems/engines/eicas/left-oil-temperature-degF ge 180
@@ -137,10 +240,6 @@
       <output>systems/engines/eicas/alert/left-oil-temperature-hi</output>
     </switch>
     <switch name="right oil temperature alert">
-      <!-- 0: normal, green
-	   1: warning, yellow
-	   2: alert, red
-      -->
       <default value="0"/>
       <test value="1">
 	systems/engines/eicas/right-oil-temperature-degF ge 180
@@ -150,7 +249,37 @@
       </test>
       <output>systems/engines/eicas/alert/right-oil-temperature-hi</output>
     </switch>
-
   </channel>
 
+  <channel name="EICAS display">
+    <switch name="oil temperature left engine">
+      <default value="systems/engines/eicas/left-oil-temperature-degF"/>
+      <test value="systems/engines/eicas/left-oil-temperature-degC">
+	systems/engines/eicas/unit-C == 1
+      </test>
+      <output>systems/engines/eicas/display/oil-temperature-left</output>
+    </switch>
+    <switch name="oil temperature right engine">
+      <default value="systems/engines/eicas/right-oil-temperature-degF"/>
+      <test value="systems/engines/eicas/right-oil-temperature-degC">
+	systems/engines/eicas/unit-C == 1
+      </test>
+      <output>systems/engines/eicas/display/oil-temperature-right</output>
+    </switch>
+    <switch name="ITT left engine">
+      <default value="systems/engines/eicas/left-itt-degF"/>
+      <test value="systems/engines/eicas/left-itt-degC">
+	systems/engines/eicas/unit-C == 1
+      </test>
+      <output>systems/engines/eicas/display/itt-left</output>
+    </switch>
+    <switch name="ITT right engine">
+      <default value="systems/engines/eicas/right-itt-degF"/>
+      <test value="systems/engines/eicas/right-itt-degC">
+	systems/engines/eicas/unit-C == 1
+      </test>
+      <output>systems/engines/eicas/display/itt-right</output>
+    </switch>
+  </channel>
+  
 </system>
