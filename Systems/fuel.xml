@@ -136,12 +136,12 @@
       <property>systems/fuel/pump/right-powered</property>
     </product>
   </function>
-  <function name="systems/fuel/eicas/fuel-temperature-degC">
+  <function name="systems/fuel/fcoc/fuel-temperature-degC">
     <integer>
       <property>/consumables/fuel/tank[0]/temperature_degC</property>
     </integer>
   </function>
-  <function name="systems/fuel/eicas/fuel-temperature-degF">
+  <function name="systems/fuel/fcoc/fuel-temperature-degF">
     <integer>
       <sum>
 	<value>32</value>
@@ -480,30 +480,34 @@
     </summer>    
   </channel>
 
+  <channel name="FCOC">
+    <switch name="Fuel temp initializer"><!-- Fuel begins with environment temp-->
+      <default value="/consumables/fuel/tank[0]/temperature_degC"/>
+      <test value="/environment/temperature-degc">
+	sim-time-sec le 30
+      </test>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </switch>
+     <summer name="Heat transfer via wing">
+      <input>/consumables/fuel/tank[0]/temperature_degC</input>
+      <input>systems/fuel/fcoc/conduction/environmental</input>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </summer>
+    <summer name="FCOC heating of fuel">
+      <input>/consumables/fuel/tank[0]/temperature_degC</input>
+      <input>systems/fuel/fcoc/conduction/left-engine</input>
+      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+    </summer>
+  </channel>
+
   <!-- EICAS indicators -->
-  <channel name="fuel flow">
+  <channel name="eicas alerts and units">
     <switch name="unit in kg">
       <default value="0"/>
       <test value="1">
 	systems/fuel/eicas/unit-pounds == 0 
       </test>
       <output>systems/fuel/eicas/unit-kg</output>
-    </switch>
-    <switch name="display fuel flow left Green"><!--Dash in amber if false -->
-      <default value="1"/>
-      <test logic="OR" value="0">
-	systems/fuel/eicas/left-ff-pph lt 10
-	systems/fuel/eicas/left-ff-pph gt 9990
-      </test>
-      <output>systems/fuel/eicas/left-ff-display-green</output>
-    </switch>
-    <switch name="display fuel flow right Green"><!--Dash in amber if false -->
-      <default value="1"/>
-      <test logic="OR" value="0">
-	systems/fuel/eicas/right-ff-pph lt 10
-	systems/fuel/eicas/right-ff-pph gt 9990
-      </test>
-      <output>systems/fuel/eicas/right-ff-display-green</output>
     </switch>
     <switch name="fuel 1 lo">
       <default value="0"/>
@@ -567,38 +571,64 @@
     <switch name="freezing fuel">
       <default value="0"/>
       <test value="1">
-	systems/fuel/eicas/fuel-temperature-degC le -48
+	systems/fuel/fcoc/fuel-temperature-degC le -48
       </test>
       <output>systems/fuel/eicas/alert/fuel-freezing</output>
     </switch>
   </channel>
 
-  <channel name="FCOC">
-    <switch name="Fuel temp initializer"><!-- Fuel begins with environment temp-->
-      <default value="/consumables/fuel/tank[0]/temperature_degC"/>
-      <test value="/environment/temperature-degc">
-	sim-time-sec le 30
+  <channel name="EICAS display">
+    <switch name="display fuel flow left Green"><!--Dash in amber if false -->
+      <default value="1"/>
+      <test logic="OR" value="0">
+	systems/fuel/eicas/left-ff-pph lt 10
+	systems/fuel/eicas/left-ff-pph gt 9990
       </test>
-      <output>/consumables/fuel/tank[0]/temperature_degC</output>
+      <output>systems/fuel/eicas/display/ff-display-green-left</output>
     </switch>
-     <summer name="Heat transfer via wing">
-      <input>/consumables/fuel/tank[0]/temperature_degC</input>
-      <input>systems/fuel/fcoc/conduction/environmental</input>
-      <output>/consumables/fuel/tank[0]/temperature_degC</output>
-    </summer>
-    <summer name="FCOC heating of fuel">
-      <input>/consumables/fuel/tank[0]/temperature_degC</input>
-      <input>systems/fuel/fcoc/conduction/left-engine</input>
-      <output>/consumables/fuel/tank[0]/temperature_degC</output>
-    </summer>
-    <switch>
-      <default value="systems/engines/eicas/unit-C"/>
-      <output>systems/fuel/eicas/unit-C</output>
+    <switch name="display fuel flow right Green"><!--Dash in amber if false -->
+      <default value="1"/>
+      <test logic="OR" value="0">
+	systems/fuel/eicas/right-ff-pph lt 10
+	systems/fuel/eicas/right-ff-pph gt 9990
+      </test>
+      <output>systems/fuel/eicas/display/ff-display-green-right</output>
     </switch>
-    <switch>
-      <default value="systems/engines/eicas/unit-F"/>
-      <output>systems/fuel/eicas/unit-F</output>
+    <switch name="fuel quantity">
+      <default value="systems/fuel/eicas/fuel-qty-lbs"/>
+	<test value="systems/fuel/eicas/fuel-qty-kg">
+	  systems/fuel/eicas/unit-kg == 1
+	</test>
+	<output>systems/fuel/eicas/display/qty</output>
+    </switch>
+    <switch name="fuel quantity left tank">
+      <default value="systems/fuel/eicas/left-fuel-qty-lbs"/>
+	<test value="systems/fuel/eicas/left-fuel-qty-kg">
+	  systems/fuel/eicas/unit-kg == 1
+	</test>
+	<output>systems/fuel/eicas/display/qty-left</output>
+    </switch>
+    <switch name="fuel quantity right tank">
+      <default value="systems/fuel/eicas/right-fuel-qty-lbs"/>
+	<test value="systems/fuel/eicas/right-fuel-qty-kg">
+	  systems/fuel/eicas/unit-kg == 1
+	</test>
+	<output>systems/fuel/eicas/display/qty-right</output>
+    </switch>
+    <switch name="fuel flow left tank">
+      <default value="systems/fuel/eicas/left-ff-pph"/>
+	<test value="systems/fuel/eicas/left-ff-kph">
+	  systems/fuel/eicas/unit-kg == 1
+	</test>
+	<output>systems/fuel/eicas/display/ff-left</output>
+    </switch>
+    <switch name="fuel flow right tank">
+      <default value="systems/fuel/eicas/right-ff-pph"/>
+	<test value="systems/fuel/eicas/right-ff-kph">
+	  systems/fuel/eicas/unit-kg == 1
+	</test>
+	<output>systems/fuel/eicas/display/ff-right</output>
     </switch>
   </channel>
-   
+  
 </system>
