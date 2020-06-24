@@ -6,6 +6,8 @@
   <property value="1">systems/engines/eicas/unit-F</property>
   <property value="0">/engines/engine[0]/egt-degc</property>
   <property value="0">/engines/engine[1]/egt-degc</property>
+  <property value="0">propulsion/engine[0]/reverser</property>
+  <property value="0">propulsion/engine[1]/reverser</property>
 
   <!--oil temp-->
   <function name="systems/engines/fcoc/conduction/environmental-left">
@@ -15,7 +17,7 @@
 	<property>/environment/temperature-degc</property>
 	<property>/engines/engine[0]/oil-temperature-degc</property>
       </difference> <!-- dT-->
-      <value>0.00000000548</value> <!-- kA/d-->
+      <value>0.0000000548</value> <!-- kA/d-->
     </product>
   </function>
   <function name="systems/engines/fcoc/conduction/environmental-right">
@@ -25,7 +27,7 @@
 	<property>/environment/temperature-degc</property>
 	<property>/engines/engine[1]/oil-temperature-degc</property>
       </difference> <!-- dT-->
-      <value>0.00000000548</value> <!-- kA/d-->
+      <value>0.0000000548</value> <!-- kA/d-->
     </product>
   </function>
   <function name="systems/engines/fcoc/conduction/heating-left">
@@ -163,6 +165,18 @@
     </integer>
   </function>
 
+  <!-- oil pressure-->
+  <function name="systems/engines/eicas/display/oil-press-psi-left">
+    <integer>
+      <property>/engines/engine[0]/oil-pressure-psi</property>
+    </integer>
+  </function>
+  <function name="systems/engines/eicas/display/oil-press-psi-right">
+    <integer>
+      <property>/engines/engine[1]/oil-pressure-psi</property>
+    </integer>
+  </function>
+  
   <!--oil temp-->
   <channel name="oil temperature">
     <!-- Oil begins with environment temp-->
@@ -217,6 +231,55 @@
   
   <!-- EICAS indicators -->
   <channel name="eicas alert">
+    <switch name="Left engine OFF">
+      <default value="1"/>
+      <test value="0">
+	/engines/engine[0]/running == 1
+      </test>
+      <output>systems/engines/eicas/alert/left-off</output>
+    </switch>
+    <switch name="Right engine OFF">
+      <default value="1"/>
+      <test value="0">
+	/engines/engine[0]/running == 1
+      </test>
+      <output>systems/engines/eicas/alert/right-off</output>
+    </switch>
+    <switch name="Left engine FIRE">
+      <default value="0"/>
+      <test value="1">
+	/engines/engine[0]/on-fire == 1
+      </test>
+      <output>systems/engines/eicas/alert/left-on-fire</output>
+    </switch>
+    <switch name="Right engine FIRE">
+      <default value="0"/>
+      <test value="1">
+	/engines/engine[1]/on-fire == 1
+      </test>
+      <output>systems/engines/eicas/alert/right-on-fire</output>
+    </switch>
+    <switch name="Left engine Windmilling">
+      <default value="0"/>
+      <test value="1">
+	/engines/engine[0]/cranking == 1
+	/engines/engine[0]running == 0
+      </test>
+      <output>systems/engines/eicas/alert/left-wml</output>
+    </switch>
+    <switch name="Right engine Windmilling">
+      <default value="0"/>
+      <test value="1">
+	/engines/engine[1]/cranking == 1
+	/engines/engine[1]running == 0
+      </test>
+      <output>systems/engines/eicas/alert/right-wml</output>
+    </switch>
+    <!-- temperature alerts
+	 0: normal, green
+	 1: warning, yellow
+	 2: alert, red
+    -->
     <switch name="temperature unit in C">
       <default value="0"/>
       <test value="1">
@@ -224,30 +287,51 @@
       </test>
       <output>systems/engines/eicas/unit-C</output>
     </switch>
-    <!-- temperature alerts
-	 0: normal, green
-	 1: warning, yellow
-	 2: alert, red
-      -->
     <switch name="left oil temperature alert">
       <default value="0"/>
       <test value="1">
-	systems/engines/eicas/left-oil-temperature-degF ge 180
+	systems/engines/eicas/left-oil-temperature-degF ge 160
       </test>
       <test value="2">
-	systems/engines/eicas/left-oil-temperature-degF ge 245
+	systems/engines/eicas/left-oil-temperature-degF ge 999
+	systems/engines/eicas/left-oil-temperature-degF le -272
       </test>
       <output>systems/engines/eicas/alert/left-oil-temperature-hi</output>
     </switch>
     <switch name="right oil temperature alert">
       <default value="0"/>
       <test value="1">
-	systems/engines/eicas/right-oil-temperature-degF ge 180
+	systems/engines/eicas/right-oil-temperature-degF ge 160
       </test>
       <test value="2">
-	systems/engines/eicas/right-oil-temperature-degF ge 245
+	systems/engines/eicas/left-oil-temperature-degF ge 999
+	systems/engines/eicas/left-oil-temperature-degF le -272
       </test>
       <output>systems/engines/eicas/alert/right-oil-temperature-hi</output>
+    </switch>
+    <switch name="Left Oil Pressure display color">
+      <!-- Green if operating range ok; Red else -->
+      <default value="1"/>
+      <test value="1">
+	systems/engines/eicas/alert/left-off == 1
+      </test> 
+      <test logic="OR" value="0">
+	systems/engines/eicas/display/oil-press-psi-left le 35
+	systems/engines/eicas/display/oil-press-psi-left ge 65
+      </test>
+      <output>systems/engines/eicas/alert/oil-pres-left-green</output>
+    </switch>
+    <switch name="Right Oil Pressure color">
+      <!-- Green if operating range ok; Red else -->
+      <default value="1"/>
+      <test value="1">
+	systems/engines/eicas/alert/right-off == 1
+      </test> 
+      <test logic="OR" value="0">
+	systems/engines/eicas/display/oil-press-psi-right le 35
+	systems/engines/eicas/display/oil-press-psi-right ge 65
+      </test>
+      <output>systems/engines/eicas/alert/oil-pres-right-green</output>
     </switch>
   </channel>
 
@@ -279,6 +363,47 @@
 	systems/engines/eicas/unit-C == 1
       </test>
       <output>systems/engines/eicas/display/itt-right</output>
+    </switch>
+    <switch name="Rev Left">
+      <default value="propulsion/engine[0]/reverser"/>
+	<output>systems/engines/eicas/display/rev-left</output>
+    </switch>
+    <switch name="Rev Right">
+      <default value="propulsion/engine[1]/reverser"/>
+	<output>systems/engines/eicas/display/rev-right</output>
+    </switch>
+    <!-- nvalues -->
+    <switch name="n1 left">
+      <default value="propulsion/engine[0]/n1"/>
+	<output>systems/engines/eicas/display/n1-left</output>
+    </switch>
+    <switch name="n2 left">
+      <default value="propulsion/engine[0]/n2"/>
+	<output>systems/engines/eicas/display/n2-left</output>
+    </switch>
+    <switch name="n1 right">
+      <default value="propulsion/engine[1]/n1"/>
+	<output>systems/engines/eicas/display/n1-right</output>
+    </switch>
+    <switch name="n2 right">
+      <default value="propulsion/engine[1]/n2"/>
+	<output>systems/engines/eicas/display/n2-right</output>
+    </switch>
+    <switch name="n1-max left">
+      <default value="propulsion/engine[0]/MaxN1"/>
+	<output>systems/engines/eicas/display/n1-max-left</output>
+    </switch>
+    <switch name="n2-max left">
+      <default value="propulsion/engine[0]/MaxN2"/>
+	<output>systems/engines/eicas/display/n2-max-left</output>
+    </switch>
+    <switch name="n1-max right">
+      <default value="propulsion/engine[1]/MaxN1"/>
+	<output>systems/engines/eicas/display/n1-max-right</output>
+    </switch>
+    <switch name="n2-max right">
+      <default value="propulsion/engine[1]/MaxN2"/>
+	<output>systems/engines/eicas/display/n2-max-right</output>
     </switch>
   </channel>
   
