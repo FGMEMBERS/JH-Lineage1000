@@ -2,7 +2,7 @@
 
 ### The Jabberwocky Hangar's
 
-**Forum:** [www.thejabberwocky.net](www.thejabberwocky.net)
+**Forum:** [www.thejabberwocky.net](http://www.thejabberwocky.net)
 
 ![Lineage 1000](Splashes/JH-Lineage1000.png)
 
