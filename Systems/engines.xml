@@ -8,7 +8,11 @@
   <property value="0">/engines/engine[1]/egt-degc</property>
   <property value="0">propulsion/engine[0]/reverser</property>
   <property value="0">propulsion/engine[1]/reverser</property>
-
+  <property value="0">propulsion/engine[0]/vib-lowpress</property>
+  <property value="0">propulsion/engine[0]/vib-highpress</property>
+  <property value="0">propulsion/engine[1]/vib-lowpress</property>
+  <property value="0">propulsion/engine[1]/vib-highpress</property>
+  
   <!--oil temp-->
   <function name="systems/engines/fcoc/conduction/environmental-left">
     <description>Slow heat dissipation to environment Left</description>
@@ -176,6 +180,52 @@
       <property>/engines/engine[1]/oil-pressure-psi</property>
     </integer>
   </function>
+
+  <!--Engine vibration -->
+  <function name="systems/engines/eicas/display/vib-lowpress-left">
+    <product>
+      <value>0.1</value>
+      <integer>
+	<product>
+	  <property>propulsion/engine[0]/vib-lowpress</property>
+	  <value>10</value>
+	</product>
+      </integer>
+    </product>
+  </function>
+  <function name="systems/engines/eicas/display/vib-highpress-left">
+    <product>
+      <value>0.1</value>
+      <integer>
+	<product>
+	  <property>propulsion/engine[0]/vib-highpress</property>
+	  <value>10</value>
+	</product>
+      </integer>
+    </product>
+  </function>
+  <function name="systems/engines/eicas/display/vib-lowpress-right">
+    <product>
+      <value>0.1</value>
+      <integer>
+	<product>
+	  <property>propulsion/engine[1]/vib-lowpress</property>
+	  <value>10</value>
+	</product>
+      </integer>
+    </product>
+  </function>
+  <function name="systems/engines/eicas/display/vib-highpress-right">
+    <product>
+      <value>0.1</value>
+      <integer>
+	<product>
+	  <property>propulsion/engine[1]/vib-highpress</property>
+	  <value>10</value>
+	</product>
+      </integer>
+    </product>
+  </function>
   
   <!--oil temp-->
   <channel name="oil temperature">
@@ -275,63 +325,13 @@
       </test>
       <output>systems/engines/eicas/alert/right-wml</output>
     </switch>
-    <!-- temperature alerts
-	 0: normal, green
-	 1: warning, yellow
-	 2: alert, red
-    -->
-    <switch name="temperature unit in C">
+    <switch name="Left engine Fail">
       <default value="0"/>
-      <test value="1">
-	systems/engines/eicas/unit-F == 0 
-      </test>
-      <output>systems/engines/eicas/unit-C</output>
+      <output>systems/engines/eicas/alert/left-fail</output>
     </switch>
-    <switch name="left oil temperature alert">
+    <switch name="Right engine Fail">
       <default value="0"/>
-      <test value="1">
-	systems/engines/eicas/left-oil-temperature-degF ge 160
-      </test>
-      <test value="2">
-	systems/engines/eicas/left-oil-temperature-degF ge 999
-	systems/engines/eicas/left-oil-temperature-degF le -272
-      </test>
-      <output>systems/engines/eicas/alert/left-oil-temperature-hi</output>
-    </switch>
-    <switch name="right oil temperature alert">
-      <default value="0"/>
-      <test value="1">
-	systems/engines/eicas/right-oil-temperature-degF ge 160
-      </test>
-      <test value="2">
-	systems/engines/eicas/left-oil-temperature-degF ge 999
-	systems/engines/eicas/left-oil-temperature-degF le -272
-      </test>
-      <output>systems/engines/eicas/alert/right-oil-temperature-hi</output>
-    </switch>
-    <switch name="Left Oil Pressure display color">
-      <!-- Green if operating range ok; Red else -->
-      <default value="1"/>
-      <test value="1">
-	systems/engines/eicas/alert/left-off == 1
-      </test> 
-      <test logic="OR" value="0">
-	systems/engines/eicas/display/oil-press-psi-left le 35
-	systems/engines/eicas/display/oil-press-psi-left ge 65
-      </test>
-      <output>systems/engines/eicas/alert/oil-pres-left-green</output>
-    </switch>
-    <switch name="Right Oil Pressure color">
-      <!-- Green if operating range ok; Red else -->
-      <default value="1"/>
-      <test value="1">
-	systems/engines/eicas/alert/right-off == 1
-      </test> 
-      <test logic="OR" value="0">
-	systems/engines/eicas/display/oil-press-psi-right le 35
-	systems/engines/eicas/display/oil-press-psi-right ge 65
-      </test>
-      <output>systems/engines/eicas/alert/oil-pres-right-green</output>
+      <output>systems/engines/eicas/alert/right-fail</output>
     </switch>
   </channel>
 
@@ -366,45 +366,183 @@
     </switch>
     <switch name="Rev Left">
       <default value="propulsion/engine[0]/reverser"/>
-	<output>systems/engines/eicas/display/rev-left</output>
+      <output>systems/engines/eicas/display/rev-left</output>
     </switch>
     <switch name="Rev Right">
       <default value="propulsion/engine[1]/reverser"/>
-	<output>systems/engines/eicas/display/rev-right</output>
+      <output>systems/engines/eicas/display/rev-right</output>
     </switch>
     <!-- nvalues -->
     <switch name="n1 left">
       <default value="propulsion/engine[0]/n1"/>
-	<output>systems/engines/eicas/display/n1-left</output>
+      <output>systems/engines/eicas/display/n1-left</output>
     </switch>
     <switch name="n2 left">
       <default value="propulsion/engine[0]/n2"/>
-	<output>systems/engines/eicas/display/n2-left</output>
+      <output>systems/engines/eicas/display/n2-left</output>
     </switch>
     <switch name="n1 right">
       <default value="propulsion/engine[1]/n1"/>
-	<output>systems/engines/eicas/display/n1-right</output>
+      <output>systems/engines/eicas/display/n1-right</output>
     </switch>
     <switch name="n2 right">
       <default value="propulsion/engine[1]/n2"/>
-	<output>systems/engines/eicas/display/n2-right</output>
+      <output>systems/engines/eicas/display/n2-right</output>
     </switch>
     <switch name="n1-max left">
       <default value="propulsion/engine[0]/MaxN1"/>
-	<output>systems/engines/eicas/display/n1-max-left</output>
-    </switch>
-    <switch name="n2-max left">
-      <default value="propulsion/engine[0]/MaxN2"/>
-	<output>systems/engines/eicas/display/n2-max-left</output>
+      <output>systems/engines/eicas/display/n1-max-left</output>
     </switch>
     <switch name="n1-max right">
       <default value="propulsion/engine[1]/MaxN1"/>
-	<output>systems/engines/eicas/display/n1-max-right</output>
+      <output>systems/engines/eicas/display/n1-max-right</output>
     </switch>
-    <switch name="n2-max right">
-      <default value="propulsion/engine[1]/MaxN2"/>
-	<output>systems/engines/eicas/display/n2-max-right</output>
+    <switch name="Left Oil Pressure display color">
+      <!-- 0: Green, operating range ok;
+	   1: Amber, operating cautionary
+	   2: Red: operating, limit exceeded,
+	   3: Amber dashed: invalid information or out of range -->
+      <default value="0"/>
+      <test value="3">
+	systems/engines/eicas/alert/left-off == 1
+      </test>
+      <test logic="OR" value="2">
+	systems/engines/eicas/display/oil-press-psi-left le 20
+	systems/engines/eicas/display/oil-press-psi-left ge 80
+      </test>
+      <test logic="OR" value="1">
+	systems/engines/eicas/display/oil-press-psi-left le 35
+	systems/engines/eicas/display/oil-press-psi-left ge 65
+      </test> 
+      <output>systems/engines/eicas/display/oil-pres-left-color-mode</output>
     </switch>
-  </channel>
+    <switch name="Right Oil Pressure display color">
+      <!-- 0: Green, operating range ok;
+	   1: Amber, operating cautionary
+	   2: Red: operating, limit exceeded,
+	   3: Amber dashed: invalid information or out of range -->
+      <default value="0"/>
+      <test value="3">
+	systems/engines/eicas/alert/right-off == 1
+      </test>
+      <test logic="OR" value="2">
+	systems/engines/eicas/display/oil-press-psi-right le 12
+	systems/engines/eicas/display/oil-press-psi-right ge 80
+      </test>
+      <test logic="OR" value="1">
+	systems/engines/eicas/display/oil-press-psi-right le 35
+	systems/engines/eicas/display/oil-press-psi-right ge 65
+      </test> 
+      <output>systems/engines/eicas/display/oil-pres-right-color-mode</output>
+    </switch>
+    <switch name="temperature unit in C">
+      <default value="0"/>
+      <test value="1">
+	systems/engines/eicas/unit-F == 0 
+      </test>
+      <output>systems/engines/eicas/unit-C</output>
+    </switch>
+    <!-- 0: Green, normal
+	 1: Amber: Cautionary
+	 2: Amber dashed: invalid or out of range
+    --> 
+    <switch name="left oil temperature color mode">
+      <default value="0"/>
+      <test value="2">
+	systems/engines/eicas/alert/left-off == 1
+      </test>
+      <test value="2">
+	systems/engines/eicas/left-oil-temperature-degF ge 999
+	systems/engines/eicas/left-oil-temperature-degF le -272
+      </test>
+      <test value="1">
+	systems/engines/eicas/left-oil-temperature-degF ge 160
+      </test>
+      <output>systems/engines/eicas/display/oil-temperature-left-color-mode</output>
+    </switch>
+    <switch name="right oil temperature color mode">
+      <default value="0"/>
+      <test value="2">
+	systems/engines/eicas/alert/right-off == 1
+      </test>
+      <test value="2">
+	systems/engines/eicas/right-oil-temperature-degF ge 999
+	systems/engines/eicas/right-oil-temperature-degF le -272
+      </test>
+      <test value="1">
+	systems/engines/eicas/right-oil-temperature-degF ge 160
+      </test>
+      <output>systems/engines/eicas/display/oil-temperature-right-color-mode</output>
+    </switch>
+   <switch name="left low pressure vibration color mode">
+      <default value="0"/>
+      <test value="2">
+	systems/engines/eicas/alert/left-off == 1
+      </test>
+      <test value="2">
+	systems/engines/eicas/display/vib-lowpress-left gt 5
+	systems/engines/eicas/display/vib-lowpress-left lt 0
+      </test>
+      <test value="1">
+	systems/engines/eicas/display/vib-lowpress-left ge 4
+      </test>
+      <output>systems/engines/eicas/display/vib-lowpress-left-color-mode</output>
+   </switch>
+   <switch name="left high pressure vibration color mode">
+     <default value="0"/>
+     <test value="2">
+       systems/engines/eicas/alert/left-off == 1
+     </test>
+     <test value="2">
+       systems/engines/eicas/display/vib-highpress-left gt 5
+       systems/engines/eicas/display/vib-highpress-left lt 0
+     </test>
+     <test value="1">
+       systems/engines/eicas/display/vib-highpress-left ge 4
+     </test>
+     <output>systems/engines/eicas/display/vib-highpress-left-color-mode</output>
+   </switch>
+   <switch name="right low pressure vibration color mode">
+      <default value="0"/>
+      <test value="2">
+	systems/engines/eicas/alert/right-off == 1
+      </test>
+      <test value="2">
+	systems/engines/eicas/display/vib-lowpress-right gt 5
+	systems/engines/eicas/display/vib-lowpress-right lt 0
+      </test>
+      <test value="1">
+	systems/engines/eicas/display/vib-lowpress-right ge 4
+      </test>
+      <output>systems/engines/eicas/display/vib-lowpress-right-color-mode</output>
+   </switch>
+   <switch name="right high pressure vibration color mode">
+     <default value="0"/>
+     <test value="2">
+       systems/engines/eicas/alert/right-off == 1
+     </test>
+     <test value="2">
+       systems/engines/eicas/display/vib-highpress-right gt 5
+       systems/engines/eicas/display/vib-highpress-right lt 0
+     </test>
+     <test value="1">
+       systems/engines/eicas/display/vib-highpress-right ge 4
+     </test>
+     <output>systems/engines/eicas/display/vib-highpress-right-color-mode</output>
+   </switch>
+   <!-- Ignition: 0: Off
+	1: IGN A
+	2: IGN B
+	3: IGN A/B
+   -->
+   <switch name="Left engine Ingnition Status">
+     <default value="/controls/engines/engine[0]/ignition"/>
+     <output>systems/engines/eicas/display/ignition-left</output>
+   </switch>
+   <switch name="Right engine Ingnition Status">
+     <default value="/controls/engines/engine[1]/ignition"/>
+     <output>systems/engines/eicas/display/ignition-right</output>
+   </switch>
+ </channel>
   
 </system>
