@@ -1,14 +1,14 @@
 #*****************************************************************************************************
-#* Generic Autostart Sequence for Jets                                                               *
-#* Peter Brendt (JWocky 2015)                             					     *
-#*                                                                                                   *
-#* This file is licensed under GPL V2 or later. Feel free to copy it, use it, change it or adapt it  *
-#* to your needs in your own projects.                                                               *
+#* Generic Autostart Sequence for Lineage 1000                                                             *
+#* (c)  2015: Peter Brendt,  JWocky                             					         *
+#*                                                                                                                      *
+#* This file is licensed under GPL V2 or later. Feel free to copy it, use it, change it or adapt it      *
+#* to your needs in your own projects.                                                                         *
 #*****************************************************************************************************
 
 #*****************************************************************************************************
-#* Enabling autostart only 1 second after the FDM is initialized to make sure, all properties are    *
-#* set.                                                                                              *
+#* Enabling autostart only 1 second after the FDM is initialized to make sure, all properties are      *
+#* set.                                                                                                                 *
 #*****************************************************************************************************
 
 var enabled=0;
@@ -49,6 +49,7 @@ var dualBattery = func {
 }
 
 var batstart= func {
+       	setprop("controls/electric/external-power", 1);	
 	setprop("controls/electric/battery1",1);	
 	setprop("controls/electric/battery2",1);
 	setprop("controls/electric/battery-switch",1);
@@ -220,6 +221,9 @@ var eng1watch= func {
 			setprop("controls/engines/engine[0]/cutoff", 2);
 		}
 	} else {
+		setprop("controls/engines/engine[0]/ignition",0);
+		setprop("controls/electric/APU-generator", 0); #Turn off Apu electric generator
+		setprop("controls/electric/external-power", 0); #Turn off external electric power
 		gui.popupTip("Engine 1 running!");
 	}
 }
@@ -234,6 +238,7 @@ var eng2watch= func {
 			setprop("controls/engines/engine[1]/cutoff", 2);
 		}
 	} else {
+	       setprop("controls/engines/engine[1]/ignition",0);
 		gui.popupTip("Engine 2 running!");
 	}
 }
@@ -327,30 +332,8 @@ var Startup = func {
 	settimer(apustart, 6);
 	settimer(pump0start, 8);
 	settimer(pump1start, 10);
-	if (getprop("voodoomaster/engines")>0) {
-		settimer(eng1start, 12);
-	}
-	if (getprop("voodoomaster/engines")>1) {
-		settimer(eng2start, 14);
-	}
-	if (getprop("voodoomaster/engines")>2) {
-		settimer(eng3start, 16);
-	}
-	if (getprop("voodoomaster/engines")>3) {
-		settimer(eng4start, 18);
-	}
-	if (getprop("voodoomaster/engines")>4) {
-		settimer(eng5start, 20);
-	}
-	if (getprop("voodoomaster/engines")>5) {
-		settimer(eng6start, 22);
-	}
-	if (getprop("voodoomaster/engines")>6) {
-		settimer(eng7start, 24);
-	}
-	if (getprop("voodoomaster/engines")>7) {
-		settimer(eng8start, 24);
-	}
+	settimer(eng1start, 12);  #For lineage autostart only 2 engines
+	settimer(eng2start, 14);
 
 	# connect avionics, lights, etc
 #**************************************************************
@@ -384,7 +367,6 @@ var Shutdown = func{
 	setprop("controls/electric/engine[1]/generator",0);
 	setprop("controls/electric/engine[0]/bus-tie",0);
 	setprop("controls/electric/engine[1]/bus-tie",0);
-	setprop("controls/electric/APU-generator",0);
 	setprop("controls/electric/avionics-switch",0);
 	setprop("controls/electric/battery-switch",0);
 	setprop("controls/electric/battery1",0);
@@ -412,6 +394,8 @@ var Shutdown = func{
 	setprop("controls/lighting/efis-norm",0.0);
 	setprop("controls/lighting/panel-norm",0.0);
 	setprop("systems/electrical/volts",0.0);
+	setprop("controls/electric/APU-generator",0);
+	setprop("controls/electric/external-power",0);
 }
 
 # enable 1 second after the FDM initializes
