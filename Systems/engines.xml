@@ -18,7 +18,7 @@
     <description>Slow heat dissipation to environment Left</description>
     <product>
       <difference>
-	<property>/environment/temperature-degc</property>
+	<property>propulsion/tat-c</property>
 	<property>/engines/engine[0]/oil-temperature-degc</property>
       </difference> <!-- dT-->
       <value>0.0000000548</value> <!-- kA/d-->
@@ -28,7 +28,7 @@
     <description>Slow heat dissipation to environment Right</description>
     <product>
       <difference>
-	<property>/environment/temperature-degc</property>
+	<property>propulsion/tat-c</property>
 	<property>/engines/engine[1]/oil-temperature-degc</property>
       </difference> <!-- dT-->
       <value>0.0000000548</value> <!-- kA/d-->
@@ -232,20 +232,20 @@
     <!-- Oil begins with environment temp-->
     <switch name="Oil temp initializer Left">
       <default value="/engines/engine[0]/oil-temperature-degc"/>
-      <test value="/environment/temperature-degc">
+      <test value="propulsion/tat-c">
 	sim-time-sec le 30
       </test>
-      <test value="/environment/temperature-degc">
+      <test value="propulsion/tat-c">
 	/engines/engine[0]/oil-temperature-degc le /environment/temperature-degc
       </test>
       <output>/engines/engine[0]/oil-temperature-degc</output>
     </switch>
     <switch name="Oil temp initializer Right">
       <default value="/engines/engine[1]/oil-temperature-degc"/>
-      <test value="/environment/temperature-degc">
+      <test value="propulsion/tat-c">
 	sim-time-sec le 30
       </test>
-      <test value="/environment/temperature-degc">
+      <test value="propulsion/tat-c">
 	/engines/engine[1]/oil-temperature-degc le /environment/temperature-degc
       </test>
       <output>/engines/engine[1]/oil-temperature-degc</output>

@@ -108,7 +108,7 @@
     <description>Heat conduction via wing</description>
     <product>
       <difference>
-	<property>/environment/temperature-degc</property>
+	<property>propulsion/tat-c</property>
 	<property>/consumables/fuel/tank[0]/temperature_degC</property>
       </difference> <!-- dT-->
       <value>0.000084</value> <!-- kA/d-->
@@ -483,7 +483,7 @@
   <channel name="FCOC">
     <switch name="Fuel temp initializer"><!-- Fuel begins with environment temp-->
       <default value="/consumables/fuel/tank[0]/temperature_degC"/>
-      <test value="/environment/temperature-degc">
+      <test value="propulsion/tat-c">
 	sim-time-sec le 30
       </test>
       <output>/consumables/fuel/tank[0]/temperature_degC</output>
