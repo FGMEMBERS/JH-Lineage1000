@@ -82,7 +82,8 @@ var eng1start= func {
 	setprop("controls/engines/engine[0]/fuel-pump", 1);
 	setprop("controls/engines/engine[0]/ignition", 1);
 	setprop("controls/engines/engine[0]/starter", 1);
-	gui.popupTip("Engine 1 starting!");
+	#gui.popupTip("Engine 1 starting!");
+	gui.popupTip("Left engine starting!");
 	settimer(eng1norm, 2);
 }
 
@@ -93,7 +94,8 @@ var eng2start= func {
 	setprop("controls/engines/engine[1]/fuel-pump", 1);
 	setprop("controls/engines/engine[1]/ignition", 1);
 	setprop("controls/engines/engine[1]/starter", 1);
-	gui.popupTip("Engine 2 starting!");
+	#gui.popupTip("Engine 2 starting!");
+	gui.popupTip("Right engine starting!");
 	settimer(eng2norm, 2);
 }
 
@@ -165,13 +167,15 @@ var eng8start= func {
 
 var eng1norm= func {
 	setprop("controls/engines/engine[0]/cutoff", 0);	# now cutoff to false to make her run on her own
-	gui.popupTip("Engine 1 spinning up!");
+	#gui.popupTip("Engine 1 spinning up!");
+	gui.popupTip("Left engine spinning up!");
 	settimer(eng1watch, 2);
 }
 
 var eng2norm= func {
 	setprop("controls/engines/engine[1]/cutoff", 0);	# now cutoff to false to make her run on her own
-	gui.popupTip("Engine 2 spinning up!");
+	#gui.popupTip("Engine 2 spinning up!");
+	gui.popupTip("Right engine spinning up!");
 	settimer(eng2watch, 2);
 }
 
@@ -224,7 +228,8 @@ var eng1watch= func {
 		setprop("controls/engines/engine[0]/ignition",0);
 		setprop("controls/electric/APU-generator", 0); #Turn off Apu electric generator
 		setprop("controls/electric/external-power", 0); #Turn off external electric power
-		gui.popupTip("Engine 1 running!");
+		#gui.popupTip("Engine 1 running!");
+		gui.popupTip("Right engine running!");
 	}
 }
 
@@ -239,7 +244,8 @@ var eng2watch= func {
 		}
 	} else {
 	       setprop("controls/engines/engine[1]/ignition",0);
-		gui.popupTip("Engine 2 running!");
+		#gui.popupTip("Engine 2 running!");
+		gui.popupTip("Left engine running!");
 	}
 }
 
@@ -332,8 +338,30 @@ var Startup = func {
 	settimer(apustart, 6);
 	settimer(pump0start, 8);
 	settimer(pump1start, 10);
-	settimer(eng1start, 12);  #For lineage autostart only 2 engines
-	settimer(eng2start, 14);
+	if (getprop("voodoomaster/engines")>0) {
+		settimer(eng1start, 12);
+	}
+	if (getprop("voodoomaster/engines")>1) {
+		settimer(eng2start, 14);
+	}
+	if (getprop("voodoomaster/engines")>2) {
+		settimer(eng3start, 16);
+	}
+	if (getprop("voodoomaster/engines")>3) {
+		settimer(eng4start, 18);
+	}
+	if (getprop("voodoomaster/engines")>4) {
+		settimer(eng5start, 20);
+	}
+	if (getprop("voodoomaster/engines")>5) {
+		settimer(eng6start, 22);
+	}
+	if (getprop("voodoomaster/engines")>6) {
+		settimer(eng7start, 24);
+	}
+	if (getprop("voodoomaster/engines")>7) {
+		settimer(eng8start, 24);
+	}
 
 	# connect avionics, lights, etc
 #**************************************************************
